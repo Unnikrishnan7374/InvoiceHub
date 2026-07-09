@@ -79,9 +79,11 @@ export default function Header() {
     setContactPhone(formatted);
   };
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
-      <header className={isHeaderFixed ? 'header-fixed' : ''}>
+      <header className={(isHeaderFixed || !isHomePage) ? 'header-fixed' : ''}>
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-3 col-md-4 col-sm-6">
@@ -129,17 +131,53 @@ export default function Header() {
                         className="inner-nav-div" 
                         style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
                       >
-                        <li>
-                          <Link to="/features/customer-vendor-management">Customer & Vendor Management</Link>
-                          <Link to="/features/estimates-invoicing-workflow">Estimates & Invoicing</Link>
-                          <Link to="/features/payments-partial-payments">Payments & Payables</Link>
-                          <Link to="/features/smart-invoice-capture">Smart Invoice Capture</Link>
-                          <Link to="/features/tax-automation">Tax Automation</Link>
-                          <Link to="/features/reports-insights">Reports & Insights</Link>
+                        <li className="nav-links-col">
+                          <Link to="/features/customer-vendor-management" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-group-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">Customer & Vendor</span>
+                              <span className="nav-link-desc">Manage clients and suppliers profiles</span>
+                            </div>
+                          </Link>
+                          <Link to="/features/estimates-invoicing-workflow" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-file-list-3-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">Estimates & Invoicing</span>
+                              <span className="nav-link-desc">Create quotes and billing workflows</span>
+                            </div>
+                          </Link>
+                          <Link to="/features/payments-partial-payments" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-wallet-3-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">Payments & Payables</span>
+                              <span className="nav-link-desc">Record collections and track balances</span>
+                            </div>
+                          </Link>
+                          <Link to="/features/smart-invoice-capture" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-scan-2-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">Smart Invoice Capture</span>
+                              <span className="nav-link-desc">AI-powered OCR invoice extraction</span>
+                            </div>
+                          </Link>
+                          <Link to="/features/tax-automation" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-percent-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">Tax Automation</span>
+                              <span className="nav-link-desc">Configure automated state tax rules</span>
+                            </div>
+                          </Link>
+                          <Link to="/features/reports-insights" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-bar-chart-box-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">Reports & Insights</span>
+                              <span className="nav-link-desc">Monitor cash flows and revenue analytics</span>
+                            </div>
+                          </Link>
                         </li>
                         <li className="navsub feature-mnu">
-                          <h6>Features</h6>
-                          <p>Smart features simplify billing and business management.</p>
+                          <h6>Features Hub</h6>
+                          <p>Explore tools designed to automate invoicing, tracking, and compliance.</p>
                         </li>
                       </ul>
                     </li>
@@ -156,13 +194,25 @@ export default function Header() {
                         className="inner-nav-div" 
                         style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
                       >
-                        <li>
-                          <Link to="/blogs">Team Blog</Link>
-                          <Link to="/faq">FAQ</Link>
+                        <li className="nav-links-col">
+                          <Link to="/blogs" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-article-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">Team Blog</span>
+                              <span className="nav-link-desc">Guides, news, and insights</span>
+                            </div>
+                          </Link>
+                          <Link to="/faq" className="nav-item-link">
+                            <div className="nav-icon-box"><i className="ri-question-line"></i></div>
+                            <div className="nav-text-box">
+                              <span className="nav-link-title">FAQ</span>
+                              <span className="nav-link-desc">Answers to common questions</span>
+                            </div>
+                          </Link>
                         </li>
                         <li className="navsub feature-mnu">
-                          <h6>Support</h6>
-                          <p>Smart features simplify billing and business management.</p>
+                          <h6>Support Hub</h6>
+                          <p>Access our detailed documentation and guides to resolve queries.</p>
                         </li>
                       </ul>
                     </li>
@@ -171,10 +221,6 @@ export default function Header() {
                       <NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>
                         Contact
                       </NavLink>
-                    </li>
-                    
-                    <li className="signup">
-                      <Link to="/register">Sign Up</Link>
                     </li>
                     
                     <li className={`login has-sub ${isLoginDropdownOpen ? 'show' : ''}`}>
@@ -204,6 +250,10 @@ export default function Header() {
                           </div>
                         </form>
                       </div>
+                    </li>
+
+                    <li className="signup">
+                      <Link to="/register">Sign Up</Link>
                     </li>
                   </ul>
                 </nav>

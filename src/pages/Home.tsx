@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swiper from 'swiper';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import heroBg1 from '../assets/images/image1.png';
+import aboutImg from '../assets/images/about.png';
 
 export default function Home() {
   const [activeBanner, setActiveBanner] = useState(0);
@@ -9,32 +12,55 @@ export default function Home() {
   const [readMoreBasic, setReadMoreBasic] = useState(false);
   const [readMorePremium, setReadMorePremium] = useState(false);
   const [compareCollapsed, setCompareCollapsed] = useState(true);
-    
 
-
-
-  
   const banners = [
     {
-      bg: "images/banner-1.jpg",
-      laptop: "images/expanding_laptop.png",
-      title: "Simplify Invoicing. Accelerate Payments",
-      desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
-      theme: ""
+      bg: heroBg1,
+      titleFirst: "Customer &",
+      titleSecond: "Vendor Management",
+      desc: "Centralize customer and vendor profiles. Streamline contact details, billing addresses, and payment terms in one unified place.",
+      tabLabel: "Customers & Vendors",
+      link: "/features/customer-vendor-management",
     },
     {
-      bg: "images/banner-2.jpg",
-      laptop: "images/BanPhone.png", // uses phone image
-      title: "Work from Anywhere, Anytime.",
-      desc: "Secure cloud-based access to your financial operations from any device. Stay in control wherever business takes you.",
-      theme: "slide-2"
+      bg: heroBg1,
+      titleFirst: "Estimates &",
+      titleSecond: "Invoicing Workflow",
+      desc: "Simplify estimation, approval, and invoice generation. Reuse product profiles and apply automated sales tax calculation.",
+      tabLabel: "Estimates & Invoicing",
+      link: "/features/estimates-invoicing-workflow",
     },
     {
-      bg: "images/banner-3.jpg",
-      laptop: "images/banner-3.1.png",
-      title: "Secure, Tax-Ready, Built to Scale",
-      desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
-      theme: ""
+      bg: heroBg1,
+      titleFirst: "Payments &",
+      titleSecond: "Payables Tracking",
+      desc: "Manage customer collections and vendor payables. Easily record payments and track outstanding balances in real time.",
+      tabLabel: "Payments & Payables",
+      link: "/features/payments-partial-payments",
+    },
+    {
+      bg: heroBg1,
+      titleFirst: "Smart Invoice",
+      titleSecond: "OCR Capture",
+      desc: "Upload vendor invoices and extract key merchant, date, total, and tax details automatically with AI-powered OCR.",
+      tabLabel: "Smart Capture",
+      link: "/features/smart-invoice-capture",
+    },
+    {
+      bg: heroBg1,
+      titleFirst: "Automated Tax",
+      titleSecond: "Compliance",
+      desc: "Configure tax rules based on ZIP codes. Auto-apply state and local rates to ensure compliant, error-free invoicing.",
+      tabLabel: "Tax Automation",
+      link: "/features/tax-automation",
+    },
+    {
+      bg: heroBg1,
+      titleFirst: "Reports &",
+      titleSecond: "Business Insights",
+      desc: "Monitor cash flows, pending bills, and outstanding invoices with a robust reporting dashboard tailored for growth.",
+      tabLabel: "Reports & Insights",
+      link: "/features/reports-insights",
     }
   ];
 
@@ -43,11 +69,12 @@ export default function Home() {
       setActiveBanner((prev) => (prev + 1) % banners.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [banners.length]);
 
   useEffect(() => {
     // Initialize Swiper
     const swiper = new Swiper('.marquee-slider', {
+      modules: [Autoplay],
       slidesPerView: 'auto',
       spaceBetween: 15,
       loop: true,
@@ -65,90 +92,72 @@ export default function Home() {
 
   return (
     <div>
-      {/* Banner Section */}
-      <section id="home" className="banner bannerNew">
-        <div id="full-slider-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
-          <div id="homeslider" style={{ width: '100%', height: '650px', position: 'relative' }}>
-            {banners.map((ban, idx) => (
-              <div 
-                key={idx} 
-                className={`ls-slide ${ban.theme} ${idx === activeBanner ? 'active-slide' : 'inactive-slide'}`}
-                style={{ 
-                  position: 'absolute', 
-                  top: 0, 
-                  left: 0, 
-                  width: '100%', 
-                  height: '100%', 
-                  transition: 'opacity 1s ease-in-out',
-                  opacity: idx === activeBanner ? 1 : 0,
-                  zIndex: idx === activeBanner ? 2 : 1,
-                  display: idx === activeBanner ? 'block' : 'none'
-                }}
-              >
-                <img src={ban.bg} className="ls-bg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <img 
-                  className="ls-l" 
-                  style={{ top: '80px', left: 'auto', right: '7%', position: 'absolute', zIndex: 99 }}
-                  src={ban.laptop} 
-                  alt="" 
-                />
-                <div className="ls-l sub-head sub-ban" style={{ top: '180px', left: '50px', position: 'absolute', zIndex: 99 }}>
-                  <h2>{ban.title}</h2>
-                  <p>{ban.desc}</p>
-                  <Link to="/register" className="themeBtn">
-                    Start Free Trial <span className="material-symbols-outlined">arrow_forward</span>
-                  </Link>
-                </div>
+      {/* Premium Hero Section */}
+      <section id="home" className="premium-hero">
+        {banners.map((ban, idx) => (
+          <div
+            key={idx}
+            className="hero-slide"
+            style={{
+              backgroundImage: `url(${ban.bg})`,
+              opacity: idx === activeBanner ? 1 : 0,
+              zIndex: idx === activeBanner ? 2 : 1,
+              pointerEvents: idx === activeBanner ? 'auto' : 'none',
+            }}
+          >
+            <div className="hero-content">
+              <div className="hero-title-wrap">
+                <h1 className="hero-title">
+                  {ban.titleFirst} <span className="hero-line"></span>
+                  <br />
+                  {ban.titleSecond}
+                </h1>
               </div>
-            ))}
+              <p className="hero-desc">{ban.desc}</p>
+              <div className="hero-cta-group">
+                <Link to={ban.link} className="hero-btn-pill">
+                  Explore Feature
+                </Link>
+                <Link to={ban.link} className="hero-btn-circle">
+                  <i className="fas fa-arrow-up"></i>
+                </Link>
+              </div>
+            </div>
           </div>
+        ))}
+
+        {/* Right-side Slider Indicator */}
+        <div className="hero-slider-indicator">
+          <span className={activeBanner === 0 ? 'indicator-active' : ''}>01</span>
+          <div className="indicator-track">
+            <div
+              className="indicator-fill"
+              style={{
+                height: `${100 / banners.length}%`,
+                top: `${(activeBanner * 100) / banners.length}%`,
+              }}
+            />
+          </div>
+          <span className={activeBanner === banners.length - 1 ? 'indicator-active' : ''}>
+            {String(banners.length).padStart(2, '0')}
+          </span>
+        </div>
+
+        {/* Bottom Glassmorphism Tabs */}
+        <div className="hero-bottom-tabs">
+          {banners.map((ban, idx) => (
+            <button
+              key={idx}
+              className={`hero-tab ${idx === activeBanner ? 'active' : ''}`}
+              onClick={() => setActiveBanner(idx)}
+            >
+              {ban.tabLabel}
+            </button>
+          ))}
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="features hmefeatures">
-        <h2>Key Features</h2>
-        <div className="circle-wrapper"></div>
-        <div className="pattern"></div>
-        <ul>
-          <li>
-            <Link to="/features/customer-vendor-management">
-              <div className="image"><img src="images/icons/fea-icon-1.png" className="img-fluid" alt="Customer Management" /></div>
-              <h3>Customer & Vendor Management</h3>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/estimates-invoicing-workflow">
-              <div className="image"><img src="images/icons/fea-icon-2.png" className="img-fluid" alt="Estimates" /></div>
-              <h3>Estimates & Invoicing</h3>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/payments-partial-payments">
-              <div className="image"><img src="images/icons/fea-icon-4.png" className="img-fluid" alt="Payments" /></div>
-              <h3>Payments & Payables</h3>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/smart-invoice-capture">
-              <div className="image"><img src="images/icons/fea-icon-6.png" className="img-fluid" alt="OCR Capture" /></div>
-              <h3>Smart Invoice Capture</h3>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/tax-automation">
-              <div className="image"><img src="images/icons/fea-icon-7.png" className="img-fluid" alt="Tax Automation" /></div>
-              <h3>Tax Automation</h3>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/reports-insights">
-              <div className="image"><img src="images/icons/fea-icon-8.png" className="img-fluid" alt="Reports" /></div>
-              <h3>Reports & Insights</h3>
-            </Link>
-          </li>
-        </ul>
-      </section>
+
 
       {/* About Section */}
       <div className="homeabt clearfix">
@@ -157,10 +166,10 @@ export default function Home() {
           <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
           <p>Invoice Hub is a comprehensive financial workflow platform designed to simplify billing, payables, tax compliance, and reporting for modern businesses.</p>
           <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p>
-          <Link to="/about" className="themeBtn"> View More <span class="material-symbols-outlined">arrow_forward</span> </Link>
+          <Link to="/about" className="themeBtn"> View More <span className="material-symbols-outlined">arrow_forward</span> </Link>
         </div>
         <div className="left">
-          <img src="images/registerPge.png" className="img-fluid" alt="Register Screen" />
+          <img src={aboutImg} className="img-fluid" alt="About Invoice Hub" />
         </div>
       </div>
 
@@ -348,7 +357,7 @@ export default function Home() {
         <div className="pricing-wrapper">
           <h2 className="themehead"><span>Simple Pricing Smart Features</span></h2>
           <p className="subText">Affordable plans that grow with your business.</p>
-          
+
           <div className="row justify-content-center">
             <div className="col-lg-4 col-md-6">
               <div className="price-box silver">
@@ -402,7 +411,7 @@ export default function Home() {
                     <li><i className="fas fa-check"></i> Bills & expense tracking</li>
                     <li><i className="fas fa-check"></i> Payments tracking</li>
                     <li><i className="fas fa-check"></i> Vendor management</li>
-                    
+
                     {readMoreBasic && (
                       <>
                         <li><i className="fas fa-check"></i> Report center (sales, tax, payments)</li>
@@ -442,7 +451,7 @@ export default function Home() {
                     <li><i className="fas fa-check"></i> Custom business configuration</li>
                     <li><i className="fas fa-check"></i> Advanced inventory management</li>
                     <li><i className="fas fa-check"></i> Profit & expense analytics</li>
-                    
+
                     {readMorePremium && (
                       <>
                         <li><i className="fas fa-check"></i> Advanced audit & activity center</li>
@@ -465,7 +474,7 @@ export default function Home() {
 
           {/* Comparison Table */}
           <div className="text-center">
-            <button 
+            <button
               className={`themeBtn comparebtn ${compareCollapsed ? 'collapsed' : ''}`}
               onClick={() => setCompareCollapsed(!compareCollapsed)}
             >
@@ -572,8 +581,10 @@ export default function Home() {
 
       {/* Invoice Templates Section */}
       <section className="invoice two clearfix">
-        <div className="right">
+        <div className="templates-header">
           <h2>Choose Your Perfect Invoice Template</h2>
+        </div>
+        <div className="right">
           <p>Select from beautifully designed invoice templates that match your brand, customize colors and layout, and create professional invoices instantly.</p>
           <ul className="ticklist">
             <li><strong>Invoice Templates</strong><br />- Perfect for billing clients quickly and clearly</li>
