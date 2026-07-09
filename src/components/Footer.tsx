@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/scss/Footer.scss';
+import CopyText from './common/copydata';
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -79,35 +80,23 @@ export default function Footer() {
                   <i className="fas fa-map-marker-alt"></i>
                   <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
                     <span className="copyText">1 Lake Bellevue Dr., Ste 209<br /> Bellevue, WA 98005</span>
-                    <i 
-                      className="far fa-copy copyBtn" 
-                      aria-hidden="true" 
-                      onClick={() => handleCopy("1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005", "address")}
-                      style={{ cursor: 'pointer', marginLeft: '8px' }}
-                    ></i>
-                    <span className={`toast ${activeToastType === 'address' ? 'show' : ''}`}>Address Copied!</span>
+                    <CopyText value="1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005" />
                   </div>
                 </li>
                 <li>
                   <i className="fas fa-phone-alt"></i>
                   <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
                     <a href="tel:(425) 519-9030" className="copyText">(425) 519-9030</a>
-                    <i 
-                      className="far fa-copy copyBtn" 
-                      aria-hidden="true" 
-                      onClick={() => handleCopy("(425) 519-9030", "phone")}
-                      style={{ cursor: 'pointer', marginLeft: '8px' }}
-                    ></i>
-                    <span className={`toast ${activeToastType === 'phone' ? 'show' : ''}`}>Phone Number Copied!</span>
+                    <CopyText value="4255199030" />
                   </div>
                 </li>
                 <li>
                   <i className="fa fa-envelope" aria-hidden="true"></i>
                   <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
                     <a href="mailto:support@invoicehub.com" className="copyText">support@invoicehub.com</a>
-                    <i 
-                      className="far fa-copy copyBtn" 
-                      aria-hidden="true" 
+                    <i
+                      className="far fa-copy copyBtn"
+                      aria-hidden="true"
                       onClick={() => handleCopy("support@invoicehub.com", "email")}
                       style={{ cursor: 'pointer', marginLeft: '8px' }}
                     ></i>
