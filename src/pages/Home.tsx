@@ -9,7 +9,11 @@ export default function Home() {
   const [readMoreBasic, setReadMoreBasic] = useState(false);
   const [readMorePremium, setReadMorePremium] = useState(false);
   const [compareCollapsed, setCompareCollapsed] = useState(true);
+    
 
+
+
+  
   const banners = [
     {
       bg: "images/banner-1.jpg",
