@@ -1,0 +1,17 @@
+/* Footer SCSS overrides */
+footer {
+  .footerlist {
+    ul {
+      li {
+        a {
+          transition: padding-left 0.3s ease, color 0.3s ease;
+          
+          &:hover {
+            padding-left: 6px;
+            color: #e22d38 !important;
+          }
+        }
+      }
+    }
+  }
+}

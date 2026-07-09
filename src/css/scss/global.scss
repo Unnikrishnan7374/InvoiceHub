@@ -1,0 +1,41 @@
+/* Global Stylesheet */
+@import "../bootstrap.css";
+@import "../plugins.css";
+@import "../style.css";
+@import "../responsive.css";
+
+/* Premium Customizations & Micro-animations */
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease;
+}
+
+.themeBtn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(226, 45, 56, 0.4);
+  }
+  
+  span.material-symbols-outlined {
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover span.material-symbols-outlined {
+    transform: translateX(4px);
+  }
+}
+
+.active-slide {
+  opacity: 1 !important;
+  transition: opacity 1s ease-in-out;
+}
+
+.inactive-slide {
+  opacity: 0 !important;
+  transition: opacity 1s ease-in-out;
+}
