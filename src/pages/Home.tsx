@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swiper from 'swiper';
 import 'swiper/css';
+import { Fancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
 export default function Home() {
   const [activeBanner, setActiveBanner] = useState(0);
@@ -9,11 +11,12 @@ export default function Home() {
   const [readMoreBasic, setReadMoreBasic] = useState(false);
   const [readMorePremium, setReadMorePremium] = useState(false);
   const [compareCollapsed, setCompareCollapsed] = useState(true);
-    
+  const [isHovered, setIsHovered] = useState(false);
 
 
 
-  
+
+
   const banners = [
     {
       bg: "images/banner-1.jpg",
@@ -38,12 +41,21 @@ export default function Home() {
     }
   ];
 
+  const nextSlide = () => {
+    setActiveBanner((prev) => (prev + 1) % banners.length);
+  };
+
+  const prevSlide = () => {
+    setActiveBanner((prev) => (prev - 1 + banners.length) % banners.length);
+  };
+
   useEffect(() => {
+    if (isHovered) return;
     const timer = setInterval(() => {
-      setActiveBanner((prev) => (prev + 1) % banners.length);
+      nextSlide();
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeBanner, isHovered]);
 
   useEffect(() => {
     // Initialize Swiper
@@ -58,8 +70,15 @@ export default function Home() {
         disableOnInteraction: false,
       },
     });
+
+    // Initialize Fancybox
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      Hash: false,
+    });
+
     return () => {
       swiper.destroy();
+      Fancybox.destroy();
     };
   }, []);
 
@@ -67,30 +86,34 @@ export default function Home() {
     <div>
       {/* Banner Section */}
       <section id="home" className="banner bannerNew">
-        <div id="full-slider-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
-          <div id="homeslider" style={{ width: '100%', height: '650px', position: 'relative' }}>
+        <div
+          id="full-slider-wrapper"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {/* LayerSlider Active Progress Indicator (Circular Timer) */}
+          <div className="ls-circle-timer" style={{ display: 'block' }}>
+            <div className="ls-loading-indicator" key={activeBanner} style={{ width: '100%', height: '100%' }}>
+              <svg className="timer-svg" viewBox="0 0 46 46" style={{ width: '100%', height: '100%', display: 'block' }}>
+                <circle cx="23" cy="23" r="18" className="timer-bg" />
+                <circle cx="23" cy="23" r="18" className="timer-progress" />
+                <circle cx="23" cy="23" r="8" className="timer-center" />
+              </svg>
+            </div>
+          </div>
+
+          <div id="homeslider" style={{ width: '100%', position: 'relative' }}>
             {banners.map((ban, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`ls-slide ${ban.theme} ${idx === activeBanner ? 'active-slide' : 'inactive-slide'}`}
-                style={{ 
-                  position: 'absolute', 
-                  top: 0, 
-                  left: 0, 
-                  width: '100%', 
-                  height: '100%', 
-                  transition: 'opacity 1s ease-in-out',
-                  opacity: idx === activeBanner ? 1 : 0,
-                  zIndex: idx === activeBanner ? 2 : 1,
-                  display: idx === activeBanner ? 'block' : 'none'
-                }}
               >
                 <img src={ban.bg} className="ls-bg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <img 
-                  className="ls-l" 
+                <img
+                  className="ls-l"
                   style={{ top: '80px', left: 'auto', right: '7%', position: 'absolute', zIndex: 99 }}
-                  src={ban.laptop} 
-                  alt="" 
+                  src={ban.laptop}
+                  alt=""
                 />
                 <div className="ls-l sub-head sub-ban" style={{ top: '180px', left: '50px', position: 'absolute', zIndex: 99 }}>
                   <h2>{ban.title}</h2>
@@ -102,49 +125,105 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Navigation Arrows */}
+          <button
+            className="slider-arrow prev-arrow"
+            onClick={prevSlide}
+            aria-label="Previous slide"
+          >
+            <span className="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button
+            className="slider-arrow next-arrow"
+            onClick={nextSlide}
+            aria-label="Next slide"
+          >
+            <span className="material-symbols-outlined">chevron_right</span>
+          </button>
+
+          {/* Bullet Indicators */}
+          <div className="slider-bullets">
+            {banners.map((_, idx) => (
+              <button
+                key={idx}
+                className={`slider-bullet ${idx === activeBanner ? 'active' : ''}`}
+                onClick={() => setActiveBanner(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
       <section className="features hmefeatures">
         <h2>Key Features</h2>
-        <div className="circle-wrapper"></div>
-        <div className="pattern"></div>
-        <ul>
+        <ul className="features-grid">
           <li>
-            <Link to="/features/customer-vendor-management">
-              <div className="image"><img src="images/icons/fea-icon-1.png" className="img-fluid" alt="Customer Management" /></div>
-              <h3>Customer & Vendor Management</h3>
+            <Link to="/features/customer-vendor-management" className="feature-card-link">
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">
+                  <img src="images/icons/fea-icon-1.png" className="img-fluid" alt="Customer Management" />
+                </div>
+                <h3>Customer & Vendor Management</h3>
+                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link to="/features/estimates-invoicing-workflow">
-              <div className="image"><img src="images/icons/fea-icon-2.png" className="img-fluid" alt="Estimates" /></div>
-              <h3>Estimates & Invoicing</h3>
+            <Link to="/features/estimates-invoicing-workflow" className="feature-card-link">
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">
+                  <img src="images/icons/fea-icon-2.png" className="img-fluid" alt="Estimates" />
+                </div>
+                <h3>Estimates & Invoicing</h3>
+                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link to="/features/payments-partial-payments">
-              <div className="image"><img src="images/icons/fea-icon-4.png" className="img-fluid" alt="Payments" /></div>
-              <h3>Payments & Payables</h3>
+            <Link to="/features/payments-partial-payments" className="feature-card-link">
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">
+                  <img src="images/icons/fea-icon-4.png" className="img-fluid" alt="Payments" />
+                </div>
+                <h3>Payments & Payables</h3>
+                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link to="/features/smart-invoice-capture">
-              <div className="image"><img src="images/icons/fea-icon-6.png" className="img-fluid" alt="OCR Capture" /></div>
-              <h3>Smart Invoice Capture</h3>
+            <Link to="/features/smart-invoice-capture" className="feature-card-link">
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">
+                  <img src="images/icons/fea-icon-6.png" className="img-fluid" alt="OCR Capture" />
+                </div>
+                <h3>Smart Invoice Capture</h3>
+                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link to="/features/tax-automation">
-              <div className="image"><img src="images/icons/fea-icon-7.png" className="img-fluid" alt="Tax Automation" /></div>
-              <h3>Tax Automation</h3>
+            <Link to="/features/tax-automation" className="feature-card-link">
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">
+                  <img src="images/icons/fea-icon-7.png" className="img-fluid" alt="Tax Automation" />
+                </div>
+                <h3>Tax Automation</h3>
+                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link to="/features/reports-insights">
-              <div className="image"><img src="images/icons/fea-icon-8.png" className="img-fluid" alt="Reports" /></div>
-              <h3>Reports & Insights</h3>
+            <Link to="/features/reports-insights" className="feature-card-link">
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">
+                  <img src="images/icons/fea-icon-8.png" className="img-fluid" alt="Reports" />
+                </div>
+                <h3>Reports & Insights</h3>
+                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+              </div>
             </Link>
           </li>
         </ul>
@@ -160,7 +239,7 @@ export default function Home() {
           <Link to="/about" className="themeBtn"> View More <span class="material-symbols-outlined">arrow_forward</span> </Link>
         </div>
         <div className="left">
-          <img src="images/registerPge.png" className="img-fluid" alt="Register Screen" />
+          <img src="images/about.png" className="img-fluid" alt="about" />
         </div>
       </div>
 
@@ -191,7 +270,7 @@ export default function Home() {
 
       {/* Step by Step Tabbed Section */}
       <div className="stepsHome clearfix">
-        <h2>Step-by-Step Guide to Creating Invoices Easily</h2>
+        <h2>Step-by-Step Guide</h2>
         <div className="left">
           <ul className="tabs nav nav-tabs clearfix left-sub">
             <li className="nav-item">
@@ -348,7 +427,7 @@ export default function Home() {
         <div className="pricing-wrapper">
           <h2 className="themehead"><span>Simple Pricing Smart Features</span></h2>
           <p className="subText">Affordable plans that grow with your business.</p>
-          
+
           <div className="row justify-content-center">
             <div className="col-lg-4 col-md-6">
               <div className="price-box silver">
@@ -402,7 +481,7 @@ export default function Home() {
                     <li><i className="fas fa-check"></i> Bills & expense tracking</li>
                     <li><i className="fas fa-check"></i> Payments tracking</li>
                     <li><i className="fas fa-check"></i> Vendor management</li>
-                    
+
                     {readMoreBasic && (
                       <>
                         <li><i className="fas fa-check"></i> Report center (sales, tax, payments)</li>
@@ -442,7 +521,7 @@ export default function Home() {
                     <li><i className="fas fa-check"></i> Custom business configuration</li>
                     <li><i className="fas fa-check"></i> Advanced inventory management</li>
                     <li><i className="fas fa-check"></i> Profit & expense analytics</li>
-                    
+
                     {readMorePremium && (
                       <>
                         <li><i className="fas fa-check"></i> Advanced audit & activity center</li>
@@ -465,7 +544,7 @@ export default function Home() {
 
           {/* Comparison Table */}
           <div className="text-center">
-            <button 
+            <button
               className={`themeBtn comparebtn ${compareCollapsed ? 'collapsed' : ''}`}
               onClick={() => setCompareCollapsed(!compareCollapsed)}
             >
@@ -583,10 +662,10 @@ export default function Home() {
         <div className="left">
           <div className="swiper marquee-slider">
             <div className="swiper-wrapper">
-              <div className="swiper-slide"><a href="images/pdf-1.1.png" target="_blank"><img src="images/pdf-1.png" alt="PDF Template 1" className="img-fluid" /></a></div>
-              <div className="swiper-slide"><a href="images/pdf-2.1.png" target="_blank"><img src="images/pdf-2.png" alt="PDF Template 2" className="img-fluid" /></a></div>
-              <div className="swiper-slide"><a href="images/pdf-3.1.png" target="_blank"><img src="images/pdf-3.png" alt="PDF Template 3" className="img-fluid" /></a></div>
-              <div className="swiper-slide"><a href="images/pdf-2.1.png" target="_blank"><img src="images/pdf-2.png" alt="PDF Template 4" className="img-fluid" /></a></div>
+              <div className="swiper-slide"><a href="images/pdf-1.1.png" data-fancybox="gallery"><img src="images/pdf-1.png" alt="PDF Template 1" className="img-fluid" /></a></div>
+              <div className="swiper-slide"><a href="images/pdf-2.1.png" data-fancybox="gallery"><img src="images/pdf-2.png" alt="PDF Template 2" className="img-fluid" /></a></div>
+              <div className="swiper-slide"><a href="images/pdf-3.1.png" data-fancybox="gallery"><img src="images/pdf-3.png" alt="PDF Template 3" className="img-fluid" /></a></div>
+              <div className="swiper-slide"><a href="images/pdf-2.1.png" data-fancybox="gallery"><img src="images/pdf-2.png" alt="PDF Template 4" className="img-fluid" /></a></div>
             </div>
           </div>
         </div>

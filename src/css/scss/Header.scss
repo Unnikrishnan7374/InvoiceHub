@@ -1,7 +1,7 @@
 /* Header SCSS overrides */
 header {
   transition: all 0.3s ease-in-out;
-  
+
   &.header-fixed {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -15,22 +15,22 @@ nav#menu {
       a {
         position: relative;
         transition: color 0.3s ease;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          width: 0;
-          height: 2px;
-          bottom: -4px;
-          left: 0;
-          background-color: #e22d38;
-          transition: width 0.3s ease;
-        }
-        
-        &:hover::after,
-        &.active::after {
-          width: 100%;
-        }
+
+        // &::after {
+        //   content: '';
+        //   position: absolute;
+        //   width: 0;
+        //   height: 2px;
+        //   bottom: -4px;
+        //   left: 0;
+        //   background-color: #e22d38;
+        //   transition: width 0.3s ease;
+        // }
+
+        // &:hover::after,
+        // &.active::after {
+        //   width: 100%;
+        // }
       }
     }
   }

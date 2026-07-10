@@ -78,30 +78,24 @@ export default function Footer() {
               <ul className="addresslist">
                 <li>
                   <i className="fas fa-map-marker-alt"></i>
-                  <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
+                  <p className="adr clearfix">
                     <span className="copyText">1 Lake Bellevue Dr., Ste 209<br /> Bellevue, WA 98005</span>
                     <CopyText value="1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005" />
-                  </div>
+                  </p>
                 </li>
                 <li>
                   <i className="fas fa-phone-alt"></i>
-                  <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
+                  <p className="adr clearfix">
                     <a href="tel:(425) 519-9030" className="copyText">(425) 519-9030</a>
                     <CopyText value="4255199030" />
-                  </div>
+                  </p>
                 </li>
                 <li>
                   <i className="fa fa-envelope" aria-hidden="true"></i>
-                  <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
+                  <p className="adr clearfix">
                     <a href="mailto:support@invoicehub.com" className="copyText">support@invoicehub.com</a>
-                    <i
-                      className="far fa-copy copyBtn"
-                      aria-hidden="true"
-                      onClick={() => handleCopy("support@invoicehub.com", "email")}
-                      style={{ cursor: 'pointer', marginLeft: '8px' }}
-                    ></i>
-                    <span className={`toast ${activeToastType === 'email' ? 'show' : ''}`}>Email Copied!</span>
-                  </div>
+                    <CopyText value="support@invoicehub.com" />
+                  </p>
                 </li>
               </ul>
             </div>

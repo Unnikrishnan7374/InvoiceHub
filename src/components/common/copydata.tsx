@@ -36,7 +36,7 @@ const CopyText = ({
     };
 
     return (
-        <span className="d-inline-flex align-items-center gap-2 ms-2">
+        <span className="copyicon">
             {/* Email */}
             {isEmail && (
                 <Tooltip title="Send Email" placement="top" arrow>
@@ -83,13 +83,7 @@ const CopyText = ({
                                 ? "ri-check-line"
                                 : "ri-file-copy-line"
                         }
-                        style={{
-                            color: copied
-                                ? "#28a745"
-                                : "var(--vz-primary)",
-                            fontSize: 18,
-                            transition: "all 0.3s ease",
-                        }}
+
                     />
                 </span>
             </Tooltip>

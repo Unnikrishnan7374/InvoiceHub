@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import CopyText from '../components/common/copydata';
 
 export default function Contact() {
   const [activeToastType, setActiveToastType] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [date, setDate] = useState('');
   const [message, setMessage] = useState('');
 
   const handleCopy = (text, type) => {
@@ -25,10 +27,11 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you, ${name}! Your message has been sent successfully.`);
+    alert(`Thank you, ${name}! Your message for ${date} has been sent successfully.`);
     setName('');
     setPhone('');
     setEmail('');
+    setDate('');
     setMessage('');
   };
 
@@ -52,43 +55,25 @@ export default function Contact() {
 
           <ul className="boxes addresslist">
             <li>
-              <i className="fas fa-map-marker-alt"></i>
-              <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
+              <i className="fas fa-map-marker-alt adrico"></i>
+              <p className="adr clearfix">
                 <span className="copyText">1 Lake Bellevue Dr., Ste 209<br /> Bellevue, WA 98005</span>
-                <i 
-                  className="far fa-copy copyBtn" 
-                  aria-hidden="true" 
-                  onClick={() => handleCopy("1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005", "address")}
-                  style={{ cursor: 'pointer', marginLeft: '8px' }}
-                ></i>
-                <span className={`toast ${activeToastType === 'address' ? 'show' : ''}`}>Address Copied!</span>
-              </div>
+                <CopyText value="1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005" />
+              </p>
             </li>
             <li>
-              <i className="fas fa-phone-alt"></i>
-              <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
-                <a href="tel:4259478400" className="copyText">425.947.8400</a>
-                <i 
-                  className="far fa-copy copyBtn" 
-                  aria-hidden="true" 
-                  onClick={() => handleCopy("425.947.8400", "phone")}
-                  style={{ cursor: 'pointer', marginLeft: '8px' }}
-                ></i>
-                <span className={`toast ${activeToastType === 'phone' ? 'show' : ''}`}>Phone Number Copied!</span>
-              </div>
+              <i className="fas fa-phone-alt adrico"></i>
+              <p className="adr clearfix">
+                <a href="tel:(425) 519-9030" className="copyText">(425) 519-9030</a>
+                <CopyText value="4255199030" />
+              </p>
             </li>
             <li>
-              <i className="fa fa-envelope" aria-hidden="true"></i>
-              <div className="adr clearfix" style={{ display: 'inline-block', position: 'relative' }}>
+              <i className="fa fa-envelope adrico" aria-hidden="true"></i>
+              <p className="adr clearfix">
                 <a href="mailto:support@invoicehub.com" className="copyText">support@invoicehub.com</a>
-                <i 
-                  className="far fa-copy copyBtn" 
-                  aria-hidden="true" 
-                  onClick={() => handleCopy("support@invoicehub.com", "email")}
-                  style={{ cursor: 'pointer', marginLeft: '8px' }}
-                ></i>
-                <span className={`toast ${activeToastType === 'email' ? 'show' : ''}`}>Email Copied!</span>
-              </div>
+                <CopyText value="support@invoicehub.com" />
+              </p>
             </li>
           </ul>
         </div>
@@ -99,40 +84,40 @@ export default function Contact() {
           <form onSubmit={handleSubmit} autoComplete="off" className="contactform">
             <div className="row">
               <div className="form-group col-md-12">
-                <input 
-                  type="text" 
-                  className="form-control" 
-                  value={name} 
-                  onChange={(e) => setName(e.target.value)} 
-                  required 
+                <input
+                  type="text"
+                  className="form-control"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                 />
                 <label className={name ? 'active' : ''}>Name <span className="asterisk">*</span></label>
               </div>
               <div className="form-group col-md-12">
-                <input 
-                  type="tel" 
-                  className="form-control phone" 
-                  value={phone} 
-                  onChange={handlePhoneInput} 
-                  required 
+                <input
+                  type="tel"
+                  className="form-control phone"
+                  value={phone}
+                  onChange={handlePhoneInput}
+                  required
                 />
                 <label className={phone ? 'active' : ''}>Phone <span className="asterisk">*</span></label>
               </div>
               <div className="form-group col-md-12">
-                <input 
-                  type="email" 
-                  className="form-control email" 
-                  value={email} 
-                  onChange={(e) => setEmail(e.target.value)} 
-                  required 
+                <input
+                  type="email"
+                  className="form-control email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
                 <label className={email ? 'active' : ''}>Email <span className="asterisk">*</span></label>
               </div>
               <div className="form-group col-md-12">
-                <textarea 
-                  value={message} 
-                  onChange={(e) => setMessage(e.target.value)} 
-                  className="form-control" 
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="form-control"
                   required
                 ></textarea>
                 <label className={message ? 'active' : ''}>Message <span className="asterisk">*</span></label>

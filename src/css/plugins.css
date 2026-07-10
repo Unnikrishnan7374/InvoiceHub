@@ -134,11 +134,11 @@ Plugin Name :  Layer Slider
 }
 
 .ls-circle-timer {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     right: 15px;
-    bottom: 15px;
+    bottom: 35px;
     z-index: 4;
     opacity: .85;
     filter: alpha(opacity=85);
