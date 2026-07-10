@@ -356,13 +356,9 @@
     }
 
     .homeabt {
-        padding: 30px 70px 100px;
+        padding: 30px 70px 10px;
     }
 
-    .hmeinvoice {
-        padding-top: 105px;
-        margin-top: -100px;
-    }
 }
 
 /*Media Screen 1280*/
@@ -873,13 +869,9 @@
     }
 
     .homeabt {
-        padding: 30px 15px 135px;
+        padding: 30px 15px 10px;
     }
 
-    .hmeinvoice {
-        padding-top: 60px;
-        margin-top: -120px;
-    }
 }
 
 /*Media Screen 767*/
@@ -1116,7 +1108,7 @@
     }
 
     .invoice {
-        padding-top: 0px;
+        padding-top: 15px;
     }
 
     .aboutPge .invoice .right {
@@ -1262,17 +1254,13 @@
     }
 
     .homeabt {
-        padding: 0px 15px 135px;
+        padding: 0px 15px 10px;
     }
 
     .homeabt .left img {
-        width: 35%;
+        width: 100%;
     }
 
-    .hmeinvoice {
-        padding-top: 40px;
-        margin-top: -130px;
-    }
 
     .supportPge .blogList {
         display: inline-block;
@@ -1297,6 +1285,22 @@
 
     #sidePopup .popup-content .blogList li {
         margin-bottom: 5px !important;
+    }
+
+    .homeabt .right {
+        padding-top: 10px;
+    }
+
+    .stepsHome:after {
+        width: 100%;
+        top: 0;
+        transform: inherit;
+        right: 0px;
+        height: 100%;
+    }
+
+    .feature-card {
+        padding: 10px 10px !important;
     }
 }
 
@@ -1502,10 +1506,6 @@
         margin-bottom: 0px;
     }
 
-    .hmeinvoice {
-        padding-top: 25px !important;
-        margin-top: -135px;
-    }
 }
 
 /*Media Screen 378*/
@@ -1528,7 +1528,7 @@
     }
 
     .invoice h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 

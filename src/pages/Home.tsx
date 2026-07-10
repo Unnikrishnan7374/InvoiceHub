@@ -309,37 +309,37 @@ export default function Home() {
           <ul className="tabs nav nav-tabs clearfix left-sub">
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Launch' ? 'active' : ''}`} onClick={() => setActiveTab('Launch')}>
-                Launch Invoice HUB
+                1. Launch Invoice HUB
               </a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Customer' ? 'active' : ''}`} onClick={() => setActiveTab('Customer')}>
-                Customer Creation
+                2. Customer Creation
               </a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Product' ? 'active' : ''}`} onClick={() => setActiveTab('Product')}>
-                Product & Service Creation
+                3. Product & Service Creation
               </a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Estimation' ? 'active' : ''}`} onClick={() => setActiveTab('Estimation')}>
-                Estimation
+                4. Estimation
               </a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Approve' ? 'active' : ''}`} onClick={() => setActiveTab('Approve')}>
-                Approve or Reject
+                5. Approve or Reject
               </a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Invoice' ? 'active' : ''}`} onClick={() => setActiveTab('Invoice')}>
-                Invoice Generation
+                6. Invoice Generation
               </a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Payment' ? 'active' : ''}`} onClick={() => setActiveTab('Payment')}>
-                Payment Tracking
+                7. Payment Tracking
               </a>
             </li>
           </ul>

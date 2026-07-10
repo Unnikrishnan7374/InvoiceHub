@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <div className="privacy-plcy clearfix" style={{ padding: '40px 15px' }}>
-        <div className="card" style={{ borderRadius: '12px', maxWidth: '1000px', margin: '0 auto' }}>
+        <div className="card" style={{ borderRadius: '12px', maxWidth: 'none', margin: '0 auto' }}>
           <div className="card-body">
             <div className="clearfix">
               <p>

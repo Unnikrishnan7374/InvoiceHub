@@ -32,7 +32,7 @@ export default function About() {
 
         <div className="visionBlk">
           <div className="visionlst clearfix nice-scroll">
-            <div className="contant mtMain lfmtmain active">
+            <div className="contant mtMain lfmtmain active" style={{ backgroundColor: 'transparent' }}>
               <h2>Why Invoice Hub Exists</h2>
               <p><strong>Many businesses struggle with:</strong></p>
               <ul className="ticklist">

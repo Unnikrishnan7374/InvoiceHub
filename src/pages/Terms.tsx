@@ -13,12 +13,9 @@ export default function Terms() {
             <li><Link to="/terms">Terms</Link></li>
           </ul>
         </div>
-        <div className="dtlsimg">
-          <img src="images/banner-3.jpg" className="img-fluid" alt="" />
-        </div>
       </section>
 
-      <div className="privacy-plcy clearfix termsPge" style={{ padding: '40px 15px', maxWidth: '1000px', margin: '0 auto' }}>
+      <div className="privacy-plcy clearfix termsPge" style={{ padding: '40px 15px', maxWidth: 'none', margin: '0 auto' }}>
         <h2>Invoice HUB Terms Agreement</h2>
         <p>
           PLEASE READ THIS USER LICENSE AGREEMENT (THE “AGREEMENT”) CAREFULLY AS IT GOVERNS YOUR USE OF THE

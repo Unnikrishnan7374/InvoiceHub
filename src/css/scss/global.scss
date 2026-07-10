@@ -169,9 +169,6 @@ body {
   z-index: 10;
   padding: 8px 16px;
   border-radius: 30px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .slider-bullet {
@@ -215,11 +212,11 @@ body {
   }
 
   @media screen and (max-width: 768px) {
-    height: 380px !important;
+    height: 225px !important;
   }
 
   @media screen and (max-width: 480px) {
-    height: 290px !important;
+    height: 160px !important;
   }
 }
 
@@ -268,9 +265,7 @@ body {
 
 @media screen and (max-width: 768px) {
   .ls-slide img.ls-l:not(.sub-ban) {
-    max-width: 42% !important;
-    right: 2% !important;
-    top: 60px !important;
+    top: 0px !important;
   }
 
   #full-slider-wrapper .sub-ban {
@@ -300,15 +295,13 @@ body {
       }
     }
   }
+
+  .slider-bullets {
+    bottom: 5px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .ls-slide img.ls-l:not(.sub-ban) {
-    max-width: 45% !important;
-    right: 1% !important;
-    top: 45px !important;
-  }
-
   #full-slider-wrapper .sub-ban {
     width: 52% !important;
     left: 10px !important;
@@ -411,8 +404,8 @@ body {
 
 /* Override default features list item overrides */
 .features .features-grid li {
-  all: unset !important;
-  display: block !important;
+  all: unset;
+  display: block;
 }
 
 .feature-card-link {
@@ -423,14 +416,14 @@ body {
 
 .feature-card {
   position: relative;
-  background: #ffffff !important;
-  border-radius: 10px !important;
-  padding: 24px 20px !important;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  text-align: left !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
   z-index: 2;
   border: none !important;
