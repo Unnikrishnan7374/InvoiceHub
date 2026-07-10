@@ -392,10 +392,6 @@ body {
     gap: 25px !important;
   }
 
-  li {
-    display: none !important;
-  }
-
   li:nth-child(-n+4) {
     display: block !important;
   }
@@ -450,8 +446,8 @@ body {
   &::before {
     content: '';
     position: absolute;
-    width: 115px;
-    height: 115px;
+    width: 85px;
+    height: 85px;
     top: -5px;
     right: -5px;
     border-top: 3px solid #1b73e8;
@@ -466,8 +462,8 @@ body {
   &::after {
     content: '';
     position: absolute;
-    width: 115px;
-    height: 115px;
+    width: 85px;
+    height: 85px;
     bottom: -5px;
     left: -5px;
     border-bottom: 3px solid #1b73e8;

@@ -588,7 +588,7 @@ export default function Home() {
 
           {!compareCollapsed && (
             <div className="compareFuatures">
-              <table className="table table-striped">
+              <table className="table table-striped table-responsive">
                 <thead>
                   <tr>
                     <th scope="col"><h3>Features</h3></th>
