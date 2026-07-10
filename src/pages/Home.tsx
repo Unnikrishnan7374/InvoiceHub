@@ -23,21 +23,21 @@ export default function Home() {
     {
       bg: "images/banner-1.jpg",
       laptop: "images/expanding_laptop.png",
-      title: "Simplify Invoicing. Accelerate Payments",
+      title: <>Simplify Invoicing. Accelerate <span>Payments</span></>,
       desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
       theme: ""
     },
     {
       bg: "images/banner-2.jpg",
       laptop: "images/BanPhone.png", // uses phone image
-      title: "Work from Anywhere, Anytime.",
+      title: <>Work from Anywhere, <span>Anytime</span>.</>,
       desc: "Secure cloud-based access to your financial operations from any device. Stay in control wherever business takes you.",
       theme: "slide-2"
     },
     {
       bg: "images/banner-3.jpg",
       laptop: "images/banner-3.1.png",
-      title: "Secure, Tax-Ready, Built to Scale",
+      title: <>Secure, Tax-Ready, <span>Built to Scale</span></>,
       desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
       theme: ""
     }
