@@ -23,9 +23,22 @@ export default function Home() {
     {
       bg: "images/banner-1.jpg",
       laptop: "images/expanding_laptop.png",
-      title: <>Simplify Invoicing. Accelerate <span>Payments</span></>,
+      title: <>The Smart Way to Run Your  <span>Billing Operations</span></>,
       desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
       theme: ""
+    },
+    {
+      bg: "images/banner-4.jpg",
+      title: <>Simplify Invoicing. Accelerate <span>Payments</span>.</>,
+      desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
+      theme: "slide-2"
+    },
+    {
+      bg: "images/banner-3.jpg",
+      laptop: "images/banner-3.1.png",
+      title: <>Secure, Tax-Ready, <span>Built to Scale </span>.</>,
+      desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
+      theme: "slide-3"
     },
     {
       bg: "images/banner-2.jpg",
@@ -33,14 +46,8 @@ export default function Home() {
       title: <>Work from Anywhere, <span>Anytime</span>.</>,
       desc: "Secure cloud-based access to your financial operations from any device. Stay in control wherever business takes you.",
       theme: "slide-2"
-    },
-    {
-      bg: "images/banner-3.jpg",
-      laptop: "images/banner-3.1.png",
-      title: <>Secure, Tax-Ready, <span>Built to Scale</span></>,
-      desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
-      theme: ""
     }
+
   ];
 
   const nextSlide = () => {
@@ -166,66 +173,90 @@ export default function Home() {
           <li>
             <Link to="/features/customer-vendor-management" className="feature-card-link">
               <div className="feature-card">
-                <div className="feature-icon-wrapper">
-                  <img src="images/icons/fea-icon-1.png" className="img-fluid" alt="Customer Management" />
+                <div className="feature-info">
+                  <div className="feature-header">
+                    <div className="feature-icon-wrapper">
+                      <i className="fas fa-users"></i>
+                    </div>
+                    <h3>Customer & Vendor Management</h3>
+                  </div>
+                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                 </div>
-                <h3>Customer & Vendor Management</h3>
-                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
               </div>
             </Link>
           </li>
           <li>
             <Link to="/features/estimates-invoicing-workflow" className="feature-card-link">
               <div className="feature-card">
-                <div className="feature-icon-wrapper">
-                  <img src="images/icons/fea-icon-2.png" className="img-fluid" alt="Estimates" />
+                <div className="feature-info">
+                  <div className="feature-header">
+                    <div className="feature-icon-wrapper">
+                      <i className="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Estimates & Invoicing</h3>
+                  </div>
+                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                 </div>
-                <h3>Estimates & Invoicing</h3>
-                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
               </div>
             </Link>
           </li>
           <li>
             <Link to="/features/payments-partial-payments" className="feature-card-link">
               <div className="feature-card">
-                <div className="feature-icon-wrapper">
-                  <img src="images/icons/fea-icon-4.png" className="img-fluid" alt="Payments" />
+                <div className="feature-info">
+                  <div className="feature-header">
+                    <div className="feature-icon-wrapper">
+                      <i className="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Payments & Payables</h3>
+                  </div>
+                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                 </div>
-                <h3>Payments & Payables</h3>
-                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
               </div>
             </Link>
           </li>
           <li>
             <Link to="/features/smart-invoice-capture" className="feature-card-link">
               <div className="feature-card">
-                <div className="feature-icon-wrapper">
-                  <img src="images/icons/fea-icon-6.png" className="img-fluid" alt="OCR Capture" />
+                <div className="feature-info">
+                  <div className="feature-header">
+                    <div className="feature-icon-wrapper">
+                      <i className="fas fa-qrcode"></i>
+                    </div>
+                    <h3>Smart Invoice Capture</h3>
+                  </div>
+                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                 </div>
-                <h3>Smart Invoice Capture</h3>
-                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
               </div>
             </Link>
           </li>
           <li>
             <Link to="/features/tax-automation" className="feature-card-link">
               <div className="feature-card">
-                <div className="feature-icon-wrapper">
-                  <img src="images/icons/fea-icon-7.png" className="img-fluid" alt="Tax Automation" />
+                <div className="feature-info">
+                  <div className="feature-header">
+                    <div className="feature-icon-wrapper">
+                      <i className="fas fa-percent"></i>
+                    </div>
+                    <h3>Tax Automation</h3>
+                  </div>
+                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                 </div>
-                <h3>Tax Automation</h3>
-                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
               </div>
             </Link>
           </li>
           <li>
             <Link to="/features/reports-insights" className="feature-card-link">
               <div className="feature-card">
-                <div className="feature-icon-wrapper">
-                  <img src="images/icons/fea-icon-8.png" className="img-fluid" alt="Reports" />
+                <div className="feature-info">
+                  <div className="feature-header">
+                    <div className="feature-icon-wrapper">
+                      <i className="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Reports & Insights</h3>
+                  </div>
+                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                 </div>
-                <h3>Reports & Insights</h3>
-                <span className="read-more-btn">Read More <span className="arrow">→</span></span>
               </div>
             </Link>
           </li>

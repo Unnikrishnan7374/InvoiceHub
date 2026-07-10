@@ -88,7 +88,7 @@
     nav#menu ul>li>a.active,
     nav#menu ul>li.par-active>a {
         color: #ffffff !important;
-        background-color: #1b73e8;
+        background-color: var(--theme-color) !important;
     }
 
     nav#menu li a:hover,
@@ -956,8 +956,8 @@
         margin-left: 0;
     }
 
-    .features {
-        padding: 10px 10px 30px;
+    .features.hmefeatures {
+        padding: 10px 10px 30px !important;
         margin-top: 0px;
     }
 
@@ -1238,14 +1238,6 @@
         padding: 4px 5px 3px 5px;
     }
 
-    .hmefeatures>ul li {
-        display: none;
-    }
-
-    .hmefeatures>ul li:nth-child(-n+4) {
-        display: block;
-    }
-
     .blogList li .content {
         width: 100%;
         padding-left: 0px;
@@ -1296,6 +1288,15 @@
 
     .listone:before {
         height: 100%;
+    }
+
+    #sidePopup .blogList {
+        grid-template-columns: repeat(1, 1fr) !important;
+
+    }
+
+    #sidePopup .popup-content .blogList li {
+        margin-bottom: 5px !important;
     }
 }
 

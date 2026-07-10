@@ -14,8 +14,8 @@ export default function Support() {
       return;
     }
 
-    const filtered = searchData.filter(item => 
-      item.title.toLowerCase().includes(query.toLowerCase()) || 
+    const filtered = searchData.filter(item =>
+      item.title.toLowerCase().includes(query.toLowerCase()) ||
       item.content.toLowerCase().includes(query.toLowerCase())
     );
     setSearchResults(filtered);
@@ -27,7 +27,7 @@ export default function Support() {
   };
 
   return (
-    <div>
+    <div className="supportPge">
       <section className="dtlsban clearfix">
         <div className="dtlstext">
           <h2>Support</h2>
@@ -43,22 +43,22 @@ export default function Support() {
       <div className="search-section">
         <div className="search-wrapper" style={{ position: 'relative' }}>
           <i className="fa fa-search search-icon"></i>
-          <input 
-            type="text" 
+          <input
+            type="text"
             value={searchQuery}
             onChange={handleSearch}
-            className="form-control" 
-            placeholder="Search Blogs & FAQs..." 
+            className="form-control"
+            placeholder="Search Blogs & FAQs..."
           />
           {searchQuery && (
-            <i 
-              className="fa fa-times clear-icon" 
+            <i
+              className="fa fa-times clear-icon"
               onClick={clearSearch}
               style={{ cursor: 'pointer', position: 'absolute', right: '15px', top: '15px' }}
             ></i>
           )}
         </div>
-        
+
         {searchResults.length > 0 && (
           <div id="searchResults" className="search-results show">
             {searchResults.map((item, idx) => (

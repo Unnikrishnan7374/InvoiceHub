@@ -142,13 +142,16 @@ export default function About() {
           </div>
         </section>
 
+
         <section className="bottom-cta clearfix">
           <div className="container">
             <div className="logoimg">
-              <img src="images/Logoimg.png" className="img-fluid" alt="Invoice Hub Logo" />
+              <img src="images/Logoimg.png" className="img-fluid" alt="Logo" />
             </div>
-            <h2>Streamline your invoicing with Invoice HUB today!</h2>
-            <Link to="/register" className="themeBtn">Get Started</Link>
+            <img src="images/bg_red.svg" className="img-fluid svgimg" alt="" />
+            <div className="rtcntnt">
+              <h4>Streamline your invoicing with Invoice HUB today! <Link to="/register" className="themeBtn">Get Started</Link></h4>
+            </div>
           </div>
         </section>
       </div>

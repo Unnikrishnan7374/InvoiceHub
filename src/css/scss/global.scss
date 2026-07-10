@@ -5,6 +5,14 @@
 @import "../responsive.css";
 
 /* Premium Customizations & Micro-animations */
+
+:root {
+  --vz-primary: #1a73e8;
+  --theme-color: #1a73e8;
+  --theme-color-hover: #1a73e8;
+  --theme-color-light: rgba(26, 115, 232, 0.1);
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
@@ -12,13 +20,14 @@ body {
 }
 
 .themeBtn {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: var(--theme-color) !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
 
   &:hover {
+    background-color: var(--theme-color-hover) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(226, 45, 56, 0.4);
+    box-shadow: 0 4px 15px rgba(5, 153, 117, 0.4) !important;
   }
 
   span.material-symbols-outlined {
@@ -118,14 +127,8 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%) scale(0.9);
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
-  background: rgb(27 115 232 / 47%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgb(27 115 232 / 47%);
-  color: #fff;
+  color: var(--vz-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,22 +136,26 @@ body {
   z-index: 10;
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: transparent !important;
   outline: none;
 
   &:hover {}
 
   span {
-    font-size: 32px;
+    font-size: 50px;
     user-select: none;
   }
 
+  &:focus {
+    outline: none !important;
+  }
+
   &.prev-arrow {
-    left: 20px;
+    left: 0px;
   }
 
   &.next-arrow {
-    right: 20px;
+    right: 0px;
   }
 }
 
@@ -196,7 +203,7 @@ body {
 #homeslider {
   width: 100%;
   position: relative;
-  height: 630px;
+  height: 600px;
   /* Default desktop height */
 
   @media screen and (max-width: 1200px) {
@@ -373,7 +380,7 @@ body {
 /* Modern Features Grid Layout */
 .features.hmefeatures {
   background-color: transparent;
-  padding: 10px 40px 15px !important;
+  padding: 10px 40px 15px;
   position: relative;
 }
 
@@ -389,9 +396,17 @@ body {
   }
 
   @media screen and (max-width: 576px) {
-    grid-template-columns: 1fr !important;
     gap: 25px !important;
   }
+
+  li {
+    display: none !important;
+  }
+
+  li:nth-child(-n+4) {
+    display: block !important;
+  }
+
 }
 
 /* Override default features list item overrides */
@@ -480,7 +495,6 @@ body {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  margin-bottom: 15px !important;
   box-shadow: 0 4px 8px rgba(26, 74, 88, 0.2) !important;
   transition: all 0.3s ease !important;
 
@@ -491,15 +505,20 @@ body {
     filter: brightness(0) invert(1) !important;
     /* Make icon white */
   }
+
+  i {
+    font-size: 20px !important;
+    color: #ffffff !important;
+  }
 }
 
 .feature-card h3 {
-  color: #1c2732 !important;
+  color: #1c2732;
   /* Dark header text */
-  font-size: 16px !important;
-  line-height: 22px !important;
-  font-weight: 700 !important;
-  margin: 0 0 15px 0 !important;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  margin: 5px 0 0px 0;
   font-family: 'Poppins', sans-serif !important;
 }
 
