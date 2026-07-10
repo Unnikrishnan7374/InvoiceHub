@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swiper from 'swiper';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/autoplay';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
@@ -60,6 +62,7 @@ export default function Home() {
   useEffect(() => {
     // Initialize Swiper
     const swiper = new Swiper('.marquee-slider', {
+      modules: [Autoplay],
       slidesPerView: 'auto',
       spaceBetween: 15,
       loop: true,
@@ -236,7 +239,7 @@ export default function Home() {
           <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
           <p>Invoice Hub is a comprehensive financial workflow platform designed to simplify billing, payables, tax compliance, and reporting for modern businesses.</p>
           <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p>
-          <Link to="/about" className="themeBtn"> View More <span class="material-symbols-outlined">arrow_forward</span> </Link>
+          <Link to="/about" className="themeBtn"> View More <span className="material-symbols-outlined">arrow_forward</span> </Link>
         </div>
         <div className="left">
           <img src="images/about.png" className="img-fluid" alt="about" />
