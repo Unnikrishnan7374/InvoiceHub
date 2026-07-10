@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import Swiper from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import heroBg1 from '../assets/images/image1.png';
+import slider1 from '../assets/images/slider-1.png';
+import slider2 from '../assets/images/slider-2.png';
+import slider3 from '../assets/images/slider-3.png';
+import slider4 from '../assets/images/slider-4.png';
+import slider5 from '../assets/images/slider-5.png';
+import slider6 from '../assets/images/slider-6.png';
 import aboutImg from '../assets/images/about.png';
 
 export default function Home() {
@@ -15,7 +20,7 @@ export default function Home() {
 
   const banners = [
     {
-      bg: heroBg1,
+      bg: slider1,
       titleFirst: "Customer &",
       titleSecond: "Vendor Management",
       desc: "Centralize customer and vendor profiles. Streamline contact details, billing addresses, and payment terms in one unified place.",
@@ -23,7 +28,8 @@ export default function Home() {
       link: "/features/customer-vendor-management",
     },
     {
-      bg: heroBg1,
+      bg: slider2,
+      darkText: true,
       titleFirst: "Estimates &",
       titleSecond: "Invoicing Workflow",
       desc: "Simplify estimation, approval, and invoice generation. Reuse product profiles and apply automated sales tax calculation.",
@@ -31,7 +37,8 @@ export default function Home() {
       link: "/features/estimates-invoicing-workflow",
     },
     {
-      bg: heroBg1,
+      bg: slider3,
+      darkText: true,
       titleFirst: "Payments &",
       titleSecond: "Payables Tracking",
       desc: "Manage customer collections and vendor payables. Easily record payments and track outstanding balances in real time.",
@@ -39,7 +46,8 @@ export default function Home() {
       link: "/features/payments-partial-payments",
     },
     {
-      bg: heroBg1,
+      bg: slider4,
+      darkText: true,
       titleFirst: "Smart Invoice",
       titleSecond: "OCR Capture",
       desc: "Upload vendor invoices and extract key merchant, date, total, and tax details automatically with AI-powered OCR.",
@@ -47,7 +55,8 @@ export default function Home() {
       link: "/features/smart-invoice-capture",
     },
     {
-      bg: heroBg1,
+      bg: slider5,
+      darkText: true,
       titleFirst: "Automated Tax",
       titleSecond: "Compliance",
       desc: "Configure tax rules based on ZIP codes. Auto-apply state and local rates to ensure compliant, error-free invoicing.",
@@ -55,7 +64,8 @@ export default function Home() {
       link: "/features/tax-automation",
     },
     {
-      bg: heroBg1,
+      bg: slider6,
+      darkText: true,
       titleFirst: "Reports &",
       titleSecond: "Business Insights",
       desc: "Monitor cash flows, pending bills, and outstanding invoices with a robust reporting dashboard tailored for growth.",
@@ -97,7 +107,7 @@ export default function Home() {
         {banners.map((ban, idx) => (
           <div
             key={idx}
-            className="hero-slide"
+            className={`hero-slide ${ban.darkText ? 'dark-text' : ''}`}
             style={{
               backgroundImage: `url(${ban.bg})`,
               opacity: idx === activeBanner ? 1 : 0,
@@ -605,3 +615,4 @@ export default function Home() {
     </div>
   );
 }
+

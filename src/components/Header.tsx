@@ -12,6 +12,65 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const location = useLocation();
 
+  const [activeFeatureHover, setActiveFeatureHover] = useState('default');
+  const [activeSupportHover, setActiveSupportHover] = useState('default');
+
+  const featureContent = {
+    'customer-vendor': {
+      title: 'Customer & Vendor',
+      description: 'Store profiles, customize terms, manage vendor parameters, and view central business contacts.',
+      image: '/images/customermgmt.png'
+    },
+    'estimates-invoicing': {
+      title: 'Estimates & Invoicing',
+      description: 'Draft quotes, create invoices from estimates, set up recurring bills, and trace items.',
+      image: '/images/billspayables.png'
+    },
+    'payments-payables': {
+      title: 'Payments & Payables',
+      description: 'Accept bank/card collections, process payouts, track pending settlements, and monitor ledgers.',
+      image: '/images/paymentsFea.png'
+    },
+    'smart-capture': {
+      title: 'Smart OCR Capture',
+      description: 'Instantly convert paper receipts and PDF supplier invoices into digitised documents.',
+      image: '/images/OCRInvoice.png'
+    },
+    'tax-automation': {
+      title: 'Tax Automation',
+      description: 'Automate localized state-wise sales tax calculations and compliant report structures.',
+      image: '/images/ZIPCode_Automation.png'
+    },
+    'reports-insights': {
+      title: 'Reports & Insights',
+      description: 'View custom balances, monthly revenue trends, accounts receivables, and audit trails.',
+      image: '/images/notificationsalerts.png'
+    },
+    'default': {
+      title: 'Features Hub',
+      description: 'Explore tools designed to automate invoicing, tracking, and compliance.',
+      image: '/images/menuImg.png'
+    }
+  };
+
+  const supportContent = {
+    'blog': {
+      title: 'Team Blog',
+      description: 'Browse standard guides, regulatory tax compliance updates, and platform release notes.',
+      image: '/images/blog-1.jpg'
+    },
+    'faq': {
+      title: 'FAQ Support',
+      description: 'Get fast solutions to common queries about setup, permissions, calculations, and integrations.',
+      image: '/images/menuImgsupport.png'
+    },
+    'default': {
+      title: 'Support Hub',
+      description: 'Access our detailed documentation and guides to resolve queries.',
+      image: '/images/menuImgsupport.png'
+    }
+  };
+
   // Contact pop-over form state
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
@@ -119,7 +178,10 @@ export default function Header() {
                         About
                       </NavLink>
                     </li>
-                    <li className={`has-sub featmnu ${activeSubmenu === 'features' ? 'par-active' : ''}`}>
+                    <li 
+                      className={`has-sub featmnu ${activeSubmenu === 'features' ? 'par-active' : ''}`}
+                      onMouseLeave={() => setActiveFeatureHover('default')}
+                    >
                       <NavLink to="/features" className={({ isActive }) => isActive ? 'active' : ''}>
                         Features
                       </NavLink>
@@ -132,42 +194,66 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
                       >
                         <li className="nav-links-col">
-                          <Link to="/features/customer-vendor-management" className="nav-item-link">
+                          <Link 
+                            to="/features/customer-vendor-management" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveFeatureHover('customer-vendor')}
+                          >
                             <div className="nav-icon-box"><i className="ri-group-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">Customer & Vendor</span>
                               <span className="nav-link-desc">Manage clients and suppliers profiles</span>
                             </div>
                           </Link>
-                          <Link to="/features/estimates-invoicing-workflow" className="nav-item-link">
+                          <Link 
+                            to="/features/estimates-invoicing-workflow" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveFeatureHover('estimates-invoicing')}
+                          >
                             <div className="nav-icon-box"><i className="ri-file-list-3-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">Estimates & Invoicing</span>
                               <span className="nav-link-desc">Create quotes and billing workflows</span>
                             </div>
                           </Link>
-                          <Link to="/features/payments-partial-payments" className="nav-item-link">
+                          <Link 
+                            to="/features/payments-partial-payments" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveFeatureHover('payments-payables')}
+                          >
                             <div className="nav-icon-box"><i className="ri-wallet-3-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">Payments & Payables</span>
                               <span className="nav-link-desc">Record collections and track balances</span>
                             </div>
                           </Link>
-                          <Link to="/features/smart-invoice-capture" className="nav-item-link">
+                          <Link 
+                            to="/features/smart-invoice-capture" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveFeatureHover('smart-capture')}
+                          >
                             <div className="nav-icon-box"><i className="ri-scan-2-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">Smart Invoice Capture</span>
                               <span className="nav-link-desc">AI-powered OCR invoice extraction</span>
                             </div>
                           </Link>
-                          <Link to="/features/tax-automation" className="nav-item-link">
+                          <Link 
+                            to="/features/tax-automation" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveFeatureHover('tax-automation')}
+                          >
                             <div className="nav-icon-box"><i className="ri-percent-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">Tax Automation</span>
                               <span className="nav-link-desc">Configure automated state tax rules</span>
                             </div>
                           </Link>
-                          <Link to="/features/reports-insights" className="nav-item-link">
+                          <Link 
+                            to="/features/reports-insights" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveFeatureHover('reports-insights')}
+                          >
                             <div className="nav-icon-box"><i className="ri-bar-chart-box-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">Reports & Insights</span>
@@ -176,13 +262,23 @@ export default function Header() {
                           </Link>
                         </li>
                         <li className="navsub feature-mnu">
-                          <h6>Features Hub</h6>
-                          <p>Explore tools designed to automate invoicing, tracking, and compliance.</p>
+                          <h6>{featureContent[activeFeatureHover].title}</h6>
+                          <p>{featureContent[activeFeatureHover].description}</p>
+                          <div className="sidebar-image-container">
+                            <img 
+                              src={featureContent[activeFeatureHover].image} 
+                              alt={featureContent[activeFeatureHover].title} 
+                              className="sidebar-feature-img" 
+                            />
+                          </div>
                         </li>
                       </ul>
                     </li>
                     
-                    <li className={`has-sub supportmnu ${activeSubmenu === 'support' ? 'par-active' : ''}`}>
+                    <li 
+                      className={`has-sub supportmnu ${activeSubmenu === 'support' ? 'par-active' : ''}`}
+                      onMouseLeave={() => setActiveSupportHover('default')}
+                    >
                       <NavLink to="/support" className={({ isActive }) => isActive ? 'active' : ''}>
                         Support
                       </NavLink>
@@ -195,14 +291,22 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
                       >
                         <li className="nav-links-col">
-                          <Link to="/blogs" className="nav-item-link">
+                          <Link 
+                            to="/blogs" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveSupportHover('blog')}
+                          >
                             <div className="nav-icon-box"><i className="ri-article-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">Team Blog</span>
                               <span className="nav-link-desc">Guides, news, and insights</span>
                             </div>
                           </Link>
-                          <Link to="/faq" className="nav-item-link">
+                          <Link 
+                            to="/faq" 
+                            className="nav-item-link"
+                            onMouseEnter={() => setActiveSupportHover('faq')}
+                          >
                             <div className="nav-icon-box"><i className="ri-question-line"></i></div>
                             <div className="nav-text-box">
                               <span className="nav-link-title">FAQ</span>
@@ -211,8 +315,15 @@ export default function Header() {
                           </Link>
                         </li>
                         <li className="navsub feature-mnu">
-                          <h6>Support Hub</h6>
-                          <p>Access our detailed documentation and guides to resolve queries.</p>
+                          <h6>{supportContent[activeSupportHover].title}</h6>
+                          <p>{supportContent[activeSupportHover].description}</p>
+                          <div className="sidebar-image-container">
+                            <img 
+                              src={supportContent[activeSupportHover].image} 
+                              alt={supportContent[activeSupportHover].title} 
+                              className="sidebar-feature-img" 
+                            />
+                          </div>
                         </li>
                       </ul>
                     </li>
