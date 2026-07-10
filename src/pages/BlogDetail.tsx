@@ -47,7 +47,7 @@ export default function BlogDetail() {
       <section className="managecusOne" style={{ padding: '0 15px 40px 15px' }}>
         {blog.sections.map((sec, idx) => (
           <div className="listone clearfix" key={idx} style={{ marginBottom: '30px' }}>
-            <div className="left" style={{ width: '100%', float: 'none' }}>
+            <div className="left">
               <h3>{sec.heading}</h3>
               <p>{sec.text}</p>
               {sec.list && (
@@ -60,7 +60,7 @@ export default function BlogDetail() {
             </div>
             {sec.image && (
               <div className="right" style={{ width: '100%', float: 'none', marginTop: '20px', textAlign: 'center' }}>
-                <img src={sec.image} className="img-fluid" alt={sec.heading} style={{ maxWidth: '600px' }} />
+                <img src={sec.image} className="img-fluid" alt={sec.heading} style={{ maxWidth: '35%' }} />
               </div>
             )}
           </div>
@@ -69,13 +69,13 @@ export default function BlogDetail() {
 
       {/* Side popup menu for other blogs */}
       <div className="sideMnu">
-        <button 
-          className="open-btn" 
+        <button
+          className="open-btn"
           onClick={() => setIsSideMenuOpen(true)}
         >
           <span className="material-symbols-outlined">menu_open</span>
         </button>
-        
+
         <div className={`popup ${isSideMenuOpen ? 'active' : ''}`} id="sidePopup">
           <div className="popup-content">
             <button className="close-btn" onClick={() => setIsSideMenuOpen(false)}>✖</button>

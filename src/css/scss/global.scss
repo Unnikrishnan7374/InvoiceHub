@@ -8,6 +8,7 @@
 
 :root {
   --vz-primary: #1a73e8;
+  --vz-secondary: #e34333;
   --theme-color: #1a73e8;
   --theme-color-hover: #1a73e8;
   --theme-color-light: rgba(26, 115, 232, 0.1);
@@ -189,9 +190,8 @@ body {
   &.active {
     width: 24px;
     border-radius: 5px;
-    background: #d83b01;
+    background-color: var(--theme-color) !important;
     /* Match theme brand color */
-    box-shadow: 0 0 10px rgba(216, 59, 1, 0.5);
     outline: none;
   }
 }

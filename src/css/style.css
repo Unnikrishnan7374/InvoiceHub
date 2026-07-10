@@ -262,11 +262,13 @@ header {
 
 .logo-text h1 {
   font-size: 25px;
-  color: #e34333;
   text-align: left;
   line-height: 19px;
   font-weight: 600;
   white-space: normal;
+  text-transform: uppercase;
+  color: var(--vz-secondary);
+  padding-top: 3px;
 }
 
 nav#menu {
@@ -657,12 +659,6 @@ footer .copyrights {
   color: #fff !important;
 }
 
-.footerlist .addresslist .toast {
-  bottom: auto !important;
-  top: 0px;
-  right: 15px;
-}
-
 .footerlist .addresslist li i,
 .footerlist .addresslist li p {
   color: #ffffff;
@@ -718,7 +714,7 @@ footer .copyrights {
   width: 35px;
   height: 35px;
   padding: 10px 3px;
-  color: #e60024;
+  color: var(--vz-primary) !important;
   border-radius: 35px;
   cursor: pointer;
   background-color: #fff;
@@ -787,7 +783,7 @@ footer .copyrights {
 
 .pop-over .popover-btn {
   padding: 5px 10px;
-  background-color: #ea4111;
+  background-color: var(--theme-color);
   color: #fff;
   font-size: 17px;
   outline: none;
@@ -833,7 +829,7 @@ footer .copyrights {
   font-size: 18px;
   margin: -10px -10px 15px -10px;
   color: #ffffff;
-  background: linear-gradient(17deg, #f24605, #f24605e3);
+  background-color: var(--theme-color);
   padding: 10px 5px 10px 15px;
   font-weight: 600;
   border-top-left-radius: 5px;
@@ -1528,12 +1524,12 @@ ul.stars li {
   /* background-color: #0a6b37; */
   margin-right: 5px;
   padding: 1px 5px;
-  color: #fb4400;
+  color: var(--vz-primary) !important;
   font-weight: bold;
 }
 
 .ticklist li:after {
-  color: #ea4111;
+  color: var(--vz-primary) !important;
   left: -5px;
   position: absolute;
   top: 1px;
@@ -1607,7 +1603,7 @@ ul.stars li {
 .homeabt {
   position: relative;
   width: 100%;
-  padding: 10px 0px 10px 70px;
+  padding: 10px 0px 10px 30px;
   margin: 0px auto;
   background-color: #dce2ff40;
 }
@@ -2529,7 +2525,7 @@ ul.stars li {
 }
 
 .fealist .contant h4 {
-  color: #e60023 !important;
+  color: var(--vz-primary) !important;
   margin-bottom: 10px;
 }
 
@@ -2929,7 +2925,7 @@ ul.stars li {
 }
 
 .dtlsban ul li:last-child a {
-  color: #d93e05;
+  color: var(--vz-primary) !important;
 }
 
 .dtlsban ul li a:after {
@@ -3350,7 +3346,7 @@ ul.stars li {
 .faq .accordion .fa {
   text-align: right;
   float: right;
-  color: #f24605;
+  color: var(--vz-primary) !important;
   font-size: 18px;
   position: relative;
   top: 7px;
@@ -3438,7 +3434,7 @@ ul.stars li {
 }
 
 .blogList li a:hover h3 {
-  color: #d83b01;
+  color: var(--vz-primary);
 }
 
 .blogList li .content {
@@ -3615,7 +3611,7 @@ ul.stars li {
 }
 
 .cta-section h3 {
-  color: #e55041 !important;
+  color: var(--vz-primary) !important;
   font-size: 30px;
   margin-bottom: 10px;
 }
@@ -3749,7 +3745,7 @@ ul.stars li {
   right: 10px;
   padding: 7px 4px;
   font-size: 16px;
-  background: #ea4111;
+  background-color: var(--theme-color);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -3773,12 +3769,12 @@ ul.stars li {
   cursor: pointer;
   border-radius: 5px;
   z-index: 99;
-  border: 1px solid #eb491b;
-  background-color: #eb491b;
+  border: 1px solid var(--vz-primary);
+  background-color: var(--vz-primary);
 }
 
 .sideMnu .open-btn:hover {
-  background: #ea4111;
+  background-color: var(--theme-color);
 }
 
 .sideMnu .popup {

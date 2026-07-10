@@ -639,7 +639,7 @@
     }
 
     #menu>ul {
-        background-color: #0350a0;
+        background-color: var(--theme-color);
         width: 355px;
         padding: 0px 3px 5px 10px;
         height: 100vh;
@@ -673,8 +673,12 @@
         border-top: 1px #fdf7f740 solid;
     }
 
-    #menu>ul>li.active>a {
-        border: 3px solid #fff;
+    nav#menu li.signup a {
+        color: #ffffff !important;
+    }
+
+    #menu>ul>li>a.active {
+        border-bottom: 1px solid #fff;
         color: #ffffff !important;
         font-weight: 700;
     }
@@ -1338,6 +1342,7 @@
 
     .logo-text h1 {
         font-size: 20px;
+        padding-top: 0px;
     }
 
     .logo-text {
