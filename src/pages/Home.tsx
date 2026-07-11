@@ -21,8 +21,7 @@ export default function Home() {
 
   const banners = [
     {
-      bg: "images/banner-1.jpg",
-      laptop: "images/expanding_laptop.png",
+      bg: "images/banner-5.jpg",
       title: <>The Smart Way to Run Your  <span>Billing Operations</span></>,
       desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
       theme: ""
@@ -42,7 +41,7 @@ export default function Home() {
     },
     {
       bg: "images/banner-2.jpg",
-      laptop: "images/BanPhone.png", // uses phone image
+      laptop: "images/expanding_laptop.png", // uses phone image
       title: <>Work from Anywhere, <span>Anytime</span>.</>,
       desc: "Secure cloud-based access to your financial operations from any device. Stay in control wherever business takes you.",
       theme: "slide-2"
