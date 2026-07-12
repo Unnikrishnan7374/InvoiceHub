@@ -38,6 +38,7 @@ export default function BlogDetail() {
         <div className="right">
           <h2>Overview</h2>
           <p>{blog.overview}</p>
+          <p>{blog.subtext}</p>
         </div>
         <div className="left">
           <img src={blog.overviewImage} className="img-fluid" alt="Blog Overview" />
@@ -45,26 +46,65 @@ export default function BlogDetail() {
       </section>
 
       <section className="managecusOne" style={{ padding: '0 15px 40px 15px' }}>
-        {blog.sections.map((sec, idx) => (
-          <div className="listone clearfix" key={idx} style={{ marginBottom: '30px' }}>
-            <div className="left">
-              <h3>{sec.heading}</h3>
-              <p>{sec.text}</p>
-              {sec.list && (
-                <ul className="ticklist">
-                  {sec.list.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
+        {blog.sections.map((sec: any, idx) => {
+          if (sec.isTwoColumnList) {
+            return (
+              <div className="listone clearfix" key={idx} style={{ marginBottom: '30px', padding: '40px 35px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', alignItems: 'flex-start', marginBottom: '25px' }}>
+                  {/* Left columns container */}
+                  <div style={{ flex: sec.image ? '2' : '1', minWidth: '300px', display: 'flex', flexWrap: 'wrap', gap: '25px' }}>
+                    {sec.columns.map((col: any, cIdx: number) => (
+                      <div key={cIdx} style={{ flex: '1', minWidth: '240px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '15px', color: '#111' }}>{col.title}</h4>
+                        <ul className="ticklist">
+                          {col.list.map((item: string, i: number) => (
+                            <li key={i}>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Right image container */}
+                  {sec.image && (
+                    <div style={{ flex: '1', minWidth: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                      <img src={sec.image} className="img-fluid" alt="Management Details" />
+                    </div>
+                  )}
+                </div>
+                {sec.footerText && (
+                  <p style={{ fontSize: '15px', color: '#333', marginTop: '20px', lineHeight: '1.6' }}>
+                    {sec.footerText}
+                  </p>
+                )}
+              </div>
+            );
+          }
+          return (
+            <div className="listone clearfix" key={idx} style={{ marginBottom: '30px' }}>
+              <div className="left">
+                <h3>{sec.heading}</h3>
+                <p>{sec.text}</p>
+                <p style={{ fontWeight: '600' }}>{sec.subtext}</p>
+                {sec.list && (
+                  <ul className="ticklist">
+                    {sec.list.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+                <p>{sec.textone}</p>
+              </div>
+              {sec.image && (
+                <div className="right" style={{ width: '100%', float: 'none', marginTop: '20px', textAlign: 'center' }}>
+                  <img src={sec.image} className="img-fluid second" alt={sec.heading} style={{ maxWidth: '30%' }} />
+                </div>
               )}
             </div>
-            {sec.image && (
-              <div className="right" style={{ width: '100%', float: 'none', marginTop: '20px', textAlign: 'center' }}>
-                <img src={sec.image} className="img-fluid" alt={sec.heading} style={{ maxWidth: '35%' }} />
-              </div>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </section>
 
       {/* Side popup menu for other blogs */}

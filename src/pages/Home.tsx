@@ -260,6 +260,7 @@ export default function Home() {
             </Link>
           </li>
         </ul>
+        <a className="themeBtn" href="/features" data-discover="true"> View More Features <span className="material-symbols-outlined">arrow_forward</span> </a>
       </section>
 
       {/* About Section */}
@@ -586,8 +587,8 @@ export default function Home() {
           </div>
 
           {!compareCollapsed && (
-            <div className="compareFuatures">
-              <table className="table table-striped table-responsive">
+            <div className="compareFuatures table-responsive">
+              <table className="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col"><h3>Features</h3></th>

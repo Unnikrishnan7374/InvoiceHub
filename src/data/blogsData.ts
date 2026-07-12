@@ -31,7 +31,21 @@ export const blogsData = [
           "Create and send professional estimates for approval.",
           "Convert approved estimates into tax-compliant invoices with one click.",
           "Track payments, register bills, and monitor real-time cash flow."
-        ]
+        ],
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "Operational Impact",
+        text: "Using Invoice Hub helps businesses:",
+        list: [
+          "Maintain organized financial records",
+          "Reduce manual billing tasks",
+          "Improve invoice and payment tracking",
+          "Monitor receivables and payables efficiently",
+          "Gain better visibility into financial performance"
+        ],
+        textone: "By consolidating billing, expenses, and reporting into a single system, Invoice Hub enables businesses to manage financial operations with greater accuracy and control.",
+        image: "/images/blogs/managecus-3.png"
       }
     ],
     prev: null,
@@ -43,28 +57,47 @@ export const blogsData = [
     date: "January 5, 2026",
     image: "/images/blog-2.jpg",
     preview: "Accurate customer and vendor management is the backbone of efficient financial operations. Disorganized records, missing compliance documents...",
-    overview: "Accurate customer and vendor management is the backbone of efficient financial operations. Disorganized records and fragmented communication can lead to delays in payments, billing errors, and vendor compliance issues. Invoice Hub provides a centralized system to manage both customers and vendors efficiently.",
-    overviewImage: "/images/customermgmt.png",
+    overview: "Customer and vendor records play a critical role in managing invoices, bills, and financial transactions. InvoiceHub provides a centralized system where businesses can maintain organized customer and vendor profiles, configure payment terms, and track financial activity associated with each contact. Maintaining structured records ensures that billing, vendor payments, and financial reporting remain accurate and consistent.",
+    overviewImage: "/images/blog-2.jpg",
     sections: [
       {
-        heading: "Customer Management",
-        text: "Invoice Hub helps businesses organize customer information, enabling faster billing and better communication. Key capabilities include:",
-        list: [
-          "Store complete contact information, billing addresses, and shipping details.",
-          "Configure default payment terms, tax rules, and currency for each customer.",
-          "Keep track of past estimates, invoices, and payment histories.",
-          "Access customer directories to quickly retrieve information."
-        ]
+        isTwoColumnList: true,
+        columns: [
+          {
+            title: "Customer profiles can include:",
+            list: [
+              "Customer type (Business or Individual)",
+              "Billing and shipping addresses",
+              "Default tax configuration",
+              "Tax-exempt status when applicable",
+              "Payment terms and credit conditions",
+              "Notes and internal remarks",
+              "Document attachments"
+            ]
+          },
+          {
+            title: "Vendor profiles can include:",
+            list: [
+              "Vendor contact information",
+              "Vendor Federal Tax ID",
+              "Payment terms",
+              "Internal notes and remarks",
+              "Compliance document attachments"
+            ]
+          }
+        ],
+        image: "/images/customermgmt.png",
+        footerText: "Both customers and vendors can be marked as Active or Inactive, allowing businesses to keep their records organized and easy to manage."
       },
       {
-        heading: "Vendor Management & Compliance",
-        text: "Managing vendors is crucial for tracking business expenses and ensuring tax compliance. Invoice Hub allows you to:",
+        heading: "How It Works in Invoice Hub",
         list: [
-          "Create complete vendor files with contact details and billing terms.",
-          "Record and monitor business expenses linked to specific vendors.",
-          "Store compliance documents like W-9 forms directly in vendor profiles.",
-          "Track 1099 eligibility and payment histories for year-end reporting."
-        ]
+          "Customer records are used whenever estimates or invoices are created. Stored customer information such as tax settings and payment terms can automatically apply to billing documents, ensuring consistency.",
+          "Vendor profiles are connected to the Bills module, allowing businesses to manage vendor invoices, monitor due dates, and track outgoing payments. Vendor-related financial activity can be viewed directly within each vendor profile.",
+          "By centralizing these records, InvoiceHub allows businesses to maintain complete visibility across both receivables and payables."
+        ],
+        textone: "By consolidating billing, expenses, and reporting into a single system, Invoice Hub enables businesses to manage financial operations with greater accuracy and control.",
+        image: "/images/blogs/EstimatesBlog-1.png"
       }
     ],
     prev: "getting-started",
@@ -76,26 +109,33 @@ export const blogsData = [
     date: "January 5, 2026",
     image: "/images/blog-8.jpg",
     preview: "Vendor compliance in the United States isn’t optional — it’s mandatory. From collecting W-9 forms to determining 1099 eligibility and tracking insurance documents...",
-    overview: "Vendor compliance in the United States isn’t optional — it’s mandatory. From collecting W-9 forms to determining 1099 eligibility and tracking insurance documents, businesses must maintain accurate records to avoid tax penalties and audit issues. Invoice Hub simplifies vendor compliance by integrating tracking directly into your workflows.",
-    overviewImage: "/images/whoweare.png",
+    overview: "Vendor compliance management ensures that businesses maintain the necessary tax and regulatory documentation for vendors they work with. Invoice Hub provides structured vendor profiles and document management capabilities that help businesses store compliance records, track tax information, and maintain organized vendor documentation.",
+    subtext: "By keeping compliance documents and vendor tax details in one place, businesses can ensure that vendor records remain complete, accurate, and ready for regulatory or tax reporting requirements.",
+    overviewImage: "/images/blog-8.jpg",
     sections: [
       {
-        heading: "W-9 Form Collection",
-        text: "Collecting W-9 forms from all independent contractors and vendors is the first step in compliance. Invoice Hub helps you:",
+        heading: "What You Can ManageW-9 Form Collection",
+        text: "Invoice Hub allows businesses to maintain important vendor compliance information directly within each vendor profile.",
+        subtext: "Vendor compliance records may include:",
         list: [
-          "Request W-9 forms during vendor onboarding.",
-          "Securely upload and store W-9 PDFs within each vendor profile.",
-          "Flag vendors who are missing required tax documents."
-        ]
+          "Vendor Federal Tax Identification Number (EIN or SSN)",
+          "Vendor business classification",
+          "W-9 tax documentation",
+          "Business license records",
+          "Certificates of insurance",
+          "Other tax or regulatory documents"
+        ],
+        textone: "Businesses can also upload compliance documents and attach them to vendor profiles to maintain a centralized record of vendor documentation. For documents that have validity periods, such as business licenses or insurance certificates, InvoiceHub allows businesses to track document start dates and expiration dates.",
+        image: "/images/blogs/managecus-1.png"
       },
       {
-        heading: "1099 Classification & Reporting",
-        text: "At the end of the year, businesses must report payments to eligible vendors. Invoice Hub automates this by:",
+        heading: "How It Works in Invoice Hub",
         list: [
-          "Classifying vendors as 1099-eligible based on W-9 details.",
-          "Tracking total payments made to each vendor during the tax year.",
-          "Generating payment summaries to simplify the filing of 1099-NEC and 1099-MISC forms."
-        ]
+          "Compliance documents can be uploaded and stored within the vendor profile. Each document can include additional details such as document type, start date, and expiration date.",
+          "InvoiceHub monitors these dates and allows businesses to maintain visibility into document validity. When a document approaches its expiration date, the system can notify users so they can request updated documentation from the vendor.",
+          "By storing compliance records alongside vendor profiles, businesses can easily access vendor tax information and supporting documents when managing vendor bills, payments, or tax reporting."
+        ],
+        image: "/images/blogs/managecus-2.png"
       }
     ],
     prev: "manage-customers-vendors",
@@ -107,27 +147,47 @@ export const blogsData = [
     date: "January 10, 2026",
     image: "/images/blog-3.jpg",
     preview: "In any business, the journey from proposal to payment begins with a clear estimate. Without structured pricing and formal approval...",
-    overview: "The journey from proposal to payment begins with a clear estimate. Disorganized pricing and verbal approvals often lead to billing disputes and lost revenue. Invoice Hub provides a structured workflow for generating professional estimates, sending them for customer review, and tracking approvals.",
-    overviewImage: "/images/step-4.png",
+    overview: "Estimates allow businesses to present pricing proposals to customers before creating invoices. Invoice Hub enables businesses to create structured estimates, share them with customers, and manage approval decisions before converting them into invoices.",
+    subtext: "Using estimates helps ensure that pricing, taxes, and service details are clearly documented before billing begins.",
+    overviewImage: "/images/blog-3.jpg",
     sections: [
       {
-        heading: "Creating Professional Estimates",
-        text: "An estimate should clearly outline the scope of work and expected costs. With Invoice Hub, you can:",
+        heading: "What You Can Manage",
+        text: "Invoice Hub provides tools to manage estimates efficiently throughout the quotation process.",
+        subtext: "Estimate capabilities include:",
         list: [
-          "Select existing customers and auto-fill contact information.",
-          "Add line items from your product and service catalog with defined prices.",
-          "Apply item-level or document-level discounts and taxes.",
-          "Customize estimate numbers, titles, and payment terms."
-        ]
+          "Creating and editing estimates",
+          "Adding products or services with pricing details",
+          "Applying taxes, discounts, and additional charges",
+          "Attaching supporting documents",
+          "Cloning existing estimates to create new ones quickly",
+          "Configuring estimate templates and document formats",
+          "Defining estimate validity periods",
+        ],
+        textone: "Estimates can also include terms, notes, and other information required for customer approval.",
+        image: "/images/blogs/EstimatesBlog-1.png"
       },
       {
-        heading: "Approval Workflow",
-        text: "Once an estimate is created, it moves through a structured lifecycle:",
+        heading: "How It Works in Invoice Hub",
         list: [
-          "Send the estimate directly from Invoice Hub to the customer's email.",
-          "Customers can review, approve, or request changes to the proposal.",
-          "Convert approved estimates into tax-ready invoices with a single click, eliminating duplicate data entry."
-        ]
+          "Estimates are created using customer profiles and product or service records stored in the system. Pricing, tax rules, and payment terms are automatically applied based on configured settings.",
+          "Once an estimate is prepared, it can be shared with the customer for review. Customers can then approve or decline the estimate. Approved estimates can be converted directly into invoices, ensuring that pricing and billing information remain consistent.",
+          "Invoice Hub also allows businesses to define an estimate validity period, after which the estimate automatically expires if it is not approved."
+        ],
+        image: "/images/blogs/EstimatesBlog-2.png"
+      },
+      {
+        heading: "Operational Impact",
+        text: "Managing estimates within Invoice Hub helps businesses:",
+        list: [
+          "Provide clear pricing proposals to customers",
+          "Maintain documented approval records",
+          "Reduce pricing misunderstandings",
+          "Convert approved estimates into invoices quickly",
+          "Maintain consistent billing information",
+        ],
+        textone: "A structured estimate workflow ensures that customer agreements are documented before invoices are issued, improving transparency and reducing billing disputes.",
+        image: "/images/blogs/EstimatesBlog-3.png"
       }
     ],
     prev: "compliance-management",
@@ -139,28 +199,83 @@ export const blogsData = [
     date: "January 11, 2026",
     image: "/images/blog-4.jpg",
     preview: "Creating accurate and professional invoices is essential for maintaining strong customer relationships and ensuring timely payments...",
-    overview: "Creating accurate and professional invoices is essential for maintaining strong customer relationships and ensuring timely payments. Disorganized billing, unclear terms, and manual calculation errors can delay payments and damage business credibility. Invoice Hub automates invoice creation, tax compliance, and delivery.",
-    overviewImage: "/images/step-6.png",
+    overview: "Creating accurate and professional invoices is essential for maintaining strong customer relationships and ensuring timely payments. An invoice is not just a billing document — it reflects your business standards, clarity, and credibility.",
+    subtext: "Invoice Hub simplifies invoice creation by combining flexibility, customization, and seamless delivery in one integrated system.",
+    overviewImage: "/images/blog-4.jpg",
     sections: [
       {
-        heading: "Automating Invoice Generation",
-        text: "Invoice Hub simplifies how invoices are generated and formatted. You can:",
+        heading: "Flexible Invoice Creation",
+        text: "Invoices can be created in multiple ways to match your workflow:",
         list: [
-          "Create invoices directly from scratch or from approved estimates.",
-          "Import customer profiles, address details, and default payment terms automatically.",
-          "Select products or services from your catalog with pre-configured prices.",
-          "Let the system calculate sub-totals, discounts, taxes, and final balances automatically."
-        ]
+          "Generate invoices directly from approved estimates",
+          "Create invoices manually",
+          "Clone existing invoices for recurring or similar billing",
+        ],
+        textone: "The cloning feature allows you to duplicate a previous invoice, adjust necessary details, and resend it quickly — saving time and reducing repetitive data entry.",
+        image: "/images/blogs/managecus-1.png"
       },
       {
-        heading: "Flexible Invoicing Features",
-        text: "To support diverse business models, Invoice Hub offers:",
+        heading: "Custom Templates and Branding",
+        text: "Professional presentation strengthens trust. Invoice Hub supports:",
         list: [
-          "Custom invoice prefixes, numbering sequences, and formatting rules.",
-          "Options to attach files (contracts, timesheets, delivery proofs) directly to invoices.",
-          "Branded PDF templates that reflect your business identity.",
-          "Automatic application of US sales tax rules based on customer location."
-        ]
+          "Configurable invoice templates",
+          "Custom branding (logo, layout, formatting)",
+          "Structured and clean document design",
+        ],
+        image: "/images/blogs/managecus-2.png"
+      },
+      {
+        heading: "Attach Supporting Documents",
+        text: "Invoices often require supporting documentation to avoid disputes and improve clarity. Invoice Hub allows you to attach:",
+        subtext: "Within Customer Profile You Can View:",
+        list: [
+          "Contracts",
+          "Receipts",
+          "Work reports",
+          "Reference documents",
+        ],
+        textone: "Including relevant attachments helps customers understand charges clearly and speeds up payment processing.",
+        image: "/images/blogs/managecus-3.png"
+      },
+      {
+        heading: "Seamless Email Delivery ",
+        text: "Invoices can be sent directly to customers via email from within the system. Customers receive the invoice along with attachments in a single communication, improving transparency and response time.",
+        subtext: "The Result: With Invoice Hub, invoice creation becomes:",
+        list: [
+          "Faster",
+          "More accurate",
+          "Professionally branded",
+          "Fully integrated with your payment workflow",
+        ],
+        textone: "From estimate conversion to final delivery, everything is streamlined for efficiency.",
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "Monitor Vendor Bills & Payables",
+        text: "Each vendor profile provides financial visibility.",
+        subtext: "Inside Vendor Profile You Can Track:",
+        list: [
+          "Vendor bills and expenses",
+          "Payable summary",
+          "Due dates",
+          "Payment status",
+        ],
+        textone: "This ensures full control over outgoing payments and helps avoid missed deadlines.",
+        image: "/images/blogs/managecus-5.png"
+      },
+      {
+        heading: "Why Centralized Management Matters",
+        text: "With Invoice Hub, customer and vendor data flows seamlessly across:",
+        subtext: "This centralized structure:",
+        list: [
+          "Reduces duplicate data entry",
+          "Minimizes tax and billing errors",
+          "Improves compliance management",
+          "Speeds up receivables and payables workflows",
+          "Provides complete financial transparency",
+        ],
+        textone: "Invoice Hub ensures that every customer and vendor interaction is structured, compliant, and financially traceable — enabling businesses to operate with greater efficiency and control.",
+        image: "/images/customermgmt.png"
       }
     ],
     prev: "estimates-managing-approvals",
@@ -172,26 +287,46 @@ export const blogsData = [
     date: "January 21, 2026",
     image: "/images/blog-5.jpg",
     preview: "Managing vendor bills manually can slow down operations and increase the risk of costly errors. From entering invoice details to tracking due dates and recording payments...",
-    overview: "Managing vendor bills manually can slow down operations and increase the risk of costly errors. Entering invoice details, tracking due dates, and recording payments manually takes time and leads to keying mistakes. Invoice Hub uses Optical Character Recognition (OCR) to automate data extraction from uploaded bills.",
-    overviewImage: "/images/OCRInvoice.png",
+    overview: "Managing vendor bills manually can take time and lead to data entry errors. InvoiceHub simplifies vendor expense management by allowing businesses to upload vendor invoices and automatically capture key invoice details.",
+    subtext: "This helps businesses record vendor bills faster while maintaining accurate financial records.",
+    overviewImage: "/images/blog-5.jpg",
     sections: [
       {
-        heading: "Automating Bill Entry with OCR",
-        text: "With Invoice Hub’s smart OCR capture, recording vendor bills is fast and automated:",
+        heading: "What You Can Manage",
+        text: "InvoiceHub provides tools to manage vendor bills efficiently.",
+        subtext: "Bill management capabilities include:",
         list: [
-          "Upload a PDF or image of the vendor bill into the system.",
-          "The OCR engine automatically extracts vendor name, invoice number, billing date, line items, tax, and total amount.",
-          "Review the extracted information, make any necessary adjustments, and save the bill with one click."
-        ]
+          "Uploading vendor invoice documents",
+          "Automatically capturing important invoice details",
+          "Reviewing and confirming extracted invoice information",
+          "Recording vendor bills and expenses",
+          "Tracking bill due dates",
+          "Monitoring vendor payment status",
+        ],
+        textone: "These capabilities help businesses maintain structured vendor expense records.",
+        image: "/images/blogs/managecus-2.png"
       },
       {
-        heading: "Bill Management & Tracking",
-        text: "Once bills are saved, Invoice Hub helps you stay organized:",
+        heading: "How It Works in Invoice Hub",
         list: [
-          "Link bills directly to specific vendor profiles.",
-          "Monitor upcoming payment due dates and set alerts for overdue balances.",
-          "Record full or partial bill payments to keep accurate records of your payables."
-        ]
+          "Vendor invoices can be uploaded directly into the Bills module. Once uploaded, Invoice Hub automatically identifies and captures important invoice information such as vendor name, invoice number, invoice date, and total amounts.",
+          "Users can review the captured details and confirm them before saving the bill. Once saved, the bill becomes part of the vendor's financial records and can be tracked until payment is completed.",
+          "This process reduces manual data entry and helps maintain accurate bill records."
+        ],
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "Operational Impact",
+        text: "Automated bill processing helps businesses:",
+        list: [
+          "Reduce manual invoice entry",
+          "Improve accuracy of bill records",
+          "Save time when recording vendor expenses",
+          "Maintain organized vendor bill tracking",
+          "Improve visibility into payable obligations",
+        ],
+        textone: "Smart bill automation ensures vendor invoices are recorded quickly and tracked efficiently within the system",
+        image: "/images/blogs/EstimatesBlog-2.png"
       }
     ],
     prev: "creating-sending",
@@ -203,26 +338,45 @@ export const blogsData = [
     date: "January 26, 2026",
     image: "/images/blog-6.jpg",
     preview: "Navigating sales tax regulations in the United States can be complex. Tax rates vary not only by state but also by county, city, and special jurisdictions...",
-    overview: "Navigating sales tax regulations in the United States is a significant challenge for growing businesses. Tax rates vary not only by state but also by county, city, and special jurisdictions. Applying incorrect rates can lead to audit failures and compliance issues. Invoice Hub automates tax calculations using customer ZIP codes.",
-    overviewImage: "/images/ZIPCode_Automation.png",
+    overview: "Managing taxes manually during invoice creation can lead to calculation errors and compliance risks. Invoice Hub simplifies this process by allowing businesses to configure tax rules that are automatically applied when creating estimates and invoices.",
+    subtext: "By automating tax calculations, businesses can ensure consistent and accurate tax handling across all billing documents",
+    overviewImage: "/images/blog-6.jpg",
     sections: [
       {
-        heading: "ZIP-Code Based Calculations",
-        text: "Invoice Hub calculates taxes dynamically based on shipping or billing addresses:",
+        heading: "What You Can Manage",
+        text: "Invoice Hub provides flexible tax configuration that supports different business requirements.",
+        subtext: "Tax configuration capabilities include:",
         list: [
-          "Enter the customer's address and ZIP code when creating an invoice.",
-          "The system automatically identifies applicable state, county, and local sales tax rates.",
-          "Taxes are calculated and displayed as separate line items on the invoice, ensuring transparency for the customer."
-        ]
+          "Defining tax rules based on business location",
+          "Applying state and local tax rates automatically",
+          "Supporting multiple tax rates for different products or services",
+          "Assigning default tax settings for customers",
+          "Marking customers as tax-exempt when applicable",
+        ],
+        textone: "These settings ensure taxes are calculated correctly without requiring manual adjustments during billing.",
+        image: "/images/blogs/managecus-2.png"
       },
       {
-        heading: "Custom Tax Rates & Exemptions",
-        text: "For unique business requirements, the system supports:",
+        heading: "How It Works in Invoice Hub",
         list: [
-          "Manually entering custom tax rates for specific products or jurisdictions.",
-          "Marking specific customers (e.g. non-profits or resellers) as tax-exempt.",
-          "Generating tax summary reports to simplify monthly or quarterly filings."
-        ]
+          "Once tax rules are configured in the system, Invoice Hub automatically applies the appropriate tax rates when estimates or invoices are created. Tax calculations are applied to line items based on the configured tax settings.",
+          "Customer profiles can also store default tax rules or tax-exempt status. This ensures that tax settings are automatically applied whenever invoices or estimates are generated for that customer.",
+          "By centralizing tax configuration, Invoice Hub helps maintain consistency across all financial documents."
+        ],
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "Operational Impact",
+        text: "Tax automation helps businesses:",
+        list: [
+          "Reduce manual tax calculations",
+          "Maintain consistent tax application across invoices",
+          "Minimize billing errors related to taxes",
+          "Improve compliance with tax regulations",
+          "Save time during invoice creation",
+        ],
+        textone: "Automated tax configuration ensures that tax calculations remain accurate and reliable across all billing operations.",
+        image: "/images/blogs/managecus-3.png"
       }
     ],
     prev: "smart-bills-ocr-automation",
@@ -234,27 +388,61 @@ export const blogsData = [
     date: "February 2, 2026",
     image: "/images/blog-7.jpg",
     preview: "Every document your business sends represents your brand. Estimates, invoices, and financial communications are not just transactional records...",
-    overview: "Every document your business sends represents your brand. Estimates, invoices, and financial communications are not just transactional records — they are opportunities to project professionalism and build trust. Invoice Hub offers customizable templates that let you align billing documents with your company’s branding.",
-    overviewImage: "/images/pdf-2.png",
+    overview: "Every document your business sends represents your brand. Estimates, invoices, and financial communications are not just transactional records — they reflect your professionalism, credibility, and attention to detail.",
+    subtext: "Invoice Hub’s Custom Templates & Branding module allows businesses to personalize financial documents to match their brand identity, ensuring every customer and vendor interaction maintains consistency and professionalism.",
+    overviewImage: "/images/blog-7.jpg",
     sections: [
       {
-        heading: "Personalizing Your Documents",
-        text: "Invoice Hub makes it easy to customize the look and feel of your customer-facing documents:",
+        heading: "Branded Invoice and Estimate Templates",
+        text: "Invoice Hub enables businesses to design and configure custom templates for:",
         list: [
-          "Upload your business logo and place it on estimates and invoices.",
-          "Choose from multiple template layouts designed for different industries.",
-          "Select primary and secondary colors that match your brand identity.",
-          "Add personalized footer notes, payment instructions, and terms and conditions."
-        ]
+          "Invoices",
+          "Estimates",
+        ],
+        textone: "Templates can be structured to match your preferred layout, document style, and business format. This ensures uniformity across all outgoing communications. Whether you operate as a service provider, contractor, or product-based company, templates can be adapted to reflect your industry-specific requirements.",
+        image: "/images/blogs/managecus-1.png"
       },
       {
-        heading: "Clear and Professional Layouts",
-        text: "Our templates are designed to ensure clarity and readability:",
+        heading: "Logo, Color, and Layout Customization",
+        text: "Brand recognition matters. Invoice Hub allows you to incorporate:",
         list: [
-          "Itemized line tables with clear descriptions, quantities, and prices.",
-          "Summaries detailing sub-totals, discounts, taxes, and balances.",
-          "Responsive designs that display clearly on both mobile screens and printed PDFs."
-        ]
+          "Company logo",
+          "Brand colors",
+          "Custom headers and footers",
+          "Structured document formatting",
+        ],
+        textone: "These customizations ensure that every estimate and invoice aligns with your company’s visual identity.",
+        image: "/images/blogs/managecus-2.png"
+      },
+      {
+        heading: "Business-Specific Document Formats",
+        text: "Different businesses require different document structures. Invoice Hub supports:",
+        list: [
+          "Flexible layout configurations",
+          "Custom line-item formatting",
+          "Tailored document fields",
+          "Industry-specific formatting preferences",
+        ],
+        textone: "This adaptability ensures that your financial documents meet operational needs while maintaining professional standards.",
+        image: "/images/blogs/managecus-3.png"
+      },
+      {
+        heading: "Consistency Across Communications",
+        text: "By centralizing document design within the system, Invoice Hub ensures:",
+        list: [
+          "Uniform branding across all customer interactions",
+          "Professional presentation",
+          "Reduced formatting inconsistencies",
+          "Improved customer trust",
+        ],
+        textone: "Consistent branding strengthens your business image and reinforces credibility.",
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "The Result",
+        text: "With Custom Templates & Branding, Invoice Hub empowers businesses to communicate professionally, maintain brand integrity, and deliver polished financial documents with every transaction.",
+        textone: "Your documents don’t just request payment — they represent your brand.",
+        image: "/images/blogs/managecus-5.png"
       }
     ],
     prev: "zipcode-tax-automation",
@@ -266,27 +454,61 @@ export const blogsData = [
     date: "February 10, 2026",
     image: "/images/blog-9.jpg",
     preview: "Accurate financial visibility is essential for sustainable business growth. Without structured reporting, businesses struggle to track receivables...",
-    overview: "Accurate financial visibility is essential for sustainable business growth. Without structured reporting, businesses struggle to track receivables, monitor cash flow, and prepare for tax seasons. Invoice Hub provides real-time dashboards and detailed reports to keep you informed about your financial health.",
-    overviewImage: "/images/blog-1.jpg",
+    overview: "Accurate financial visibility is essential for sustainable business growth. Without structured reporting, businesses struggle to track receivables, monitor payables, and evaluate overall financial health.",
+    subtext: "Invoice Hub’s Reports & Dashboards module provides comprehensive, real-time insights that help businesses make informed decisions, manage cash flow effectively, and maintain operational control.",
+    overviewImage: "/images/blog-9.jpg",
     sections: [
       {
-        heading: "Real-Time Dashboard Analytics",
-        text: "The main dashboard provides an instant overview of your financial operations:",
-        list: [
-          "Track total sales, outstanding receivables, and upcoming payables.",
-          "Monitor aging invoices to identify overdue payments that require follow-up.",
-          "View monthly cash flow trends to plan future business expenses."
-        ]
+        heading: "Centralized Financial Visibility",
+        text: "nvoice Hub consolidates financial data into structured dashboards, giving users immediate access to critical performance metrics. Instead of relying on manual spreadsheets or disconnected systems, businesses can monitor financial activity from one unified platform.",
+        image: "/images/blogs/managecus-2.png"
       },
       {
-        heading: "Detailed Financial Reports",
-        text: "For deeper analysis, the reporting center allows you to generate:",
+        heading: "Key Insights at a Glance",
         list: [
-          "Invoice summaries grouped by customer, status, or date range.",
-          "Payment histories tracking received amounts and transaction modes.",
-          "Tax liability reports detailing collected sales taxes by jurisdiction.",
-          "Excel and PDF exports for sharing data with accountants or partners."
-        ]
+          "Outstanding Invoices : Track unpaid invoices in real time and monitor aging receivables to improve collection efforts.",
+          "Pending and Overdue Bills : Stay ahead of vendor payments by identifying upcoming and overdue bills before penalties occur.",
+          "Payment Summaries : View detailed summaries of payments received and payments made, ensuring accurate reconciliation.",
+          "Tax Reports : Access structured tax reports that support compliance and simplify accounting processes.",
+          "Cash Flow Overview : Gain a clear picture of incoming and outgoing funds to better manage liquidity and financial planning."
+        ],
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "Consistency Across Communications",
+        text: "By centralizing document design within the system, Invoice Hub ensures:",
+        list: [
+          "Uniform branding across all customer interactions",
+          "Professional presentation",
+          "Reduced formatting inconsistencies",
+          "Improved customer trust",
+        ],
+        textone: "Consistent branding strengthens your business image and reinforces credibility.",
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "Data-Driven Financial Control",
+        text: "With dynamic dashboards and detailed reports, Invoice Hub enables businesses to:",
+        list: [
+          "Identify revenue trends",
+          "Monitor payment behavior",
+          "Forecast cash flow",
+          "Reduce financial risk",
+          "Support strategic planning",
+        ],
+        textone: "Real-time reporting empowers finance teams and business leaders to act proactively instead of reactively.",
+        image: "/images/blogs/EstimatesBlog-2.png"
+      },
+      {
+        heading: "Structured, Accessible Reporting ",
+        text: "Reports can be accessed and reviewed directly within the system, ensuring consistent and reliable financial data across departments. This structured reporting environment improves transparency and accountability.",
+        image: "/images/blogs/managecus-4.png"
+      },
+      {
+        heading: "The Result",
+        text: "With Reports & Dashboards in Invoice Hub, businesses gain clarity, control, and confidence in their financial operations.",
+        textone: "From receivables to payables, from tax tracking to cash flow forecasting — every financial insight is available in one intelligent, centralized view.",
+        image: "/images/blogs/EstimatesBlog-4.png"
       }
     ],
     prev: "custom-templates",

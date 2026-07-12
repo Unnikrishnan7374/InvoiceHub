@@ -355,10 +355,9 @@
         width: 97%;
     }
 
-    .homeabt {
-        padding: 30px 70px 10px;
+    .pricing .price-box {
+        min-height: 582px;
     }
-
 }
 
 /*Media Screen 1280*/
@@ -691,10 +690,6 @@
         width: 550px;
     }
 
-    .features h2 {
-        top: -20px;
-    }
-
     .sub-ban p {
         display: none;
     }
@@ -876,12 +871,19 @@
         padding: 30px 15px 10px;
     }
 
+    .innerFeatures {
+        padding: 0px 35px 0px;
+    }
 }
 
 /*Media Screen 767*/
 @media screen and (max-width: 767px) {
     header {
         height: 40px;
+    }
+
+    .logo-text {
+        margin-top: 2px;
     }
 
     .banner.bannerNew,
@@ -912,11 +914,17 @@
     .listone .right,
     .dtlsban .dtlstext p,
     .newmanage .listone.first .pull-left,
-    .newmanage .listone.first .pull-right {
+    .newmanage .listone.first .pull-right,
+    .fealist .contant {
         width: 100% !important;
     }
 
-    .visionlst .ser-img img {
+    .innerFeatures {
+        padding: 0px 10px 0px;
+    }
+
+    .visionlst .ser-img img,
+    .fealist .ser-img {
         display: none;
     }
 
@@ -1013,7 +1021,7 @@
     }
 
     .ls-circle-timer {
-        bottom: 5px !important;
+        bottom: 20px !important;
         width: 20px;
         height: 20px;
         right: 6px;
@@ -1124,7 +1132,7 @@
     }
 
     .visionlst {
-        padding: 0px 1%;
+        padding: 10px 1%;
         margin-bottom: 10px;
     }
 
@@ -1165,7 +1173,7 @@
     }
 
     .dtlsban.fixed .nav-tabs {
-        top: 45px;
+        top: 40px;
         padding: 10px 1px 0px;
     }
 
@@ -1195,7 +1203,7 @@
     }
 
     .features ul li {
-        padding: 10px 10px 1px;
+        display: none !important;
     }
 
     .stepsHome .right .tab-content .rtimg,
@@ -1231,7 +1239,14 @@
     }
 
     .themeBtn {
-        padding: 4px 5px 3px 5px;
+        padding: 2px 3px 3px 3px;
+        min-width: 120px;
+        font-size: 15px;
+
+    }
+
+    .features.hmefeatures .themeBtn {
+        display: inline-block !important;
     }
 
     .blogList li .content {
@@ -1262,7 +1277,9 @@
     }
 
     .homeabt .left img {
-        width: 100%;
+        width: 65%;
+        float: right;
+        margin-top: -50px;
     }
 
 
@@ -1384,6 +1401,7 @@
         float: left;
         margin-right: 10px;
     }
+
 }
 
 /*Media Screen 482*/
