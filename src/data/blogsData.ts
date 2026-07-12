@@ -62,6 +62,8 @@ export const blogsData = [
     sections: [
       {
         isTwoColumnList: true,
+        heading: "What You Can Manage",
+        text: "InvoiceHub allows businesses to store and manage detailed information for both customers and vendors.",
         columns: [
           {
             title: "Customer profiles can include:",

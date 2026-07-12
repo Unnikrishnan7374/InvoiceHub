@@ -50,6 +50,9 @@ export default function BlogDetail() {
           if (sec.isTwoColumnList) {
             return (
               <div className="listone clearfix" key={idx} style={{ marginBottom: '30px', padding: '40px 35px' }}>
+                {sec.heading && <h3>{sec.heading}</h3>}
+                {sec.text && <p>{sec.text}</p>}
+
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', alignItems: 'flex-start', marginBottom: '25px' }}>
                   {/* Left columns container */}
                   <div style={{ flex: sec.image ? '2' : '1', minWidth: '300px', display: 'flex', flexWrap: 'wrap', gap: '25px' }}>
@@ -70,12 +73,19 @@ export default function BlogDetail() {
                   {/* Right image container */}
                   {sec.image && (
                     <div style={{ flex: '1', minWidth: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                      <img src={sec.image} className="img-fluid" alt="Management Details" />
+                      <div style={{
+                        width: '100%',
+                        height: '250px',
+                        backgroundImage: `url(${sec.image})`,
+                        backgroundSize: 'contain',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                      }} />
                     </div>
                   )}
                 </div>
                 {sec.footerText && (
-                  <p style={{ fontSize: '15px', color: '#333', marginTop: '20px', lineHeight: '1.6' }}>
+                  <p>
                     {sec.footerText}
                   </p>
                 )}
