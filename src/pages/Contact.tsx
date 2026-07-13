@@ -71,8 +71,8 @@ export default function Contact() {
             <li>
               <i className="fa fa-envelope adrico" aria-hidden="true"></i>
               <p className="adr clearfix">
-                <a href="mailto:support@invoicehub.com" className="copyText">support@invoicehub.com</a>
-                <CopyText value="support@invoicehub.com" />
+                <a href="mailto:support@invoicehub360.com" className="copyText">support@invoicehub360.com </a>
+                <CopyText value="support@invoicehub360.com " />
               </p>
             </li>
           </ul>
@@ -81,7 +81,7 @@ export default function Contact() {
         <div className="card">
           <h2>Get in Touch</h2>
           <p>You can reach us anytime</p>
-          <form onSubmit={handleSubmit} autoComplete="off" className="contactform">
+          <form action="https://formspree.io/f/xaqryjen" method="POST" className="contactform">
             <div className="row">
               <div className="form-group col-md-12">
                 <input

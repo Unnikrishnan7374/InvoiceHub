@@ -93,27 +93,32 @@ export default function Footer() {
                 <li>
                   <i className="fa fa-envelope" aria-hidden="true"></i>
                   <p className="adr clearfix">
-                    <a href="mailto:support@invoicehub.com" className="copyText">support@invoicehub.com</a>
-                    <CopyText value="support@invoicehub.com" />
+                    <a href="mailto:support@invoicehub360.com" className="copyText">support@invoicehub360.com </a>
+                    <CopyText value="support@invoicehub360.com" />
                   </p>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <p className="copyrights">
-          <Link to="/privacy-policy" className="privacylink">Privacy Policy</Link>
-          {' '} | {' '}
-          <Link to="/terms" className="privacylink">Terms of Service</Link>
-          {' '} © {currentYear} <Link to="/" className="rightsLinks">Invoice HUB</Link>. All Rights Reserved.
-        </p>
-      </footer>
+        <div className="copyrights">
+          <div className="left">
+            <Link to="/privacy-policy" className="privacylink">Privacy Policy</Link>
+            <Link to="/terms" className="privacylink">Terms of Service</Link>
+            <Link to="/cookie-policy" className="privacylink">Cookie Policy</Link>
+          </div>
+          <div className="right">
+            <span> {' '} © {currentYear} <Link to="/" className="rightsLinks">Invoice HUB</Link>. All Rights Reserved.</span>
+          </div>
+        </div>
+      </footer >
 
       {showScrollTop && (
         <div id="toTop" style={{ display: 'block', opacity: 1 }} onClick={scrollToTop}>
           <p><i className="bi bi-arrow-up-circle" aria-hidden="true"></i></p>
         </div>
-      )}
+      )
+      }
     </>
   );
 }

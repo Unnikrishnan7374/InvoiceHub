@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Faq from './pages/Faq';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
+import CookiePolicy from './pages/CookiePolicy';
 import Features from './pages/Features';
 import FeatureDetail from './pages/FeatureDetail';
 import Blogs from './pages/Blogs';
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/features" element={<Features />} />
           <Route path="/features/:slug" element={<FeatureDetail />} />
           <Route path="/blogs" element={<Blogs />} />

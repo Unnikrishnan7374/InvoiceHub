@@ -2,12 +2,55 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function PrivacyPolicy() {
+  const [activeSection, setActiveSection] = React.useState('intro');
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 100; // Account for the sticky header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      setActiveSection(id);
+    }
+  };
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['intro', 'collect', 'use', 'payment', 'sharing', 'rights', 'cookies', 'changes', 'contact'];
+      const scrollPosition = window.scrollY + 120; // headerOffset (100px) + buffer (20px)
+
+      let currentSection = sections[0];
+      for (const id of sections) {
+        const element = document.getElementById(id);
+        if (element) {
+          const elementTop = element.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= elementTop) {
+            currentSection = id;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once initially to highlight the correct section on mount
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div>
       <section className="dtlsban clearfix">
         <div className="dtlstext">
           <h2>Privacy Policy</h2>
-          <p>Last updated: December 10, 2025</p>
+          <p> Effective Date: <strong>January 1, 2026</strong></p>
           <ul className="tabs nav nav-tabs clearfix">
             <li><Link to="/"><span className="material-symbols-outlined">home</span></Link></li>
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>
@@ -16,158 +59,215 @@ export default function PrivacyPolicy() {
       </section>
 
       <div className="privacy-plcy clearfix" style={{ padding: '40px 15px' }}>
-        <div className="card" style={{ borderRadius: '12px', maxWidth: 'none', margin: '0 auto' }}>
-          <div className="card-body">
-            <div className="clearfix">
-              <p>
-                This Privacy Policy discloses the privacy practices for Invoice HUB 360 (the “Software”),
-                owned and operated by Office HUB Inc. (referred to herein as “Office HUB”, “us” or “we”). We
-                are committed to protecting your privacy. Please read the following to learn what
-                information we collect from you (the “User”) and how we use that information. If you have
-                any questions about our privacy policy, please email us at support@invoicehub.com.
-              </p>
-              <p>
-                <strong>
-                  PLEASE READ THIS PRIVACY POLICY CAREFULLY. BY ACCESSING OR USING THE SERVICE, YOU
-                  ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREED TO BE BOUND TO ALL THE TERMS OF
-                  THIS PRIVACY POLICY. IF YOU DO NOT AGREE TO THESE TERMS, EXIT THIS PAGE AND DO NOT
-                  ACCESS OR USE THE SERVICE.
-                </strong>
-              </p>
-              
-              <p><strong>Changes to Privacy Policy</strong></p>
-              <p>
-                We may change this Privacy Policy at any time by posting the revised Privacy Policy in the
-                “Privacy Policy” section of the Service. The revised Privacy Policy is effective immediately
-                when posted on the Service. It is the responsibility of each User to review the Service and
-                the Privacy Policy periodically to learn of any revisions to this Privacy Policy. Your
-                continued use of the Service after the effectiveness of such revisions will constitute your
-                acknowledgment and acceptance of the terms of the revised Privacy Policy.
-              </p>
-              
-              <p><strong>What types of information do we collect?</strong></p>
-              <p>
-                We collect two types of information about our Users: Personally Identifiable Information and
-                Non-Personally Identifiable Information.
-              </p>
-              <p>
-                <strong>Personally Identifiable Information.</strong> Personally Identifiable Information is
-                information that identifies a specific end user. We ask you for this information when you
-                create an account for using the Software. Some of the information requested includes your
-                name, email, phone number, and organization or employer name. At the time of the request,
-                this information will be identified as either mandatory or voluntary. If you do not provide
-                the mandatory information, you will not be permitted to create an Account and use the
-                Service.
-              </p>
-              <p>
-                <strong>Non-Personally Identifiable Information.</strong> Non-Personally Identifiable
-                Information is information that does not identify a specific end user. We collect this
-                information automatically. This type of information may include things like information
-                about the devices you use to access the Service, IP addresses, and the type of browser you
-                are using.
-              </p>
-              
-              <p><strong>How do we collect this information?</strong></p>
-              <p>
-                All the personally and non-personally identifiable information is collected via one of the
-                following methods:
-              </p>
-              <p>
-                1. <strong>End Users or administrators inputting the data into our system</strong>. This
-                includes your name, email, organization name, etc.
-              </p>
-              <p>
-                2. <strong>Content uploaded by Users</strong>. Content uploaded by users on our servers may
-                include personal information about them including the name and location of their
-                organization, name, and title.
-              </p>
-              <p>
-                3. <strong>Automatically.</strong> Our Software automatically collects non-personally
-                identifiable information such as information about your device.
-              </p>
-              
-              <p><strong>How do we use the information collected?</strong></p>
-              <p><strong>We may use the information we collect from you in the following ways:</strong></p>
-              <p>a. For reporting and analytics (e.g. to show who uploaded to the system)</p>
-              <p>b. To contact the user via with system notifications</p>
-              <p>c. To improve our services and Software.</p>
-              <p>d. To provide maintenance and support.</p>
-              
-              <p><strong>How do we protect information collected?</strong></p>
-              <p>
-                We take reasonable technical and organizational precautions to prevent the loss, misuse or
-                alteration of your personal information. We encrypt all the information you provide
-                (including the content that you upload). Network connections over the Internet use the
-                secure HTTPS protocol.
-              </p>
-              <p>You are responsible for keeping your certificate, password and user details confidential.</p>
-              
-              <p><strong>Do we disclose the information we collect to third parties?</strong></p>
-              <p>
-                We do not sell, trade, or otherwise transfer to third parties your personally identifiable
-                information unless we provide you with advance notice. The term “third parties” does not
-                include our affiliate companies, vendors, service providers, and consultants. The Software
-                is hosted with Microsoft Azure, and its privacy policy available <a href="https://www.microsoft.com/en-us/TrustCenter/Privacy/default.aspx" target="_blank" rel="noopener noreferrer">here</a> will
-                effect your information.
-              </p>
-              
-              <p><strong>How can you opt-out, remove or modify information you have provided to us?</strong></p>
-              <p>
-                You may edit your personal information and delete the optional information by emailing us at{' '}
-                <a href="mailto:support@invoicehub360.com?subject=InvoiceHub%20Support%20Request">support@invoicehub360.com.</a>
-              </p>
-              
-              <p><strong>Miscellaneous Privacy Issues</strong></p>
-              <p>
-                <strong>Minors:</strong> Minors under the age of 13 (18 for residents of Florida) may not use
-                the Service. We do not collect or maintain information from anyone known to be a minor, and
-                no part of the Service is designed to attract a minor. If you are under the age of 18, you
-                should not be accessing this Service.
-              </p>
-              <p>
-                Also, in accordance with the Children's Online Privacy Protection Act of 1998, we will never
-                knowingly request or solicit personally identifiable information from anyone under the age
-                of 13 without verifiable parental consent. In the event that we receive actual knowledge
-                that we have collected such personal information without the requisite verifiable parental
-                consent, we will delete that information from our database as quickly as is practical.
-              </p>
-              <p>
-                <strong>Notice of Privacy Rights to California Residents:</strong> California law requires
-                that we provide you with a summary of your privacy rights under the California Online
-                Privacy Protection Act (the “Act”) and the California Business and Professions Code. As
-                required by the Act, we will provide you with the categories of Personally Identifiable
-                Information that we collect through the Service and the categories of third party persons or
-                entities with whom such Personally Identifiable Information may be shared for direct
-                marketing purposes at your request. California law requires us to inform you, at your
-                request, (1) the categories of Personally Identifiable Information we collect and what third
-                parties we share that information with; (2) the names and addresses of those third parties;
-                and (3) examples of the products marketed by those companies. The Act further requires us to
-                allow you to control who you do not want us to share that information with. To obtain this
-                information, please send a request by email to support@invoicehub360.com, or standard mail
-                to the Corporate Address found below. The request should be labeled “California Customer
-                Choice Notice.” Please allow 30 days for a response. Also, please note that there is no
-                charge for controlling the sharing of your Personally Identifiable Information or requesting
-                this notice.
-              </p>
-              
-              <p><strong>Online Policy Only</strong></p>
-              <p>
-                This privacy policy applies only to information collected through our Service and not to
-                information collected offline.
-              </p>
-              
-              <p><strong>Terms of Use</strong></p>
-              <p>
-                Please also visit our <Link to="/terms">Terms of Use</Link> section establishing the use, disclaimers, and limitations
-                of liability governing the use of our Service.
-              </p>
-              
-              <p><strong>Contact Us</strong></p>
-              <p>
-                We also welcome your questions, comments, and concerns about privacy. Please send us all
-                feedback pertaining to privacy, or any other issues to{' '}
-                <a href="mailto:support@invoicehub360.com?subject=InvoiceHub%20Privacy%20Policy">support@invoicehub360.com</a>
-              </p>
+        <div className="authPage">
+          {/* <section className="top">
+            <h1>Privacy Policy</h1>
+            <p>
+              InvoiceHub by OfficeHub Inc.
+              <br />
+              Effective Date: <strong>January 1, 2026</strong>
+            </p>
+          </section> */}
+          <div className="containers">
+            <div className="wrapper">
+              <div className="sidebar">
+                <div className="toc">
+                  <h3>Contents</h3>
+                  <ul>
+                    <li>
+                      <a
+                        href="#intro"
+                        className={activeSection === "intro" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "intro")}
+                      >
+                        Introduction
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#collect"
+                        className={activeSection === "collect" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "collect")}
+                      >
+                        1. Information We Collect
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#use"
+                        className={activeSection === "use" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "use")}
+                      >
+                        2. How We Use Information
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#payment"
+                        className={activeSection === "payment" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "payment")}
+                      >
+                        3. Payment Information & Security
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#sharing"
+                        className={activeSection === "sharing" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "sharing")}
+                      >
+                        4. Information Sharing
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#rights"
+                        className={activeSection === "rights" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "rights")}
+                      >
+                        5. Data Retention & Rights
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#cookies"
+                        className={activeSection === "cookies" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "cookies")}
+                      >
+                        6. Cookies
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#changes"
+                        className={activeSection === "changes" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "changes")}
+                      >
+                        7. Policy Changes
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#contact"
+                        className={activeSection === "contact" ? "active" : ""}
+                        onClick={(e) => scrollToSection(e, "contact")}
+                      >
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="content">
+                <div className="card" id="intro">
+                  <h2>Introduction</h2>
+                  <p>OfficeHub Inc. ("OfficeHub", "we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, share, and protect personal information when you use InvoiceHub, visit our website, or access invoices, estimates, and payment pages generated through our Service. </p>
+                  <p>By using InvoiceHub, you agree to the collection and use of information in accordance with this Privacy Policy. </p>
+                </div>
+
+                <div className="card" id="collect">
+
+                  <h2>1. Information We Collect</h2>
+                  <p>To provide and improve InvoiceHub, we collect information necessary to operate our Services. </p>
+
+                  <h3>Account Information</h3>
+                  <p>When a business registers for InvoiceHub, we collect information required to create and manage the account, provide customer support, process subscriptions, and communicate with users.  </p>
+
+                  <h3>Invoice and Payment Information</h3>
+                  <p>InvoiceHub processes invoice, customer, billing, and payment-related information on behalf of the businesses using our Service. Payment transactions are securely processed by authorized third-party payment providers. </p>
+
+                  <h3>Usage Information</h3>
+                  <p>We automatically collect limited technical information, such as browser, device, IP address, and usage data, to improve security, monitor system performance, and enhance the user experience. </p>
+
+                </div>
+
+                <div className="card" id="use">
+                  <h2>2. How We Use Information</h2>
+                  <p>We use the information we collect to: </p>
+                  <ul>
+
+                    <li>Provide, operate, and maintain Invoice Hub.</li>
+                    <li>Authenticate users and secure accounts.</li>
+                    <li>Process subscriptions and online payments.</li>
+                    <li>Deliver invoices, estimates, notifications, and other communications. </li>
+                    <li>Respond to customer support requests. </li>
+                    <li>Improve the performance, reliability, and security of our Services. </li>
+                    <li>Detect, prevent, and investigate fraud, abuse, and unauthorized access. </li>
+                    <li>Comply with applicable legal and regulatory obligations. </li>
+                  </ul>
+                  <div className="notice">
+                    <strong>Important:</strong> We do <strong>not sell or rent</strong> your personal information.
+                  </div>
+                </div>
+
+                <div className="card" id="payment">
+                  <h2>3. Payment Information & Security</h2>
+                  <p>InvoiceHub supports secure online payments through trusted third-party payment providers.  </p>
+                  <p>OfficeHub Inc. does not store sensitive payment information such as:  </p>
+                  <ul>
+                    <li>Full credit or debit card numbers</li>
+                    <li>Card security codes (CVV)</li>
+                    <li>Bank account numbers</li>
+                    <li>Bank routing numbers</li>
+                  </ul>
+                  <p>Payment information is processed directly by PCI DSS-compliant payment providers.  </p>
+                  <p>We use commercially reasonable administrative, technical, and organizational safeguards to protect the information we process, including secure communications, access controls, monitoring, and regular security updates. While we strive to protect your information, no method of electronic transmission or storage can be guaranteed to be completely secure.</p>
+                </div>
+
+                <div className="card" id="sharing">
+                  <h2>4. Information Sharing</h2>
+                  <p>We do not sell your personal information. </p>
+                  <p>We may share information only when necessary to: </p>
+                  <ul>
+                    <li>Provide and support InvoiceHub. </li>
+                    <li>Process payments through authorized payment providers. </li>
+                    <li>Work with trusted service providers that assist with hosting, email delivery, customer support, and system operations. </li>
+                    <li>Comply with applicable laws, regulations, or lawful requests from government authorities. </li>
+                    <li>Protect the rights, property, or security of OfficeHub Inc., our users, or others.</li>
+                    <li>Support a merger, acquisition, or transfer of our business. </li>
+                  </ul>
+                  <p>Third-party service providers may access information only as necessary to perform services on our behalf and are expected to protect it appropriately.</p>
+                </div>
+
+                <div className="card" id="rights">
+
+                  <h2>5. Data Retention and Your Rights</h2>
+
+                  <p>We retain information only for as long as necessary to provide our Services, comply with legal obligations, resolve disputes, and enforce our agreements.  </p>
+                  <p>Where permitted by applicable law, you may request access to, correction of, or deletion of your personal information. </p>
+                  <p>If your personal information was provided by a business using InvoiceHub, you should first contact that business regarding your request. </p>
+                </div>
+
+                <div className="card" id="cookies">
+
+                  <h2>6. Cookies</h2>
+
+                  <p>Invoice Hub uses cookies and similar technologies to maintain secure sessions, remember user preferences, improve website performance, and understand how our Services are used. </p>
+                  <p>You can control cookies through your browser settings. For additional information, please refer to our Cookie Policy. </p>
+
+
+                </div>
+
+                <div className="card" id="changes">
+
+                  <h2>7. Changes to this Privacy Policy</h2>
+
+                  <p>We may update this Privacy Policy from time to time. Any changes will become effective when published on the InvoiceHub website. Continued use of InvoiceHub after the effective date of the revised Privacy Policy constitutes acceptance of the updated Policy.  </p>
+                  <p>If you have questions regarding this Privacy Policy, please contact: </p>
+                </div>
+
+                <div className="contact-box" id="contact">
+                  <h2>Contact Us</h2>
+                  <p> If you have questions regarding this Privacy Policy, please contact us.</p>
+                  <p><strong>OfficeHub Inc.</strong> </p>
+                  <p>📧 Email:<a href="mailto:support@invoicehub360.com">support@invoicehub360.com</a> </p>
+                  {/* <p>🌐 Website:
+                                                    <a href="https://www.invoicehub360.com" target="_blank">
+                                                        www.invoicehub360.com
+                                                    </a>
+                                                </p> */}
+                </div>
+              </div>
             </div>
           </div>
         </div>

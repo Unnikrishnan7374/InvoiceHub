@@ -22,6 +22,7 @@ export default function Home() {
   const banners = [
     {
       bg: "images/banner-5.jpg",
+      laptop: "images/laptop.png",
       title: <>The Smart Way to Run Your  <span>Billing Operations</span></>,
       desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
       theme: ""
@@ -587,7 +588,7 @@ export default function Home() {
           </div>
 
           {!compareCollapsed && (
-            <div className="compareFuatures table-responsive">
+            <div className="compareFuatures">
               <table className="table table-striped">
                 <thead>
                   <tr>

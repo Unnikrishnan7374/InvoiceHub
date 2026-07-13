@@ -2,12 +2,54 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Terms() {
+  const [activeSection, setActiveSection] = React.useState('intro');
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      setActiveSection(id);
+    }
+  };
+
+  React.useEffect(() => {
+    const sections = [
+      'intro', 'Definitions', 'accounts', 'use-of-service',
+      'TenantResponsibilities', 'CustomerData', 'ThirdPartyServices',
+      'IntellectualProperty', 'Warranties', 'Liability',
+      'Suspension', 'GeneralTerms', 'contact'
+    ];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 120;
+      let currentSection = sections[0];
+      for (const id of sections) {
+        const element = document.getElementById(id);
+        if (element) {
+          const elementTop = element.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= elementTop) {
+            currentSection = id;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div>
       <section className="dtlsban clearfix">
         <div className="dtlstext">
           <h2>Terms of Service</h2>
-          <p>We are committed to delivering high-quality billing and invoicing solutions.</p>
+          <p> Effective Date: <strong>January 1, 2026</strong></p>
           <ul className="tabs nav nav-tabs clearfix">
             <li><Link to="/"><span className="material-symbols-outlined">home</span></Link></li>
             <li><Link to="/terms">Terms</Link></li>
@@ -16,117 +58,216 @@ export default function Terms() {
       </section>
 
       <div className="privacy-plcy clearfix termsPge" style={{ padding: '40px 15px', maxWidth: 'none', margin: '0 auto' }}>
-        <h2>Invoice HUB Terms Agreement</h2>
-        <p>
-          PLEASE READ THIS USER LICENSE AGREEMENT (THE “AGREEMENT”) CAREFULLY AS IT GOVERNS YOUR USE OF THE
-          SOFTWARE AND SERVICES PROVIDED BY OFFICE HUB INC. BY USING THE SOFTWARE (AS DEFINED BELOW) YOU AGREE TO BE BOUND BY
-          THESE TERMS AND CONDITIONS.
-        </p>
+        {/* <h2>Invoice HUB Terms Agreement</h2> */}
+        <div className="authPage">
+          <div className="containers">
+            <div className="wrapper">
+              <div className="sidebar">
+                <div className="toc">
+                  <h3>Contents</h3>
+                  <ul>
+                    <li>
+                      <a href="#intro" className={activeSection === "intro" ? "active" : ""} onClick={(e) => scrollToSection(e, "intro")}>Introduction </a>
+                    </li>
+                    <li>
+                      <a href="#Definitions" className={activeSection === "Definitions" ? "active" : ""} onClick={(e) => scrollToSection(e, "Definitions")}>
+                        1. Definitions
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#accounts" className={activeSection === "accounts" ? "active" : ""} onClick={(e) => scrollToSection(e, "accounts")}>
+                        2. Accounts and Subscription </a>
+                    </li>
+                    <li>
+                      <a href="#use-of-service" className={activeSection === "use-of-service" ? "active" : ""} onClick={(e) => scrollToSection(e, "use-of-service")} >
+                        3. Subscription Fees and Billing
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#TenantResponsibilities" className={activeSection === "TenantResponsibilities" ? "active" : ""} onClick={(e) => scrollToSection(e, "TenantResponsibilities")}>
+                        4. Tenant Responsibilities
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#CustomerData" className={activeSection === "CustomerData" ? "active" : ""} onClick={(e) => scrollToSection(e, "CustomerData")} >
+                        5. Customer Data and Privacy
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#ThirdPartyServices" className={activeSection === "ThirdPartyServices" ? "active" : ""} onClick={(e) => scrollToSection(e, "ThirdPartyServices")}>
+                        6. Third-Party Services
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#IntellectualProperty" className={activeSection === "IntellectualProperty" ? "active" : ""} onClick={(e) => scrollToSection(e, "IntellectualProperty")}>
+                        7. Intellectual Property </a>
+                    </li>
+                    <li>
+                      <a href="#Warranties" className={activeSection === "Warranties" ? "active" : ""} onClick={(e) => scrollToSection(e, "Warranties")}>
+                        8. Disclaimer of Warranties
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#Liability" className={activeSection === "Liability" ? "active" : ""} onClick={(e) => scrollToSection(e, "Liability")} >
+                        9. Limitation of Liability
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#Suspension" className={activeSection === "Suspension" ? "active" : ""} onClick={(e) => scrollToSection(e, "Suspension")} >
+                        10. Suspension and Termination
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#GeneralTerms" className={activeSection === "GeneralTerms" ? "active" : ""} onClick={(e) => scrollToSection(e, "GeneralTerms")} >
+                        11. General Terms
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#contact" className={activeSection === "contact" ? "active" : ""} onClick={(e) => scrollToSection(e, "contact")}>
+                        Contact Us
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="content">
+                <div className="card" id="intro">
+                  <h2>Introduction</h2>
+                  <p>These Terms of Service ("Terms") govern your access to and use of InvoiceHub, a cloud-based invoicing platform operated by OfficeHub Inc. ("OfficeHub", "we", "our", or "us").</p>
+                  <p>By creating an account, purchasing a subscription, or accessing or using InvoiceHub, you agree to be bound by these Terms. If you are accepting these Terms on behalf of a company or other legal entity, you represent and warrant that you have the authority to bind that entity to these Terms. In such cases, "you" and "your" refer to that entity. </p>
+                  <p>If you do not agree to these Terms, you must not use InvoiceHub. Your use of InvoiceHub is also subject to our Privacy Policy and any additional policies referenced in these Terms. </p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Definitions.</h4>
-          <p><b>1.1</b> “Administrator” shall mean a representative of the Customer (as defined in Section 1.4) with authority to designate additional Authorized Users and/or Administrators.</p>
-          <p><b>1.2</b> “Authorized Users” means those individuals who are authorized by the Customer to use the Software and for whom the applicable license fees have been paid, as stated on the Ordering Document.</p>
-          <p><b>1.3</b> “Content” shall mean any information uploaded or posted by Customer or Authorized Users to the Service and any information provided by Customer to Invoice HUB in connection with the Service, including, without limitation, information about Authorized Users.</p>
-          <p><b>1.4</b> “Customer” means the legal entity that purchased the Software from Invoice HUB and on whose behalf it is used.</p>
-          <p><b>1.5</b> “Documentation” means any supporting product help and technical specifications documentation provided to Customer by Invoice HUB with the Software.</p>
-          <p><b>1.6</b> “Ordering Document” means the Invoice HUB purchase order form accompanying this license. The terms of such Ordering Document shall be deemed a part of this Agreement.</p>
-          <p><b>1.7</b> “Service” means any support and maintenance service provided by Invoice HUB to Customer with regards to the Software.</p>
-          <p><b>1.8</b> “Software” means the Invoice HUB software licensed by the Customer through the Ordering Document, including all related Documentation and details in the ordering Document.</p>
-        </div>
+                <div className="card" id="Definitions">
+                  <h2>1. Definitions</h2>
+                  <p>For purposes of these Terms: </p>
+                  <ul>
+                    <li><strong>InvoiceHub</strong> means the InvoiceHub software platform, website, applications, APIs, and related services provided by OfficeHub Inc. </li>
+                    <li><strong>Tenant</strong> means the business, organization, or legal entity that subscribes to InvoiceHub. </li>
+                    <li><strong>Authorized User</strong> means any employee, contractor, or representative authorized by the Tenant to access InvoiceHub. </li>
+                    <li><strong>End Customer</strong>  means a customer of the Tenant who receives an estimate, invoice, or payment request through InvoiceHub. End Customers are not parties to these Terms. </li>
+                    <li><strong>Customer Data</strong> means all information, documents, files, invoices, estimates, contacts, payment records, and other content submitted to InvoiceHub by or on behalf of the Tenant.</li>
 
-        <div className="privacy-lst">
-          <h4>Use of Software.</h4>
-          <p>
-            <b>2.1</b> <strong>License.</strong> Subject to all other terms and conditions of this Agreement and payment of the license fee designated in the Ordering Document, Invoice HUB grants Customer and Authorized Users a non-exclusive, non-transferable and non-sublicensable (except as provided in Section 2.2) license to use the Software. The total count of Authorized Users enabled to use the Software must not exceed the number of licenses purchased on the applicable Ordering Document(s).
-          </p>
-          <p>
-            <b>2.2</b> <strong>Sublicense.</strong> Customer may sublicense access to the Software to its subcontractors on Customer's behalf and solely for Customer's direct beneficial purpose, provided that: (a) Customer is responsible for ensuring that any such subcontractor(s) agrees to abide by and fully comply with the terms of this Agreement as they relate to the use of the Software, on the same basis as applies to Customer; (b) such use does not represent or constitute an increase in the scope or number of licenses provided hereunder; and (c) Customer shall remain fully liable for any and all acts or omissions by the subcontractor(s) related to this Agreement.
-          </p>
-          <p>
-            <b>2.3</b> <strong>Third Party Code.</strong> The Software may contain or be provided with components which are licensed from third parties (Third Party Code), including components subject to the terms and conditions of “open source” software licenses (Open Source Software). Open Source Software may be identified in the Documentation, or in a list of the Open Source Software provided to you upon your written request. To the extent required by the license that accompanies the Open Source Software, the terms of such license will apply in lieu of the terms of this Agreement with respect to such Open Source Software, including, without limitation, any provisions governing access to source code, modification or reverse engineering.
-          </p>
-        </div>
+                  </ul>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Restrictions.</h4>
-          <p>
-            <b>3.1</b> Customer and Authorized Users shall not (and shall not allow any third party to): (a) decompile, disassemble, or otherwise reverse engineer the Software or Third Party Code or attempt to reconstruct or discover any source code, underlying ideas, algorithms, file formats or programming interfaces of the Software or Third Party Code by any means whatsoever; (b) distribute, sell, sublicense, rent, lease or use the Software, or Third Party Code (or any portion thereof) for time sharing, hosting, service provider or like purposes, except as explicitly permitted under Section 2.2 of this Agreement; (c) remove any product identification, proprietary copyright, trademark, service mark, or other notices contained in the Software; (d) modify any part of the Software or Third Party Code, create a derivative work of any part of the Software or Third Party Code, or incorporate the Software or Third Party Code into or with other software; (e) utilize any equipment, device, software, or other means designed to circumvent or remove any form of copy protection used by Invoice HUB in connection with the Software, or use the Software together with any authorization code, serial number, or other copy protection device not supplied by Invoice HUB; (f) use the Software to develop a commercial product or service offering; (or g) use the Software to upload, post, host, or transmit unsolicited bulk email “Spam”, short message service “SMS” messages, viruses, self-replicating computer programs “Worms” or any code of a destructive or malicious nature.
-          </p>
-          <p>
-            <b>3.2</b> Customer acknowledges that the Software is not intended for use with protected health information under HIPAA, credit card numbers, financial account numbers, or other similarly sensitive personal information, and that Customer assumes all risk arising from use of any such sensitive information with the System, including the risk of any inadvertent disclosure or unauthorized access thereto. Customer is responsible for ensuring that Customer and Authorized Users' use of the Software is in compliance with all applicable laws and governmental regulations and Customer acknowledges that Customer assumes all risk arising from any such use that is not compliant with applicable laws and regulations.
-          </p>
-        </div>
+                <div className="card" id="accounts">
+                  <h2>2. Accounts and Subscription</h2>
+                  <p>To access InvoiceHub, the Tenant must create an account and provide accurate, complete, and current information. The Tenant is responsible for maintaining the confidentiality of account credentials and for all activities that occur under its account. The Tenant shall ensure that only Authorized Users access the Service and that each Authorized User complies with these Terms.</p>
+                  <p>Subject to compliance with these Terms and payment of applicable subscription fees, OfficeHub Inc. grants the Tenant a limited, non-exclusive, non-transferable, revocable license to access and use InvoiceHub for its internal business operations during the active subscription period.
+                    OfficeHub Inc. reserves the right to suspend or terminate accounts that violate these Terms or applicable law.</p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Ownership</h4>
-          <p>
-            Notwithstanding anything to the contrary contained herein, except for the limited license rights expressly provided herein, Invoice HUB and its licensors have and will retain all rights, title and interest (including, without limitation, all patent, copyright, trademark, trade secret and other intellectual property rights) in and to the Software, Third Party Code, and all copies, modifications and derivative works thereof (including any changes which incorporate any of your ideas, feedback or suggestions). Customer acknowledges that it is obtaining only a limited license right to the Software and Third Party Code and that irrespective of any use of the words purchase, sale or like terms hereunder no ownership rights are being conveyed to Customer under this Agreement or otherwise.
-          </p>
-        </div>
+                <div className="card" id="use-of-service">
+                  <h2>3. Subscription Fees and Billing</h2>
+                  <p>InvoiceHub is provided on a subscription basis. By subscribing to the Service, the Tenant agrees to pay all applicable subscription fees and taxes associated with the selected subscription plan.
+                    Subscription fees are billed in advance using the payment method provided by the Tenant. Unless otherwise agreed in writing, all fees are non-refundable and exclusive of applicable taxes. </p>
+                  <p>Subscriptions may automatically renew at the end of each billing period unless cancelled before the renewal date. The Tenant may cancel the subscription at any time; however, cancellation will take effect at the end of the current subscription term unless otherwise required by applicable law.
+                    If a payment cannot be processed or remains overdue, OfficeHub Inc. may suspend or terminate access to the Service until all outstanding amounts have been paid. </p>
+                  <p>Online payments received from the Tenant's customers are governed by the <strong>Invoice Hub Payment Terms</strong> and are processed by authorized third-party payment providers.</p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Access.</h4>
-          <p><b>5.1</b> Customer shall designate one or more Administrators. Administrators shall be responsible for managing access by Authorized Users, including adding or removing them, and controlling different permission levels.</p>
-          <p><b>5.2</b> Only Authorized Users are permitted to access the Software. Authorized Users are required to provide their full legal name, a valid email address, and any other information reasonably requested by the Service.</p>
-          <p><b>5.3</b> Each Authorized User will be provided with a unique identifier to access and use the Service (“Username”). The Username shall only be used by the Authorized User to whom it is assigned, and shall not be shared with, or used by any other person, including other Authorized Users. Authorized User is solely responsible for the safety of their login credentials.</p>
-          <p><b>5.4</b> Administrators are responsible for all use of the Software by Authorized Users on the list of active Authorized Users associated with their subscription to the Software.</p>
-          <p><b>5.5</b> Invoice HUB reserves the right at any time, and from time to time, to modify or discontinue, temporarily or permanently, any feature associated with the Software, with or without notice, except that Invoice HUB shall provide Customer with 10-days’ notice of any modification that materially reduces the functionality of the Software. Continued use of the Software following any modification constitutes Customer’s acceptance of the modification.</p>
-          <p><b>5.6</b> Invoice HUB reserves the right to temporarily suspend access to the Software for operational purposes, including, but not limited to, maintenance, repairs or installation of upgrades, and will endeavor to provide no less than two business days’ notice prior to any such suspension. Further, Invoice HUB shall endeavor to confine planned operational suspensions with a best effort to minimize disruption to the Subscriber, but reserves the ability to temporarily suspend operations without notice at any time to complete necessary repairs.</p>
-        </div>
+                <div className="card" id="TenantResponsibilities">
+                  <h2>4. Tenant Responsibilities</h2>
+                  <p>The Tenant is responsible for its use of InvoiceHub and for ensuring that all Authorized Users comply with these Terms.</p>
+                  <p>The Tenant agrees to:</p>
+                  <ul>
+                    <li>Maintain accurate account and billing information. </li>
+                    <li>Protect account credentials and prevent unauthorized access. </li>
+                    <li>Ensure that Customer Data entered into the Service is accurate and lawfully obtained. </li>
+                    <li>Use the Service only for legitimate business purposes and in compliance with applicable laws and regulations. </li>
+                    <li>Promptly notify OfficeHub Inc. of any suspected unauthorized access or security incident involving its account. </li>
+                  </ul>
+                  <h3>The Tenant shall not:</h3>
+                  <ul>
+                    <li>Use the Service for fraudulent, illegal, or deceptive activities. </li>
+                    <li>Attempt to gain unauthorized access to the Service or another Tenant's account. </li>
+                    <li>Reverse engineer, copy, modify, or distribute the Service except as permitted by applicable law. </li>
+                    <li>Upload or transmit malicious software, viruses, or harmful code. </li>
+                    <li>Interfere with the security, integrity, or availability of the Service. </li>
+                  </ul>
+                  <p>The Tenant is solely responsible for the activities of its Authorized Users and for all content submitted through its account. </p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Customer Data.</h4>
-          <p><b>6.1</b> Customer owns all right, title and interest in the Customer Data. Customer hereby grants to Invoice HUB, a non-exclusive, non-transferable (except as set forth in Section 12 below), non-sublicensable right and license to use, copy, transmit, modify and display the Customer Data solely for purposes of performing Invoice HUB’s obligations under the Agreement in accordance with the terms of the Agreement. Such rights shall include permission for Invoice HUB to generate and publish aggregate, anonymized reports on system usage and Content trends and type.</p>
-          <p><b>6.2</b> Customer Data is backed up for 7 days only. Invoice HUB can help retrieve any customer content generated within 7 days prior to the request date, but not before that.</p>
-        </div>
+                <div className="card" id="CustomerData">
+                  <h2>5. Customer Data and Privacy</h2>
+                  <p>The Tenant retains ownership of all Customer Data stored or processed through InvoiceHub. OfficeHub Inc. will access, process, and store Customer Data only as necessary to provide, maintain, secure, and improve the Service, or as required by applicable law.</p>
+                  <p>The Tenant is responsible for ensuring that it has obtained all necessary rights, permissions, and consents required to collect, store, and process Customer Data using InvoiceHub.
+                    The collection and processing of personal information are governed by the <strong>Invoice Hub Privacy Policy</strong>, which forms part of these Terms.
+                    Both the Tenant and OfficeHub Inc. agree to protect confidential information received from the other party and to use such information only for purposes related to the Service.</p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Confidentiality</h4>
-          <p>
-            Customer will treat the Software, documentation, or technical information and other materials distributed with the Software by Invoice HUB as confidential information ("Confidential Information"), and handle it with the same degree of care to prevent its unauthorized disclosure, that Customer accords to its own confidential information, but in no event with less than reasonable care. Customer's obligations of confidentiality under this Section shall terminate to the extent that Customer can document that the Confidential Information was in the public domain at or prior to the time it was communicated to Customer by Invoice HUB through no fault of Customer. Customer may also disclose the Confidential Information in response to a valid order by a court or other governmental body, when otherwise required by law, or when necessary to establish the rights of either party under this Agreement, provided Customer gives Invoice HUB advance written notice thereof. Customer acknowledges that disclosure of Confidential Information would cause substantial harm for which damages alone would not be a sufficient remedy, and therefore that upon any such disclosure by the Customer, Invoice HUB shall be entitled to appropriate equitable relief in addition to whatever other remedies it might have at law.
-          </p>
-        </div>
+                <div className="card" id="ThirdPartyServices">
+                  <h2>6.  Third-Party Services</h2>
+                  <p>InvoiceHub may integrate with third-party services, including payment providers, accounting platforms, cloud hosting providers, and email service providers.
+                    These services are operated independently and are governed by their own terms and privacy policies. </p>
+                  <p>OfficeHub Inc. is not responsible for the availability, performance, security, or practices of third-party services. The Tenant's use of such services is at its own discretion and subject to the applicable third-party terms. </p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Warranty Disclaimer</h4>
-          <p>
-            TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, INVOICE HUB PROVIDES THE SOFTWARE AND ANY ASSOCIATED DOCUMENTS AND/OR SERVICES, AS-IS, WITH ALL FAULTS, WITHOUT ANY WARRANTIES OF ANY KIND, EXPRESS, IMPLIED, WHETHER BY STATUTE, COMMON LAW, CUSTOM, USAGE, OR OTHERWISE AS TO ANY MATTER, INCLUDING BUT NOT LIMITED TO PERFORMANCE, SECURITY, INTEGRATION, MERCHANTABILITY, QUIET ENJOYMENT, SATISFACTORY QUALITY, AND FITNESS FOR ANY PARTICULAR PURPOSE, COMPLETENESS, AND/OR ACCURACY. INVOICE HUB DOES NOT WARRANT THAT THE SOFTWARE AND ANY ASSOCIATED DOCUMENT AND/OR SERVICES, WILL BE ERROR-FREE OR THAT IT WILL MEET CUSTOMER'S REQUIREMENTS OR THAT THE OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED, TIMELY, SECURE OR ERROR-FREE, OR THAT ERRORS IN THE SOFTWARE OR NONCONFORMITY TO ITS DOCUMENTATION CAN OR WILL BE CORRECTED.
-          </p>
-        </div>
+                <div className="card" id="IntellectualProperty">
+                  <h2>7.  Intellectual Property</h2>
+                  <p>InvoiceHub, including its software, website, applications, documentation, trademarks, logos, designs, and all related intellectual property, is owned by or licensed to OfficeHub Inc. and is protected by applicable intellectual property laws.</p>
+                  <p>Except for the limited right to use the Service under these Terms, no ownership rights are granted to the Tenant.
+                    Any feedback, suggestions, or ideas provided by the Tenant regarding InvoiceHub may be used by OfficeHub Inc. without restriction or obligation to provide compensation.</p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>LIMITED LIABILITY.</h4>
-          <p>
-            CUSTOMER AGREES THAT THE LIABILITY OF INVOICE HUB ARISING OUT OF ANY CLAIM IN ANY WAY CONNECTED WITH THE SERVICE WILL NOT EXCEED THE TOTAL AMOUNT YOU HAVE PAID FOR THE SERVICE PURSUANT TO THE AGREEMENT WITHIN THE SIX MONTH PERIOD BEFORE THE DATE THE CLAIM AROSE. CUSTOMER FURTHER AGREES THAT, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, INVOICE HUB WILL NOT BE LIABLE TO CUSTOMER FOR ANY LOSS, DAMAGES, CLAIMS, OR COSTS WHATSOEVER INCLUDING ANY CONSEQUENTIAL, INDIRECT OR INCIDENTAL DAMAGES, ANY LOST PROFITS OR LOST DATA, ANY DAMAGES RESULTING FROM BUSINESS INTERRUPTION, PERSONAL INJURY OR FAILURE TO MEET ANY DUTY OF CARE, OR CLAIMS BY A THIRD PARTY, EVEN IF A INVOICE HUB REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS, DAMAGES, CLAIMS, OR COSTS. THIS LIMITATION WILL APPLY EVEN IN THE EVENT OF A FUNDAMENTAL OR MATERIAL BREACH OF THIS AGREEMENT.
-          </p>
-        </div>
+                <div className="card" id="Warranties">
+                  <h2>8. Disclaimer of Warranties</h2>
+                  <p>InvoiceHub is provided on an <strong>"AS IS" and "AS AVAILABLE"</strong> basis.</p>
+                  <p>To the fullest extent permitted by applicable law, OfficeHub Inc. disclaims all warranties, whether express, implied, statutory, or otherwise, including any implied warranties of merchantability, fitness for a particular purpose, non-infringement, and uninterrupted availability.</p>
+                  <p>While OfficeHub Inc. uses commercially reasonable efforts to maintain the reliability and security of the Service, we do not guarantee that the Service will be uninterrupted, error-free, or suitable for every business requirement.</p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Indemnification.</h4>
-          <p>
-            <strong>a.</strong> Indemnification by Customer. Customer shall defend Invoice HUB from and against all third party claims, arising from or relating to (i) any breach by Customer, its Sublicensees, or Authorized Users, of this Agreement, and (ii) Customers' use of the Software, and Customer shall indemnify and hold Invoice HUB harmless from and against any damages and costs awarded against Invoice HUB or agreed in settlement by Customer (including reasonable attorneys’ fees) resulting from such claims, provided that Customer shall have received from Invoice HUB: (i) prompt written notice of such claim; (ii) the exclusive right to control and direct the investigation, defense, and settlement (if applicable) of such claim; and (iii) all reasonably necessary cooperation.
-          </p>
-          <p>
-            <strong>b.</strong> Indemnification by Invoice HUB. Invoice HUB shall defend Customer from and against any claim by a third party alleging that the Software when used as authorized under this Agreement infringes a U.S. patent, U.S. copyright, or U.S. trademark, and indemnify and hold Customer harmless from and against any damages and costs awarded against Customer or agreed in settlement by Invoice HUB (including reasonable attorneys’ fees) resulting from such claims, provided that Invoice HUB shall have received from Customer: (i) reasonable written notice of such claim; (ii) the exclusive right to control and direct the investigation, defense, and settlement (if applicable) of such claim; and (iii) all reasonably necessary cooperation from Customer.
-          </p>
-        </div>
+                <div className="card" id="Liability">
+                  <h2>9. Limitation of Liability</h2>
+                  <p>To the maximum extent permitted by applicable law, OfficeHub Inc. shall not be liable for any indirect, incidental, consequential, special, or punitive damages arising from or relating to the use of, or inability to use, Invoice Hub. </p>
+                  <p>This includes, but is not limited to:</p>
+                  <ul>
+                    <li>Loss of profits or revenue;  </li>
+                    <li>Loss of business opportunities;  </li>
+                    <li>Loss or corruption of data;  </li>
+                    <li>Business interruption; or  </li>
+                    <li>Claims arising from third-party services.  </li>
+                  </ul>
+                  <p>Except where prohibited by law, OfficeHub Inc.'s total liability under these Terms shall not exceed the subscription fees paid by the Tenant during the six (6) months preceding the event giving rise to the claim.</p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Term and Termination.</h4>
-          <p><b>11.1</b> This Agreement shall remain in effect for the subscription period chosen by Customer in the Offering Document, and renew automatically if Customer opts to renew such subscription.</p>
-          <p><b>11.2</b> Either party may terminate this Agreement: (i) non-payment by Customer of any delinquent amounts hereunder within 10 days of written notice; (ii) immediately upon breach of Sections 3 and 7; (iii) if the other party has committed any other material breach of obligations and has failed to cure such breach within 30 days of written notice; or (iv) upon the institution of bankruptcy or state law insolvency against the other party.</p>
-        </div>
+                <div className="card" id="Suspension">
+                  <h2>10. Suspension and Termination</h2>
+                  <p>OfficeHub Inc. may suspend or terminate the Tenant's access to InvoiceHub if: </p>
+                  <ul>
+                    <li>Subscription fees remain unpaid;   </li>
+                    <li>The Tenant materially breaches these Terms; </li>
+                    <li>The Service is used for unlawful or fraudulent activities;  </li>
+                    <li>Continued access poses a security risk; or  </li>
+                    <li>Suspension or termination is required by applicable law.</li>
+                  </ul>
+                  <p>The Tenant may cancel its subscription at any time. Cancellation does not relieve the Tenant of any outstanding payment obligations incurred before the effective date of termination.
+                    Upon termination, OfficeHub Inc. may retain or delete Customer Data in accordance with the InvoiceHub Privacy Policy and applicable legal requirements.</p>
+                </div>
+                <div className="card" id="GeneralTerms">
+                  <h2>11. General Terms</h2>
+                  <p>These Terms, together with the InvoiceHub Privacy Policy and any applicable Subscription Agreement or Order Form, constitute the entire agreement between the Tenant and OfficeHub Inc. regarding the use of InvoiceHub.
+                    If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.  </p>
+                  <p>OfficeHub Inc. may update these Terms from time to time. Any material changes will be posted on the InvoiceHub website or communicated through the Service. Continued use of InvoiceHub after such changes become effective constitutes acceptance of the revised Terms.
+                    These Terms shall be governed by the laws of the <strong>State of Washington, United States</strong>, without regard to its conflict of law principles. </p>
+                </div>
 
-        <div className="privacy-lst">
-          <h4>Miscellaneous</h4>
-          <p><strong>Force Majeure.</strong> Neither party shall be liable to the other for any delay or failure to perform any obligation under this Agreement (except for a failure to pay fees) if the delay or failure is due to unforeseen events, which occur after the signing of this Agreement and which are beyond the reasonable control of the parties, such as strikes, blockade, war, terrorism, riots, natural disasters, or refusal of license by the government.</p>
-          <p><strong>Severability.</strong> If any provision of this Agreement shall be adjudged by any court of competent jurisdiction to be unenforceable or invalid, that provision shall be limited to the minimum extent necessary so that this Agreement shall otherwise remain in effect.</p>
-          <p><strong>Applicable Law; Venue.</strong> Excluding conflict of laws rules, this Agreement shall be governed by and construed under the laws of the State of Washington, U.S. All disputes arising out of or in relation to this Agreement shall be submitted to the exclusive jurisdiction of the courts of King County, Washington or the federal courts in Washington State.</p>
-        </div>
-
-        <div className="privacy-lst">
-          <p className="mt-2"><strong>Effective Date:</strong> August 1st, 2025</p>
+                <div className="contact-box" id="contact">
+                  <h2>Contact Us</h2>
+                  <p>If you have any questions regarding these Terms of Service, please contact: </p>
+                  <p><strong>OfficeHub Inc.</strong></p>
+                  <p>📧 Email: <a href="mailto:support@invoicehub360.com">support@invoicehub360.com</a></p>
+                  {/* <p>🌐 Website:
+                    <a href="https://www.invoicehub360.com" target="_blank" rel="noopener noreferrer">
+                      www.invoicehub360.com
+                    </a>
+                  </p> */}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

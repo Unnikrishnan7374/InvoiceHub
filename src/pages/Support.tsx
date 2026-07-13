@@ -109,11 +109,11 @@ export default function Support() {
 
       <section className="bottom-cta clearfix">
         <div className="container">
-          <div className="logoimg">
-            <img src="images/Logoimg.png" className="img-fluid" alt="Logo" />
-          </div>
           <img src="images/bg_red.svg" className="img-fluid svgimg" alt="" />
           <div className="rtcntnt">
+            <div className="logoimg">
+              <img src="images/Logoimg.png" className="img-fluid" alt="Logo" />
+            </div>
             <h4>Ready to streamline your business? <Link to="/contact" className="themeBtn btn-animate">Contact</Link></h4>
           </div>
         </div>

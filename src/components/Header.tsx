@@ -89,23 +89,23 @@ export default function Header() {
                 <Link to="/">
                   <img src="/images/Logoimg.png" className="img-fluid" alt="Invoice HUB logo" />
                   <div className="logo-text">
-                    <h1>Invoice HUB</h1>
+                    <h1>Invoice HUB 360</h1>
                   </div>
                 </Link>
               </div>
             </div>
-            
+
             <div className="col-lg-9 col-md-9 col-sm-6">
               <div className="menu-sec clearfix">
                 <nav id="menu">
-                  <div 
-                    id="burgernav" 
-                    className={isMobileMenuOpen ? 'open' : ''} 
+                  <div
+                    id="burgernav"
+                    className={isMobileMenuOpen ? 'open' : ''}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   >
                     <span></span>
                   </div>
-                  
+
                   <ul className={isMobileMenuOpen ? 'open' : ''}>
                     <li className="has-sub">
                       <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
@@ -121,12 +121,12 @@ export default function Header() {
                       <NavLink to="/features" className={({ isActive }) => isActive ? 'active' : ''}>
                         Features
                       </NavLink>
-                      <p 
+                      <p
                         className={`submenu-button ${activeSubmenu === 'features' ? 'mobile-nav-minus' : 'mobile-nav-plus'}`}
                         onClick={() => toggleSubmenu('features')}
                       ></p>
-                      <ul 
-                        className="inner-nav-div" 
+                      <ul
+                        className="inner-nav-div"
                         style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
                       >
                         <li>
@@ -143,17 +143,17 @@ export default function Header() {
                         </li>
                       </ul>
                     </li>
-                    
+
                     <li className={`has-sub supportmnu ${activeSubmenu === 'support' ? 'par-active' : ''}`}>
                       <NavLink to="/support" className={({ isActive }) => isActive ? 'active' : ''}>
                         Support
                       </NavLink>
-                      <p 
+                      <p
                         className={`submenu-button ${activeSubmenu === 'support' ? 'mobile-nav-minus' : 'mobile-nav-plus'}`}
                         onClick={() => toggleSubmenu('support')}
                       ></p>
-                      <ul 
-                        className="inner-nav-div" 
+                      <ul
+                        className="inner-nav-div"
                         style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
                       >
                         <li>
@@ -166,37 +166,40 @@ export default function Header() {
                         </li>
                       </ul>
                     </li>
-                    
+
                     <li className="has-sub">
                       <NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>
                         Contact
                       </NavLink>
                     </li>
-                    
+
                     <li className="signup">
-                      <Link to="/register">Sign Up</Link>
+                      <Link
+                        to="/business-onboarding"
+                        target="_blank"
+                        rel="noopener noreferrer"> Sign Up</Link>
                     </li>
-                    
+
                     <li className={`login has-sub ${isLoginDropdownOpen ? 'show' : ''}`}>
-                      <a 
-                        className="dropdown-toggle" 
+                      <a
+                        className="dropdown-toggle"
                         onClick={() => setIsLoginDropdownOpen(!isLoginDropdownOpen)}
                         style={{ cursor: 'pointer' }}
                       >
                         Login
                       </a>
-                      <div 
+                      <div
                         className={`login-popup dropdown-menu ${isLoginDropdownOpen ? 'show' : ''}`}
                         style={{ display: isLoginDropdownOpen ? 'block' : 'none' }}
                       >
                         <form onSubmit={handleLoginSubmit}>
                           <div className="form-group">
-                            <input 
-                              type="text" 
-                              value={orgName} 
-                              onChange={(e) => setOrgName(e.target.value)} 
-                              placeholder="" 
-                              required 
+                            <input
+                              type="text"
+                              value={orgName}
+                              onChange={(e) => setOrgName(e.target.value)}
+                              placeholder=""
+                              required
                             />
                             <p>.invoiceHub360.com</p>
                             <button type="submit">Go</button>
@@ -215,10 +218,10 @@ export default function Header() {
 
       {/* Floating Pop-over Contact Form */}
       <div className={`pop-over ${isPopoverOpen ? 'popover-open' : ''}`}>
-        <button 
-          tabIndex={0} 
-          type="button" 
-          className="popover-btn" 
+        <button
+          tabIndex={0}
+          type="button"
+          className="popover-btn"
           onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         >
           {isPopoverOpen ? (
@@ -230,43 +233,43 @@ export default function Header() {
         <div className="popover-body">
           <h6>Contact Us <span>We'll respond as soon as we can.</span></h6>
           <div className="contactform">
-            <form onSubmit={handleContactSubmit} autoComplete="off" className="validateForm">
+            <form action="https://formspree.io/f/xaqryjen" method="POST" className="validateForm">
               <div className="row">
                 <div className="form-group col-md-12">
-                  <input 
-                    type="text" 
-                    className="form-control" 
-                    value={contactName} 
-                    onChange={(e) => setContactName(e.target.value)} 
-                    required 
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={contactName}
+                    onChange={(e) => setContactName(e.target.value)}
+                    required
                   />
                   <label className={contactName ? 'active' : ''}>Name <span className="asterisk">*</span></label>
                 </div>
                 <div className="form-group col-md-12">
-                  <input 
-                    type="tel" 
-                    className="form-control phone" 
-                    value={contactPhone} 
-                    onChange={handlePhoneInput} 
-                    required 
+                  <input
+                    type="tel"
+                    className="form-control phone"
+                    value={contactPhone}
+                    onChange={handlePhoneInput}
+                    required
                   />
                   <label className={contactPhone ? 'active' : ''}>Phone <span className="asterisk">*</span></label>
                 </div>
                 <div className="form-group col-md-12">
-                  <input 
-                    type="email" 
-                    className="form-control email" 
-                    value={contactEmail} 
-                    onChange={(e) => setContactEmail(e.target.value)} 
-                    required 
+                  <input
+                    type="email"
+                    className="form-control email"
+                    value={contactEmail}
+                    onChange={(e) => setContactEmail(e.target.value)}
+                    required
                   />
                   <label className={contactEmail ? 'active' : ''}>Email <span className="asterisk">*</span></label>
                 </div>
                 <div className="form-group col-md-12">
-                  <textarea 
-                    value={contactMessage} 
-                    onChange={(e) => setContactMessage(e.target.value)} 
-                    className="form-control" 
+                  <textarea
+                    value={contactMessage}
+                    onChange={(e) => setContactMessage(e.target.value)}
+                    className="form-control"
                     required
                   ></textarea>
                   <label className={contactMessage ? 'active' : ''}>Message <span className="asterisk">*</span></label>

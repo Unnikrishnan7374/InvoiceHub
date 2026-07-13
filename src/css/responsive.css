@@ -18,7 +18,8 @@
 
     header,
     .innerTitle.fixed,
-    footer {
+    footer,
+    .dtlsban.fixed .nav-tabs {
         width: 1980px;
         margin: 0 auto;
         right: 0px;
@@ -27,6 +28,10 @@
     #toTop,
     .pop-over {
         right: calc((100vw - 1981px) / 2 - -10px);
+    }
+
+    .dtlsban.fixed .nav-tabs {
+        top: 65px;
     }
 
     .overview img {
@@ -358,6 +363,10 @@
     .pricing .price-box {
         min-height: 582px;
     }
+
+    .bottom-cta {
+        width: 60%;
+    }
 }
 
 /*Media Screen 1280*/
@@ -422,6 +431,19 @@
     .features .circle-wrapper:before {
         height: 95px;
         width: 95px;
+    }
+
+    .features-container {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .abtbtm {
+        padding: 30px 3%;
+    }
+
+    .bottom-cta {
+        width: 75%;
     }
 }
 
@@ -501,6 +523,47 @@
 
     .invoice .left li:nth-child(1) {
         width: 50%;
+    }
+
+    .why-exists-banner {
+        padding: 0px 15px !important;
+    }
+
+    .why-exists-banner .why-cards {
+        gap: 10px !important;
+        padding: 14px 5px 36px !important;
+
+    }
+
+    .why-exists-banner .why-cards .why-card {
+        padding: 0 5px !important;
+    }
+
+    .aboutFeatures {
+        padding: 25px 15px 35px;
+    }
+
+    .logo-text h1 {
+        font-size: 19px;
+        padding-top: 0px;
+    }
+
+    .dtlsban.fixed .nav-tabs {
+        top: 47px;
+    }
+
+    .features-container {
+        grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+        gap: 10px;
+    }
+
+    .vision-image img {
+        width: 90%;
+    }
+
+    .abtbtm-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
     }
 }
 
@@ -590,8 +653,6 @@
         padding-right: 146px
     }
 
-    .login .login-popup button {}
-
     .login .login-popup p {
         right: 75px;
     }
@@ -609,11 +670,13 @@
     header .col-lg-3 {
         width: 50%;
         float: left;
+        max-width: 45%;
     }
 
     header .col-md-9 {
         width: 50%;
         float: right;
+        max-width: 55%;
     }
 
     .logo {
@@ -743,9 +806,13 @@
         font-size: 25px;
     }
 
+    .invoice.two {
+        padding: 10px 10px;
+    }
+
     .invoice.two .right {
         width: 100%;
-        padding: 15px 0px 0px 20px;
+        padding: 0px 0px 0px 0px;
     }
 
     .invoice.two .left {
@@ -823,12 +890,12 @@
         width: 100%;
     }
 
-    .bottom-cta .rtcntnt {
-        width: 80%;
-    }
-
     .dtlsban.fixed .prvnxt-art {
-        display: none;
+        right: 0px;
+        top: 70px;
+        background-color: #dce2ff;
+        padding: 0px 5px;
+        border-radius: 10px;
     }
 
     .dtlstext .prvnxt-art a {
@@ -873,6 +940,51 @@
 
     .innerFeatures {
         padding: 0px 35px 0px;
+    }
+
+    .compareFuatures {
+        padding: 15px 0%;
+    }
+
+    .dtlsban .dtlstext p {
+        width: 70%;
+    }
+
+    .aboutPge .invoice .right {
+        padding: 5px 20px 0px 20px !important;
+    }
+
+    .features-container {
+        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        gap: 15px;
+    }
+
+    .abtbtm-grid {
+        grid-template-columns: repeat(auto-fit, minmax(252px, 1fr));
+        gap: 15px;
+    }
+
+    .abtbtm-grid .list {
+        margin-bottom: 40px;
+    }
+
+    .vision-section {
+        padding: 20px 20px;
+    }
+
+    .vision-wrapper {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .vision-image img {
+        width: 60%;
+    }
+
+    .bottom-cta .svgimg {
+        width: 17%;
+        top: -15px;
+        left: 9px;
     }
 }
 
@@ -951,10 +1063,7 @@
         padding: 7px 10px 15px;
     }
 
-    .bottom-cta .rtcntnt {
-        width: 94%;
-        padding-left: 85px;
-    }
+    .bottom-cta .rtcntnt {}
 
     .copyrights .privacylink {
         margin-left: 0;
@@ -1138,7 +1247,7 @@
 
     .aboutFeatures h2 {
         font-size: 27px;
-        margin-bottom: 7px;
+        margin-bottom: 20px;
     }
 
     .blogList {
@@ -1323,6 +1432,50 @@
     .feature-card {
         padding: 10px 10px !important;
     }
+
+    header .col-lg-3 {
+        max-width: 50%;
+    }
+
+    header .col-md-9 {
+        max-width: 50%;
+    }
+
+    .invoice.two {
+        padding: 6px 5px;
+    }
+
+    .compareFuatures table {
+        border: 1px solid #ccc;
+        display: block;
+        width: 100% 329.25px;
+        overflow-x: auto;
+    }
+
+    .pricing .price-box {
+        min-height: inherit;
+    }
+
+    .why-exists-banner .why-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0px !important;
+        padding: 10px 6px 15px !important;
+    }
+
+    .why-exists-banner .why-cards .why-card {
+        padding: 14px 16px !important;
+        border-bottom: 1px solid #1a73e7 !important;
+    }
+
+    .why-exists-banner .why-cards .why-card:last-child {
+        border-bottom: none !important;
+    }
+
+    .ManagecustomersBlog .invoice img,
+    .listone img {
+        width: 50%;
+        max-width: 50% !important;
+    }
 }
 
 /*Media Screen 568*/
@@ -1347,10 +1500,6 @@
 
     .aboutFeatures .feature-card h3 {
         font-size: 19px;
-    }
-
-    .bottom-cta .svgimg {
-        top: -60px;
     }
 
     .bottom-cta .logoimg {
@@ -1452,6 +1601,13 @@
 
     header .col-lg-3 {
         padding-left: 5px;
+        width: 65%;
+        max-width: 65%;
+    }
+
+    header .col-lg-9 {
+        width: 35%;
+        max-width: 35%;
     }
 
     .invoice .left {
@@ -1486,10 +1642,6 @@
 
     .login .login-popup p {
         font-size: 14px;
-    }
-
-    .bottom-cta .rtcntnt {
-        margin-left: -110px;
     }
 
     .aboutFeatures h2 {
@@ -1529,18 +1681,13 @@
         margin-bottom: 0px;
     }
 
+    .bottom-cta .svgimg {
+        width: 35%;
+    }
 }
 
 /*Media Screen 378*/
 @media screen and (max-width:378px) {
-    header .col-lg-3 {
-        width: 51%;
-    }
-
-    header .col-md-9 {
-        width: 49%;
-    }
-
     #menu>ul.open {
         width: 355px;
     }

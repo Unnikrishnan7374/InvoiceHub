@@ -15,7 +15,6 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
   transition: background-color 0.3s ease;
 }
@@ -421,7 +420,6 @@ body {
 .features .features-grid li {
   all: unset;
   display: block;
-  box-shadow: 3px 0px 7px 0px rgba(142, 129, 129, 0.55) !important;
   border-radius: 20px;
 }
 
@@ -447,7 +445,7 @@ body {
   height: 100% !important;
   justify-content: space-between !important;
   box-sizing: border-box !important;
-  // box-shadow: 3px 0px 7px 0px rgba(142, 129, 129, 0.55) !important;
+  box-shadow: 3px 0px 7px 0px rgba(142, 129, 129, 0.55) !important;
 
   &:hover {
     border-radius: 0px 10px 10px 0px;
@@ -482,7 +480,7 @@ body {
     border-top-right-radius: 18px;
     pointer-events: none;
     z-index: -1;
-    transition: transform 0.2s ease;
+    transition: all 0.6s linear;
   }
 
   /* Bottom-Left Accent Curve */
@@ -531,12 +529,11 @@ body {
 
 .feature-card h3 {
   color: #1c2732;
-  /* Dark header text */
   font-size: 16px;
   line-height: 22px;
-  font-weight: 700;
-  margin: 5px 0 0px 0;
-  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500;
+  margin: 9px 0 0px 0;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .read-more-btn {
@@ -553,5 +550,311 @@ body {
   .arrow {
     transition: transform 0.2s ease !important;
     font-size: 14px !important;
+  }
+}
+
+
+/* ============================================================================
+   Privacy Policy (.authPage) Custom Styling
+   ============================================================================ */
+
+.authPage {
+  .top {
+    color: #000000;
+    padding: 20px 20px 45px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #efefef;
+    border: 1px solid #e4e4e4;
+
+    h1 {
+      font-size: 38px !important;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #3577f1;
+    }
+
+    p {
+      font-size: 18px;
+      opacity: .95;
+    }
+  }
+
+  .containers {
+    margin: -45px auto 60px;
+    padding: 0 20px;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .sidebar {
+    width: 330px;
+    position: sticky;
+    top: 80px;
+    /* Offset to clear the sticky header */
+    max-height: calc(100vh - 100px);
+    // overflow-y: auto;
+  }
+
+  .toc {
+    background-color: var(--theme-color) !important;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .08);
+    border: 1px solid #e4e4e4;
+
+    h3 {
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+      width: 100%;
+      border-left: 3px solid transparent;
+      padding-left: 8px;
+
+      &.active {
+        color: #ffffff !important;
+        font-weight: 700;
+        border-left: 4px solid #ffffff;
+      }
+
+      &:hover {
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .06);
+    border: 1px solid #e4e4e4;
+
+    h2 {
+      color: #3577f1;
+      margin-bottom: 10px;
+      font-size: 27px !important;
+    }
+
+    h3 {
+      margin-top: 0px;
+      margin-bottom: 7px;
+      color: #111827;
+      font-size: 19px !important;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  ul {
+    padding-left: 22px;
+    margin-bottom: 15px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .notice {
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .contact-box {
+    background-color: var(--theme-color) !important;
+    color: #fff;
+    padding: 35px;
+    border-radius: 18px;
+    margin-top: 35px;
+
+    h2 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+}
+
+@media(max-width:960px) {
+  .authPage {
+    .wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: relative;
+      top: 0;
+    }
+
+    .top h1 {
+      font-size: 34px;
+    }
+
+    .card {
+      padding: 25px;
+    }
+  }
+}
+
+@media(max-width:767px) {
+  .authPage {
+    .sidebar {
+      display: none;
+    }
+
+    .containers {
+      padding: 0 0px;
+      margin-bottom: 10px;
+
+      .card {
+        padding: 10px;
+      }
+    }
+
+    .contact-box {
+      margin: 35px 10px 0px;
+    }
+  }
+
+  .privacy-plcy {
+    padding: 30px 0px 0px !important;
+  }
+}
+
+/* ============================================================
+   Why Invoice Hub Exists — Banner Section
+   ============================================================ */
+
+.why-exists-banner {
+  overflow: hidden;
+  padding: 0px 40px;
+  clear: both;
+
+  /* ─── Top row: label/title/subtitle left, image right ─── */
+  .why-exists-top {
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // padding: 40px 48px 0;
+    // gap: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .why-exists-left {
+    flex: 1;
+  }
+
+  .why-exists-right {
+    width: 340px;
+    min-width: 260px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      filter: drop-shadow(0 12px 24px rgba(26, 115, 232, 0.18));
+    }
+  }
+
+  /* ─── Bottom row: 5 icon cards ─── */
+  .why-cards {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    display: grid;
+    padding: 32px 32px 36px;
+    margin-top: 8px;
+
+    .why-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 16px;
+      border-right: 1px solid #1a73e7;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .why-card-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #dce9ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        transition: background 0.2s ease;
+
+        i {
+          font-size: 22px;
+          color: var(--theme-color);
+        }
+      }
+
+      &:hover .why-card-icon {
+        background: var(--theme-color);
+
+        i {
+          color: #fff;
+        }
+      }
+
+      strong {
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0d1b3e;
+        margin-bottom: 6px;
+      }
+
+    }
   }
 }
