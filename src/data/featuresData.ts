@@ -3,7 +3,7 @@ export const featuresData = [
     slug: "customer-vendor-management",
     title: "Customer & Vendor Management",
     tagline: "Invoice Hub centralizes customer and vendor management, simplifying billing, expense tracking, and financial workflows.",
-    image: "/images/customermgmt.png",
+    image: "/images/blogs/blogimg-8.png",
     sections: [
       {
         title: "Customer Management",
@@ -36,7 +36,7 @@ export const featuresData = [
     slug: "estimates-invoicing-workflow",
     title: "Estimates & Invoicing",
     tagline: "Invoice Hub simplifies the process of creating professional estimates and converting them into invoices. Businesses can manage pricing, approvals, and billing within a unified workflow.",
-    image: "/images/step-4.png",
+    image: "/images/blogs/blogimg-13.png",
     sections: [
       {
         title: "Key Capabilities",
@@ -68,7 +68,7 @@ export const featuresData = [
     slug: "payments-partial-payments",
     title: "Payments & Payables",
     tagline: "Invoice Hub supports flexible payment tracking and vendor payment management, allowing businesses to monitor receivables and payables from a single platform.",
-    image: "/images/paymentsFea.png",
+    image: "/images/blogs/blogimg-5.png",
     sections: [
       {
         title: "Key Capabilities",
@@ -92,7 +92,7 @@ export const featuresData = [
     slug: "smart-invoice-capture",
     title: "Smart Invoice Capture",
     tagline: "Invoice Hub uses Optical Character Recognition (OCR) technology to extract invoice details automatically from uploaded vendor documents, reducing manual data entry.",
-    image: "/images/OCRInvoice.png",
+    image: "/images/blogs/blogimg-6.png",
     sections: [
       {
         title: "How It Works",
@@ -115,7 +115,7 @@ export const featuresData = [
     slug: "tax-automation",
     title: "Tax Automation",
     tagline: "Invoice Hub supports automated tax calculation designed to handle complex US tax structures and multi-rate scenarios.",
-    image: "/images/ZIPCode_Automation.png",
+    image: "/images/blogs/blogimg-7.png",
     sections: [
       {
         title: "Key Capabilities",
@@ -138,7 +138,7 @@ export const featuresData = [
     slug: "reports-insights",
     title: "Reports & Insights",
     tagline: "Invoice Hub provides powerful reporting tools that give businesses complete visibility into financial performance and operational activity.",
-    image: "/images/blog-1.jpg",
+    image: "/images/blogs/blogimg-12.png",
     sections: [
       {
         title: "Available Insights",

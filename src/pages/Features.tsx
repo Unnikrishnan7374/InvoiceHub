@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Features() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -60px 0px'
+      }
+    );
+
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      animatedElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <div>
+      <style>{`
+        .scroll-animate {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+          will-change: transform, opacity;
+        }
+        .scroll-animate.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
+
       <section className="dtlsban clearfix">
         <div className="dtlstext">
           <h2>Features</h2>
@@ -16,7 +52,7 @@ export default function Features() {
       </section>
 
       <section className="innerFeatures">
-        <div className="fealist clearfix">
+        <div className="fealist clearfix scroll-animate">
           <Link to="/features/customer-vendor-management">
             <div className="contant">
               <h4>Customer & Vendor Management</h4>
@@ -28,13 +64,13 @@ export default function Features() {
               </ul>
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
-            <div className="ser-img">
-              <img src="images/customermgmt.png" className="img-fluid" alt="Customer & Vendor Management" />
+            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+              <img src="/images/blogs/blogimg-8.png" className="img-fluid" alt="Customer & Vendor Management" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
 
-        <div className="fealist clearfix">
+        <div className="fealist clearfix scroll-animate">
           <Link to="/features/estimates-invoicing-workflow">
             <div className="contant">
               <h4>Estimates & Invoicing</h4>
@@ -46,13 +82,13 @@ export default function Features() {
               </ul>
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
-            <div className="ser-img">
-              <img src="images/step-4.png" className="img-fluid" alt="Estimates & Invoicing" />
+            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+              <img src="/images/blogs/blogimg-13.png" className="img-fluid" alt="Estimates & Invoicing" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
 
-        <div className="fealist clearfix">
+        <div className="fealist clearfix scroll-animate">
           <Link to="/features/payments-partial-payments">
             <div className="contant">
               <h4>Payments & Payables</h4>
@@ -64,13 +100,13 @@ export default function Features() {
               </ul>
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
-            <div className="ser-img">
-              <img src="images/paymentsFea.png" className="img-fluid" alt="Payments & Payables" />
+            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+              <img src="/images/blogs/blogimg-5.png" className="img-fluid" alt="Payments & Payables" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
 
-        <div className="fealist clearfix">
+        <div className="fealist clearfix scroll-animate">
           <Link to="/features/smart-invoice-capture">
             <div className="contant">
               <h4>Smart Invoice Capture</h4>
@@ -82,13 +118,13 @@ export default function Features() {
               </ul>
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
-            <div className="ser-img">
-              <img src="images/OCRInvoice.png" className="img-fluid" alt="Smart Invoice Capture" />
+            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+              <img src="/images/blogs/blogimg-6.png" className="img-fluid" alt="Smart Invoice Capture" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
 
-        <div className="fealist clearfix">
+        <div className="fealist clearfix scroll-animate">
           <Link to="/features/tax-automation">
             <div className="contant">
               <h4>Tax Automation</h4>
@@ -100,13 +136,13 @@ export default function Features() {
               </ul>
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
-            <div className="ser-img">
-              <img src="images/ZIPCode_Automation.png" className="img-fluid" alt="Tax Automation" />
+            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+              <img src="/images/blogs/blogimg-7.png" className="img-fluid" alt="Tax Automation" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
 
-        <div className="fealist clearfix">
+        <div className="fealist clearfix scroll-animate">
           <Link to="/features/reports-insights">
             <div className="contant">
               <h4>Reports & Insights</h4>
@@ -118,8 +154,8 @@ export default function Features() {
               </ul>
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
-            <div className="ser-img">
-              <img src="images/blog-1.jpg" className="img-fluid" alt="Reports & Insights" />
+            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+              <img src="/images/blogs/blogimg-12.png" className="img-fluid" alt="Reports & Insights" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>

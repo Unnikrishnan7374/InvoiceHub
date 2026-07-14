@@ -821,3 +821,47 @@ body {
     }
   }
 }
+
+/* Homepage Standardized Section Headings */
+.home-section-title {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  color: #111 !important;
+  margin-bottom: 25px !important;
+  position: relative;
+  padding-bottom: 12px;
+  display: inline-block;
+
+  span {
+    color: var(--theme-color) !important;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 125px;
+    height: 3.5px;
+    background: linear-gradient(90deg, var(--theme-color) 0%, rgba(26, 115, 232, 0) 100%);
+    border-radius: 2px;
+  }
+}
+
+/* Center heading override for centered layouts */
+.stepsHome {
+  text-align: center;
+
+  .home-section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, rgba(26, 115, 232, 0) 0%, var(--theme-color) 50%, rgba(26, 115, 232, 0) 100%);
+  }
+}
+
+@media (max-width: 767px) {
+  .home-section-title {
+    font-size: 28px !important;
+  }
+}

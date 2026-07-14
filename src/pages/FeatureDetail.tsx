@@ -40,10 +40,10 @@ export default function FeatureDetail() {
                 </ul>
               </div>
             ))}
-            <img src={feature.image} className="mbl img-fluid" alt={feature.title} />
+            <img src={feature.image} className="mbl img-fluid" alt={feature.title} style={{ borderRadius: '15px' }} />
           </div>
-          <div className="ser-img">
-            <img src={feature.image} className="attachment-large size-large img-fluid" alt={feature.title} />
+          <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+            <img src={feature.image} className="attachment-large size-large img-fluid" alt={feature.title} style={{ borderRadius: '15px' }} />
           </div>
         </div>
       </div>

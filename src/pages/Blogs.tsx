@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import blogsData from '../data/blogsData.json';
 import BlogSearch from '../components/BlogSearch';
@@ -6,25 +6,6 @@ import BlogSearch from '../components/BlogSearch';
 export default function Blogs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredBlogs, setFilteredBlogs] = useState(blogsData);
-  const [showBreadcrumbSearch, setShowBreadcrumbSearch] = useState(false);
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isSticky = currentScrollY > 150;
-      const scrollingUp = currentScrollY < lastScrollY;
-      
-      if (isSticky && scrollingUp) {
-        setShowBreadcrumbSearch(true);
-      } else {
-        setShowBreadcrumbSearch(false);
-      }
-      lastScrollY = currentScrollY;
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
@@ -33,8 +14,8 @@ export default function Blogs() {
       return;
     }
 
-    const filtered = blogsData.filter(blog => 
-      blog.title.toLowerCase().includes(query.toLowerCase()) || 
+    const filtered = blogsData.filter(blog =>
+      blog.title.toLowerCase().includes(query.toLowerCase()) ||
       blog.preview.toLowerCase().includes(query.toLowerCase()) ||
       blog.overview.toLowerCase().includes(query.toLowerCase())
     );
@@ -47,7 +28,7 @@ export default function Blogs() {
     const parts = text.split(regex);
     return (
       <>
-        {parts.map((part, index) => 
+        {parts.map((part, index) =>
           regex.test(part) ? (
             <mark key={index} style={{ backgroundColor: 'yellow', color: '#000', padding: '0 2px', borderRadius: '2px' }}>{part}</mark>
           ) : (
@@ -64,27 +45,15 @@ export default function Blogs() {
         <div className="dtlstext">
           <h2>Blogs</h2>
           <p>Insights, tips, and updates to help you manage billing smarter.</p>
-          <ul className="tabs nav nav-tabs clearfix" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <li><Link to="/"><span className="material-symbols-outlined" style={{ verticalAlign: 'middle' }}>home</span></Link></li>
-              <li><Link to="/blogs">Blogs</Link></li>
-            </div>
-            
-            {showBreadcrumbSearch && (
-              <BlogSearch 
-                searchQuery={searchQuery}
-                onSearchChange={handleSearchChange}
-                isCompact={true}
-                placeholder="Search Blogs..."
-                style={{ marginRight: '30px', width: '250px' }}
-              />
-            )}
+          <ul className="tabs nav nav-tabs clearfix">
+            <li><Link to="/"><span className="material-symbols-outlined">home</span></Link></li>
+            <li><Link to="/blogs">Blogs</Link></li>
           </ul>
         </div>
       </section>
 
       {/* Search Section */}
-      <BlogSearch 
+      <BlogSearch
         searchQuery={searchQuery}
         onSearchChange={handleSearchChange}
         placeholder="Search Blogs..."

@@ -14,6 +14,40 @@ export default function Home() {
   const [readMorePremium, setReadMorePremium] = useState(false);
   const [compareCollapsed, setCompareCollapsed] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [activeTemplate, setActiveTemplate] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isAnnual, setIsAnnual] = useState(false);
+
+  const templates = [
+    { src: 'images/pdf-1.png', full: 'images/pdf-1.1.png', title: 'Professional Clean Template', desc: 'Standard business layout with clear table formatting, professional corporate typography, and structured totals.' },
+    { src: 'images/pdf-2.png', full: 'images/pdf-2.1.png', title: 'Modern Corporate Template', desc: 'Minimalist corporate styling with a top banner, accent colors, and custom grid borders for items.' },
+    { src: 'images/pdf-3.png', full: 'images/pdf-3.1.png', title: 'Creative Business Template', desc: 'Creative, colorful layout suitable for designers, freelancers, agencies, and modern tech startups.' }
+  ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = setInterval(() => {
+      setActiveTemplate((prev) => (prev + 1) % templates.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isPlaying, templates.length]);
+
+  const nextTemplate = () => {
+    setActiveTemplate((prev) => (prev + 1) % templates.length);
+  };
+
+  const prevTemplate = () => {
+    setActiveTemplate((prev) => (prev - 1 + templates.length) % templates.length);
+  };
 
 
 
@@ -168,7 +202,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="features hmefeatures">
-        <h2>Our Standard Features</h2>
+        <h2 className="home-section-title pt-2">Our Standard <span>Features</span></h2>
         <ul className="features-grid">
           <li>
             <Link to="/features/customer-vendor-management" className="feature-card-link">
@@ -267,7 +301,7 @@ export default function Home() {
       {/* About Section */}
       <div className="homeabt clearfix">
         <div className="right">
-          <h2>About Invoice Hub</h2>
+          <h2 className="home-section-title">About <span>Invoice Hub</span></h2>
           <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
           <p>Invoice Hub streamlines billing, payables, tax compliance, and financial reporting for modern businesses.</p>
           {/* <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p> */}
@@ -281,7 +315,7 @@ export default function Home() {
       {/* Why Choose Invoice HUB */}
       <section className="invoice hmeinvoice clearfix">
         <div className="right">
-          <h2>Why choose Invoice HUB?</h2>
+          <h2 className="home-section-title">Why choose <span>Invoice HUB</span>?</h2>
           <p><strong>Designed for Control, Built for Growth</strong></p>
           <ul className="ticklist">
             <li><i className="bi bi-check2"></i> Automated workflows that reduce manual effort</li>
@@ -304,8 +338,10 @@ export default function Home() {
       </section>
 
       {/* Step by Step Tabbed Section */}
-      <div className="stepsHome clearfix">
-        <h2>Step-by-Step Guide</h2>
+      <div className="stepsHome-header text-center" style={{ padding: '0 40px', marginTop: '60px' }}>
+        <h2 className="home-section-title" style={{ marginBottom: '15px' }}>Step-by-Step <span>Guide</span></h2>
+      </div>
+      <div className="stepsHome clearfix pb-2" style={{ paddingTop: '15px' }}>
         <div className="left">
           <ul className="tabs nav nav-tabs clearfix left-sub">
             <li className="nav-item">
@@ -460,8 +496,71 @@ export default function Home() {
       {/* Pricing Section */}
       <div className="pricing clearfix" id="Pricing">
         <div className="pricing-wrapper">
-          <h2 className="themehead"><span>Simple Pricing Smart Features</span></h2>
-          <p className="subText">Affordable plans that grow with your business.</p>
+          <div className='text-center'>
+            <h2 className="home-section-title">Powerful Features. Simple Pricing</h2>
+          </div>
+
+          {/* Pricing Toggle Pill Switcher */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+            <div style={{
+              backgroundColor: 'rgba(26, 115, 232, 0.06)',
+              borderRadius: '30px',
+              display: 'inline-flex',
+              padding: '6px',
+              border: '1px solid rgba(26, 115, 232, 0.1)',
+              position: 'relative'
+            }}>
+              <button
+                onClick={() => setIsAnnual(false)}
+                style={{
+                  padding: '10px 28px',
+                  borderRadius: '24px',
+                  fontSize: '15px',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  border: 'none',
+                  backgroundColor: !isAnnual ? '#fff' : 'transparent',
+                  color: !isAnnual ? 'var(--theme-color)' : '#555',
+                  boxShadow: !isAnnual ? '0 4px 12px rgba(0,0,0,0.06)' : 'none',
+                  transition: 'all 0.25s ease',
+                  outline: 'none'
+                }}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setIsAnnual(true)}
+                style={{
+                  padding: '10px 28px',
+                  borderRadius: '24px',
+                  fontSize: '15px',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  border: 'none',
+                  backgroundColor: isAnnual ? '#fff' : 'transparent',
+                  color: isAnnual ? 'var(--theme-color)' : '#555',
+                  boxShadow: isAnnual ? '0 4px 12px rgba(0,0,0,0.06)' : 'none',
+                  transition: 'all 0.25s ease',
+                  outline: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+              >
+                Annual
+                <span style={{
+                  fontSize: '11px',
+                  fontWeight: 'bold',
+                  backgroundColor: 'rgba(40, 167, 69, 0.15)',
+                  color: '#28a745',
+                  padding: '2px 8px',
+                  borderRadius: '12px'
+                }}>
+                  Save 15%
+                </span>
+              </button>
+            </div>
+          </div>
 
           <div className="row justify-content-center">
             <div className="col-lg-4 col-md-6">
@@ -473,7 +572,7 @@ export default function Home() {
                   </div>
                   <div className="price-rate">
                     <p className="price">$0</p>
-                    <p className="duration">/month</p>
+                    <p className="duration">{isAnnual ? '/year' : '/month'}</p>
                   </div>
                 </div>
                 <div className="service-feature">
@@ -503,9 +602,12 @@ export default function Home() {
                     <p>Invoice HUB Core Suite</p>
                   </div>
                   <div className="price-rate">
-                    <p className="price">$15</p>
+                    <p className="price">{isAnnual ? '$12' : '$15'}</p>
                     <p className="duration">/month</p>
                   </div>
+                  <p style={{ fontSize: '11px', color: '#888', margin: '4px 0 0 0', textAlign: 'center' }}>
+                    {isAnnual ? 'Billed annually ($144/yr)' : 'Billed monthly'}
+                  </p>
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
@@ -544,9 +646,12 @@ export default function Home() {
                     <p>The Ultimate Management Experience</p>
                   </div>
                   <div className="price-rate">
-                    <p className="price">$45</p>
+                    <p className="price">{isAnnual ? '$39' : '$45'}</p>
                     <p className="duration">/month</p>
                   </div>
+                  <p style={{ fontSize: '11px', color: '#888', margin: '4px 0 0 0', textAlign: 'center' }}>
+                    {isAnnual ? 'Billed annually ($468/yr)' : 'Billed monthly'}
+                  </p>
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
@@ -593,9 +698,18 @@ export default function Home() {
                 <thead>
                   <tr>
                     <th scope="col"><h3>Features</h3></th>
-                    <th scope="col"><h3 className="text-xl">Trial</h3></th>
-                    <th scope="col"><h3 className="text-xl">Basic</h3></th>
-                    <th scope="col"><h3>Professional</h3></th>
+                    <th scope="col">
+                      <h3 className="text-xl">Trial</h3>
+                      <div className="th-price">$0</div>
+                    </th>
+                    <th scope="col">
+                      <h3 className="text-xl">Basic</h3>
+                      <div className="th-price">{isAnnual ? '$12' : '$15'}</div>
+                    </th>
+                    <th scope="col">
+                      <h3>Professional</h3>
+                      <div className="th-price">{isAnnual ? '$39' : '$45'}</div>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -685,25 +799,288 @@ export default function Home() {
       </div>
 
       {/* Invoice Templates Section */}
-      <section className="invoice two clearfix">
-        <div className="right">
-          <h2>Choose Your Perfect Invoice Template</h2>
-          <p>Select from beautifully designed invoice templates that match your brand, customize colors and layout, and create professional invoices instantly.</p>
-          <ul className="ticklist">
-            <li><strong>Invoice Templates</strong><br />- Perfect for billing clients quickly and clearly</li>
-            <li><strong>Estimation Templates</strong><br />- Share accurate quotes and convert them into invoices instantly</li>
-          </ul>
-        </div>
-        <div className="left">
-          <div className="swiper marquee-slider">
-            <div className="swiper-wrapper">
-              <div className="swiper-slide"><a href="images/pdf-1.1.png" data-fancybox="gallery"><img src="images/pdf-1.png" alt="PDF Template 1" className="img-fluid" /></a></div>
-              <div className="swiper-slide"><a href="images/pdf-2.1.png" data-fancybox="gallery"><img src="images/pdf-2.png" alt="PDF Template 2" className="img-fluid" /></a></div>
-              <div className="swiper-slide"><a href="images/pdf-3.1.png" data-fancybox="gallery"><img src="images/pdf-3.png" alt="PDF Template 3" className="img-fluid" /></a></div>
-              <div className="swiper-slide"><a href="images/pdf-2.1.png" data-fancybox="gallery"><img src="images/pdf-2.png" alt="PDF Template 4" className="img-fluid" /></a></div>
-            </div>
+      <section className="invoice two clearfix" style={{
+        background: 'linear-gradient(180deg, rgba(26,115,232,0.02) 0%, rgba(26,115,232,0.05) 100%)',
+        padding: '0px 15px',
+        borderRadius: '24px',
+        margin: '0',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: '40px',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.02)'
+      }}>
+        {/* On Mobile, show heading first */}
+        {isMobile && (
+          <div style={{ width: '100%', textAlign: 'center', padding: '30px 20px 0 20px' }}>
+            <h2 className="home-section-title" style={{ margin: 0 }}>
+              Choose Your Perfect <span>Template</span>
+            </h2>
+          </div>
+        )}
+        {/* Left Side: Dynamic 3D Cover Flow Carousel */}
+        <div className="left" style={{
+          flex: '1.2',
+          minWidth: '320px',
+          width: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          float: 'none'
+        }}>
+          {/* 3D Cover Flow Perspective Container */}
+          <div style={{
+            perspective: '1200px',
+            transformStyle: 'preserve-3d',
+            position: 'relative',
+            width: '100%',
+            height: '350px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'visible',
+            marginBottom: '20px'
+          }}>
+            {templates.map((tpl, index) => {
+              let offset = index - activeTemplate;
+              if (offset < -1) offset += templates.length;
+              if (offset > 1) offset -= templates.length;
+
+              const isActive = offset === 0;
+              const isLeft = offset === -1;
+              const isRight = offset === 1;
+
+              let transformString = '';
+              let zIndex = 0;
+              let opacity = 0;
+
+              if (isActive) {
+                transformString = 'rotateY(0deg) scale(1.15) translateZ(80px)';
+                zIndex = 10;
+                opacity = 1;
+              } else if (isLeft) {
+                transformString = 'rotateY(40deg) scale(0.85) translateX(-140px) translateZ(-60px)';
+                zIndex = 5;
+                opacity = 0.75;
+              } else if (isRight) {
+                transformString = 'rotateY(-40deg) scale(0.85) translateX(140px) translateZ(-60px)';
+                zIndex = 5;
+                opacity = 0.75;
+              }
+
+              return (
+                <div
+                  key={index}
+                  onClick={() => setActiveTemplate(index)}
+                  style={{
+                    position: 'absolute',
+                    width: '185px',
+                    height: '260px',
+                    transition: 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s',
+                    transform: transformString,
+                    zIndex: zIndex,
+                    opacity: opacity,
+                    cursor: 'pointer',
+                    boxShadow: isActive ? '0 20px 40px rgba(26, 115, 232, 0.15)' : '0 10px 20px rgba(0, 0, 0, 0.08)',
+                    borderRadius: '16px',
+                    backgroundColor: '#fff',
+                    padding: '8px',
+                    border: isActive ? '2px solid var(--theme-color)' : '1px solid rgba(0,0,0,0.06)',
+                    transformStyle: 'preserve-3d',
+                    backfaceVisibility: 'hidden'
+                  }}
+                >
+                  <a
+                    href={tpl.full}
+                    data-fancybox="gallery"
+                    onClick={(e) => {
+                      if (!isActive) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setActiveTemplate(index);
+                      }
+                    }}
+                    style={{ width: '100%', height: '100%', display: 'block', borderRadius: '10px', overflow: 'hidden' }}
+                  >
+                    <img
+                      src={tpl.src}
+                      alt={tpl.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', borderRadius: '10px' }}
+                    />
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Music style play controls */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+            <button
+              onClick={prevTemplate}
+              style={{
+                background: 'none',
+                border: 'none',
+                fontSize: '24px',
+                color: '#666',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'color 0.2s ease',
+                outline: 'none',
+                padding: 0
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-color)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#666'}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>skip_previous</span>
+            </button>
+
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              style={{
+                backgroundColor: 'var(--theme-color)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '42px',
+                height: '42px',
+                color: '#fff',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 10px var(--theme-color-light)',
+                transition: 'transform 0.2s ease, background-color 0.2s ease',
+                outline: 'none',
+                padding: 0
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.08)';
+                e.currentTarget.style.backgroundColor = '#135cb3';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.backgroundColor = 'var(--theme-color)';
+              }}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
+                {isPlaying ? 'pause' : 'play_arrow'}
+              </span>
+            </button>
+
+            <button
+              onClick={nextTemplate}
+              style={{
+                background: 'none',
+                border: 'none',
+                fontSize: '24px',
+                color: '#666',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'color 0.2s ease',
+                outline: 'none',
+                padding: 0
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-color)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#666'}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>skip_next</span>
+            </button>
           </div>
         </div>
+
+        {/* Right Side: Informational Features Content (Hidden on Mobile) */}
+        {!isMobile && (
+          <div className="right" style={{
+            flex: '1',
+            minWidth: '320px',
+            width: 'auto',
+            padding: '20px',
+            float: 'none'
+          }}>
+            <h2 className="home-section-title">
+              Choose Your Perfect <span>Template</span>
+            </h2>
+            <p style={{ fontSize: '15px', color: '#555', lineHeight: '1.6', marginBottom: '25px' }}>
+              Select from beautifully designed templates that match your brand. Customize colors, layouts, and typography to build trust with professional billing.
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <div style={{
+                display: 'flex',
+                gap: '15px',
+                backgroundColor: '#fff',
+                padding: '18px',
+                borderRadius: '12px',
+                border: '1px solid rgba(0,0,0,0.04)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.02)',
+                transition: 'transform 0.2s ease',
+                cursor: 'default'
+              }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  backgroundColor: 'var(--theme-color-light)',
+                  color: 'var(--theme-color)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <span className="material-symbols-outlined">receipt_long</span>
+                </div>
+                <div>
+                  <h5 style={{ fontSize: '15px', fontWeight: 'bold', color: '#222', margin: '0 0 4px 0' }}>Invoice Templates</h5>
+                  <p style={{ fontSize: '13px', color: '#666', margin: 0, lineHeight: '1.4' }}>
+                    Perfect for billing clients quickly, clearly, and conforming to local US tax regulations.
+                  </p>
+                </div>
+              </div>
+
+              <div style={{
+                display: 'flex',
+                gap: '15px',
+                backgroundColor: '#fff',
+                padding: '18px',
+                borderRadius: '12px',
+                border: '1px solid rgba(0,0,0,0.04)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.02)',
+                transition: 'transform 0.2s ease',
+                cursor: 'default'
+              }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  backgroundColor: 'var(--theme-color-light)',
+                  color: 'var(--theme-color)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <span className="material-symbols-outlined">rate_review</span>
+                </div>
+                <div>
+                  <h5 style={{ fontSize: '15px', fontWeight: 'bold', color: '#222', margin: '0 0 4px 0' }}>Estimation Templates</h5>
+                  <p style={{ fontSize: '13px', color: '#666', margin: 0, lineHeight: '1.4' }}>
+                    Share accurate quotes, manage approval workflows, and convert them to invoices with a click.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
     </div>
   );

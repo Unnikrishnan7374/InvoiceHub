@@ -10,7 +10,42 @@ export default function Header() {
   const [orgName, setOrgName] = useState('');
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+  const [supportHoveredItem, setSupportHoveredItem] = useState<'blog' | 'faq'>('blog');
+  const [featuresHoveredItem, setFeaturesHoveredItem] = useState<'customer' | 'estimates' | 'payments' | 'ocr' | 'tax' | 'reports'>('customer');
   const location = useLocation();
+
+  const featuresPreviewData = {
+    customer: {
+      title: 'Customer & Vendor Management',
+      text: 'Maintain organized customer & vendor profiles, configure terms, and track activity.',
+      image: '/images/blogs/blogimg-8.png'
+    },
+    estimates: {
+      title: 'Estimates & Invoicing',
+      text: 'Create structured pricing proposals, convert estimates, and manage billing workflows.',
+      image: '/images/blogs/blogimg-13.png'
+    },
+    payments: {
+      title: 'Payments & Payables',
+      text: 'Record payments, track receivables, and monitor vendor bills dynamically.',
+      image: '/images/blogs/blogimg-5.png'
+    },
+    ocr: {
+      title: 'Smart Invoice Capture',
+      text: 'Automate invoice data extraction using OCR technology to speed up entry.',
+      image: '/images/blogs/blogimg-6.png'
+    },
+    tax: {
+      title: 'Tax Automation',
+      text: 'Configure automatic ZIP-code based tax rates for compliance and accuracy.',
+      image: '/images/blogs/blogimg-7.png'
+    },
+    reports: {
+      title: 'Reports & Insights',
+      text: 'Gain real-time visibility into cash flow, outstanding balances, and taxes.',
+      image: '/images/blogs/blogimg-12.png'
+    }
+  };
 
   // Contact pop-over form state
   const [contactName, setContactName] = useState('');
@@ -81,6 +116,18 @@ export default function Header() {
 
   return (
     <>
+      <style>{`
+        @keyframes dropdownFadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.95) translateY(4px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+      `}</style>
       <header className={isHeaderFixed ? 'header-fixed' : ''}>
         <div className="container-fluid">
           <div className="row">
@@ -130,17 +177,81 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
                       >
                         <li>
-                          <Link to="/features/customer-vendor-management">Customer & Vendor Management</Link>
-                          <Link to="/features/estimates-invoicing-workflow">Estimates & Invoicing</Link>
-                          <Link to="/features/payments-partial-payments">Payments & Payables</Link>
-                          <Link to="/features/smart-invoice-capture">Smart Invoice Capture</Link>
-                          <Link to="/features/tax-automation">Tax Automation</Link>
-                          <Link to="/features/reports-insights">Reports & Insights</Link>
+                          <Link 
+                            to="/features/customer-vendor-management"
+                            onMouseEnter={() => setFeaturesHoveredItem('customer')}
+                          >
+                            Customer & Vendor Management
+                          </Link>
+                          <Link 
+                            to="/features/estimates-invoicing-workflow"
+                            onMouseEnter={() => setFeaturesHoveredItem('estimates')}
+                          >
+                            Estimates & Invoicing
+                          </Link>
+                          <Link 
+                            to="/features/payments-partial-payments"
+                            onMouseEnter={() => setFeaturesHoveredItem('payments')}
+                          >
+                            Payments & Payables
+                          </Link>
+                          <Link 
+                            to="/features/smart-invoice-capture"
+                            onMouseEnter={() => setFeaturesHoveredItem('ocr')}
+                          >
+                            Smart Invoice Capture
+                          </Link>
+                          <Link 
+                            to="/features/tax-automation"
+                            onMouseEnter={() => setFeaturesHoveredItem('tax')}
+                          >
+                            Tax Automation
+                          </Link>
+                          <Link 
+                            to="/features/reports-insights"
+                            onMouseEnter={() => setFeaturesHoveredItem('reports')}
+                          >
+                            Reports & Insights
+                          </Link>
                         </li>
-                        <li className="navsub feature-mnu">
-                          <h6>Features</h6>
-                          <p>Smart features simplify billing and business management.</p>
-                        </li>
+                        {!isMobile && (
+                          <li 
+                            className="navsub feature-mnu"
+                            style={{
+                              background: 'none',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              justifyContent: 'space-between',
+                              height: '100%',
+                              padding: '15px'
+                            }}
+                          >
+                            <div>
+                              <h6 style={{ fontSize: '15px', fontWeight: 'bold', margin: '0 0 5px 0', color: '#1a73e8' }}>
+                                {featuresPreviewData[featuresHoveredItem].title}
+                              </h6>
+                              <p style={{ fontSize: '13px', margin: 0, color: '#555', lineHeight: '1.4' }}>
+                                {featuresPreviewData[featuresHoveredItem].text}
+                              </p>
+                            </div>
+                            
+                            <div style={{ overflow: 'hidden', borderRadius: '10px', marginTop: '10px', height: '140px', width: '100%' }}>
+                              <img 
+                                key={featuresHoveredItem}
+                                src={featuresPreviewData[featuresHoveredItem].image} 
+                                alt={featuresHoveredItem} 
+                                style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  objectFit: 'cover',
+                                  borderRadius: '10px',
+                                  animation: 'dropdownFadeInScale 0.35s ease-out forwards',
+                                  display: 'block'
+                                }} 
+                              />
+                            </div>
+                          </li>
+                        )}
                       </ul>
                     </li>
 
@@ -157,13 +268,59 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
                       >
                         <li>
-                          <Link to="/blogs">Team Blog</Link>
-                          <Link to="/faq">FAQ</Link>
+                          <Link 
+                            to="/blogs" 
+                            onMouseEnter={() => setSupportHoveredItem('blog')}
+                          >
+                            Team Blog
+                          </Link>
+                          <Link 
+                            to="/faq" 
+                            onMouseEnter={() => setSupportHoveredItem('faq')}
+                          >
+                            FAQ
+                          </Link>
                         </li>
-                        <li className="navsub feature-mnu">
-                          <h6>Support</h6>
-                          <p>Smart features simplify billing and business management.</p>
-                        </li>
+                        {!isMobile && (
+                          <li 
+                            className="navsub feature-mnu"
+                            style={{
+                              background: 'none',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              justifyContent: 'space-between',
+                              height: '100%',
+                              padding: '15px'
+                            }}
+                          >
+                            <div>
+                              <h6 style={{ fontSize: '15px', fontWeight: 'bold', margin: '0 0 5px 0', color: '#1a73e8' }}>
+                                {supportHoveredItem === 'blog' ? 'Team Blog' : 'FAQ'}
+                              </h6>
+                              <p style={{ fontSize: '13px', margin: 0, color: '#555', lineHeight: '1.4' }}>
+                                {supportHoveredItem === 'blog' 
+                                  ? 'Read our latest articles, insights, and billing updates.' 
+                                  : 'Find answers to frequently asked questions about Invoice Hub.'}
+                              </p>
+                            </div>
+                            
+                            <div style={{ overflow: 'hidden', borderRadius: '10px', marginTop: '10px', height: '140px', width: '100%' }}>
+                              <img 
+                                key={supportHoveredItem}
+                                src={supportHoveredItem === 'blog' ? '/images/blog-bg.jpg' : '/images/FAQ-bg2.png'} 
+                                alt={supportHoveredItem} 
+                                style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  objectFit: 'cover',
+                                  borderRadius: '10px',
+                                  animation: 'dropdownFadeInScale 0.35s ease-out forwards',
+                                  display: 'block'
+                                }} 
+                              />
+                            </div>
+                          </li>
+                        )}
                       </ul>
                     </li>
 

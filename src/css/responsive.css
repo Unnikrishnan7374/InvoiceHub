@@ -1451,10 +1451,9 @@
     }
 
     .compareFuatures table {
-        border: 1px solid #ccc;
-        display: block;
-        width: 100% 329.25px;
-        overflow-x: auto;
+        display: table;
+        width: 100%;
+        min-width: 750px;
     }
 
     .pricing .price-box {
