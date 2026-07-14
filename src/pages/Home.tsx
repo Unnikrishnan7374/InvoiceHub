@@ -213,8 +213,9 @@ export default function Home() {
                       <i className="fas fa-users"></i>
                     </div>
                     <h3>Customer & Vendor Management</h3>
+                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
-                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+
                 </div>
               </div>
             </Link>
@@ -228,8 +229,9 @@ export default function Home() {
                       <i className="fas fa-file-invoice-dollar"></i>
                     </div>
                     <h3>Estimates & Invoicing</h3>
+                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
-                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+
                 </div>
               </div>
             </Link>
@@ -243,9 +245,10 @@ export default function Home() {
                       <i className="fas fa-credit-card"></i>
                     </div>
                     <h3>Payments & Payables</h3>
+                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
-                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                 </div>
+
               </div>
             </Link>
           </li>
@@ -258,8 +261,9 @@ export default function Home() {
                       <i className="fas fa-qrcode"></i>
                     </div>
                     <h3>Smart Invoice Capture</h3>
+                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
-                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+
                 </div>
               </div>
             </Link>
@@ -273,8 +277,9 @@ export default function Home() {
                       <i className="fas fa-percent"></i>
                     </div>
                     <h3>Tax Automation</h3>
+                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
-                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+
                 </div>
               </div>
             </Link>
@@ -288,8 +293,9 @@ export default function Home() {
                       <i className="fas fa-chart-line"></i>
                     </div>
                     <h3>Reports & Insights</h3>
+                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
-                  <span className="read-more-btn">Read More <span className="arrow">→</span></span>
+
                 </div>
               </div>
             </Link>
@@ -305,12 +311,43 @@ export default function Home() {
           <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
           <p>Invoice Hub streamlines billing, payables, tax compliance, and financial reporting for modern businesses.</p>
           {/* <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p> */}
-          <Link to="/about" className="themeBtn"> View More <span className="material-symbols-outlined">arrow_forward</span> </Link>
+          {/* About Stats Strip */}
+          <div className="about-stats-strip">
+            <div className="about-stats-container">
+              <div className="about-stat-item">
+                <div className="about-stat-icon">
+                  <i className="fas fa-clock"></i>
+                </div>
+                <h3 className="about-stat-value">60% Saved Time</h3>
+                <p className="about-stat-desc">With the simple app, work smarter, not harder.</p>
+              </div>
+              <div className="about-stat-divider"></div>
+              <div className="about-stat-item">
+                <div className="about-stat-icon">
+                  <i className="fas fa-bolt"></i>
+                </div>
+                <h3 className="about-stat-value">2× Faster Payments</h3>
+                <p className="about-stat-desc">Get paid up to 9 days sooner.</p>
+              </div>
+              <div className="about-stat-divider"></div>
+              <div className="about-stat-item">
+                <div className="about-stat-icon">
+                  <i className="fas fa-mobile-alt"></i>
+                </div>
+                <h3 className="about-stat-value">On All Devices</h3>
+                <p className="about-stat-desc">Invoice Hub simplifies business tracking on mobile and web.</p>
+              </div>
+            </div>
+          </div>
+          <div className="view-button">
+            <Link to="/about" className="themeBtn"> View More <span className="material-symbols-outlined">arrow_forward</span> </Link>
+          </div>
         </div>
         <div className="left">
           <img src="images/about.png" className="img-fluid" alt="about" />
         </div>
       </div>
+
 
       {/* Why Choose Invoice HUB */}
       <section className="invoice hmeinvoice clearfix">
