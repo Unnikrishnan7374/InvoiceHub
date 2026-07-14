@@ -199,7 +199,7 @@ body {
 #homeslider {
   width: 100%;
   position: relative;
-  height: 600px;
+  height: 660px;
   /* Default desktop height */
 
   @media screen and (max-width: 1200px) {
@@ -459,45 +459,8 @@ body {
       }
     }
 
-    &::before,
-    &::after {
-      width: 105%;
-      height: 105%;
-    }
   }
 
-  /* Top-Right Accent Curve */
-  &::before {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    top: -5px;
-    right: -5px;
-    border-top: 3px solid #1b73e8;
-    /* Dark frame color */
-    border-right: 3px solid #1b73e8;
-    border-top-right-radius: 18px;
-    pointer-events: none;
-    z-index: -1;
-    transition: all 0.6s linear;
-  }
-
-  /* Bottom-Left Accent Curve */
-  &::after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    bottom: -5px;
-    left: -5px;
-    border-bottom: 3px solid #1b73e8;
-    border-left: 3px solid #1b73e8;
-    border-bottom-left-radius: 18px;
-    pointer-events: none;
-    z-index: -1;
-    transition: all 0.6s linear;
-  }
 }
 
 /* Feature Icon Sizing & Wrapper (Not big box) */
