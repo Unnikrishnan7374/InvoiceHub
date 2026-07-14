@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { blogsData } from '../data/blogsData';
+import blogsData from '../data/blogsData.json';
+import BlogSearch from '../components/BlogSearch';
 
 export default function Blogs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredBlogs, setFilteredBlogs] = useState(blogsData);
+  const [showBreadcrumbSearch, setShowBreadcrumbSearch] = useState(false);
 
-  const handleSearch = (e) => {
-    const query = e.target.value;
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isSticky = currentScrollY > 150;
+      const scrollingUp = currentScrollY < lastScrollY;
+      
+      if (isSticky && scrollingUp) {
+        setShowBreadcrumbSearch(true);
+      } else {
+        setShowBreadcrumbSearch(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleSearchChange = (query: string) => {
     setSearchQuery(query);
     if (!query.trim()) {
       setFilteredBlogs(blogsData);
@@ -22,9 +41,21 @@ export default function Blogs() {
     setFilteredBlogs(filtered);
   };
 
-  const clearSearch = () => {
-    setSearchQuery('');
-    setFilteredBlogs(blogsData);
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return <>{text}</>;
+    const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+    const parts = text.split(regex);
+    return (
+      <>
+        {parts.map((part, index) => 
+          regex.test(part) ? (
+            <mark key={index} style={{ backgroundColor: 'yellow', color: '#000', padding: '0 2px', borderRadius: '2px' }}>{part}</mark>
+          ) : (
+            part
+          )
+        )}
+      </>
+    );
   };
 
   return (
@@ -33,42 +64,41 @@ export default function Blogs() {
         <div className="dtlstext">
           <h2>Blogs</h2>
           <p>Insights, tips, and updates to help you manage billing smarter.</p>
-          <ul className="tabs nav nav-tabs clearfix">
-            <li><Link to="/"><span className="material-symbols-outlined">home</span></Link></li>
-            <li><Link to="/blogs">Blogs</Link></li>
+          <ul className="tabs nav nav-tabs clearfix" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <li><Link to="/"><span className="material-symbols-outlined" style={{ verticalAlign: 'middle' }}>home</span></Link></li>
+              <li><Link to="/blogs">Blogs</Link></li>
+            </div>
+            
+            {showBreadcrumbSearch && (
+              <BlogSearch 
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                isCompact={true}
+                placeholder="Search Blogs..."
+                style={{ marginRight: '30px', width: '250px' }}
+              />
+            )}
           </ul>
         </div>
       </section>
 
       {/* Search Section */}
-      <div className="search-section">
-        <div className="search-wrapper" style={{ position: 'relative' }}>
-          <i className="fa fa-search search-icon"></i>
-          <input 
-            type="text" 
-            value={searchQuery}
-            onChange={handleSearch}
-            className="form-control" 
-            placeholder="Search Blogs..." 
-          />
-          {searchQuery && (
-            <i 
-              className="fa fa-times clear-icon" 
-              onClick={clearSearch}
-              style={{ cursor: 'pointer', position: 'absolute', right: '15px', top: '15px' }}
-            ></i>
-          )}
-        </div>
-      </div>
+      <BlogSearch 
+        searchQuery={searchQuery}
+        onSearchChange={handleSearchChange}
+        placeholder="Search Blogs..."
+        style={{ margin: '15px auto', width: '95%' }}
+      />
 
       <ul className="clearfix blogList" style={{ padding: '20px 15px', maxWidth: '1200px', margin: '0 auto' }}>
         {filteredBlogs.map((blog) => (
           <li key={blog.slug}>
             <Link to={`/blogs/${blog.slug}`} className="nav-link">
               <div className="content clearfix">
-                <h3>{blog.title}</h3>
+                <h3>{highlightText(blog.title, searchQuery)}</h3>
                 <p className="date"><i className="far fa-calendar-alt"></i> {blog.date}</p>
-                <p>{blog.preview}</p>
+                <p>{highlightText(blog.preview, searchQuery)}</p>
                 <span className="readmr themeBtn">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
               </div>
               <div className="blgimg">

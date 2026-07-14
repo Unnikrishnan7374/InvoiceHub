@@ -1,0 +1,147 @@
+[
+  {
+    "category": "General",
+    "faqs": [
+      {
+        "id": "faq-what-is",
+        "question": "What is Invoice Hub?",
+        "answer": "Invoice Hub is a cloud-based invoicing, billing, and expense management platform designed for US-based businesses. It helps manage customers, vendors, estimates, invoices, bills, payments, OCR automation, tax calculation, and reporting in one system."
+      },
+      {
+        "id": "faq-who-can-use",
+        "question": "Who can use Invoice Hub?",
+        "answer": "Invoice Hub is suitable for small and medium-sized businesses, service-based companies, product-based businesses, agencies, freelancers, and growing enterprises."
+      },
+      {
+        "id": "faq-cloud-based",
+        "question": "Is Invoice Hub cloud-based?",
+        "answer": "Yes. Invoice Hub is a fully cloud-based platform that can be accessed securely from anywhere with an internet connection."
+      }
+    ]
+  },
+  {
+    "category": "Account & Setup",
+    "faqs": [
+      {
+        "id": "faq-get-started",
+        "question": "How do I get started with Invoice Hub?",
+        "answer": "You can sign up for a free trial, set up your business profile, configure taxes, add customers and products, and start creating estimates and invoices within minutes."
+      },
+      {
+        "id": "faq-customize",
+        "question": "Can I customize Invoice Hub for my business?",
+        "answer": "Yes. Invoice Hub supports custom templates, branding, tax rules, payment modes, and master data configuration to match your business needs."
+      }
+    ]
+  },
+  {
+    "category": "Estimates & Invoices",
+    "faqs": [
+      {
+        "id": "faq-approve-estimates",
+        "question": "Can customers approve or reject estimates?",
+        "answer": "Yes. Customers can approve or decline estimates. Once approved, estimates can be converted into invoices instantly."
+      },
+      {
+        "id": "faq-attach-documents",
+        "question": "Can I attach documents to invoices and estimates?",
+        "answer": "Yes. You can upload and attach contracts, receipts, or supporting files to estimates, invoices, and bills."
+      }
+    ]
+  },
+  {
+    "category": "Payments",
+    "faqs": [
+      {
+        "id": "faq-partial-payments",
+        "question": "Does Invoice Hub support partial payments?",
+        "answer": "Yes. Invoice Hub allows both full and partial payments and automatically tracks outstanding balances."
+      },
+      {
+        "id": "faq-unpaid-notifications",
+        "question": "Will I receive notifications for unpaid invoices?",
+        "answer": "Yes. Invoice Hub sends automated reminders for pending and overdue customer payments."
+      }
+    ]
+  },
+  {
+    "category": "Bills & Vendors",
+    "faqs": [
+      {
+        "id": "faq-vendor-bills",
+        "question": "Can I manage vendor bills in Invoice Hub?",
+        "answer": "Yes. Invoice Hub includes a dedicated Bills module where you can add vendors, upload bills, track due dates, and manage payables."
+      },
+      {
+        "id": "faq-bill-due",
+        "question": "Will I get notified when a bill payment is due?",
+        "answer": "Yes. Invoice Hub sends alerts when bill due dates approach or when payments become overdue."
+      }
+    ]
+  },
+  {
+    "category": "OCR & Automation",
+    "faqs": [
+      {
+        "id": "faq-ocr",
+        "question": "What is OCR invoice capture?",
+        "answer": "OCR (Optical Character Recognition) automatically extracts data from uploaded vendor invoices, reducing manual data entry."
+      },
+      {
+        "id": "faq-ocr-edit",
+        "question": "Can I edit OCR-captured data?",
+        "answer": "Yes. All OCR-captured data can be reviewed and edited before saving."
+      }
+    ]
+  },
+  {
+    "category": "Tax & Compliance",
+    "faqs": [
+      {
+        "id": "faq-tax-zip",
+        "question": "How does ZIP-code based tax calculation work?",
+        "answer": "Invoice Hub applies tax rules based on the customer’s ZIP code, automatically calculating applicable state and local taxes."
+      },
+      {
+        "id": "faq-us-tax",
+        "question": "Is Invoice Hub suitable for US tax requirements?",
+        "answer": "Yes. Invoice Hub is built specifically for US businesses and supports complex tax scenarios."
+      }
+    ]
+  },
+  {
+    "category": "Reports & Data",
+    "faqs": [
+      {
+        "id": "faq-reports",
+        "question": "What kind of reports are available?",
+        "answer": "Invoice Hub provides reports for invoices, payments, bills, taxes, and overall cash flow."
+      },
+      {
+        "id": "faq-export-reports",
+        "question": "Can I export reports?",
+        "answer": "Yes. Reports can be exported for accounting, auditing, or internal analysis."
+      }
+    ]
+  },
+  {
+    "category": "Security & Support",
+    "faqs": [
+      {
+        "id": "faq-security",
+        "question": "Is my data secure?",
+        "answer": "Yes. Invoice Hub uses secure cloud infrastructure, role-based access, and industry-standard security practices."
+      },
+      {
+        "id": "faq-contact-support",
+        "question": "How can I contact support?",
+        "answer": "You can reach our support team via email, help desk, or in-app support. Our team is committed to timely and reliable assistance."
+      },
+      {
+        "id": "faq-onboarding",
+        "question": "Do you provide onboarding or training?",
+        "answer": "Yes. We offer onboarding assistance, documentation, and guided support to help you get started quickly."
+      }
+    ]
+  }
+]

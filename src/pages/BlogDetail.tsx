@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { blogsData } from '../data/blogsData';
+import blogsData from '../data/blogsData.json';
+import BlogSearch from '../components/BlogSearch';
 
 export default function BlogDetail() {
   const { slug } = useParams();
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [popupSearchQuery, setPopupSearchQuery] = useState('');
 
   const blog = blogsData.find(b => b.slug === slug);
 
@@ -12,6 +14,23 @@ export default function BlogDetail() {
     // Redirect to main blogs page if not found
     return <Navigate to="/blogs" replace />;
   }
+
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return <>{text}</>;
+    const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+    const parts = text.split(regex);
+    return (
+      <>
+        {parts.map((part, index) =>
+          regex.test(part) ? (
+            <mark key={index} style={{ backgroundColor: 'yellow', color: '#000', padding: '0 2px', borderRadius: '2px' }}>{part}</mark>
+          ) : (
+            part
+          )
+        )}
+      </>
+    );
+  };
 
   return (
     <div className="gettingBlog">
@@ -121,27 +140,71 @@ export default function BlogDetail() {
       <div className="sideMnu">
         <button
           className="open-btn"
-          onClick={() => setIsSideMenuOpen(true)}
+          onClick={() => {
+            setIsSideMenuOpen(true);
+            setPopupSearchQuery('');
+          }}
         >
           <span className="material-symbols-outlined">menu_open</span>
         </button>
 
         <div className={`popup ${isSideMenuOpen ? 'active' : ''}`} id="sidePopup">
           <div className="popup-content">
-            <button className="close-btn" onClick={() => setIsSideMenuOpen(false)}>✖</button>
+            <button 
+              className="close-btn" 
+              onClick={() => setIsSideMenuOpen(false)}
+              style={{
+                background: 'none',
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: '#666',
+                fontSize: '20px',
+                padding: '4px 8px',
+                transition: 'color 0.2s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#333'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#666'}
+            >
+              ✖
+            </button>
             <div className="insideScroll">
-              <h4>All Blogs</h4>
+              <h4 style={{ color: '#1a73e8', fontWeight: 'bold', marginBottom: '5px' }}>All Blogs</h4>
+
+              {/* Reusable Search Bar Component */}
+              <div className='px-2 py-2'>
+                <BlogSearch
+                  searchQuery={popupSearchQuery}
+                  onSearchChange={setPopupSearchQuery}
+                  isSmall={true}
+                  placeholder="Search blogs..."
+                  onSelectBlog={() => setIsSideMenuOpen(false)}
+                  style={{ width: '100%', margin: '0 0 0 0' }}
+                />
+              </div>
+
+
               <ul className="clearfix blogList">
-                {blogsData.map((b, idx) => (
-                  <li key={idx} onClick={() => setIsSideMenuOpen(false)} style={{ marginBottom: '15px' }}>
-                    <Link to={`/blogs/${b.slug}`} className="nav-link" style={{ display: 'flex', alignItems: 'center' }}>
-                      <img src={b.image} className="img-fluid" alt="" style={{ width: '60px', height: '40px', objectFit: 'cover', marginRight: '10px', borderRadius: '4px' }} />
-                      <div className="content clearfix">
-                        <h5 style={{ fontSize: '14px', margin: 0, color: '#333' }}>{b.title}</h5>
-                      </div>
-                    </Link>
+                {blogsData
+                  .filter(b => b.title.toLowerCase().includes(popupSearchQuery.toLowerCase()))
+                  .map((b, idx) => (
+                    <li key={idx} onClick={() => setIsSideMenuOpen(false)} style={{ marginBottom: '15px' }}>
+                      <Link to={`/blogs/${b.slug}`} className="nav-link" style={{ display: 'flex', alignItems: 'center' }}>
+                        <img src={b.image} className="img-fluid" alt="" style={{ width: '60px', height: '40px', objectFit: 'cover', marginRight: '10px', borderRadius: '4px' }} />
+                        <div className="content clearfix">
+                          <h5 style={{ fontSize: '14px', margin: 0, color: '#1a73e8', transition: 'color 0.2s ease' }}
+                            onMouseEnter={(e) => e.currentTarget.style.color = '#135cb3'}
+                            onMouseLeave={(e) => e.currentTarget.style.color = '#1a73e8'}>
+                            {highlightText(b.title, popupSearchQuery)}
+                          </h5>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                {blogsData.filter(b => b.title.toLowerCase().includes(popupSearchQuery.toLowerCase())).length === 0 && (
+                  <li style={{ textAlign: 'center', padding: '20px 0', color: '#718096', listStyle: 'none' }}>
+                    No blogs found
                   </li>
-                ))}
+                )}
               </ul>
             </div>
           </div>
