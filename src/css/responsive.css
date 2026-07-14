@@ -1481,6 +1481,10 @@
         width: 50%;
         max-width: 50% !important;
     }
+
+    .homeabt .view-button {
+        text-align: left;
+    }
 }
 
 /*Media Screen 568*/
@@ -1556,6 +1560,9 @@
         margin-right: 10px;
     }
 
+    .feature-icon-wrapper {
+        position: inherit !important;
+    }
 }
 
 /*Media Screen 482*/

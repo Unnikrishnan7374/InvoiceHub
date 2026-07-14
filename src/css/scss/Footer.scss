@@ -10,21 +10,6 @@
   margin: 0;
   padding: 0;
 
-  /* Subtle background image overlay */
-  &::after {
-    content: '';
-    position: absolute;
-    background: url(../images/car-bg.png) no-repeat right bottom;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    opacity: 0.06;
-    z-index: -9;
-    background-size: cover;
-    right: 0px;
-    pointer-events: none;
-  }
-
   .footer-container {
     margin: 0 auto;
     padding: 40px 40px;
@@ -153,7 +138,7 @@
     }
 
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     /* Hide the copy button icon in the footer to match the design */

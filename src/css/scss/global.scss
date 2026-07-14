@@ -387,8 +387,34 @@ body {
 /* Modern Features Grid Layout */
 .features.hmefeatures {
   background-color: transparent;
-  padding: 15px 40px 15px;
+  padding: 20px 40px 45px;
   position: relative;
+  margin-bottom: 0;
+
+  &:before,
+  &:after {
+    content: "";
+    width: 20%;
+    height: 160px;
+    background: url(../images/dots.png) no-repeat;
+    top: 0px;
+    position: absolute;
+    z-index: -9;
+    background-size: 74%;
+    right: -80px;
+  }
+
+  &:after {
+    bottom: -45px;
+    left: 0px;
+    top: auto;
+    right: auto;
+    background-size: 50%;
+  }
+
+  .feature-card {
+    border-left: 1px solid #1b73e8 !important;
+  }
 }
 
 .features.hmefeatures .themeBtn {
@@ -398,11 +424,11 @@ body {
 .features-grid {
   display: grid !important;
   grid-template-columns: repeat(6, 1fr) !important;
-  gap: 20px !important;
+  gap: 35px !important;
   padding: 10px 0 !important;
 
   @media screen and (max-width: 992px) {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
   }
 
@@ -410,7 +436,7 @@ body {
     gap: 10px !important;
   }
 
-  li:nth-child(-n+3) {
+  li:nth-child(-n+4) {
     display: block !important;
   }
 
@@ -433,8 +459,7 @@ body {
   position: relative;
   background: #ffffff;
   border-radius: 10px;
-  padding: 24px 20px;
-  // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  padding: 10px 5px 0px 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -466,15 +491,17 @@ body {
 /* Feature Icon Sizing & Wrapper (Not big box) */
 .feature-icon-wrapper {
   background-color: #1b73e8 !important;
-  /* Dark teal background */
   width: 45px !important;
   height: 45px !important;
-  border-radius: 10px !important;
+  border-radius: 45px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   box-shadow: 0 4px 8px rgba(26, 74, 88, 0.2) !important;
   transition: all 0.3s ease !important;
+  position: absolute;
+  left: -20px;
+  top: 19px;
 
   img {
     width: 20px !important;
@@ -502,13 +529,12 @@ body {
 .read-more-btn {
   font-size: 13px !important;
   color: #64748b !important;
-  /* grey read more text */
   font-weight: 600 !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 5px !important;
   transition: all 0.2s ease !important;
-  margin-top: 10px !important;
+  margin-top: 0px !important;
 
   .arrow {
     transition: transform 0.2s ease !important;
@@ -818,6 +844,115 @@ body {
         margin-bottom: 6px;
       }
 
+    }
+  }
+}
+
+/* ============================================================================
+   About Stats Strip  (below the homeabt section)
+   ============================================================================ */
+.about-stats-strip {
+  padding: 0px 2px;
+  position: relative;
+
+  .about-stats-container {
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    border: 1px solid #1e70e94d;
+  }
+
+  /* Each stat column */
+  .about-stat-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 25px;
+    transition: transform 0.25s ease;
+    background-color: #fff;
+
+    &:hover {
+      transform: translateY(-4px);
+
+      .about-stat-icon {
+        background: var(--vz-primary);
+        box-shadow: 0 8px 24px rgba(30, 112, 233, 0.3);
+
+        i {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  /* Dashed vertical divider */
+  .about-stat-divider {
+    width: 1px;
+    align-self: stretch;
+    border-left: 2px dashed rgba(30, 112, 233, 0.3);
+    flex-shrink: 0;
+  }
+
+  /* Icon circle */
+  .about-stat-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(30, 112, 233, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 30px;
+      color: var(--vz-primary);
+      transition: color 0.3s ease;
+    }
+  }
+
+  /* Bold metric heading */
+  .about-stat-value {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0 0 2px 0;
+  }
+
+  /* Description */
+  .about-stat-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #525355;
+    margin: 0;
+    max-width: 200px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    padding: 7px 0px;
+
+    .about-stats-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .about-stat-divider {
+      width: 60px;
+      height: 1px;
+      align-self: auto;
+      border-left: none;
+      border-top: 2px dashed rgba(30, 112, 233, 0.3);
+    }
+
+    .about-stat-item {
+      padding: 0 0px;
     }
   }
 }
