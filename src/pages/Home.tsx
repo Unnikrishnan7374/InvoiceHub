@@ -837,7 +837,6 @@ export default function Home() {
 
       {/* Invoice Templates Section */}
       <section className="invoice two clearfix" style={{
-        background: 'linear-gradient(180deg, rgba(26,115,232,0.02) 0%, rgba(26,115,232,0.05) 100%)',
         padding: '0px 15px',
         borderRadius: '24px',
         margin: '0',
@@ -845,7 +844,6 @@ export default function Home() {
         flexWrap: 'wrap',
         alignItems: 'center',
         gap: '40px',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.02)'
       }}>
         {/* On Mobile, show heading first */}
         {isMobile && (
@@ -1041,7 +1039,7 @@ export default function Home() {
             <h2 className="home-section-title">
               Choose Your Perfect <span>Template</span>
             </h2>
-            <p style={{ fontSize: '15px', color: '#555', lineHeight: '1.6', marginBottom: '25px' }}>
+            <p style={{ color: '#555', marginBottom: '25px' }}>
               Select from beautifully designed templates that match your brand. Customize colors, layouts, and typography to build trust with professional billing.
             </p>
 
@@ -1075,7 +1073,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h5 style={{ fontSize: '15px', fontWeight: 'bold', color: '#222', margin: '0 0 4px 0' }}>Invoice Templates</h5>
-                  <p style={{ fontSize: '13px', color: '#666', margin: 0, lineHeight: '1.4' }}>
+                  <p style={{ fontSize: '15px', color: '#666', margin: 0, lineHeight: '1.4' }}>
                     Perfect for billing clients quickly, clearly, and conforming to local US tax regulations.
                   </p>
                 </div>
@@ -1110,7 +1108,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h5 style={{ fontSize: '15px', fontWeight: 'bold', color: '#222', margin: '0 0 4px 0' }}>Estimation Templates</h5>
-                  <p style={{ fontSize: '13px', color: '#666', margin: 0, lineHeight: '1.4' }}>
+                  <p style={{ fontSize: '15px', color: '#666', margin: 0, lineHeight: '1.4' }}>
                     Share accurate quotes, manage approval workflows, and convert them to invoices with a click.
                   </p>
                 </div>

@@ -862,6 +862,7 @@ body {
     justify-content: space-between;
     gap: 0;
     border: 1px solid #1e70e94d;
+    background-color: #fff;
   }
 
   /* Each stat column */
@@ -873,7 +874,7 @@ body {
     text-align: center;
     padding: 10px 25px;
     transition: transform 0.25s ease;
-    background-color: #fff;
+
 
     &:hover {
       transform: translateY(-4px);
