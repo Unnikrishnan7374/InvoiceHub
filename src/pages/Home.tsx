@@ -121,7 +121,7 @@ export default function Home() {
                 <img src={ban.bg} className="ls-bg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <img
                   className="ls-l"
-                  style={{ top: '80px', left: 'auto', right: '7%', position: 'absolute', zIndex: 99 }}
+                  style={{ top: '100px', left: 'auto', right: '7%', position: 'absolute', zIndex: 99 }}
                   src={ban.laptop}
                   alt=""
                 />
@@ -168,7 +168,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="features hmefeatures">
-        <h2>Key Features</h2>
+        <h2>Our Standard Features</h2>
         <ul className="features-grid">
           <li>
             <Link to="/features/customer-vendor-management" className="feature-card-link">
@@ -269,8 +269,8 @@ export default function Home() {
         <div className="right">
           <h2>About Invoice Hub</h2>
           <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
-          <p>Invoice Hub is a comprehensive financial workflow platform designed to simplify billing, payables, tax compliance, and reporting for modern businesses.</p>
-          <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p>
+          <p>Invoice Hub streamlines billing, payables, tax compliance, and financial reporting for modern businesses.</p>
+          {/* <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p> */}
           <Link to="/about" className="themeBtn"> View More <span className="material-symbols-outlined">arrow_forward</span> </Link>
         </div>
         <div className="left">
@@ -503,7 +503,7 @@ export default function Home() {
                     <p>Invoice HUB Core Suite</p>
                   </div>
                   <div className="price-rate">
-                    <p className="price">$35</p>
+                    <p className="price">$15</p>
                     <p className="duration">/month</p>
                   </div>
                 </div>
@@ -544,7 +544,7 @@ export default function Home() {
                     <p>The Ultimate Management Experience</p>
                   </div>
                   <div className="price-rate">
-                    <p className="price">$65</p>
+                    <p className="price">$45</p>
                     <p className="duration">/month</p>
                   </div>
                 </div>

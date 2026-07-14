@@ -18,7 +18,7 @@ body {
 
 body {
   color: #000;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 17px;
   margin: 0;
   padding: 0;
@@ -101,7 +101,6 @@ ul {
 p {
   font-size: 17px;
   line-height: 27px;
-  font-weight: 500;
   color: #000;
   margin-bottom: 10px;
 }
@@ -453,14 +452,13 @@ nav#menu ul>li>a.more:hover i,
 }
 
 .sub-ban {
-  width: 42% !important;
+  width: 30% !important;
 }
 
-.slide-4 .sub-ban {}
 
 .sub-ban h2 {
-  font-size: 57px;
-  line-height: 70px !important;
+  font-size: 40px;
+  line-height: 50px !important;
   color: #333333;
   font-weight: 700;
   font-family: "Playfair Display", serif !important;
@@ -590,22 +588,30 @@ footer .footer-grid {
 footer .footer-grid .left {
   float: left;
   width: 100%;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 10px; */
 }
 
-footer .footer-grid .left ul {}
+footer .footer-grid .footerlist:first-child {
+  width: 75%;
+  float: left;
+}
+
+footer .footer-grid .footerlist:last-child {
+  width: 25%;
+  float: left;
+}
+
+footer .footer-grid .footerlist:first-child ul {}
 
 footer .footer-grid .left ul li {
   display: inline-block;
-  width: 100%;
   margin-bottom: 5px;
 }
 
 footer .footer-grid .left ul li a {
   color: #fff;
-  font-size: 16px;
   position: relative;
   padding-left: 11px;
 }
@@ -631,16 +637,13 @@ footer .footer-grid .left ul li a:hover {
 
 footer .footer-grid .left ul li a:before {
   left: 0;
-  content: "";
-  border: 5px solid transparent;
-  border-left-color: #fff;
+  content: "|";
   font-size: 0;
   line-height: 0;
   display: inline-block;
   top: 7px;
   margin-left: 0;
   position: absolute;
-  background-color: transparent;
 }
 
 footer .copyrights {
@@ -651,6 +654,7 @@ footer .copyrights {
   background-color: #645f5f;
   margin-bottom: 0px;
   padding: 13px 25px;
+  text-align: center;
 }
 
 .footerlist .addresslist .copyBtn {
@@ -671,6 +675,15 @@ footer .copyrights {
 .copyrights .rightsLinks {
   color: #ffffff;
   font-weight: 700;
+}
+
+.copyrights .left {
+  float: left;
+}
+
+.copyrights .right {
+  float: right;
+  padding-right: 50px;
 }
 
 .copyrights .privacylink {
@@ -1051,14 +1064,14 @@ footer .copyrights {
 
 .addresslist li i {
   float: left;
-  font-size: 20px;
-  top: 4px;
+  font-size: 16px;
+  top: 6px;
   position: relative;
   color: #d83b01;
 }
 
 .addresslist li p {
-  padding-left: 15px;
+  padding-left: 10px;
   letter-spacing: 0.2px;
   position: relative;
   display: flex !important;
@@ -2228,7 +2241,7 @@ ul.stars li {
 }
 
 .compareFuatures {
-  padding: 15px 7%;
+  padding: 15px 0%;
   position: relative;
 }
 

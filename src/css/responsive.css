@@ -66,7 +66,7 @@
         display: block !important;
         padding: 0;
         position: relative;
-        margin-top: 10px;
+        margin-top: 15px;
         float: right;
         clear: both;
         margin-right: 10px;
@@ -154,6 +154,11 @@
         margin-left: 25px;
         position: absolute;
         background-color: transparent;
+    }
+
+    .login .login-popup:before {
+        left: auto;
+        right: 25px;
     }
 
     header nav#menu ul li.featmnu ul:before {
