@@ -30,8 +30,8 @@ export default function About() {
                   <div className="about-stat-icon">
                     <i className="fas fa-clock"></i>
                   </div>
-                  <h3 className="about-stat-value">60% Saved Time</h3>
-                  <p className="about-stat-desc">With the simple app, work smarter, not harder.</p>
+                  <h3 className="about-stat-value">60% Faster Workflow</h3>
+                  {/* <p className="about-stat-desc">With the simple app, work smarter, not harder.</p> */}
                 </div>
                 <div className="about-stat-divider"></div>
                 <div className="about-stat-item">
@@ -39,15 +39,15 @@ export default function About() {
                     <i className="fas fa-bolt"></i>
                   </div>
                   <h3 className="about-stat-value">2× Faster Payments</h3>
-                  <p className="about-stat-desc">Get paid up to 9 days sooner.</p>
+                  {/* <p className="about-stat-desc">Get paid up to 9 days sooner.</p> */}
                 </div>
                 <div className="about-stat-divider"></div>
                 <div className="about-stat-item">
                   <div className="about-stat-icon">
                     <i className="fas fa-mobile-alt"></i>
                   </div>
-                  <h3 className="about-stat-value">On All Devices</h3>
-                  <p className="about-stat-desc">Invoice HUB 360 simplifies business tracking on mobile and web.</p>
+                  <h3 className="about-stat-value">Compatible with All Devices</h3>
+                  {/* <p className="about-stat-desc">Invoice HUB 360 simplifies business tracking on mobile and web.</p> */}
                 </div>
               </div>
             </div>
