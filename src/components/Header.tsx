@@ -53,6 +53,7 @@ export default function Header() {
   const [contactPhone, setContactPhone] = useState('');
   const [contactEmail, setContactEmail] = useState('');
   const [contactMessage, setContactMessage] = useState('');
+  const [contactStatus, setContactStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,14 +89,42 @@ export default function Header() {
     }
   };
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(`Thank you, ${contactName}! We'll respond as soon as we can.`);
-    setContactName('');
-    setContactPhone('');
-    setContactEmail('');
-    setContactMessage('');
-    setIsPopoverOpen(false);
+    setContactStatus('submitting');
+
+    try {
+      const formData = new FormData();
+      formData.append('name', contactName);
+      formData.append('phone', contactPhone);
+      formData.append('email', contactEmail);
+      formData.append('message', contactMessage);
+
+      const response = await fetch('https://formspree.io/f/xaqryjen', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+        },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setContactStatus('success');
+        setContactName('');
+        setContactPhone('');
+        setContactEmail('');
+        setContactMessage('');
+        
+        setTimeout(() => {
+          setIsPopoverOpen(false);
+          setContactStatus('idle');
+        }, 3000);
+      } else {
+        setContactStatus('error');
+      }
+    } catch (error) {
+      setContactStatus('error');
+    }
   };
 
   const toggleSubmenu = (menu) => {
@@ -156,9 +185,9 @@ export default function Header() {
 
                   <ul className={isMobileMenuOpen ? 'open' : ''}>
                     <li className="has-sub">
-                      <NavLink 
-                        to="/" 
-                        end 
+                      <NavLink
+                        to="/"
+                        end
                         className={({ isActive }) => (isActive && location.hash !== '#Pricing') ? 'active' : ''}
                         onClick={(e) => {
                           if (location.pathname === '/') {
@@ -190,37 +219,37 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
                       >
                         <li>
-                          <Link 
+                          <Link
                             to="/features/customer-vendor-management"
                             onMouseEnter={() => setFeaturesHoveredItem('customer')}
                           >
                             Customer & Vendor Management
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/estimates-invoicing-workflow"
                             onMouseEnter={() => setFeaturesHoveredItem('estimates')}
                           >
                             Estimates & Invoicing
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/payments-partial-payments"
                             onMouseEnter={() => setFeaturesHoveredItem('payments')}
                           >
                             Payments & Payables
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/smart-invoice-capture"
                             onMouseEnter={() => setFeaturesHoveredItem('ocr')}
                           >
                             Smart Invoice Capture
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/tax-automation"
                             onMouseEnter={() => setFeaturesHoveredItem('tax')}
                           >
                             Tax Automation
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/reports-insights"
                             onMouseEnter={() => setFeaturesHoveredItem('reports')}
                           >
@@ -228,7 +257,7 @@ export default function Header() {
                           </Link>
                         </li>
                         {!isMobile && (
-                          <li 
+                          <li
                             className="navsub feature-mnu"
                             style={{
                               background: 'none',
@@ -247,12 +276,12 @@ export default function Header() {
                                 {featuresPreviewData[featuresHoveredItem].text}
                               </p>
                             </div>
-                            
+
                             <div style={{ overflow: 'hidden', borderRadius: '10px', marginTop: '10px', height: '140px', width: '100%' }}>
-                              <img 
+                              <img
                                 key={featuresHoveredItem}
-                                src={featuresPreviewData[featuresHoveredItem].image} 
-                                alt={featuresHoveredItem} 
+                                src={featuresPreviewData[featuresHoveredItem].image}
+                                alt={featuresHoveredItem}
                                 style={{
                                   width: '100%',
                                   height: '100%',
@@ -260,7 +289,7 @@ export default function Header() {
                                   borderRadius: '10px',
                                   animation: 'dropdownFadeInScale 0.35s ease-out forwards',
                                   display: 'block'
-                                }} 
+                                }}
                               />
                             </div>
                           </li>
@@ -269,8 +298,8 @@ export default function Header() {
                     </li>
 
                     <li className="has-sub">
-                      <Link 
-                        to="/#Pricing" 
+                      <Link
+                        to="/#Pricing"
                         className={location.pathname === '/' && location.hash === '#Pricing' ? 'active' : ''}
                         onClick={(e) => {
                           if (location.pathname === '/') {
@@ -300,21 +329,21 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
                       >
                         <li>
-                          <Link 
-                            to="/blogs" 
+                          <Link
+                            to="/blogs"
                             onMouseEnter={() => setSupportHoveredItem('blog')}
                           >
                             Team Blog
                           </Link>
-                          <Link 
-                            to="/faq" 
+                          <Link
+                            to="/faq"
                             onMouseEnter={() => setSupportHoveredItem('faq')}
                           >
                             FAQ
                           </Link>
                         </li>
                         {!isMobile && (
-                          <li 
+                          <li
                             className="navsub feature-mnu"
                             style={{
                               background: 'none',
@@ -330,17 +359,17 @@ export default function Header() {
                                 {supportHoveredItem === 'blog' ? 'Team Blog' : 'FAQ'}
                               </h6>
                               <p style={{ fontSize: '13px', margin: 0, color: '#555', lineHeight: '1.4' }}>
-                                {supportHoveredItem === 'blog' 
-                                  ? 'Read our latest articles, insights, and billing updates.' 
+                                {supportHoveredItem === 'blog'
+                                  ? 'Read our latest articles, insights, and billing updates.'
                                   : 'Find answers to frequently asked questions about Invoice Hub.'}
                               </p>
                             </div>
-                            
+
                             <div style={{ overflow: 'hidden', borderRadius: '10px', marginTop: '10px', height: '140px', width: '100%' }}>
-                              <img 
+                              <img
                                 key={supportHoveredItem}
-                                src={supportHoveredItem === 'blog' ? '/images/blog-bg.jpg' : '/images/FAQ-bg2.png'} 
-                                alt={supportHoveredItem} 
+                                src={supportHoveredItem === 'blog' ? '/images/blog-bg.jpg' : '/images/FAQ-bg2.png'}
+                                alt={supportHoveredItem}
                                 style={{
                                   width: '100%',
                                   height: '100%',
@@ -348,7 +377,7 @@ export default function Header() {
                                   borderRadius: '10px',
                                   animation: 'dropdownFadeInScale 0.35s ease-out forwards',
                                   display: 'block'
-                                }} 
+                                }}
                               />
                             </div>
                           </li>
@@ -422,7 +451,7 @@ export default function Header() {
         <div className="popover-body">
           <h6>Contact Us <span>We'll respond as soon as we can.</span></h6>
           <div className="contactform">
-            <form action="https://formspree.io/f/xaqryjen" method="POST" className="validateForm">
+            <form onSubmit={handleContactSubmit} className="validateForm">
               <div className="row">
                 <div className="form-group col-md-12">
                   <input
@@ -432,6 +461,7 @@ export default function Header() {
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     required
+                    disabled={contactStatus === 'submitting'}
                   />
                   <label className={contactName ? 'active' : ''}>Name <span className="asterisk">*</span></label>
                 </div>
@@ -443,8 +473,14 @@ export default function Header() {
                     value={contactPhone}
                     onChange={handlePhoneInput}
                     required
+                    disabled={contactStatus === 'submitting'}
                   />
                   <label className={contactPhone ? 'active' : ''}>Phone <span className="asterisk">*</span></label>
+                  {contactPhone && contactPhone.replace(/\D/g, '').length < 10 && (
+                    <span className="phone-validation-error" style={{ color: '#ff4d4f', fontSize: '11px', marginTop: '4px', display: 'block', fontWeight: '500', textAlign: 'left' }}>
+                      Mobile number must have 10 digits
+                    </span>
+                  )}
                 </div>
                 <div className="form-group col-md-12">
                   <input
@@ -454,6 +490,7 @@ export default function Header() {
                     value={contactEmail}
                     onChange={(e) => setContactEmail(e.target.value)}
                     required
+                    disabled={contactStatus === 'submitting' || contactPhone.replace(/\D/g, '').length < 10}
                   />
                   <label className={contactEmail ? 'active' : ''}>Email <span className="asterisk">*</span></label>
                 </div>
@@ -464,10 +501,29 @@ export default function Header() {
                     onChange={(e) => setContactMessage(e.target.value)}
                     className="form-control"
                     required
+                    disabled={contactStatus === 'submitting' || contactPhone.replace(/\D/g, '').length < 10}
                   ></textarea>
                   <label className={contactMessage ? 'active' : ''}>Message <span className="asterisk">*</span></label>
                 </div>
-                <button type="submit" className="submit btn-animate">Send</button>
+                <div className="col-md-12" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <button
+                    type="submit"
+                    className="submit btn-animate"
+                    disabled={contactStatus === 'submitting' || contactPhone.replace(/\D/g, '').length < 10}
+                  >
+                    {contactStatus === 'submitting' ? 'Sending...' : 'Send'}
+                  </button>
+                  {contactStatus === 'success' && (
+                    <div style={{ color: '#28a745', fontSize: '12px', marginTop: '5px', fontWeight: '500', textAlign: 'center' }}>
+                      Thank you! Message sent successfully.
+                    </div>
+                  )}
+                  {contactStatus === 'error' && (
+                    <div style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px', fontWeight: '500', textAlign: 'center' }}>
+                      Failed to send message. Please try again.
+                    </div>
+                  )}
+                </div>
               </div>
             </form>
           </div>

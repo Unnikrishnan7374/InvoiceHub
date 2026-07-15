@@ -123,7 +123,7 @@ export default function Contact() {
           </div> */}
           <h2 className="home-section-title">Get In <span>Touch</span></h2>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} action="https://formspree.io/f/xaqryjen" method="POST">
             <div className="contact-form-group">
               <label htmlFor="fullname">Full Name</label>
               <input

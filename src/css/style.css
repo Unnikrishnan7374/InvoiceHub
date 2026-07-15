@@ -3156,7 +3156,7 @@ ul.stars li {
   content: '';
   width: 100%;
   height: 100%;
-  background: #f4f7fc;
+  /* background: #f4f7fc; */
   position: absolute;
   left: 0px;
   z-index: -22;
