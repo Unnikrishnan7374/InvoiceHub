@@ -6,6 +6,8 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import DoneTwoToneIcon from '@mui/icons-material/DoneTwoTone';
+import DoubleArrowOutlinedIcon from '@mui/icons-material/DoubleArrowOutlined';
 
 export default function Home() {
   const [activeBanner, setActiveBanner] = useState(0);
@@ -31,6 +33,17 @@ export default function Home() {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash === '#Pricing') {
+      const element = document.getElementById('Pricing');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
   }, []);
 
   useEffect(() => {
@@ -307,9 +320,9 @@ export default function Home() {
       {/* About Section */}
       <div className="homeabt clearfix">
         <div className="right">
-          <h2 className="home-section-title">About <span>Invoice Hub</span></h2>
+          <h2 className="home-section-title">About <span>Invoice HUB 360</span></h2>
           <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
-          <p>Invoice Hub streamlines billing, payables, tax compliance, and financial reporting for modern businesses.</p>
+          <p>Invoice HUB 360 streamlines billing, payables, tax compliance, and financial reporting for modern businesses.</p>
           {/* <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p> */}
           {/* About Stats Strip */}
           <div className="about-stats-strip">
@@ -335,7 +348,7 @@ export default function Home() {
                   <i className="fas fa-mobile-alt"></i>
                 </div>
                 <h3 className="about-stat-value">On All Devices</h3>
-                <p className="about-stat-desc">Invoice Hub simplifies business tracking on mobile and web.</p>
+                <p className="about-stat-desc">Invoice HUB 360 simplifies business tracking on mobile and web.</p>
               </div>
             </div>
           </div>
@@ -352,7 +365,7 @@ export default function Home() {
       {/* Why Choose Invoice HUB */}
       <section className="invoice hmeinvoice clearfix">
         <div className="right">
-          <h2 className="home-section-title">Why choose <span>Invoice HUB</span></h2>
+          <h2 className="home-section-title">Why choose <span>Invoice HUB 360</span></h2>
           <p><strong>Designed for Control, Built for Growth</strong></p>
           <ul className="ticklist">
             <li><i className="bi bi-check2"></i> Automated workflows that reduce manual effort</li>
@@ -363,7 +376,7 @@ export default function Home() {
             <li><i className="bi bi-check2"></i> Audit-ready financial records</li>
             <li><i className="bi bi-check2"></i> Monitor real-time revenue and cash flow insights</li>
           </ul>
-          <p>InvoiceHub transforms complex financial operations into a structured, efficient, and scalable system.</p>
+          <p><strong>Invoice HUB 360</strong> transforms complex financial operations into a structured, efficient, and scalable system.</p>
         </div>
         <div className="left">
           <ul>
@@ -383,7 +396,7 @@ export default function Home() {
           <ul className="tabs nav nav-tabs clearfix left-sub">
             <li className="nav-item">
               <a className={`nav-link ${activeTab === 'Launch' ? 'active' : ''}`} onClick={() => setActiveTab('Launch')}>
-                1. Launch Invoice HUB
+                1. Launch Invoice HUB 360
               </a>
             </li>
             <li className="nav-item">
@@ -424,9 +437,9 @@ export default function Home() {
               <div className="tab-pane fade show active">
                 <div className="lftcntnt">
                   <h6>Step : 1</h6>
-                  <p><strong>Log In to Your Invoice HUB Account</strong></p>
+                  <p><strong>Log In to Your Invoice HUB 360 Account</strong></p>
                   <ul className="ticklist">
-                    <li>Access Invoice HUB securely from any device and get started instantly.</li>
+                    <li>Access Invoice HUB 360 securely from any device and get started instantly.</li>
                     <li>Your dashboard gives a clear overview of your business from the moment you log in — no setup, no learning curve.</li>
                   </ul>
                 </div>
@@ -614,18 +627,18 @@ export default function Home() {
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
-                    <li><i className="fas fa-check"></i> Easy onboarding</li>
-                    <li><i className="fas fa-check"></i> Invoice & Estimate creation</li>
-                    <li><i className="fas fa-check"></i> Customer management</li>
-                    <li><i className="fas fa-check"></i> Product & service catalog</li>
-                    <li><i className="fas fa-check"></i> US sales tax (basic)</li>
-                    <li><i className="fas fa-check"></i> PDF invoice export</li>
-                    <li><i className="fas fa-check"></i> Basic reports</li>
-                    <li><i className="fas fa-check"></i> Email support</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Easy onboarding</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Invoice & Estimate creation</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Customer management</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Product & service catalog</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> US sales tax (basic)</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> PDF invoice export</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Basic reports</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Email support</li>
                   </ul>
                 </div>
                 <div className="buy-btn-wrapper">
-                  <button className="themeBtn silverBtn">Start Trial</button>
+                  <button className="themeBtn silverBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
                 </div>
               </div>
             </div>
@@ -636,7 +649,7 @@ export default function Home() {
                   <h3 className="heading-title">Basic</h3>
                   <h6 className="mostreco">Most Popular</h6>
                   <div className="heading-sub-title">
-                    <p>Invoice HUB Core Suite</p>
+                    <p>Invoice HUB 360 Core Suite</p>
                   </div>
                   <div className="price-rate">
                     <p className="price">{isAnnual ? '$12' : '$15'}</p>
@@ -648,20 +661,20 @@ export default function Home() {
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
-                    <li><i className="fas fa-check"></i> Everything in Trial</li>
-                    <li><i className="fas fa-check"></i> Advanced invoice & estimate templates</li>
-                    <li><i className="fas fa-check"></i> Dynamic document naming</li>
-                    <li><i className="fas fa-check"></i> US sales tax (state-based)</li>
-                    <li><i className="fas fa-check"></i> Bills & expense tracking</li>
-                    <li><i className="fas fa-check"></i> Payments tracking</li>
-                    <li><i className="fas fa-check"></i> Vendor management</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Everything in Trial</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced invoice & estimate templates</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Dynamic document naming</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> US sales tax (state-based)</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Bills & expense tracking</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Payments tracking</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Vendor management</li>
 
                     {readMoreBasic && (
                       <>
-                        <li><i className="fas fa-check"></i> Report center (sales, tax, payments)</li>
-                        <li><i className="fas fa-check"></i> Excel & PDF exports</li>
-                        <li><i className="fas fa-check"></i> Role-based user access</li>
-                        <li><i className="fas fa-check"></i> Audit logs (standard)</li>
+                        <li><DoneTwoToneIcon className="pricing-icon" /> Report center (sales, tax, payments)</li>
+                        <li><DoneTwoToneIcon className="pricing-icon" /> Excel & PDF exports</li>
+                        <li><DoneTwoToneIcon className="pricing-icon" /> Role-based user access</li>
+                        <li><DoneTwoToneIcon className="pricing-icon" /> Audit logs (standard)</li>
                       </>
                     )}
                   </ul>
@@ -670,7 +683,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="buy-btn-wrapper">
-                  <button className="themeBtn goldBtn">Start Now</button>
+                  <button className="themeBtn goldBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
                 </div>
               </div>
             </div>
@@ -692,19 +705,19 @@ export default function Home() {
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
-                    <li><i className="fas fa-check"></i> Everything in Basic</li>
-                    <li><i className="fas fa-check"></i> Advanced US sales tax configuration</li>
-                    <li><i className="fas fa-check"></i> Location-based tax rules</li>
-                    <li><i className="fas fa-check"></i> Custom business configuration</li>
-                    <li><i className="fas fa-check"></i> Advanced inventory management</li>
-                    <li><i className="fas fa-check"></i> Profit & expense analytics</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Everything in Basic</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced US sales tax configuration</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Location-based tax rules</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Custom business configuration</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced inventory management</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Profit & expense analytics</li>
+                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced audit & activity center</li>
 
                     {readMorePremium && (
                       <>
-                        <li><i className="fas fa-check"></i> Advanced audit & activity center</li>
-                        <li><i className="fas fa-check"></i> Priority onboarding assistance</li>
-                        <li><i className="fas fa-check"></i> Data migration support</li>
-                        <li><i className="fas fa-check"></i> Priority support</li>
+                        <li><DoneTwoToneIcon className="pricing-icon" /> Priority onboarding assistance</li>
+                        <li><DoneTwoToneIcon className="pricing-icon" /> Data migration support</li>
+                        <li><DoneTwoToneIcon className="pricing-icon" /> Priority support</li>
                       </>
                     )}
                   </ul>
@@ -713,7 +726,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="buy-btn-wrapper">
-                  <button className="themeBtn premiumBtn">Start Now</button>
+                  <button className="themeBtn premiumBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
                 </div>
               </div>
             </div>
@@ -725,7 +738,7 @@ export default function Home() {
               className={`themeBtn comparebtn ${compareCollapsed ? 'collapsed' : ''}`}
               onClick={() => setCompareCollapsed(!compareCollapsed)}
             >
-              Compare all features <i className={`bi ${compareCollapsed ? 'bi-chevron-down' : 'bi-chevron-up'}`}></i>
+              Compare All Features <i className={`bi ${compareCollapsed ? 'bi-chevron-down' : 'bi-chevron-up'}`}></i>
             </button>
           </div>
 
@@ -737,15 +750,28 @@ export default function Home() {
                     <th scope="col"><h3>Features</h3></th>
                     <th scope="col">
                       <h3 className="text-xl">Trial</h3>
-                      <div className="th-price">$0</div>
+                      <div className="th-price">$0 <span className="th-duration">/month</span></div>
+                      <div style={{ marginTop: '10px' }}>
+                        <button className="compare-btn-outline">Get Start Now</button>
+                      </div>
                     </th>
                     <th scope="col">
                       <h3 className="text-xl">Basic</h3>
-                      <div className="th-price">{isAnnual ? '$12' : '$15'}</div>
+                      <div className="th-price">
+                        {isAnnual ? '$12' : '$15'} <span className="th-duration">/month</span>
+                      </div>
+                      <div style={{ marginTop: '10px' }}>
+                        <button className="compare-btn-outline">Get Start Now</button>
+                      </div>
                     </th>
                     <th scope="col">
                       <h3>Professional</h3>
-                      <div className="th-price">{isAnnual ? '$39' : '$45'}</div>
+                      <div className="th-price">
+                        {isAnnual ? '$39' : '$45'} <span className="th-duration">/month</span>
+                      </div>
+                      <div style={{ marginTop: '10px' }}>
+                        <button className="compare-btn-outline">Get Start Now</button>
+                      </div>
                     </th>
                   </tr>
                 </thead>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { searchData } from '../data/searchData';
+import CtaBanner from '../components/common/CtaBanner';
 
 export default function Support() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -40,7 +41,7 @@ export default function Support() {
       </section>
 
       {/* Search Section */}
-      <div className="search-section">
+      {/* <div className="search-section">
         <div className="search-wrapper" style={{ position: 'relative' }}>
           <i className="fa fa-search search-icon"></i>
           <input
@@ -78,46 +79,42 @@ export default function Support() {
             <div className="search-no-results">No matches found for "{searchQuery}"</div>
           </div>
         )}
-      </div>
+      </div> */}
 
-      <ul className="clearfix blogList">
-        <li>
-          <Link to="/blogs" className="nav-link">
-            <div className="content clearfix">
-              <h3>Blogs</h3>
-              <p>Step-by-step guides and documentation to efficiently manage invoices, payments, bills, taxes, and account settings.</p>
-              <span className="readmr themeBtn">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
+      <div className="modern-support-container">
+        <div className="modern-support-card">
+          <Link to="/blogs" className="support-card-link">
+            <div className="support-image-wrapper">
+              <img src="/images/blog-bg.jpg" alt="Team Blog" />
             </div>
-            <div className="blgimg">
-              <img src="images/blog-4.jpg" className="img-fluid" alt="Blogs" />
+            <div className="support-overlay-box">
+              <h3>Team Blog</h3>
+              <p>Step-by-step guides and documentation to efficiently manage invoices, payments, bills, taxes, and account settings.</p>
+              <span className="support-see-detail">
+                View More <span className="material-symbols-outlined">arrow_forward</span>
+              </span>
             </div>
           </Link>
-        </li>
-        <li>
-          <Link to="/faq" className="nav-link">
-            <div className="content clearfix">
+        </div>
+
+        <div className="modern-support-card">
+          <Link to="/faq" className="support-card-link">
+            <div className="support-image-wrapper">
+              <img src="/images/FAQ-bg2.png" alt="FAQ" />
+            </div>
+            <div className="support-overlay-box">
               <h3>FAQ</h3>
               <p>Find quick answers to commonly asked questions about estimates, invoices, payments, tax handling, compliance, and subscriptions.</p>
-              <span className="readmr themeBtn">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
-            </div>
-            <div className="blgimg">
-              <img src="images/menuImgsupport.png" className="img-fluid" alt="FAQ" />
+              <span className="support-see-detail">
+                View More <span className="material-symbols-outlined">arrow_forward</span>
+              </span>
             </div>
           </Link>
-        </li>
-      </ul>
-
-      <section className="bottom-cta clearfix">
-        <div className="container">
-          <img src="images/bg_red.svg" className="img-fluid svgimg" alt="" />
-          <div className="rtcntnt">
-            <div className="logoimg">
-              <img src="images/Logoimg.png" className="img-fluid" alt="Logo" />
-            </div>
-            <h4>Ready to streamline your business? <Link to="/contact" className="themeBtn btn-animate">Contact</Link></h4>
-          </div>
         </div>
-      </section>
+      </div>
+
+      <CtaBanner />
+
     </div>
   );
 }

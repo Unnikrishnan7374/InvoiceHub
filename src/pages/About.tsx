@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CtaBanner from '../components/common/CtaBanner';
 
 export default function About() {
   return (
@@ -16,25 +17,52 @@ export default function About() {
       </section>
 
       <div className="aboutPge">
-        <section className="invoice clearfix">
+        <div className="homeabt clearfix">
           <div className="right">
-            <h2>About Invoice Hub</h2>
+            <h2 className="home-section-title">About <span>Invoice HUB 360</span></h2>
             <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
-            <ul className="ticklist">
-              <li>Invoice Hub is a comprehensive financial workflow platform designed to simplify billing, payables, tax compliance, and reporting for modern businesses.</li>
-              <li>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</li>
-            </ul>
+            <p>Invoice HUB 360 is a comprehensive financial workflow platform designed to simplify billing, payables, tax compliance, and reporting for modern businesses. From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p>
+
+            {/* About Stats Strip */}
+            <div className="about-stats-strip">
+              <div className="about-stats-container">
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <i className="fas fa-clock"></i>
+                  </div>
+                  <h3 className="about-stat-value">60% Saved Time</h3>
+                  <p className="about-stat-desc">With the simple app, work smarter, not harder.</p>
+                </div>
+                <div className="about-stat-divider"></div>
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <i className="fas fa-bolt"></i>
+                  </div>
+                  <h3 className="about-stat-value">2× Faster Payments</h3>
+                  <p className="about-stat-desc">Get paid up to 9 days sooner.</p>
+                </div>
+                <div className="about-stat-divider"></div>
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <i className="fas fa-mobile-alt"></i>
+                  </div>
+                  <h3 className="about-stat-value">On All Devices</h3>
+                  <p className="about-stat-desc">Invoice HUB 360 simplifies business tracking on mobile and web.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="left">
-            <img src="images/expanding_laptop.png" className="img-fluid" alt="Invoice Hub Laptop Demo" />
+            <img src="images/about.png" className="img-fluid" alt="about" />
           </div>
-        </section>
+        </div>
 
-        <div className="why-exists-banner">
+
+        <div className="why-exists-banner mt-4">
           <div className="why-exists-top">
             <div className="why-exists-left">
-              <h2>Why <span>Invoice Hub</span> Exists</h2>
-              <p className="why-sub">We built Invoice Hub to simplify financial operations<br />so you can focus on what truly matters—your business.</p>
+              <h2 className="home-section-title mb-3">Why Invoice HUB 360 <span>Exists</span> </h2>
+              <p className="why-sub">We built <strong>Invoice HUB 360</strong> to simplify financial operations so you can focus on what truly matters—your business.</p>
             </div>
             {/* <div className="why-exists-right">
               <img src="images/whoweare.png" className="img-fluid" alt="Why Invoice Hub Exists" />
@@ -69,10 +97,38 @@ export default function About() {
           </div>
         </div>
 
+        {/* Our Story / Our Mission / Our Vision */}
+        <section className="vision-section">
+          <div className="about-grid-container">
+            <div className="story-card">
+              <div className="story-bg"></div>
+              <div className="story-content">
+                <h2>Our Story</h2>
+                <p>Invoice HUB 360 started with a simple goal: to make financial management seamless and stress-free for growing businesses. We build intelligent tools that automate workflows, reduce errors, and give you clear financial visibility so you can focus on scaling.</p>
+              </div>
+            </div>
+
+            <div className="mission-vision-cards">
+              <div className="about-card mission-card">
+                <h3>Our Mission</h3>
+                <p>
+                  We simplify financial operations by automating invoicing, ensuring accurate US tax compliance, streamlining vendor management, delivering actionable insights, and building scalable solutions that grow with your business.                  </p>
+              </div>
+
+              <div className="about-card vision-card">
+                <h3>Our Vision</h3>
+                <p>
+                  To be a trusted financial workflow platform that enables businesses across the United States to operate with transparency, compliance, and scalable efficiency. We envision financial systems that are intelligent, structured, and growth-ready.                  </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
         <section className="aboutFeatures">
           <div className="container-fluid">
-            <div className="section-title">
-              <h2>What Sets Invoicehub Apart</h2>
+            <div className="section-title pb-4">
+              <h2 className="home-section-title">What Sets Invoice HUB 360 <span>Apart</span></h2>
             </div>
             <div className="features-container">
               <div className="feature-card">
@@ -110,43 +166,12 @@ export default function About() {
           </div>
         </section>
 
-        <section className="vision-section">
-          <div className="vision-wrapper">
 
-            <div className="vision-content">
-              <div className="info-card">
-                <h2>Our Vision</h2>
-                <p>To be a trusted financial workflow platform that enables businesses across the United States to operate with transparency, compliance, and scalable efficiency. We envision financial systems that are intelligent, structured, and growth-ready. </p>
-              </div>
-              <div className="info-card">
-                <h2>Our Mission</h2>
-
-                <p className="mb-3">
-                  <strong>InvoiceHub is committed to:</strong>
-                </p>
-
-                <ul className="ticklist">
-                  <li>Automating invoicing and payment lifecycle management</li>
-                  <li>Supporting accurate US tax handling</li>
-                  <li>Structuring vendor compliance and reporting processes</li>
-                  <li>Delivering reliable dashboards and financial insights</li>
-                  <li>Building scalable systems that evolve with growing businesses</li>
-                </ul>
-
-                <p className="mission-footer">
-                  Our mission is to simplify financial operations without
-                  sacrificing control or compliance.
-                </p>
-              </div>
-
-            </div>
-            <div className="vision-image"><img src="/images/BanPhone.png" alt="InvoiceHub Dashboard" />
-            </div>
-          </div>
-        </section>
 
         <section className="abtbtm clearfix">
-          <h2>Built for Scaling Businesses</h2>
+          <div className='pb-4'>
+            <h2 className="home-section-title mb-3">Built for <span>Scaling Businesses</span></h2>
+          </div>
           <div className="abtbtm-grid">
             <div className="list">
               <h3>Operational Efficiency</h3>
@@ -168,18 +193,7 @@ export default function About() {
         </section>
 
 
-        <section className="bottom-cta clearfix">
-          <div className="container">
-
-            <img src="images/bg_red.svg" className="img-fluid svgimg" alt="" />
-            <div className="rtcntnt">
-              <div className="logoimg">
-                <img src="images/Logoimg.png" className="img-fluid" alt="Logo" />
-              </div>
-              <h4>Streamline your invoicing with Invoice HUB today! <Link to="/register" className="themeBtn">Get Started</Link></h4>
-            </div>
-          </div>
-        </section>
+        <CtaBanner />
       </div>
     </div>
   );
