@@ -1979,48 +1979,6 @@ ul.stars li {
   margin: 0 auto;
 }
 
-.pricing .price-box {
-  padding: 0px 10px 70px;
-  position: relative;
-  background: #ffffff;
-  -webkit-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-  min-height: 550px;
-  border-radius: 15px;
-  border: 2px solid #2196f3;
-}
-
-.price-box.gold {
-  border-color: #ffad01;
-}
-
-.price-box.premium {
-  border-color: #2ca01c;
-}
-
-.price-box .price-title {
-  margin: -1px -10px 10px;
-  font-weight: 600;
-  padding: 10px 0px 16px;
-  border-radius: 15px 15px 0px 0px;
-  border-top: 5px solid #2196f3;
-  text-align: center;
-  background-color: #F3F3F3;
-}
-
-.price-box .price-title h3 {
-  font-size: 25px;
-}
-
-.price-box.gold .price-title {
-  border-top-color: #ffad01;
-}
-
-.price-box.premium .price-title {
-  border-top-color: #2ca01c;
-}
-
 .pricing-wrapper .mostreco {
   position: absolute;
   z-index: 4;
@@ -2081,13 +2039,15 @@ ul.stars li {
 
 .price-box .service-feature ul li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 0px;
   margin-bottom: 10px;
   font-size: 17px;
   line-height: 28px;
   padding-right: 10px;
   min-height: 30px;
 }
+
+.price-box .service-feature ul li svg {}
 
 .price-box .service-feature ul li:last-child {
   margin-bottom: 0px;
@@ -2115,7 +2075,7 @@ ul.stars li {
   margin: 5px auto;
   font-weight: 500;
   transition: all 0.26s ease-in;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 8px 10px;
   text-align: center;
 }
@@ -2348,10 +2308,6 @@ ul.stars li {
   font-size: 22px;
   vertical-align: middle;
   font-weight: 700;
-}
-
-.compareFuatures table td .material-symbols-outlined:not(.closeIcn) {
-  color: #10b981;
 }
 
 .compareFuatures table td .material-symbols-outlined.closeIcn {
@@ -4179,3 +4135,5 @@ ul.stars li {
 .info-card {
   padding: 0px 0px;
 }
+
+/* Pricing Get Start Now Button Hover Arrow Animation */

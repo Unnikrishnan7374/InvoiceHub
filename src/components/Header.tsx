@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import '../css/scss/Header.scss';
 
 export default function Header() {
@@ -13,6 +13,7 @@ export default function Header() {
   const [supportHoveredItem, setSupportHoveredItem] = useState<'blog' | 'faq'>('blog');
   const [featuresHoveredItem, setFeaturesHoveredItem] = useState<'customer' | 'estimates' | 'payments' | 'ocr' | 'tax' | 'reports'>('customer');
   const location = useLocation();
+  const navigate = useNavigate();
 
   const featuresPreviewData = {
     customer: {
@@ -155,7 +156,19 @@ export default function Header() {
 
                   <ul className={isMobileMenuOpen ? 'open' : ''}>
                     <li className="has-sub">
-                      <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
+                      <NavLink 
+                        to="/" 
+                        end 
+                        className={({ isActive }) => (isActive && location.hash !== '#Pricing') ? 'active' : ''}
+                        onClick={(e) => {
+                          if (location.pathname === '/') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            if (location.hash) {
+                              window.history.pushState(null, '', '/');
+                            }
+                          }
+                        }}
+                      >
                         Home
                       </NavLink>
                     </li>
@@ -253,6 +266,25 @@ export default function Header() {
                           </li>
                         )}
                       </ul>
+                    </li>
+
+                    <li className="has-sub">
+                      <Link 
+                        to="/#Pricing" 
+                        className={location.pathname === '/' && location.hash === '#Pricing' ? 'active' : ''}
+                        onClick={(e) => {
+                          if (location.pathname === '/') {
+                            e.preventDefault();
+                            const element = document.getElementById('Pricing');
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            navigate('/#Pricing');
+                          }
+                        }}
+                      >
+                        Pricing
+                      </Link>
                     </li>
 
                     <li className={`has-sub supportmnu ${activeSubmenu === 'support' ? 'par-active' : ''}`}>
