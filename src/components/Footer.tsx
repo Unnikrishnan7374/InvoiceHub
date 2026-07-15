@@ -47,7 +47,7 @@ export default function Footer() {
             <ul className="footer-horizontal-links">
               <li><Link to="/about">About</Link></li>
               <li><Link to="/features">Features</Link></li>
-              <li><Link to="/suport">support</Link></li>
+              <li><Link to="/suport">Support</Link></li>
               <li><a href="/#Pricing">Pricing</a></li>
               <li><Link to="/faq">FAQ</Link></li>
               <li><Link to="/blogs">Blog</Link></li>
@@ -75,8 +75,8 @@ export default function Footer() {
                 </div>
                 <div className="contact-item email-item">
                   <i className="fa fa-envelope" aria-hidden="true"></i>
-                  <a href="mailto:Support@invoicehub360.com" className="copyText">Support@invoicehub360.com</a>
-                  <CopyText value="Support@invoicehub360.com" />
+                  <a href="mailto:support@invoicehub360.com" className="copyText">support@invoicehub360.com</a>
+                  <CopyText value="support@invoicehub360.com" />
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function Footer() {
               <span className="copyright-separator">|</span>
             </div>
             <div className="copyrights-right">
-              <span>© {currentYear} <Link to="/" className="rightsLinks">Invoice HUB 360</Link>. All Rights Reserved.</span>
+              <span> © {currentYear} <Link to="/" className="rightsLinks">Invoice HUB 360</Link>. All Rights Reserved.</span>
             </div>
           </div>
         </div>
