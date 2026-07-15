@@ -3,19 +3,10 @@ import { Link } from 'react-router-dom';
 import CopyText from '../components/common/copydata';
 
 export default function Contact() {
-  const [activeToastType, setActiveToastType] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [date, setDate] = useState('');
   const [message, setMessage] = useState('');
-
-  const handleCopy = (text, type) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setActiveToastType(type);
-      setTimeout(() => setActiveToastType(''), 2000);
-    });
-  };
 
   const handlePhoneInput = (e) => {
     const value = e.target.value.replace(/\D/g, '').slice(0, 10);
@@ -23,16 +14,6 @@ export default function Contact() {
       return a ? `(${a}${b ? `) ${b}${c ? `-${c}` : ''}` : ''}` : '';
     });
     setPhone(formatted);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Thank you, ${name}! Your message for ${date} has been sent successfully.`);
-    setName('');
-    setPhone('');
-    setEmail('');
-    setDate('');
-    setMessage('');
   };
 
   return (
@@ -51,7 +32,7 @@ export default function Contact() {
       <div className="contactpage">
         <div className="left">
           <h2>Our Location</h2>
-          <p>Simply complete the form to reach us now. We’re happy to solve your messaging problem.</p>
+          <p>Simply complete the form to reach us now. We're happy to solve your messaging problem.</p>
 
           <ul className="boxes addresslist">
             <li>
@@ -71,8 +52,8 @@ export default function Contact() {
             <li>
               <i className="fa fa-envelope adrico" aria-hidden="true"></i>
               <p className="adr clearfix">
-                <a href="mailto:support@invoicehub360.com" className="copyText">support@invoicehub360.com </a>
-                <CopyText value="support@invoicehub360.com " />
+                <a href="mailto:support@invoicehub360.com" className="copyText">support@invoicehub360.com</a>
+                <CopyText value="support@invoicehub360.com" />
               </p>
             </li>
           </ul>
@@ -86,6 +67,7 @@ export default function Contact() {
               <div className="form-group col-md-12">
                 <input
                   type="text"
+                  name="name"
                   className="form-control"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -96,6 +78,7 @@ export default function Contact() {
               <div className="form-group col-md-12">
                 <input
                   type="tel"
+                  name="phone"
                   className="form-control phone"
                   value={phone}
                   onChange={handlePhoneInput}
@@ -106,6 +89,7 @@ export default function Contact() {
               <div className="form-group col-md-12">
                 <input
                   type="email"
+                  name="email"
                   className="form-control email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -115,6 +99,7 @@ export default function Contact() {
               </div>
               <div className="form-group col-md-12">
                 <textarea
+                  name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="form-control"

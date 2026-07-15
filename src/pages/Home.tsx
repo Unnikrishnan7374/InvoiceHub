@@ -352,7 +352,7 @@ export default function Home() {
       {/* Why Choose Invoice HUB */}
       <section className="invoice hmeinvoice clearfix">
         <div className="right">
-          <h2 className="home-section-title">Why choose <span>Invoice HUB</span>?</h2>
+          <h2 className="home-section-title">Why choose <span>Invoice HUB</span></h2>
           <p><strong>Designed for Control, Built for Growth</strong></p>
           <ul className="ticklist">
             <li><i className="bi bi-check2"></i> Automated workflows that reduce manual effort</li>

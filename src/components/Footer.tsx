@@ -75,8 +75,8 @@ export default function Footer() {
                 </div>
                 <div className="contact-item email-item">
                   <i className="fa fa-envelope" aria-hidden="true"></i>
-                  <a href="mailto:support@invoicehub360.com" className="copyText">support@invoicehub360.com</a>
-                  <CopyText value="support@invoicehub360.com" />
+                  <a href="mailto:Support@invoicehub360.com" className="copyText">Support@invoicehub360.com</a>
+                  <CopyText value="Support@invoicehub360.com" />
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function Footer() {
               <span className="copyright-separator">|</span>
             </div>
             <div className="copyrights-right">
-              <span>© {currentYear} <Link to="/" className="rightsLinks">Invoice HUB</Link>. All Rights Reserved.</span>
+              <span>© {currentYear} <Link to="/" className="rightsLinks">Invoice HUB 360</Link>. All Rights Reserved.</span>
             </div>
           </div>
         </div>

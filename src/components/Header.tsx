@@ -395,6 +395,7 @@ export default function Header() {
                 <div className="form-group col-md-12">
                   <input
                     type="text"
+                    name="name"
                     className="form-control"
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
@@ -405,6 +406,7 @@ export default function Header() {
                 <div className="form-group col-md-12">
                   <input
                     type="tel"
+                    name="phone"
                     className="form-control phone"
                     value={contactPhone}
                     onChange={handlePhoneInput}
@@ -415,6 +417,7 @@ export default function Header() {
                 <div className="form-group col-md-12">
                   <input
                     type="email"
+                    name="email"
                     className="form-control email"
                     value={contactEmail}
                     onChange={(e) => setContactEmail(e.target.value)}
@@ -424,6 +427,7 @@ export default function Header() {
                 </div>
                 <div className="form-group col-md-12">
                   <textarea
+                    name="message"
                     value={contactMessage}
                     onChange={(e) => setContactMessage(e.target.value)}
                     className="form-control"
