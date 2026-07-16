@@ -69,10 +69,10 @@ export default function Home() {
   const banners = [
     {
       bg: "images/banner-5.jpg",
-      laptop: "images/laptop.png",
+      laptop: "images/laptop.webp",
       title: <>The Smart Way to Run Your  <span>Billing Operations</span></>,
       desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
-      theme: ""
+      theme: "slide-1"
     },
     {
       bg: "images/banner-4.jpg",
@@ -82,7 +82,7 @@ export default function Home() {
     },
     {
       bg: "images/banner-3.jpg",
-      laptop: "images/banner-3.1.png",
+      laptop: "images/banner-3.1.webp",
       title: <>Secure, Tax-Ready, <span>Built to Scale </span>.</>,
       desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
       theme: "slide-3"
@@ -92,7 +92,7 @@ export default function Home() {
       laptop: "images/expanding_laptop.png", // uses phone image
       title: <>Work from Anywhere, <span>Anytime</span>.</>,
       desc: "Secure cloud-based access to your financial operations from any device. Stay in control wherever business takes you.",
-      theme: "slide-2"
+      theme: "slide-4"
     }
 
   ];
