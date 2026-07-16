@@ -200,7 +200,12 @@ body {
   width: 100%;
   position: relative;
   height: 600px;
+
   /* Default desktop height */
+  .ls-slide.slide-3 .ls-l:not(.sub-ban) {
+    top: 50px !important;
+  }
+
 
   @media screen and (max-width: 1200px) {
     height: 500px !important;
