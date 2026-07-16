@@ -369,8 +369,9 @@ export default function Header() {
                             <div style={{ overflow: 'hidden', borderRadius: '10px', marginTop: '10px', height: '140px', width: '100%' }}>
                               <img
                                 key={supportHoveredItem}
-                                src={supportHoveredItem === 'blog' ? '/images/blog-bg.jpg' : '/images/FAQ-bg2.png'}
+                                src={supportHoveredItem === 'blog' ? '/images/blog-bg.webp' : '/images/FAQ-bg2.webp'}
                                 alt={supportHoveredItem}
+                                loading="lazy"
                                 style={{
                                   width: '100%',
                                   height: '100%',

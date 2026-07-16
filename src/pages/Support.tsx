@@ -85,7 +85,7 @@ export default function Support() {
         <div className="modern-support-card">
           <Link to="/blogs" className="support-card-link">
             <div className="support-image-wrapper">
-              <img src="/images/blog-bg.jpg" alt="Team Blog" />
+              <img src="/images/blog-bg.webp" loading="lazy" alt="Team Blog" />
             </div>
             <div className="support-overlay-box">
               <h3>Team Blog</h3>
@@ -100,7 +100,7 @@ export default function Support() {
         <div className="modern-support-card">
           <Link to="/faq" className="support-card-link">
             <div className="support-image-wrapper">
-              <img src="/images/FAQ-bg2.png" alt="FAQ" />
+              <img src="/images/FAQ-bg2.webp" loading="lazy" alt="FAQ" />
             </div>
             <div className="support-overlay-box">
               <h3>FAQ</h3>

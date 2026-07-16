@@ -357,7 +357,7 @@ export default function Home() {
           </div>
         </div>
         <div className="left">
-          <img src="images/about.png" className="img-fluid" alt="about" />
+          <img src="images/about.webp" className="img-fluid" loading="lazy" alt="about" />
         </div>
       </div>
 
