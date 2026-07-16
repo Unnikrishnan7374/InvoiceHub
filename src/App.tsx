@@ -14,6 +14,7 @@ import Features from './pages/Features';
 import FeatureDetail from './pages/FeatureDetail';
 import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail';
+import Login from './pages/Login';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/support" element={<Support />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
