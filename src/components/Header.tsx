@@ -19,32 +19,32 @@ export default function Header() {
     customer: {
       title: 'Customer & Vendor Management',
       text: 'Maintain organized customer & vendor profiles, configure terms, and track activity.',
-      image: '/images/blogs/blogimg-8.png'
+      image: '/images/blogs/blogimg-8.webp'
     },
     estimates: {
       title: 'Estimates & Invoicing',
       text: 'Create structured pricing proposals, convert estimates, and manage billing workflows.',
-      image: '/images/blogs/blogimg-13.png'
+      image: '/images/blogs/blogimg-13.webp'
     },
     payments: {
       title: 'Payments & Payables',
       text: 'Record payments, track receivables, and monitor vendor bills dynamically.',
-      image: '/images/blogs/blogimg-5.png'
+      image: '/images/blogs/blogimg-5.webp'
     },
     ocr: {
       title: 'Smart Invoice Capture',
       text: 'Automate invoice data extraction using OCR technology to speed up entry.',
-      image: '/images/blogs/blogimg-6.png'
+      image: '/images/blogs/blogimg-6.webp'
     },
     tax: {
       title: 'Tax Automation',
       text: 'Configure automatic ZIP-code based tax rates for compliance and accuracy.',
-      image: '/images/blogs/blogimg-7.png'
+      image: '/images/blogs/blogimg-7.webp'
     },
     reports: {
       title: 'Reports & Insights',
       text: 'Gain real-time visibility into cash flow, outstanding balances, and taxes.',
-      image: '/images/blogs/blogimg-12.png'
+      image: '/images/blogs/blogimg-12.webp'
     }
   };
 
@@ -156,9 +156,9 @@ export default function Header() {
 
                   <ul className={isMobileMenuOpen ? 'open' : ''}>
                     <li className="has-sub">
-                      <NavLink 
-                        to="/" 
-                        end 
+                      <NavLink
+                        to="/"
+                        end
                         className={({ isActive }) => (isActive && location.hash !== '#Pricing') ? 'active' : ''}
                         onClick={(e) => {
                           if (location.pathname === '/') {
@@ -190,37 +190,37 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
                       >
                         <li>
-                          <Link 
+                          <Link
                             to="/features/customer-vendor-management"
                             onMouseEnter={() => setFeaturesHoveredItem('customer')}
                           >
                             Customer & Vendor Management
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/estimates-invoicing-workflow"
                             onMouseEnter={() => setFeaturesHoveredItem('estimates')}
                           >
                             Estimates & Invoicing
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/payments-partial-payments"
                             onMouseEnter={() => setFeaturesHoveredItem('payments')}
                           >
                             Payments & Payables
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/smart-invoice-capture"
                             onMouseEnter={() => setFeaturesHoveredItem('ocr')}
                           >
                             Smart Invoice Capture
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/tax-automation"
                             onMouseEnter={() => setFeaturesHoveredItem('tax')}
                           >
                             Tax Automation
                           </Link>
-                          <Link 
+                          <Link
                             to="/features/reports-insights"
                             onMouseEnter={() => setFeaturesHoveredItem('reports')}
                           >
@@ -228,7 +228,7 @@ export default function Header() {
                           </Link>
                         </li>
                         {!isMobile && (
-                          <li 
+                          <li
                             className="navsub feature-mnu"
                             style={{
                               background: 'none',
@@ -247,12 +247,13 @@ export default function Header() {
                                 {featuresPreviewData[featuresHoveredItem].text}
                               </p>
                             </div>
-                            
+
                             <div style={{ overflow: 'hidden', borderRadius: '10px', marginTop: '10px', height: '140px', width: '100%' }}>
-                              <img 
+                              <img
                                 key={featuresHoveredItem}
-                                src={featuresPreviewData[featuresHoveredItem].image} 
-                                alt={featuresHoveredItem} 
+                                src={featuresPreviewData[featuresHoveredItem].image}
+                                alt={featuresHoveredItem}
+                                loading="lazy"
                                 style={{
                                   width: '100%',
                                   height: '100%',
@@ -260,7 +261,7 @@ export default function Header() {
                                   borderRadius: '10px',
                                   animation: 'dropdownFadeInScale 0.35s ease-out forwards',
                                   display: 'block'
-                                }} 
+                                }}
                               />
                             </div>
                           </li>
@@ -269,8 +270,8 @@ export default function Header() {
                     </li>
 
                     <li className="has-sub">
-                      <Link 
-                        to="/#Pricing" 
+                      <Link
+                        to="/#Pricing"
                         className={location.pathname === '/' && location.hash === '#Pricing' ? 'active' : ''}
                         onClick={(e) => {
                           if (location.pathname === '/') {
@@ -300,21 +301,21 @@ export default function Header() {
                         style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
                       >
                         <li>
-                          <Link 
-                            to="/blogs" 
+                          <Link
+                            to="/blogs"
                             onMouseEnter={() => setSupportHoveredItem('blog')}
                           >
                             Team Blog
                           </Link>
-                          <Link 
-                            to="/faq" 
+                          <Link
+                            to="/faq"
                             onMouseEnter={() => setSupportHoveredItem('faq')}
                           >
                             FAQ
                           </Link>
                         </li>
                         {!isMobile && (
-                          <li 
+                          <li
                             className="navsub feature-mnu"
                             style={{
                               background: 'none',
@@ -330,17 +331,17 @@ export default function Header() {
                                 {supportHoveredItem === 'blog' ? 'Team Blog' : 'FAQ'}
                               </h6>
                               <p style={{ fontSize: '13px', margin: 0, color: '#555', lineHeight: '1.4' }}>
-                                {supportHoveredItem === 'blog' 
-                                  ? 'Read our latest articles, insights, and billing updates.' 
+                                {supportHoveredItem === 'blog'
+                                  ? 'Read our latest articles, insights, and billing updates.'
                                   : 'Find answers to frequently asked questions about Invoice Hub.'}
                               </p>
                             </div>
-                            
+
                             <div style={{ overflow: 'hidden', borderRadius: '10px', marginTop: '10px', height: '140px', width: '100%' }}>
-                              <img 
+                              <img
                                 key={supportHoveredItem}
-                                src={supportHoveredItem === 'blog' ? '/images/blog-bg.jpg' : '/images/FAQ-bg2.png'} 
-                                alt={supportHoveredItem} 
+                                src={supportHoveredItem === 'blog' ? '/images/blog-bg.jpg' : '/images/FAQ-bg2.png'}
+                                alt={supportHoveredItem}
                                 style={{
                                   width: '100%',
                                   height: '100%',
@@ -348,7 +349,7 @@ export default function Header() {
                                   borderRadius: '10px',
                                   animation: 'dropdownFadeInScale 0.35s ease-out forwards',
                                   display: 'block'
-                                }} 
+                                }}
                               />
                             </div>
                           </li>

@@ -65,7 +65,7 @@ export default function Features() {
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
             <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-8.png" className="img-fluid" alt="Customer & Vendor Management" style={{ borderRadius: '15px' }} />
+              <img src="/images/blogs/blogimg-8.webp" className="img-fluid" alt="Customer & Vendor Management" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
@@ -83,7 +83,7 @@ export default function Features() {
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
             <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-13.png" className="img-fluid" alt="Estimates & Invoicing" style={{ borderRadius: '15px' }} />
+              <img src="/images/blogs/blogimg-13.webp" loading="lazy" className="img-fluid" alt="Estimates & Invoicing" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
@@ -101,7 +101,7 @@ export default function Features() {
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
             <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-5.png" className="img-fluid" alt="Payments & Payables" style={{ borderRadius: '15px' }} />
+              <img src="/images/blogs/blogimg-5.webp" loading="lazy" className="img-fluid" alt="Payments & Payables" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
@@ -119,7 +119,7 @@ export default function Features() {
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
             <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-6.png" className="img-fluid" alt="Smart Invoice Capture" style={{ borderRadius: '15px' }} />
+              <img src="/images/blogs/blogimg-6.webp" loading="lazy" className="img-fluid" alt="Smart Invoice Capture" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
@@ -137,7 +137,7 @@ export default function Features() {
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
             <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-7.png" className="img-fluid" alt="Tax Automation" style={{ borderRadius: '15px' }} />
+              <img src="/images/blogs/blogimg-7.webp" loading="lazy" className="img-fluid" alt="Tax Automation" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>
@@ -155,7 +155,7 @@ export default function Features() {
               <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
             </div>
             <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-12.png" className="img-fluid" alt="Reports & Insights" style={{ borderRadius: '15px' }} />
+              <img src="/images/blogs/blogimg-12.webp" loading="lazy" className="img-fluid" alt="Reports & Insights" style={{ borderRadius: '15px' }} />
             </div>
           </Link>
         </div>

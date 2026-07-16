@@ -71,7 +71,7 @@ export default function Blogs() {
                 <span className="readmr themeBtn">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
               </div>
               <div className="blgimg">
-                <img src={blog.image} className="img-fluid" alt={blog.title} />
+                <img src={blog.image} className="img-fluid" loading="lazy" alt={blog.title} />
               </div>
             </Link>
           </li>

@@ -60,7 +60,7 @@ export default function BlogDetail() {
           <p>{blog.subtext}</p>
         </div>
         <div className="left">
-          <img src={blog.overviewImage} className="img-fluid" alt="Blog Overview" />
+          <img loading="lazy" src={blog.overviewImage} className="img-fluid" alt="Blog Overview" />
         </div>
       </section>
 
@@ -128,7 +128,7 @@ export default function BlogDetail() {
               </div>
               {sec.image && (
                 <div className="right" style={{ width: '100%', float: 'none', marginTop: '20px', textAlign: 'center' }}>
-                  <img src={sec.image} className="img-fluid second" alt={sec.heading} style={{ maxWidth: '30%' }} />
+                  <img loading="lazy" src={sec.image} className="img-fluid second" alt={sec.heading} style={{ maxWidth: '30%' }} />
                 </div>
               )}
             </div>
@@ -150,8 +150,8 @@ export default function BlogDetail() {
 
         <div className={`popup ${isSideMenuOpen ? 'active' : ''}`} id="sidePopup">
           <div className="popup-content">
-            <button 
-              className="close-btn" 
+            <button
+              className="close-btn"
               onClick={() => setIsSideMenuOpen(false)}
               style={{
                 background: 'none',
@@ -189,7 +189,7 @@ export default function BlogDetail() {
                   .map((b, idx) => (
                     <li key={idx} onClick={() => setIsSideMenuOpen(false)} style={{ marginBottom: '15px' }}>
                       <Link to={`/blogs/${b.slug}`} className="nav-link" style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src={b.image} className="img-fluid" alt="" style={{ width: '60px', height: '40px', objectFit: 'cover', marginRight: '10px', borderRadius: '4px' }} />
+                        <img loading="lazy" src={b.image} className="img-fluid" alt="" style={{ width: '60px', height: '40px', objectFit: 'cover', marginRight: '10px', borderRadius: '4px' }} />
                         <div className="content clearfix">
                           <h5 style={{ fontSize: '14px', margin: 0, color: '#1a73e8', transition: 'color 0.2s ease' }}
                             onMouseEnter={(e) => e.currentTarget.style.color = '#135cb3'}
