@@ -25,7 +25,7 @@ function AccordionItem({ title, id, isOpenByDefault = false, children }) {
   }, [location.hash, id]);
 
   return (
-    <li style={{
+    <li className="faq-accordion-item" style={{
       marginBottom: '15px',
       listStyle: 'none',
       backgroundColor: isOpen ? '#e6f2ff' : '#f3f8ff',
@@ -76,7 +76,7 @@ function AccordionItem({ title, id, isOpenByDefault = false, children }) {
           backgroundColor: '#fff'
         }}
       >
-        <div style={{ padding: '20px 24px', color: '#555', fontSize: '15px', lineHeight: '1.6' }}>
+        <div className="faq-accordion-panel-content" style={{ padding: '20px 24px', color: '#555', fontSize: '15px', lineHeight: '1.6' }}>
           {children}
         </div>
       </div>
@@ -278,10 +278,10 @@ export default function Faq() {
       </div>
 
       {/* Categories & Accordions Container */}
-      <div style={{ width: '95%', margin: '30px auto', padding: '0 15px', display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
+      <div className="faq-layout-container" style={{ width: '95%', margin: '30px auto', padding: '0 15px', display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
         
         {/* Left Sidebar for Categories */}
-        <div style={{ 
+        <div className="faq-sidebar" style={{ 
           width: '280px', 
           flexShrink: 0,
           display: 'flex', 
@@ -352,7 +352,7 @@ export default function Faq() {
         </div>
 
         {/* Right Content Area for Accordions */}
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="faq-main-content" style={{ flex: 1, minWidth: 0 }}>
           {filteredData.length > 0 ? (
             filteredData.map((catGroup) => (
               <div key={catGroup.category} style={{ marginBottom: '40px' }}>
