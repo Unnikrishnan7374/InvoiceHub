@@ -94,19 +94,17 @@ export default function Header() {
     setContactStatus('submitting');
 
     try {
-      const formData = new FormData();
-      formData.append('name', contactName);
-      formData.append('phone', contactPhone);
-      formData.append('email', contactEmail);
-      formData.append('message', contactMessage);
+      const formData = new FormData(e.currentTarget);
 
       const response = await fetch('https://formspree.io/f/xaqryjen', {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
         },
         body: formData,
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setContactStatus('success');
@@ -122,10 +120,12 @@ export default function Header() {
       } else {
         setContactStatus('error');
       }
-    } catch (error) {
+    } catch (err) {
+      console.error(err);
       setContactStatus('error');
     }
   };
+
 
   const toggleSubmenu = (menu) => {
     if (activeSubmenu === menu) {

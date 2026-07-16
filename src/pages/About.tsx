@@ -58,7 +58,7 @@ export default function About() {
         </div>
 
 
-        <div className="why-exists-banner mt-4">
+        <div className="why-exists-banner">
           <div className="why-exists-top">
             <div className="why-exists-left">
               <h2 className="home-section-title mb-3">Why Invoice HUB 360 <span>Exists</span> </h2>

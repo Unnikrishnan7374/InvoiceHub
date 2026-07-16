@@ -392,9 +392,10 @@ body {
 /* Modern Features Grid Layout */
 .features.hmefeatures {
   background-color: transparent;
-  padding: 20px 40px 45px;
+  padding: 20px 20px 45px;
   position: relative;
   margin-bottom: 0;
+  overflow: hidden;
 
   &:before,
   &:after {
@@ -410,15 +411,41 @@ body {
   }
 
   &:after {
-    bottom: -45px;
-    left: 0px;
-    top: auto;
     right: auto;
-    background-size: 50%;
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: -20%;
+    background: url(https://adisys.com/images/ser-inn-bg-ellipse.png) no-repeat top;
+    z-index: -9;
+    background-size: 70%;
+    bottom: 0px;
+    top: -18px;
   }
 
   .feature-card {
     border-left: 1px solid #1b73e8 !important;
+    padding: 5px 5px 0px 5px;
+
+    .feaImage {
+      position: relative;
+      overflow: hidden;
+      height: 140px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+        border-radius: 10px;
+      }
+    }
+
+  }
+
+  .features-grid {
+    gap: 20px !important;
   }
 }
 
@@ -464,7 +491,7 @@ body {
   position: relative;
   background: #ffffff;
   border-radius: 10px;
-  padding: 10px 5px 0px 40px;
+  // padding: 10px 5px 0px 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -478,7 +505,6 @@ body {
   box-shadow: 3px 0px 7px 0px rgba(142, 129, 129, 0.55) !important;
 
   &:hover {
-    border-radius: 0px 10px 10px 0px;
 
     .read-more-btn {
       color: #1b73e8 !important;
@@ -507,28 +533,22 @@ body {
   position: absolute;
   left: -20px;
   top: 19px;
-
-  img {
-    width: 20px !important;
-    height: 20px !important;
-    object-fit: contain !important;
-    filter: brightness(0) invert(1) !important;
-    /* Make icon white */
-  }
+  display: none !important;
 
   i {
     font-size: 20px !important;
     color: #ffffff !important;
   }
+
 }
 
 .feature-card h3 {
-  color: #1c2732;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 22px;
   font-weight: 500;
   margin: 9px 0 0px 0;
   font-family: "Poppins", sans-serif !important;
+  color: var(--theme-color) !important;
 }
 
 .read-more-btn {
@@ -540,6 +560,7 @@ body {
   gap: 5px !important;
   transition: all 0.2s ease !important;
   margin-top: 0px !important;
+  padding-left: 2px;
 
   .arrow {
     transition: transform 0.2s ease !important;
@@ -763,8 +784,9 @@ body {
 
 .why-exists-banner {
   overflow: hidden;
-  padding: 0px 40px;
+  padding: 30px 40px;
   clear: both;
+  background-color: #dce2ff40;
 
   /* ─── Top row: label/title/subtitle left, image right ─── */
   .why-exists-top {
@@ -1776,6 +1798,113 @@ body {
   }
 }
 
+/* Contact page form - overrides to match popover style but scaled for the card */
+.contact-form-card .contactform {
+  margin-top: 0;
+
+  .form-group {
+    margin-bottom: 25px;
+    position: relative;
+  }
+
+  input.form-control,
+  textarea.form-control {
+    background-color: #f5f7fa;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 16px;
+    color: #111;
+    width: 100%;
+    height: 56px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+    &:focus {
+      background-color: #fff;
+      border-color: var(--theme-color);
+      outline: none;
+      box-shadow: 0 0 0 3px var(--theme-color-light);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  textarea.form-control {
+    height: 130px;
+    resize: none;
+    padding-top: 20px;
+  }
+
+  label {
+    top: 16px;
+    left: 20px;
+    font-size: 15px;
+    color: #718096;
+
+    &.active {
+      top: -12px;
+      font-size: 12px;
+      color: var(--theme-color);
+      background-color: #fff;
+      padding: 0 6px;
+      border-radius: 3px;
+    }
+  }
+
+  button.submit.btn-animate {
+    background: var(--theme-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.3s ease;
+    width: auto;
+
+    &:hover {
+      background-color: var(--theme-color-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--theme-color-light);
+      color: #fff !important;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  .form-status-msg {
+    margin-top: 16px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+
+    &.success {
+      background-color: var(--theme-color-light);
+      color: var(--theme-color);
+      border: 1px solid var(--theme-color-light);
+    }
+
+    &.error {
+      background-color: rgba(227, 67, 51, 0.1);
+      color: #e34333;
+      border: 1px solid rgba(227, 67, 51, 0.2);
+    }
+  }
+}
+
 @media (max-width: 991px) {
   .contact-uplift-container {
     grid-template-columns: 1fr;
@@ -1994,6 +2123,154 @@ body {
 
     p {
       font-size: 13px;
+    }
+  }
+}
+
+/* =======================================
+   Cookie Consent Banner
+   ======================================= */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background-color: #1b68cf !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid #1b68cf !important;
+  padding: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
+
+  &--visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 30px;
+  }
+
+  &__text {
+    flex: 1;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 400;
+    }
+  }
+
+  &__link {
+    color: #60a5fa !important;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #93c5fd !important;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    border-radius: 8px;
+    font-size: 14px;
+
+    &--accept {
+      background: var(--theme-color);
+      color: #fff;
+      padding: 10px 28px;
+      box-shadow: 0 4px 14px rgba(26, 115, 232, 0.3);
+
+      &:hover {
+        background: var(--theme-color-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+        color: #fff !important;
+      }
+    }
+
+    &--decline {
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 8px 12px;
+      font-size: 16px;
+      line-height: 1;
+      border-radius: 6px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+    }
+  }
+}
+
+@keyframes cookieBounce {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-3px) rotate(-5deg);
+  }
+
+  75% {
+    transform: translateY(-1px) rotate(3deg);
+  }
+}
+
+/* Cookie banner responsive */
+@media (max-width: 767px) {
+  .cookie-banner {
+    &__inner {
+      flex-direction: column;
+      text-align: center;
+      padding: 16px 20px;
+      gap: 12px;
+    }
+
+    &__icon {
+      font-size: 28px;
+    }
+
+    &__text p {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    &__actions {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__btn--accept {
+      flex: 1;
+      padding: 10px 20px;
     }
   }
 }

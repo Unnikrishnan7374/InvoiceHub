@@ -20,34 +20,37 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('submitting');
+    setStatus("submitting");
 
     try {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('phone', phone);
-      formData.append('email', email);
-      formData.append('message', message);
+      const formData = new FormData(e.currentTarget);
 
-      const response = await fetch('https://formspree.io/f/xaqryjen', {
-        method: 'POST',
+      const response = await fetch("https://formspree.io/f/xaqryjen", {
+        method: "POST",
         headers: {
-          'Accept': 'application/json',
+          Accept: "application/json",
         },
         body: formData,
       });
 
+      const data = await response.json();
+
+      console.log("Status:", response.status);
+      console.log("Response:", data);
+
       if (response.ok) {
-        setStatus('success');
-        setName('');
-        setPhone('');
-        setEmail('');
-        setMessage('');
+        setStatus("success");
+        setName("");
+        setPhone("");
+        setEmail("");
+        setMessage("");
       } else {
-        setStatus('error');
+        alert(JSON.stringify(data, null, 2));
+        setStatus("error");
       }
-    } catch (error) {
-      setStatus('error');
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
     }
   };
 
@@ -123,32 +126,40 @@ export default function Contact() {
           </div> */}
           <h2 className="home-section-title">Get In <span>Touch</span></h2>
 
-          <form onSubmit={handleSubmit} action="https://formspree.io/f/xaqryjen" method="POST">
-            <div className="contact-form-group">
-              <label htmlFor="fullname">Full Name</label>
-              <input
-                id="fullname"
-                type="text"
-                name="name"
-                placeholder="John Doe"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
+          <div className="contactform">
+            <form onSubmit={handleSubmit} className="validateForm">
 
-            <div className="form-row-two-col">
-              <div className="contact-form-group">
-                <label htmlFor="phone">Phone Number</label>
+            <div className="row">
+              <div className="form-group col-md-12">
+                <input
+                  id="fullname"
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  disabled={status === 'submitting'}
+                />
+                <label htmlFor="fullname" className={name ? 'active' : ''}>
+                  Full Name <span className="asterisk">*</span>
+                </label>
+              </div>
+
+              <div className="form-group col-md-12">
                 <input
                   id="phone"
                   type="tel"
                   name="phone"
-                  placeholder="(555) 555-5555"
+                  className="form-control phone"
                   value={phone}
                   onChange={handlePhoneInput}
                   required
+                  disabled={status === 'submitting'}
                 />
+                <label htmlFor="phone" className={phone ? 'active' : ''}>
+                  Phone <span className="asterisk">*</span>
+                </label>
                 {phone && phone.replace(/\D/g, '').length < 10 && (
                   <span className="phone-validation-error" style={{ color: '#ff4d4f', fontSize: '13px', marginTop: '4px', display: 'block', fontWeight: '500' }}>
                     Mobile number must have 10 digits
@@ -156,54 +167,62 @@ export default function Contact() {
                 )}
               </div>
 
-              <div className="contact-form-group">
-                <label htmlFor="email">Email Address</label>
+              <div className="form-group col-md-12">
                 <input
                   id="email"
                   type="email"
                   name="email"
-                  placeholder="Enter your mail"
+                  className="form-control email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  disabled={phone.replace(/\D/g, '').length < 10}
+                  disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
                 />
+                <label htmlFor="email" className={email ? 'active' : ''}>
+                  Email <span className="asterisk">*</span>
+                </label>
+              </div>
+
+              <div className="form-group col-md-12">
+                <textarea
+                  id="message"
+                  name="message"
+                  className="form-control"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                  disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
+                ></textarea>
+                <label htmlFor="message" className={message ? 'active' : ''}>
+                  Message <span className="asterisk">*</span>
+                </label>
+              </div>
+
+              <div className="col-md-12" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <button
+                  type="submit"
+                  className="submit btn-animate"
+                  disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
+                >
+                  {status === 'submitting' ? 'Sending...' : 'Send a message'}
+                </button>
+
+                {status === 'success' && (
+                  <div className="form-status-msg success">
+                    Thank you! Your message has been sent successfully. We will get back to you shortly.
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="form-status-msg error">
+                    Oops! Something went wrong while sending your message. Please try again.
+                  </div>
+                )}
               </div>
             </div>
-
-            <div className="contact-form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Type your messages"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                disabled={phone.replace(/\D/g, '').length < 10}
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="submit-btn"
-              disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
-            >
-              {status === 'submitting' ? 'Sending...' : 'Send a message'}
-            </button>
           </form>
-
-          {status === 'success' && (
-            <div className="form-status-msg success">
-              Thank you! Your message has been sent successfully. We will get back to you shortly.
-            </div>
-          )}
-          {status === 'error' && (
-            <div className="form-status-msg error">
-              Oops! Something went wrong while sending your message. Please try again.
-            </div>
-          )}
+          </div>
         </div>
+
       </div>
 
       <CtaBanner />

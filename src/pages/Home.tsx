@@ -8,6 +8,7 @@ import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import DoneTwoToneIcon from '@mui/icons-material/DoneTwoTone';
 import DoubleArrowOutlinedIcon from '@mui/icons-material/DoubleArrowOutlined';
+import CookieBanner from '../components/CookieBanner';
 
 export default function Home() {
   const [activeBanner, setActiveBanner] = useState(0);
@@ -225,6 +226,9 @@ export default function Home() {
                     <div className="feature-icon-wrapper">
                       <i className="fas fa-users"></i>
                     </div>
+                    <div className="feaImage">
+                      <img src="/images/blogs/blogimg-8.webp" className="img-fluid" loading="lazy" alt="Customer &amp; Vendor Management" />
+                    </div>
                     <h3>Customer & Vendor Management</h3>
                     <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
@@ -240,6 +244,9 @@ export default function Home() {
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
                       <i className="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div className="feaImage">
+                      <img src="/images/blogs/blogimg-13.webp" className="img-fluid" loading="lazy" alt="Estimates & Invoicing" />
                     </div>
                     <h3>Estimates & Invoicing</h3>
                     <span className="read-more-btn">Read More <span className="arrow">→</span></span>
@@ -257,6 +264,9 @@ export default function Home() {
                     <div className="feature-icon-wrapper">
                       <i className="fas fa-credit-card"></i>
                     </div>
+                    <div className="feaImage">
+                      <img src="/images/blogs/blogimg-5.webp" className="img-fluid" loading="lazy" alt="Payments & Payables" />
+                    </div>
                     <h3>Payments & Payables</h3>
                     <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
@@ -272,6 +282,9 @@ export default function Home() {
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
                       <i className="fas fa-qrcode"></i>
+                    </div>
+                    <div className="feaImage">
+                      <img src="/images/blogs/blogimg-6.webp" className="img-fluid" loading="lazy" alt="Smart Invoice Capture" />
                     </div>
                     <h3>Smart Invoice Capture</h3>
                     <span className="read-more-btn">Read More <span className="arrow">→</span></span>
@@ -289,6 +302,9 @@ export default function Home() {
                     <div className="feature-icon-wrapper">
                       <i className="fas fa-percent"></i>
                     </div>
+                    <div className="feaImage">
+                      <img src="/images/blogs/blogimg-7.webp" className="img-fluid" loading="lazy" alt="Tax Automation" />
+                    </div>
                     <h3>Tax Automation</h3>
                     <span className="read-more-btn">Read More <span className="arrow">→</span></span>
                   </div>
@@ -304,6 +320,9 @@ export default function Home() {
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
                       <i className="fas fa-chart-line"></i>
+                    </div>
+                    <div className="feaImage">
+                      <img src="/images/blogs/blogimg-12.webp" className="img-fluid" loading="lazy" alt="Reports & Insights" />
                     </div>
                     <h3>Reports & Insights</h3>
                     <span className="read-more-btn">Read More <span className="arrow">→</span></span>
@@ -1143,6 +1162,9 @@ export default function Home() {
           </div>
         )}
       </section>
+
+      {/* Cookie Consent Banner - shown only on Home page */}
+      <CookieBanner />
     </div>
   );
 }

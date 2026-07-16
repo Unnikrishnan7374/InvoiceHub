@@ -2072,6 +2072,10 @@ footer:after {
   font-weight: 700;
 }
 
+.aboutPge .homeabt {
+  background-color: transparent;
+}
+
 .aboutPge .invoice {
   padding-top: 0px;
   background-color: transparent;
@@ -2865,9 +2869,3 @@ footer:after {
   padding: 20px 40px;
   background: #fff;
 }
-
-/* Left */
-
-/* Right */
-
-/* Pricing Get Start Now Button Hover Arrow Animation */
