@@ -89,7 +89,7 @@ export default function Home() {
     },
     {
       bg: "images/banner-2.jpg",
-      laptop: "images/expanding_laptop.png", // uses phone image
+      laptop: "images/expanding_laptop.webp", // uses phone image
       title: <>Work from Anywhere, <span>Anytime</span>.</>,
       desc: "Secure cloud-based access to your financial operations from any device. Stay in control wherever business takes you.",
       theme: "slide-4"
