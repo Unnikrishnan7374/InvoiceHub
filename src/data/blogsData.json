@@ -3,10 +3,10 @@
     "slug": "getting-started",
     "title": "Getting Started with Invoice Hub",
     "date": "January 1, 2026",
-    "image": "/images/blogs/blogimg-1.png",
+    "image": "/images/blogs/blogimg-1.webp",
     "preview": "Managing invoices, bills, taxes, and payments doesn’t need to be complicated. Invoice Hub simplifies financial workflows by bringing estimates, invoices, vendor bills, OCR automation, and tax configuration...",
     "overview": "Invoice Hub is designed to simplify how businesses manage estimates, invoices, vendor bills, payments, and financial reporting. By centralizing these processes into a single platform, businesses can streamline financial workflows while maintaining organized and accurate records.",
-    "overviewImage": "/images/blogs/blogimg-1.png",
+    "overviewImage": "/images/blogs/blogimg-1.webp",
     "sections": [
       {
         "heading": "What You Can Manage",
@@ -55,10 +55,10 @@
     "slug": "manage-customers-vendors",
     "title": "How to Manage Customers and Vendors",
     "date": "January 5, 2026",
-    "image": "/images/blogs/blogimg-8.png",
+    "image": "/images/blogs/blogimg-8.webp",
     "preview": "Accurate customer and vendor management is the backbone of efficient financial operations. Disorganized records, missing compliance documents...",
     "overview": "Customer and vendor records play a critical role in managing invoices, bills, and financial transactions. InvoiceHub provides a centralized system where businesses can maintain organized customer and vendor profiles, configure payment terms, and track financial activity associated with each contact. Maintaining structured records ensures that billing, vendor payments, and financial reporting remain accurate and consistent.",
-    "overviewImage": "/images/blogs/blogimg-8.png",
+    "overviewImage": "/images/blogs/blogimg-8.webp",
     "sections": [
       {
         "isTwoColumnList": true,
@@ -109,11 +109,11 @@
     "slug": "compliance-management",
     "title": "Compliance Management",
     "date": "January 5, 2026",
-    "image": "/images/blogs/blogimg-11.jpg",
+    "image": "/images/blogs/blogimg-11.webp",
     "preview": "Vendor compliance in the United States isn’t optional — it’s mandatory. From collecting W-9 forms to determining 1099 eligibility and tracking insurance documents...",
     "overview": "Vendor compliance management ensures that businesses maintain the necessary tax and regulatory documentation for vendors they work with. Invoice Hub provides structured vendor profiles and document management capabilities that help businesses store compliance records, track tax information, and maintain organized vendor documentation.",
     "subtext": "By keeping compliance documents and vendor tax details in one place, businesses can ensure that vendor records remain complete, accurate, and ready for regulatory or tax reporting requirements.",
-    "overviewImage": "/images/blogs/blogimg-11.jpg",
+    "overviewImage": "/images/blogs/blogimg-11.webp",
     "sections": [
       {
         "heading": "What You Can ManageW-9 Form Collection",
@@ -147,11 +147,11 @@
     "slug": "estimates-managing-approvals",
     "title": "Creating Estimates and Managing Approvals",
     "date": "January 10, 2026",
-    "image": "/images/blogs/blogimg-13.png",
+    "image": "/images/blogs/blogimg-13.webp",
     "preview": "In any business, the journey from proposal to payment begins with a clear estimate. Without structured pricing and formal approval...",
     "overview": "Estimates allow businesses to present pricing proposals to customers before creating invoices. Invoice Hub enables businesses to create structured estimates, share them with customers, and manage approval decisions before converting them into invoices.",
     "subtext": "Using estimates helps ensure that pricing, taxes, and service details are clearly documented before billing begins.",
-    "overviewImage": "/images/blogs/blogimg-13.png",
+    "overviewImage": "/images/blogs/blogimg-13.webp",
     "sections": [
       {
         "heading": "What You Can Manage",
@@ -199,11 +199,11 @@
     "slug": "creating-sending",
     "title": "Creating and Sending Professional Invoices",
     "date": "January 11, 2026",
-    "image": "/images/blogs/blogimg-5.png",
+    "image": "/images/blogs/blogimg-5.webp",
     "preview": "Creating accurate and professional invoices is essential for maintaining strong customer relationships and ensuring timely payments...",
     "overview": "Creating accurate and professional invoices is essential for maintaining strong customer relationships and ensuring timely payments. An invoice is not just a billing document — it reflects your business standards, clarity, and credibility.",
     "subtext": "Invoice Hub simplifies invoice creation by combining flexibility, customization, and seamless delivery in one integrated system.",
-    "overviewImage": "/images/blogs/blogimg-5.png",
+    "overviewImage": "/images/blogs/blogimg-5.webp",
     "sections": [
       {
         "heading": "Flexible Invoice Creation",
@@ -287,11 +287,11 @@
     "slug": "smart-bills-ocr-automation",
     "title": "Smart Bills & OCR Automation",
     "date": "January 21, 2026",
-    "image": "/images/blogs/blogimg-6.png",
+    "image": "/images/blogs/blogimg-6.webp",
     "preview": "Managing vendor bills manually can slow down operations and increase the risk of costly errors. From entering invoice details to tracking due dates and recording payments...",
     "overview": "Managing vendor bills manually can take time and lead to data entry errors. InvoiceHub simplifies vendor expense management by allowing businesses to upload vendor invoices and automatically capture key invoice details.",
     "subtext": "This helps businesses record vendor bills faster while maintaining accurate financial records.",
-    "overviewImage": "/images/blogs/blogimg-6.png",
+    "overviewImage": "/images/blogs/blogimg-6.webp",
     "sections": [
       {
         "heading": "What You Can Manage",
@@ -338,11 +338,11 @@
     "slug": "zipcode-tax-automation",
     "title": "Tax Automation",
     "date": "January 26, 2026",
-    "image": "/images/blogs/blogimg-7.png",
+    "image": "/images/blogs/blogimg-7.webp",
     "preview": "Navigating sales tax regulations in the United States can be complex. Tax rates vary not only by state but also by county, city, and special jurisdictions...",
     "overview": "Managing taxes manually during invoice creation can lead to calculation errors and compliance risks. Invoice Hub simplifies this process by allowing businesses to configure tax rules that are automatically applied when creating estimates and invoices.",
     "subtext": "By automating tax calculations, businesses can ensure consistent and accurate tax handling across all billing documents",
-    "overviewImage": "/images/blogs/blogimg-7.png",
+    "overviewImage": "/images/blogs/blogimg-7.webp",
     "sections": [
       {
         "heading": "What You Can Manage",
@@ -388,11 +388,11 @@
     "slug": "custom-templates",
     "title": "Custom Templates",
     "date": "February 2, 2026",
-    "image": "/images/blogs/blogimg-9.png",
+    "image": "/images/blogs/blogimg-9.webp",
     "preview": "Every document your business sends represents your brand. Estimates, invoices, and financial communications are not just transactional records...",
     "overview": "Every document your business sends represents your brand. Estimates, invoices, and financial communications are not just transactional records — they reflect your professionalism, credibility, and attention to detail.",
     "subtext": "Invoice Hub’s Custom Templates & Branding module allows businesses to personalize financial documents to match their brand identity, ensuring every customer and vendor interaction maintains consistency and professionalism.",
-    "overviewImage": "/images/blogs/blogimg-9.png",
+    "overviewImage": "/images/blogs/blogimg-9.webp",
     "sections": [
       {
         "heading": "Branded Invoice and Estimate Templates",
@@ -454,11 +454,11 @@
     "slug": "reports-dashboards",
     "title": "Reports & Dashboards",
     "date": "February 10, 2026",
-    "image": "/images/blogs/blogimg-12.png",
+    "image": "/images/blogs/blogimg-12.webp",
     "preview": "Accurate financial visibility is essential for sustainable business growth. Without structured reporting, businesses struggle to track receivables...",
     "overview": "Accurate financial visibility is essential for sustainable business growth. Without structured reporting, businesses struggle to track receivables, monitor payables, and evaluate overall financial health.",
     "subtext": "Invoice Hub’s Reports & Dashboards module provides comprehensive, real-time insights that help businesses make informed decisions, manage cash flow effectively, and maintain operational control.",
-    "overviewImage": "/images/blogs/blogimg-12.png",
+    "overviewImage": "/images/blogs/blogimg-12.webp",
     "sections": [
       {
         "heading": "Centralized Financial Visibility",

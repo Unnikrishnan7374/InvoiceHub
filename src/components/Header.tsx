@@ -19,32 +19,32 @@ export default function Header() {
     customer: {
       title: 'Customer & Vendor Management',
       text: 'Maintain organized customer & vendor profiles, configure terms, and track activity.',
-      image: '/images/blogs/blogimg-8.png'
+      image: '/images/blogs/blogimg-8.webp'
     },
     estimates: {
       title: 'Estimates & Invoicing',
       text: 'Create structured pricing proposals, convert estimates, and manage billing workflows.',
-      image: '/images/blogs/blogimg-13.png'
+      image: '/images/blogs/blogimg-13.webp'
     },
     payments: {
       title: 'Payments & Payables',
       text: 'Record payments, track receivables, and monitor vendor bills dynamically.',
-      image: '/images/blogs/blogimg-5.png'
+      image: '/images/blogs/blogimg-5.webp'
     },
     ocr: {
       title: 'Smart Invoice Capture',
       text: 'Automate invoice data extraction using OCR technology to speed up entry.',
-      image: '/images/blogs/blogimg-6.png'
+      image: '/images/blogs/blogimg-6.webp'
     },
     tax: {
       title: 'Tax Automation',
       text: 'Configure automatic ZIP-code based tax rates for compliance and accuracy.',
-      image: '/images/blogs/blogimg-7.png'
+      image: '/images/blogs/blogimg-7.webp'
     },
     reports: {
       title: 'Reports & Insights',
       text: 'Gain real-time visibility into cash flow, outstanding balances, and taxes.',
-      image: '/images/blogs/blogimg-12.png'
+      image: '/images/blogs/blogimg-12.webp'
     }
   };
 
@@ -114,7 +114,7 @@ export default function Header() {
         setContactPhone('');
         setContactEmail('');
         setContactMessage('');
-        
+
         setTimeout(() => {
           setIsPopoverOpen(false);
           setContactStatus('idle');
@@ -282,6 +282,7 @@ export default function Header() {
                                 key={featuresHoveredItem}
                                 src={featuresPreviewData[featuresHoveredItem].image}
                                 alt={featuresHoveredItem}
+                                loading="lazy"
                                 style={{
                                   width: '100%',
                                   height: '100%',
