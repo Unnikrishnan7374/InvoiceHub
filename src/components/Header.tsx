@@ -6,8 +6,6 @@ export default function Header() {
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null); // 'features' or 'support'
-  const [isLoginDropdownOpen, setIsLoginDropdownOpen] = useState(false);
-  const [orgName, setOrgName] = useState('');
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const [supportHoveredItem, setSupportHoveredItem] = useState<'blog' | 'faq'>('blog');
@@ -78,16 +76,8 @@ export default function Header() {
   // Close menus on navigation
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsLoginDropdownOpen(false);
     setActiveSubmenu(null);
   }, [location.pathname]);
-
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    if (orgName.trim()) {
-      window.open(`http://${orgName.trim()}.invoicehub360.com`, '_blank');
-    }
-  };
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -393,40 +383,16 @@ export default function Header() {
                       </NavLink>
                     </li>
 
-                    <li className="signup">
-                      <Link
-                        to="/business-onboarding"
-                        target="_blank"
-                        rel="noopener noreferrer"> Sign Up</Link>
+                    <li className="login">
+                      <NavLink to="/login" className={({ isActive }) => isActive ? 'active' : ''}>
+                        Login
+                      </NavLink>
                     </li>
 
-                    <li className={`login has-sub ${isLoginDropdownOpen ? 'show' : ''}`}>
-                      <a
-                        className="dropdown-toggle"
-                        onClick={() => setIsLoginDropdownOpen(!isLoginDropdownOpen)}
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Login
-                      </a>
-                      <div
-                        className={`login-popup dropdown-menu ${isLoginDropdownOpen ? 'show' : ''}`}
-                        style={{ display: isLoginDropdownOpen ? 'block' : 'none' }}
-                      >
-                        <form onSubmit={handleLoginSubmit}>
-                          <div className="form-group">
-                            <input
-                              type="text"
-                              value={orgName}
-                              onChange={(e) => setOrgName(e.target.value)}
-                              placeholder=""
-                              required
-                            />
-                            <p>.invoiceHub360.com</p>
-                            <button type="submit">Go</button>
-                            <label>Enter your Org Name (Ex: contoso)</label>
-                          </div>
-                        </form>
-                      </div>
+                    <li className="signup">
+                      <NavLink to="/register" className="signup-btn-link">
+                        Try for free <i className="ri-arrow-right-line" style={{ verticalAlign: 'middle', marginLeft: '4px' }}></i>
+                      </NavLink>
                     </li>
                   </ul>
                 </nav>

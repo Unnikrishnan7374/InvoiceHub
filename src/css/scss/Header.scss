@@ -1,4 +1,16 @@
 /* Header SCSS overrides */
+@keyframes arrowBounce {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+}
+
 header {
   transition: all 0.3s ease-in-out;
 
@@ -38,4 +50,55 @@ nav#menu {
 
 .pop-over {
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+nav#menu {
+  ul {
+    li.signup {
+      margin-left: 0px;
+
+      .signup-btn-link {
+        display: inline-flex;
+        align-items: center;
+        border: 2px solid var(--theme-color) !important;
+        color: var(--theme-color) !important;
+        border-radius: 50px !important;
+        padding: 8px 24px !important;
+        font-weight: 600 !important;
+        background-color: transparent !important;
+        transition: all 0.3s ease-in-out !important;
+        text-decoration: none !important;
+        line-height: 1.2 !important;
+        margin-top: -8px; // Aligns it properly vertically
+
+        i {
+          font-size: 18px;
+          margin-left: 6px;
+          display: inline-block;
+          animation: arrowBounce 1.5s infinite ease-in-out;
+        }
+
+        &:hover {
+          background-color: var(--theme-color) !important;
+          color: #ffffff !important;
+
+          i {
+            animation: arrowBounce 0.8s infinite ease-in-out;
+          }
+        }
+
+        &.active {
+          background-color: var(--theme-color) !important;
+          color: #ffffff !important;
+        }
+      }
+    }
+
+    li.login {
+      a {
+        transition: color 0.3s ease;
+
+      }
+    }
+  }
 }

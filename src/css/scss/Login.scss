@@ -1,0 +1,242 @@
+/* Modern Full-Width Integrated Login Page */
+
+.login-page-section {
+    width: 100%;
+    background-color: #f8fafc;
+
+    .login-page-container {
+        display: flex;
+        width: 100%;
+        min-height: 550px;
+
+        /* Left Panel - Sign In Form */
+        .login-form-panel {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 8%;
+            background-color: #f8fafc;
+
+            .login-form-card {
+                width: 100%;
+                max-width: 440px;
+
+                /* Heading */
+                .login-header-signin {
+                    font-size: 40px;
+                    font-weight: 900;
+                    color: #1a73e8;
+                    margin: 0 0 10px;
+                    text-transform: uppercase;
+                    letter-spacing: -0.5px;
+                    font-family: "Poppins", sans-serif;
+                    text-align: left;
+                }
+
+                .login-header-signup-link {
+                    font-size: 16px;
+                    color: #64748b;
+                    margin-bottom: 35px;
+                    text-align: left;
+
+                    a {
+                        color: #1a73e8;
+                        font-weight: 700;
+                        text-decoration: underline;
+                        transition: color 0.2s ease;
+
+                        &:hover {
+                            color: #1557b0;
+                        }
+                    }
+                }
+            }
+
+            .org-input-wrapper {
+                margin-bottom: 25px;
+
+                .org-input-group {
+                    display: flex;
+                    align-items: center;
+                    border: 2px solid #1a73e8;
+                    border-radius: 15px;
+                    background-color: #ffffff;
+                    overflow: hidden;
+                    padding: 2px;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.05);
+
+                    &:focus-within {
+                        box-shadow: 0 0 0 5px rgba(26, 115, 232, 0.2);
+                    }
+
+                    .org-input-field {
+                        flex: 1;
+                        border: none;
+                        outline: none;
+                        padding: 14px 14px;
+                        font-size: 16px;
+                        color: #1e293b;
+                        font-weight: 500;
+                        border-radius: 50px 0 0 50px;
+                        min-width: 0;
+
+                        &::placeholder {
+                            color: #94a3b8;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .org-input-suffix {
+                        padding-right: 24px;
+                        color: #475569;
+                        font-size: 15px;
+                        font-weight: 600;
+                        user-select: none;
+                        white-space: nowrap;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            /* Submit Button */
+            .org-submit-btn {
+                width: 100%;
+                background-color: #ff6b35;
+                color: #ffffff;
+                border: none;
+                outline: none;
+                padding: 16px 32px;
+                font-size: 16px;
+                font-weight: 800;
+                text-transform: uppercase;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                box-shadow: 0 4px 14px rgba(255, 107, 53, 0.3);
+                margin-top: 10px;
+
+                &:hover {
+                    background-color: #e8551e;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+
+                &:disabled {
+                    background-color: #cbd5e1 !important;
+                    color: #94a3b8 !important;
+                    cursor: not-allowed !important;
+                    transform: none !important;
+                    box-shadow: none !important;
+                }
+            }
+        }
+
+        /* Right Panel - Image */
+        .login-image-panel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8fafc;
+            padding: 30px 0%;
+            width: 45%;
+
+            .login-image-wrapper {
+                position: relative;
+                width: 100%;
+                animation: floatImage 6s ease-in-out infinite;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 20px;
+                    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.08));
+                }
+            }
+        }
+    }
+}
+
+/* Animation */
+@keyframes floatImage {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .login-page-section {
+        .login-page-container {
+            flex-direction: column;
+
+            .login-form-panel {
+                width: 100%;
+                padding: 60px 24px;
+            }
+
+            .login-image-panel {
+                width: 100%;
+                padding: 40px 24px 60px;
+            }
+        }
+    }
+}
+
+/* Helper to hide the main banner wrapper while keeping breadcrumb tabs styling */
+.dtlsban-hide-banner {
+    background: none !important;
+    height: 48px !important;
+    /* Constant height prevents layout jumping on scroll */
+    min-height: 48px !important;
+    padding: 0 !important;
+    position: relative;
+    border: none !important;
+    margin-top: 55px !important;
+
+    &::before,
+    &::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .dtlstext {
+        padding: 0 !important;
+    }
+
+    /* By default (when not scrolled/fixed), render the breadcrumbs bar */
+    &:not(.fixed) {
+        .nav-tabs {
+            background-color: #dce2ff;
+            padding: 12px 40px;
+            display: flex !important;
+            border-bottom: 0px;
+            margin: 0;
+            width: 100%;
+            position: static !important;
+            box-shadow: none !important;
+        }
+    }
+
+    /* When fixed (scrolled), let it use the global fixed styles */
+    &.fixed {
+        .nav-tabs {
+            display: flex !important;
+        }
+    }
+}
