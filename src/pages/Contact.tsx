@@ -68,7 +68,7 @@ export default function Contact() {
         {/* Left Hero Card */}
         <div
           className="contact-hero-card"
-          style={{ backgroundImage: `url('/images/contactImg-63.png')` }}
+          style={{ backgroundImage: `url('/images/contactImg-63.webp')` }}
         >
           <div className="contact-hero-overlay"></div>
 

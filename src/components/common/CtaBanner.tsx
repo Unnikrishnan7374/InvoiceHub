@@ -13,7 +13,7 @@ export default function CtaBanner() {
           </Link>
         </div>
         <div className="cta-right">
-          <img src="/images/docsImages.png" alt="Invoice HUB documents preview" />
+          <img src="/images/docsImages.webp" loading="lazy" alt="Invoice HUB documents preview" />
         </div>
       </div>
     </section>

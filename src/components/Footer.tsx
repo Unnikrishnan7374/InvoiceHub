@@ -64,8 +64,14 @@ export default function Footer() {
             <div className="footer-contact-details">
               <div className="contact-item address-item">
                 <i className="fas fa-map-marker-alt"></i>
-                <span className="copyText">1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005</span>
-                <CopyText value="1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005" />
+                <span className="copyText">
+                  <p>
+                    <a className='ms-2' href="https://www.google.com/maps/search/?api=1&query=1+Lake+Bellevue+Dr,+Ste+209,+Bellevue,+WA+98005" target="_blank" rel="noopener noreferrer">
+                      1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005
+                    </a>
+                    <CopyText value="1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005" />
+                  </p>
+                </span>
               </div>
               <div className="contact-sub-items">
                 <div className="contact-item phone-item">

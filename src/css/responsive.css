@@ -17,7 +17,6 @@
     }
 
     header,
-    .innerTitle.fixed,
     footer,
     .dtlsban.fixed .nav-tabs {
         width: 1980px;
@@ -37,10 +36,6 @@
     .overview img {
         right: 0px;
         width: 25%;
-    }
-
-    #Project .right ul li:after {
-        right: -53px;
     }
 }
 
@@ -112,8 +107,7 @@
         border-radius: 5px;
     }
 
-    nav#menu ul li:hover ul,
-    nav#menu ul li.hvrmnu ul {
+    nav#menu ul li:hover ul {
         display: block;
     }
 
@@ -136,8 +130,7 @@
         transition: all .300s ease-in-out;
     }
 
-    header nav#menu ul li:hover ul,
-    header nav#menu ul li.hvrmnu ul {
+    header nav#menu ul li:hover ul {
         display: block;
     }
 
@@ -177,10 +170,6 @@
 
     header nav#menu ul li ul li:last-child {
         background-color: #f3f3f3 !important;
-    }
-
-    header nav#menu ul li ul li:first-child .calls a:hover i {
-        color: #fff;
     }
 
     header nav#menu ul li ul p {
@@ -227,9 +216,6 @@
 
 /*Media Screen 1980*/
 @media screen and (max-width:1980px) {
-    #Project .right ul li:after {
-        width: 15%;
-    }
 
     .overview {
         height: 385px;
@@ -242,27 +228,6 @@
     .overview img {
         width: 32%;
     }
-
-    .testimonial p {
-        margin-top: 40px;
-        margin-bottom: 0px;
-    }
-
-    .testimonial img {
-        top: -20px;
-    }
-
-    .about-page-sec2 .conter-box2 {
-        min-height: calc(100% - 5px);
-    }
-
-    .Projectpage .nav-tabs {
-        width: 80%;
-    }
-
-    .testipage .item {
-        min-height: 240px;
-    }
 }
 
 /*Media Screen 1800 */
@@ -270,9 +235,6 @@
 
 /*Media Screen 1700*/
 @media screen and (max-width:1700px) {
-    #Project .right ul li:after {
-        width: 18%;
-    }
 
     .overview img {
         width: 35%;
@@ -287,10 +249,6 @@
 
     .overview .left {
         width: 40%;
-    }
-
-    .popover-body .contactform .form_group {
-        margin: 7px 0px 10px;
     }
 }
 
@@ -309,20 +267,8 @@
         line-height: 27px;
     }
 
-    .testimonial .name {
-        width: 70%;
-    }
-
-    ul.stars {
-        width: 30%;
-    }
-
     .overview img {
         width: 33%;
-    }
-
-    .popover-body .contactform .form_group {
-        margin: 7px 0px 5px;
     }
 }
 
@@ -331,30 +277,9 @@
 
 /*Media Screen 1400*/
 @media screen and (max-width:1400px) {
-    .testimonial p {
-        margin-top: 20px;
-    }
-
-    #Project .right ul li:after {
-        width: 23%;
-        height: 30%;
-    }
-
-    .ourguiding ul li {
-        min-height: 200px;
-    }
-
-    .testipage .item {
-        min-height: 255px;
-    }
 
     .overview img {
         width: 37%;
-    }
-
-    .hmeabt p {
-        font-size: 17px;
-        line-height: 27px;
     }
 
     .invoice .left li:nth-child(1) {
@@ -367,10 +292,6 @@
 
     .pricing .price-box {
         min-height: 582px;
-    }
-
-    .bottom-cta {
-        width: 60%;
     }
 }
 
@@ -390,29 +311,6 @@
         right: 75px;
     }
 
-    .testimonial img {
-        top: -20px;
-        width: 15% !important;
-    }
-
-    .ourguiding ul li {
-        margin-right: 22px;
-        min-height: 230px;
-    }
-
-    .testimonial .owl-nav {
-        bottom: -7px;
-    }
-
-    #Project .right ul li:after {
-        width: 25%;
-        height: 32%;
-    }
-
-    .Projectpage .nav-tabs {
-        width: 90%;
-    }
-
     .overview img {
         width: 42%;
     }
@@ -421,21 +319,8 @@
         width: 39%;
     }
 
-    .testipage .item {
-        min-height: 290px;
-    }
-
-    .testimonial p {
-        margin-top: 30px;
-    }
-
     .pricing-wrapper {
         width: 95%;
-    }
-
-    .features .circle-wrapper:before {
-        height: 95px;
-        width: 95px;
     }
 
     .features-container {
@@ -445,10 +330,6 @@
 
     .abtbtm {
         padding: 30px 3%;
-    }
-
-    .bottom-cta {
-        width: 75%;
     }
 }
 
@@ -467,63 +348,12 @@
         margin-top: 15px;
     }
 
-    #Project .left {
-        width: 75%;
-    }
-
-    #Project .right ul li:after {
-        width: 29%;
-        height: 40%;
-    }
-
     .overview .left {
         width: 55%;
     }
 
     .overview img {
         width: 48%;
-    }
-
-    .testimonial img {
-        top: -23px;
-        width: 20% !important;
-    }
-
-    .testimonial .owl-nav {
-        bottom: -5px;
-    }
-
-    .ourguiding {
-        padding: 40px 0px;
-    }
-
-    .ourguiding .top p {
-        width: 90%;
-    }
-
-    .ourguiding ul li {
-        margin-right: 15px;
-        min-height: 285px;
-    }
-
-    .whychoose {
-        padding: 10px 8px;
-    }
-
-    .chooselist li {
-        width: 47%;
-    }
-
-    .Projectpage .nav-tabs {
-        width: 100%;
-    }
-
-    .testipage .item {
-        min-height: 345px;
-    }
-
-    .servicecard .left {
-        padding-top: 0px;
     }
 
     .invoice .left li:nth-child(1) {
@@ -560,10 +390,6 @@
     .features-container {
         grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
         gap: 10px;
-    }
-
-    .vision-image img {
-        width: 90%;
     }
 
     .abtbtm-grid {
@@ -779,12 +605,6 @@
         padding: 30px 40px 30px;
     }
 
-    .features .circle-wrapper:before {
-        height: 100px;
-        width: 100px;
-        bottom: 5%;
-    }
-
     .invoice .left {
         padding: 40px 0px 25px 15px;
     }
@@ -876,12 +696,6 @@
         width: 85%;
     }
 
-    .rtmtmain,
-    .lfmtmain {
-        transform: translate(0, 0) !important;
-        opacity: 1 !important;
-    }
-
     .visionlst {
         padding: 25px 1%;
     }
@@ -889,10 +703,6 @@
     .visionlst .ser-img {
         padding-left: 0;
         margin-top: 0;
-    }
-
-    .bottom-cta {
-        width: 100%;
     }
 
     .dtlsban.fixed .prvnxt-art {
@@ -907,7 +717,7 @@
         font-size: 12px;
     }
 
-    .sidemnuBlog .popup,
+    
     .sideMnu .popup {
         width: 99% !important;
         right: -99% !important;
@@ -915,10 +725,6 @@
 
     .sideMnu .popup.active {
         right: 0px !important;
-    }
-
-    .sidemnuBlog .blogList {
-        grid-template-columns: repeat(3, 1fr);
     }
 
     .insideScroll {
@@ -975,21 +781,6 @@
 
     .vision-section {
         padding: 20px 20px;
-    }
-
-    .vision-wrapper {
-        display: inline-block;
-        width: 100%;
-    }
-
-    .vision-image img {
-        width: 60%;
-    }
-
-    .bottom-cta .svgimg {
-        width: 17%;
-        top: -15px;
-        left: 9px;
     }
 
     /* FAQ responsive - tablet */
@@ -1057,7 +848,7 @@
         line-height: 30px !important;
     }
 
-    footer .footer-grid .left,
+    
     .dtlsban,
     .login .login-popup input,
     .login .login-popup label,
@@ -1069,8 +860,6 @@
     .listone .left,
     .listone .right,
     .dtlsban .dtlstext p,
-    .newmanage .listone.first .pull-left,
-    .newmanage .listone.first .pull-right,
     .fealist .contant {
         width: 100% !important;
     }
@@ -1107,12 +896,6 @@
         padding: 7px 10px 15px;
     }
 
-    .bottom-cta .rtcntnt {}
-
-    .copyrights .privacylink {
-        margin-left: 0;
-    }
-
     .features.hmefeatures {
         padding: 10px 10px 30px !important;
         margin-top: 0px;
@@ -1137,35 +920,6 @@
         padding: 55px 10px 100px;
     }
 
-    footer .footer-grid {
-        padding: 15px 10px 4px;
-    }
-
-    footer .footer-grid .left {
-        grid-template-columns: inherit;
-        display: inline-block;
-    }
-
-    footer .footer-grid .footerlist {
-        float: left;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 8px;
-        width: 100% !important;
-        margin-bottom: 10px;
-    }
-
-    footer .footer-grid .footerlist:nth-child(1) {
-        width: 35%;
-    }
-
-    footer .footer-grid .footerlist:nth-child(2) {
-        width: 65%;
-    }
-
-    footer .footer-grid .footerlist:nth-child(3) {
-        border-bottom: 0px;
-    }
-
     .ls-v5 .ls-bottom-slidebuttons,
     .ls-v5 .ls-nav-start,
     .ls-v5 .ls-nav-stop,
@@ -1186,32 +940,6 @@
 
     .login .login-popup input {
         padding-right: 185px;
-    }
-
-    .contactpage {
-        grid-template-columns: inherit;
-        display: inline-block;
-        width: 100%;
-        padding: 20px 5px;
-    }
-
-    .contactpage .boxes {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 0px;
-        margin-top: 20px;
-    }
-
-    .contactpage .boxes li {
-        margin-bottom: 10px;
-    }
-
-    .contactpage:after {
-        top: auto;
-        right: -48px;
-        width: 97%;
-        height: 45%;
-        transform: skew(0deg, 2deg);
-        bottom: 5px;
     }
 
     .dtlsban .dtlstext {
@@ -1247,20 +975,12 @@
         clear: both;
     }
 
-    .innerFeatures .featurelst {
-        row-gap: 15px;
-    }
-
     .features:before {
         transform: skewY(0deg);
     }
 
     .features h2 {
         top: 0px;
-    }
-
-    .features .pattern {
-        top: 0;
     }
 
     .features:before,
@@ -1377,17 +1097,9 @@
         font-size: 15px;
     }
 
-    .gettingOne {
-        padding: 15px 4px;
-    }
-
     .dtlsban:before {
         top: 0;
         transform: skew(0deg, 1deg);
-    }
-
-    .ManagecustomersBlog .listone:nth-child(1) img {
-        margin-top: 0;
     }
 
     .listone {
@@ -1402,10 +1114,6 @@
 
     .dtlsban ul li a {
         font-size: 15px;
-    }
-
-    .sidemnuBlog .blogList {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .CustomerFea .cta-section {
@@ -1584,7 +1292,7 @@
         border-bottom: none !important;
     }
 
-    .ManagecustomersBlog .invoice img,
+    
     .listone img {
         width: 50%;
         max-width: 50% !important;
@@ -1605,22 +1313,12 @@
         width: 475px;
     }
 
-    .features .circle-wrapper:after {
-        height: 50px;
-        width: 50px;
-        right: 7px;
-    }
-
     .dtlsban {
         padding: 10px 0 10px 0;
     }
 
     .aboutFeatures .feature-card h3 {
         font-size: 19px;
-    }
-
-    .bottom-cta .logoimg {
-        left: 20px;
     }
 
     .logo-text h1 {
@@ -1708,17 +1406,6 @@
         font-size: 15px;
     }
 
-    .features .circle-wrapper:after {
-        top: -48px;
-    }
-
-    .features .circle-wrapper:before {
-        height: 65px;
-        width: 65px;
-        bottom: 15%;
-        left: -30px;
-    }
-
     header .col-lg-3 {
         padding-left: 5px;
         width: 65%;
@@ -1774,35 +1461,8 @@
         font-size: 30px;
     }
 
-    .footerlist .addresslist .copyBtn {
-        right: 11% !important;
-    }
-
-    .sidemnuBlog .blogList {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .sidemnuBlog .blogList .content {
-        min-height: auto;
-        padding: 5px 6px 0px 6px;
-    }
-
-    .sidemnuBlog .blogList li h3 {
-        font-size: 12px;
-        line-height: 16px;
-        margin-bottom: 0px;
-    }
-
     .insideScroll {
         height: 90%;
-    }
-
-    .sidemnuBlog .blogList li a {
-        margin-bottom: 0px;
-    }
-
-    .bottom-cta .svgimg {
-        width: 35%;
     }
 }
 
