@@ -94,9 +94,9 @@ export const Testimonials: React.FC = () => {
         <div className="row align-items-center">
           {/* Left Column: Heading and Info */}
           <div className="col-lg-5 col-md-12 testimonials-left">
-            <h2 className="home-section-title">Customer Give Their <span>Testimonial</span></h2>
+            <h2 className="home-section-title">Loved by our <span>Users</span></h2>
             <p className="testimonials-desc">
-              Discover how businesses like yours simplify billing, automate tax compliance, and accelerate payments using INVOICE HUB 360's intelligent financial platform.
+              Real feedback from real users who rely in INVOICE HUB 360 to simplyify their billing and get paid faster
             </p>
           </div>
 
