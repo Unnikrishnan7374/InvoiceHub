@@ -1451,6 +1451,10 @@
     .trust-strip-item span {
         font-size: 11.5px;
     }
+
+    .about-stats-strip .about-stat-value {
+        font-size: 15px;
+    }
 }
 
 /*Media Screen 568*/
