@@ -826,7 +826,7 @@ footer:after {
 /* ===================== WHY TRUST SECTION ===================== */
 .why-trust-section {
   padding: 20px 40px 25px;
-  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+  background: linear-gradient(124deg, #f8faff 0%, #ffffff 100%);
   position: relative;
 }
 
@@ -842,10 +842,15 @@ footer:after {
   position: relative;
 }
 
+.why-trust-left img {
+  width: 90%;
+}
+
 /* Right Side Content */
 .why-trust-right {
   flex: 1;
   padding-top: 10px;
+  margin-bottom: 15px;
 }
 
 .why-trust-right .mblimg {
@@ -855,19 +860,16 @@ footer:after {
 .why-trust-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 30px;
 }
 
 .why-trust-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: block;
   gap: 10px;
-  background: #fff;
-  border: 1px solid #e8ecf1;
+  background: #f8fafc;
+  border: 1px solid #afc8e8;
   border-radius: 12px;
-  padding: 10px 16px 10px;
+  padding: 10px 16px 0px;
   transition: all 0.3s ease;
 }
 
@@ -878,25 +880,36 @@ footer:after {
 }
 
 .why-trust-card-icon {
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #eff4ff;
   border: 2px solid #bfdbfe;
+  float: left;
+  margin-right: 10px;
+  background-color: var(--theme-color) !important;
 }
 
 .why-trust-card-icon .material-symbols-outlined {
   font-size: 26px;
-  color: #2563eb;
+  color: #ffffff;
 }
 
 .why-trust-card h3 {
   font-size: 19px;
   font-weight: 700;
+  margin-bottom: 0px;
+  /* float: left; */
+  margin-top: 7px;
+}
+
+.why-trust-card p {
+  width: 100%;
+  display: inline-block;
   margin-bottom: 0px;
 }
 
@@ -1360,7 +1373,7 @@ footer:after {
   z-index: 9;
   overflow: hidden;
   /* background-color: #F5F9FF; */
-  background-image: linear-gradient(184deg, #ffffff 16%, #f5f9ff 100%);
+  background-image: linear-gradient(184deg, #f5f9ff 16%, #f5f9ff 100%);
 }
 
 .pricing-wrapper {

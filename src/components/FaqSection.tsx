@@ -9,7 +9,11 @@ interface FAQItem {
   category: string;
 }
 
-export default function FaqSection() {
+interface FaqSectionProps {
+  className?: string;
+}
+
+export default function FaqSection({ className }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   // Flatten and get first 6 FAQs
@@ -22,7 +26,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="faq-section" style={{
+    <section className={`faq-section ${className || ''}`} style={{
       padding: '30px 50px',
       backgroundColor: '#ffffff',
       borderTop: '1px solid #f1f5f9',

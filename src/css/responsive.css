@@ -239,6 +239,11 @@
     .overview img {
         width: 35%;
     }
+
+    .process-guide-section .process-step.step-1 {
+        top: -50px !important;
+    }
+
 }
 
 /*Media Screen 1600*/

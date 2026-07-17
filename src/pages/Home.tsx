@@ -1018,7 +1018,7 @@ export default function Home() {
       <Testimonials />
 
       {/* FAQ Section Component */}
-      <FaqSection />
+      <FaqSection className="home-faq-section" />
 
       <CtaBanner />
 
