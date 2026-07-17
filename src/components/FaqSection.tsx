@@ -26,7 +26,7 @@ export default function FaqSection({ className }: FaqSectionProps) {
   };
 
   return (
-    <section className="faq-section" id="FaqSection">
+    <section className={`faq-section ${className || ''}`} id="FaqSection">
       <div className="container-fluid">
         {/* Centered Heading */}
         <h2 className="home-section-title">Frequently Asked <span>Questions</span></h2>
