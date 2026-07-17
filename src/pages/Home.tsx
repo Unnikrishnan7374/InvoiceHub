@@ -224,7 +224,7 @@ export default function Home() {
                 <div className="feature-info">
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
-                      <i className="fas fa-users"></i>
+                      <span className="material-symbols-outlined">group</span>
                     </div>
                     <div className="feaImage">
                       <img src="/images/blogs/blogimg-8.webp" className="img-fluid" loading="lazy" alt="Customer &amp; Vendor Management" />
@@ -243,7 +243,7 @@ export default function Home() {
                 <div className="feature-info">
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
-                      <i className="fas fa-file-invoice-dollar"></i>
+                      <span className="material-symbols-outlined">receipt_long</span>
                     </div>
                     <div className="feaImage">
                       <img src="/images/blogs/blogimg-13.webp" className="img-fluid" loading="lazy" alt="Estimates & Invoicing" />
@@ -262,7 +262,7 @@ export default function Home() {
                 <div className="feature-info">
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
-                      <i className="fas fa-credit-card"></i>
+                      <span className="material-symbols-outlined">credit_card</span>
                     </div>
                     <div className="feaImage">
                       <img src="/images/blogs/blogimg-5.webp" className="img-fluid" loading="lazy" alt="Payments & Payables" />
@@ -281,7 +281,7 @@ export default function Home() {
                 <div className="feature-info">
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
-                      <i className="fas fa-qrcode"></i>
+                      <span className="material-symbols-outlined">qr_code_scanner</span>
                     </div>
                     <div className="feaImage">
                       <img src="/images/blogs/blogimg-6.webp" className="img-fluid" loading="lazy" alt="Smart Invoice Capture" />
@@ -300,7 +300,7 @@ export default function Home() {
                 <div className="feature-info">
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
-                      <i className="fas fa-percent"></i>
+                      <span className="material-symbols-outlined">percent</span>
                     </div>
                     <div className="feaImage">
                       <img src="/images/blogs/blogimg-7.webp" className="img-fluid" loading="lazy" alt="Tax Automation" />
@@ -319,7 +319,7 @@ export default function Home() {
                 <div className="feature-info">
                   <div className="feature-header">
                     <div className="feature-icon-wrapper">
-                      <i className="fas fa-chart-line"></i>
+                      <span className="material-symbols-outlined">trending_up</span>
                     </div>
                     <div className="feaImage">
                       <img src="/images/blogs/blogimg-12.webp" className="img-fluid" loading="lazy" alt="Reports & Insights" />
@@ -339,40 +339,53 @@ export default function Home() {
       {/* About Section */}
       <div className="homeabt clearfix">
         <div className="right">
-          <h2 className="home-section-title">About <span>Invoice HUB 360</span></h2>
+          <h2 className="home-section-title">About <span>Us</span></h2>
           <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
-          <p>Invoice HUB 360 streamlines billing, payables, tax compliance, and financial reporting for modern businesses.</p>
+          <p>Empowering businesses with a modern invoicing platform that simplifies financial workflows and enhances operational efficiency.</p>
           {/* <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p> */}
           {/* About Stats Strip */}
           <div className="about-stats-strip">
             <div className="about-stats-container">
               <div className="about-stat-item">
                 <div className="about-stat-icon">
-                  <i className="fas fa-clock"></i>
+                  <span className="material-symbols-outlined">schedule</span>
                 </div>
-                <h3 className="about-stat-value">60% Faster Workflow</h3>
-                {/* <p className="about-stat-desc">With the simple app, work smarter, not harder.</p> */}
+                <div className="about-stat-content">
+                  <h3 className="about-stat-value">Save Valuable Time</h3>
+                  <p className="about-stat-desc">Automate repetitive tasks and reduce manual errors.</p>
+                </div>
               </div>
-              <div className="about-stat-divider"></div>
               <div className="about-stat-item">
                 <div className="about-stat-icon">
-                  <i className="fas fa-bolt"></i>
+                  <span className="material-symbols-outlined">monitoring</span>
                 </div>
-                <h3 className="about-stat-value">2× Faster Payments</h3>
-                {/* <p className="about-stat-desc">Get paid up to 9 days sooner.</p> */}
+                <div className="about-stat-content">
+                  <h3 className="about-stat-value">Get Paid Faster</h3>
+                  <p className="about-stat-desc">Send professional invoices and accept payments online.</p>
+                </div>
               </div>
-              <div className="about-stat-divider"></div>
               <div className="about-stat-item">
                 <div className="about-stat-icon">
-                  <i className="fas fa-mobile-alt"></i>
+                  <span className="material-symbols-outlined">verified_user</span>
                 </div>
-                <h3 className="about-stat-value">Compatible with All Devices</h3>
-                {/* <p className="about-stat-desc">Invoice HUB 360 simplifies business tracking on mobile and web.</p> */}
+                <div className="about-stat-content">
+                  <h3 className="about-stat-value">Stay Compliant</h3>
+                  <p className="about-stat-desc">Ensure tax compliance and maintain accurate financial records.</p>
+                </div>
+              </div>
+              <div className="about-stat-item">
+                <div className="about-stat-icon">
+                  <span className="material-symbols-outlined">bar_chart</span>
+                </div>
+                <div className="about-stat-content">
+                  <h3 className="about-stat-value">Make Smarter Decisions</h3>
+                  <p className="about-stat-desc">Real-time reports and insights to help your business grow.</p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="view-button">
-            <Link to="/about" className="themeBtn"> View More <span className="material-symbols-outlined">arrow_forward</span> </Link>
+          <div className="abtview-button">
+            <Link to="/about" className="themeBtn"> Learn More About Us <span className="material-symbols-outlined">arrow_forward</span> </Link>
           </div>
         </div>
         <div className="left">
@@ -382,28 +395,83 @@ export default function Home() {
 
 
       {/* Why Choose Invoice HUB */}
-      <section className="invoice hmeinvoice clearfix">
-        <div className="right">
-          <h2 className="home-section-title">Why choose <span>Invoice HUB 360</span></h2>
-          <p><strong>Designed for Control, Built for Growth</strong></p>
-          <ul className="ticklist">
-            <li><i className="bi bi-check2"></i> Automated workflows that reduce manual effort</li>
-            <li><i className="bi bi-check2"></i> US tax-ready architecture</li>
-            <li><i className="bi bi-check2"></i> Real-time dashboards and reporting</li>
-            <li><i className="bi bi-check2"></i> Secure role-based access controls</li>
-            <li><i className="bi bi-check2"></i> Scalable for startups and growing businesses</li>
-            <li><i className="bi bi-check2"></i> Audit-ready financial records</li>
-            <li><i className="bi bi-check2"></i> Monitor real-time revenue and cash flow insights</li>
-          </ul>
-          <p><strong>Invoice HUB 360</strong> transforms complex financial operations into a structured, efficient, and scalable system.</p>
+      <section className="why-trust-section">
+        <div className="why-trust-container">
+          {/* Left - Dashboard Mockup */}
+          <div className="why-trust-left">
+            <img src="images/whychhose.png" className="img-fluid" loading="lazy" alt="whychoose" />
+          </div>
+
+          {/* Right - Content */}
+          <div className="why-trust-right">
+            <h2 className="home-section-title">Built on Reliability. <span>Designed for Confidence.</span></h2>
+            <p className="why-trust-desc">We combine robust technology with best practices to deliver a secure, reliable, and future-ready platform.</p>
+            <div className="why-trust-grid">
+              <div className="why-trust-card">
+                <div className="why-trust-card-icon">
+                  <span className="material-symbols-outlined">verified_user</span>
+                </div>
+                <div>
+                  <h3>Secure by Design</h3>
+                  <p>Enterprise-grade security to protect your data and financial operations.</p>
+                </div>
+              </div>
+              <div className="why-trust-card">
+                <div className="why-trust-card-icon">
+                  <span className="material-symbols-outlined">settings_suggest</span>
+                </div>
+                <div>
+                  <h3>Intelligent Automation</h3>
+                  <p>Automated workflows that minimize manual work and reduce errors.</p>
+                </div>
+              </div>
+              <div className="why-trust-card">
+                <div className="why-trust-card-icon">
+                  <span className="material-symbols-outlined">monitoring</span>
+                </div>
+                <div>
+                  <h3>Real-Time Visibility</h3>
+                  <p>Live dashboards and reports that help you stay informed and make better decisions.</p>
+                </div>
+              </div>
+              <div className="why-trust-card">
+                <div className="why-trust-card-icon">
+                  <span className="material-symbols-outlined">open_in_full</span>
+                </div>
+                <div>
+                  <h3>Built to Scale</h3>
+                  <p>A flexible platform that adapts to your business as you grow.</p>
+                </div>
+              </div>
+            </div>
+            {/* Trust Strip */}
+            <div className="trust-strip">
+              <div className="trust-strip-item">
+                <span className="material-symbols-outlined">task_alt</span>
+                <strong>99.9%</strong>
+                <span>Uptime Reliability</span>
+              </div>
+              <div className="trust-strip-item">
+                <span className="material-symbols-outlined">lock</span>
+                <strong>Bank-Level</strong>
+                <span>Data Security</span>
+              </div>
+              <div className="trust-strip-item">
+                <span className="material-symbols-outlined">shield</span>
+                <strong>Compliance</strong>
+                <span>Audit Ready</span>
+              </div>
+              <div className="trust-strip-item">
+                <span className="material-symbols-outlined">groups</span>
+                <strong>Trusted by</strong>
+                <span>Growing Businesses</span>
+              </div>
+            </div>
+            <img src="images/whychhose.png" className="img-fluid mblimg" loading="lazy" alt="whychoose" />
+          </div>
         </div>
-        <div className="left">
-          <ul>
-            <li><img src="images/hmegrid-1.jpg" className="img-fluid" alt="" /></li>
-            <li><img src="images/hmegrid-2.jpg" className="img-fluid" alt="" /></li>
-            <li><img src="images/hmegrid-3.jpg" className="img-fluid" alt="" /></li>
-          </ul>
-        </div>
+
+
       </section>
 
       {/* Step by Step Tabbed Section */}

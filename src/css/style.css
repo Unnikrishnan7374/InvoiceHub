@@ -823,6 +823,124 @@ footer:after {
   position: relative;
 }
 
+/* ===================== WHY TRUST SECTION ===================== */
+.why-trust-section {
+  padding: 20px 40px 0;
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+  position: relative;
+}
+
+.why-trust-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 0 auto;
+}
+
+.why-trust-left {
+  flex: 0 0 45%;
+  position: relative;
+}
+
+/* Right Side Content */
+.why-trust-right {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.why-trust-right .mblimg {
+  display: none;
+}
+
+.why-trust-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.why-trust-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #e8ecf1;
+  border-radius: 5px;
+  padding: 10px 10px 5px;
+  transition: all 0.3s ease;
+}
+
+.why-trust-card:hover {
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.08);
+  border-color: #bfdbfe;
+  transform: translateY(-2px);
+}
+
+.why-trust-card-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--theme-color) !important;
+}
+
+.why-trust-card-icon .material-symbols-outlined {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.why-trust-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.why-trust-card p {
+  font-size: 16px;
+}
+
+/* Trust Strip */
+.trust-strip {
+  padding: 0px 0;
+  margin-top: 15px;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 35px !important;
+}
+
+.trust-strip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.trust-strip-item .material-symbols-outlined {
+  font-size: 28px;
+  color: #2563eb;
+  margin-bottom: 6px;
+}
+
+.trust-strip-item strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.trust-strip-item span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.invoice.hmeinvoice {
+  /* background-color: #dce2ff40; */
+  background-image: linear-gradient(184deg, #fdfdff 16%, #f5f9ff 100%);
+}
+
 .invoice {
   position: relative;
   padding-bottom: 0px;
@@ -941,10 +1059,23 @@ footer:after {
   width: 100%;
   padding: 10px 0px 10px 30px;
   margin: 0px auto;
-  background-color: #dce2ff40;
+  /* background-color: #dce2ff40; */
+  overflow: hidden;
 }
 
-.homeabt .view-button {
+.homeabt:before {
+  content: '';
+  position: absolute;
+  margin: 0px auto;
+  background-color: #cadaf41a;
+  border-radius: 500px;
+  left: -4%;
+  top: -12%;
+  width: 550px;
+  height: 550px;
+}
+
+.homeabt .abtview-button {
   text-align: right;
   margin-top: 15px;
 }
@@ -2074,6 +2205,10 @@ footer:after {
 
 .aboutPge .homeabt {
   background-color: transparent;
+}
+
+.aboutPge .homeabt:before {
+  display: none;
 }
 
 .aboutPge .invoice {

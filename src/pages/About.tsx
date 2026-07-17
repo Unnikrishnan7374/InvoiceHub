@@ -28,26 +28,39 @@ export default function About() {
               <div className="about-stats-container">
                 <div className="about-stat-item">
                   <div className="about-stat-icon">
-                    <i className="fas fa-clock"></i>
+                    <span className="material-symbols-outlined">schedule</span>
                   </div>
-                  <h3 className="about-stat-value">60% Faster Workflow</h3>
-                  {/* <p className="about-stat-desc">With the simple app, work smarter, not harder.</p> */}
+                  <div className="about-stat-content">
+                    <h3 className="about-stat-value">Save Valuable Time</h3>
+                    <p className="about-stat-desc">Automate repetitive tasks and reduce manual errors.</p>
+                  </div>
                 </div>
-                <div className="about-stat-divider"></div>
                 <div className="about-stat-item">
                   <div className="about-stat-icon">
-                    <i className="fas fa-bolt"></i>
+                    <span className="material-symbols-outlined">monitoring</span>
                   </div>
-                  <h3 className="about-stat-value">2× Faster Payments</h3>
-                  {/* <p className="about-stat-desc">Get paid up to 9 days sooner.</p> */}
+                  <div className="about-stat-content">
+                    <h3 className="about-stat-value">Get Paid Faster</h3>
+                    <p className="about-stat-desc">Send professional invoices and accept payments online.</p>
+                  </div>
                 </div>
-                <div className="about-stat-divider"></div>
                 <div className="about-stat-item">
                   <div className="about-stat-icon">
-                    <i className="fas fa-mobile-alt"></i>
+                    <span className="material-symbols-outlined">verified_user</span>
                   </div>
-                  <h3 className="about-stat-value">Compatible with All Devices</h3>
-                  {/* <p className="about-stat-desc">Invoice HUB 360 simplifies business tracking on mobile and web.</p> */}
+                  <div className="about-stat-content">
+                    <h3 className="about-stat-value">Stay Compliant</h3>
+                    <p className="about-stat-desc">Ensure tax compliance and maintain accurate financial records.</p>
+                  </div>
+                </div>
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <span className="material-symbols-outlined">bar_chart</span>
+                  </div>
+                  <div className="about-stat-content">
+                    <h3 className="about-stat-value">Make Smarter Decisions</h3>
+                    <p className="about-stat-desc">Real-time reports and insights to help your business grow.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,27 +83,27 @@ export default function About() {
           </div>
           <div className="why-cards">
             <div className="why-card">
-              <div className="why-card-icon"><i className="fas fa-layer-group"></i></div>
+              <div className="why-card-icon"><span className="material-symbols-outlined">layers</span></div>
               <strong>One Platform</strong>
               <p>All your billing needs in one place</p>
             </div>
             <div className="why-card">
-              <div className="why-card-icon"><i className="fas fa-cog"></i></div>
+              <div className="why-card-icon"><span className="material-symbols-outlined">settings</span></div>
               <strong>Automation</strong>
               <p>Work less, achieve more</p>
             </div>
             <div className="why-card">
-              <div className="why-card-icon"><i className="fas fa-bullseye"></i></div>
+              <div className="why-card-icon"><span className="material-symbols-outlined">target</span></div>
               <strong>Accuracy</strong>
               <p>Fewer errors, more reliability</p>
             </div>
             <div className="why-card">
-              <div className="why-card-icon"><i className="fas fa-eye"></i></div>
+              <div className="why-card-icon"><span className="material-symbols-outlined">visibility</span></div>
               <strong>Visibility</strong>
               <p>Real-time insights at your fingertips</p>
             </div>
             <div className="why-card">
-              <div className="why-card-icon"><i className="fas fa-chart-line"></i></div>
+              <div className="why-card-icon"><span className="material-symbols-outlined">trending_up</span></div>
               <strong>Growth</strong>
               <p>Scalable solutions for every stage</p>
             </div>
@@ -133,7 +146,7 @@ export default function About() {
             <div className="features-container">
               <div className="feature-card">
                 <div className="icon-box">
-                  <i className="fas fa-file-invoice"></i>
+                  <span className="material-symbols-outlined">description</span>
                 </div>
                 <h3>Unified Financial Operations</h3>
                 <p>Manage estimates, invoices, payments, vendor bills, and reporting within one connected system.</p>
@@ -141,7 +154,7 @@ export default function About() {
 
               <div className="feature-card">
                 <div className="icon-box">
-                  <i className="fas fa-lock"></i>
+                  <span className="material-symbols-outlined">smart_toy</span>
                 </div>
                 <h3>Intelligent Automation</h3>
                 <p>Reduce manual effort through automated invoice processing, payment tracking, and structured workflows.</p>
@@ -149,7 +162,7 @@ export default function About() {
 
               <div className="feature-card">
                 <div className="icon-box">
-                  <i className="fas fa-laptop"></i>
+                  <span className="material-symbols-outlined">monitoring</span>
                 </div>
                 <h3>Real-Time Financial Visibility</h3>
                 <p>Gain instant insight into receivables, payables, cash flow, and operational performance.</p>
@@ -157,7 +170,7 @@ export default function About() {
 
               <div className="feature-card">
                 <div className="icon-box">
-                  <i className="fas fa-bell"></i>
+                  <span className="material-symbols-outlined">security</span>
                 </div>
                 <h3>Secure & Scalable Architecture</h3>
                 <p>Role-based access controls, cloud infrastructure, and reliable data protection built for growth.</p>
