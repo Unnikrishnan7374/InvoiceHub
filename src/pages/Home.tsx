@@ -70,8 +70,8 @@ export default function Home() {
       img: "images/Features/3667.webp",
       heading: "Stronger client relations",
       desc: "Maintain complete ledger details for customers and vendors. Track outstanding balances and view detailed statements of accounts.",
-      card1Img: "images/VectorImg/vec325.png",
-      card2Img: "images/VectorImg/vec324.png",
+      card1Img: "images/VectorImg/vec325.webp",
+      card2Img: "images/VectorImg/vec324.webp",
       card1Pos: { left: '355px', top: '40px', width: '250px' },
       card2Pos: { left: '310px', bottom: '40px', width: '400px' }
     }, {
@@ -82,8 +82,8 @@ export default function Home() {
       img: "images/Features/blogimg-3.webp",
       heading: "Win more work",
       desc: "Win 2x more work with professional-looking estimates and INVOICE HUB 360's easy-to-use customer communication tools.",
-      card1Img: "images/VectorImg/vec321.png",
-      card2Img: "images/VectorImg/vec323.png",
+      card1Img: "images/VectorImg/vec321.webp",
+      card2Img: "images/VectorImg/vec323.webp",
       card1Pos: { left: '356px', top: '40px', width: '321px' },
       card2Pos: { left: '310px', bottom: '20px', width: '260px' }
     },
@@ -95,8 +95,8 @@ export default function Home() {
       img: "images/Features/194651.webp",
       heading: "Get paid faster",
       desc: "Receive credit card and bank payments online instantly. Send automated late payment reminders and offer partial payment plans.",
-      card1Img: "images/VectorImg/vec456.png",
-      card2Img: "images/VectorImg/vec455.png",
+      card1Img: "images/VectorImg/vec456.webp",
+      card2Img: "images/VectorImg/vec455.webp",
       card1Pos: { left: '348px', top: '40px', width: '280px' },
       card2Pos: { left: '310px', bottom: '50px', width: '220px' }
     },
@@ -109,8 +109,8 @@ export default function Home() {
       img: "images/Features/65489.webp",
       heading: "Capture costs instantly",
       desc: "Extract data from paper receipts automatically using intelligent OCR technology. Eliminate manual bookkeeping errors.",
-      card1Img: "images/VectorImg/664456.png",
-      card2Img: "images/VectorImg/vec323.png",
+      card1Img: "images/VectorImg/664456.webp",
+      card2Img: "images/VectorImg/vec323.webp",
       card1Pos: { left: '400px', top: '40px', width: '280px' },
       card2Pos: { left: '310px', bottom: '50px', width: '220px' }
     },
@@ -122,8 +122,8 @@ export default function Home() {
       img: "images/Features/6668.webp",
       heading: "Simplify tax filing",
       desc: "Auto-calculate sales tax based on state rules and coordinates. Export tax summary reports instantly for stress-free IRS audits.",
-      card1Img: "images/VectorImg/99876.png",
-      card2Img: "images/VectorImg/14536.png",
+      card1Img: "images/VectorImg/99876.webp",
+      card2Img: "images/VectorImg/14536.webp",
       card1Pos: { left: '388px', top: '40px', width: '210px' },
       card2Pos: { left: '310px', bottom: '50px', width: '290px' }
     },
@@ -135,8 +135,8 @@ export default function Home() {
       img: "images/Features/34976.webp",
       heading: "Track cash flows",
       desc: "Gain deep visibility into payment collections, open invoice balances, tax liabilities, and product performance from a single dashboard.",
-      card1Img: "images/VectorImg/668898.png",
-      card2Img: "images/VectorImg/668899.png",
+      card1Img: "images/VectorImg/668898.webp",
+      card2Img: "images/VectorImg/668899.webp",
       card1Pos: { left: '348px', top: '40px', width: '280px' },
       card2Pos: { left: '310px', bottom: '50px', width: '280px' }
     }
