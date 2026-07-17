@@ -51,6 +51,9 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isAnnual, setIsAnnual] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
+  const [showTrialFeatures, setShowTrialFeatures] = useState(false);
+  const [showBasicFeatures, setShowBasicFeatures] = useState(false);
+  const [showPremiumFeatures, setShowPremiumFeatures] = useState(false);
 
   const templates = [
     { src: 'images/pdf-1.webp', full: 'images/pdf-1.1.webp', title: 'Professional Clean Template', desc: 'Standard business layout with clear table formatting, professional corporate typography, and structured totals.' },
@@ -772,16 +775,30 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="service-feature">
-                  <ul className="service-feature-list">
-                    <li><SpeedTwoToneIcon className="pricing-icon" /> Easy onboarding</li>
-                    <li><DescriptionTwoToneIcon className="pricing-icon" /> Invoice & Estimate creation</li>
-                    <li><PeopleTwoToneIcon className="pricing-icon" /> Customer management</li>
-                    <li><CategoryTwoToneIcon className="pricing-icon" /> Product & service catalog</li>
-                    <li><PercentTwoToneIcon className="pricing-icon" /> US sales tax (basic)</li>
-                    <li><PictureAsPdfTwoToneIcon className="pricing-icon" /> PDF invoice export</li>
-                    <li><BarChartTwoToneIcon className="pricing-icon" /> Basic reports</li>
-                    <li><EmailTwoToneIcon className="pricing-icon" /> Email support</li>
-                  </ul>
+                  {isMobile && (
+                    <button
+                      type="button"
+                      className="view-features-mobile-btn"
+                      onClick={() => setShowTrialFeatures(!showTrialFeatures)}
+                    >
+                      {showTrialFeatures ? 'Hide Features' : 'View Features'}
+                      <span className="material-symbols-outlined">
+                        {showTrialFeatures ? 'expand_less' : 'expand_more'}
+                      </span>
+                    </button>
+                  )}
+                  <div className={`service-feature-list-wrapper ${isMobile && !showTrialFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
+                    <ul className="service-feature-list">
+                      <li><SpeedTwoToneIcon className="pricing-icon" /> Easy onboarding</li>
+                      <li><DescriptionTwoToneIcon className="pricing-icon" /> Invoice & Estimate creation</li>
+                      <li><PeopleTwoToneIcon className="pricing-icon" /> Customer management</li>
+                      <li><CategoryTwoToneIcon className="pricing-icon" /> Product & service catalog</li>
+                      <li><PercentTwoToneIcon className="pricing-icon" /> US sales tax (basic)</li>
+                      <li><PictureAsPdfTwoToneIcon className="pricing-icon" /> PDF invoice export</li>
+                      <li><BarChartTwoToneIcon className="pricing-icon" /> Basic reports</li>
+                      <li><EmailTwoToneIcon className="pricing-icon" /> Email support</li>
+                    </ul>
+                  </div>
                 </div>
                 <div className="buy-btn-wrapper">
                   <button className="themeBtn silverBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
@@ -806,27 +823,41 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="service-feature">
-                  <ul className="service-feature-list">
-                    <li><StarTwoToneIcon className="pricing-icon" /> Everything in Trial</li>
-                    <li><DashboardTwoToneIcon className="pricing-icon" /> Advanced invoice & estimate templates</li>
-                    <li><DriveFileRenameOutlineTwoToneIcon className="pricing-icon" /> Dynamic document naming</li>
-                    <li><PercentTwoToneIcon className="pricing-icon" /> US sales tax (state-based)</li>
-                    <li><AccountBalanceWalletTwoToneIcon className="pricing-icon" /> Bills & expense tracking</li>
-                    <li><PaymentsTwoToneIcon className="pricing-icon" /> Payments tracking</li>
-                    <li><StorefrontTwoToneIcon className="pricing-icon" /> Vendor management</li>
+                  {isMobile && (
+                    <button
+                      type="button"
+                      className="view-features-mobile-btn"
+                      onClick={() => setShowBasicFeatures(!showBasicFeatures)}
+                    >
+                      {showBasicFeatures ? 'Hide Features' : 'View Features'}
+                      <span className="material-symbols-outlined">
+                        {showBasicFeatures ? 'expand_less' : 'expand_more'}
+                      </span>
+                    </button>
+                  )}
+                  <div className={`service-feature-list-wrapper ${isMobile && !showBasicFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
+                    <ul className="service-feature-list">
+                      <li><StarTwoToneIcon className="pricing-icon" /> Everything in Trial</li>
+                      <li><DashboardTwoToneIcon className="pricing-icon" /> Advanced invoice & estimate templates</li>
+                      <li><DriveFileRenameOutlineTwoToneIcon className="pricing-icon" /> Dynamic document naming</li>
+                      <li><PercentTwoToneIcon className="pricing-icon" /> US sales tax (state-based)</li>
+                      <li><AccountBalanceWalletTwoToneIcon className="pricing-icon" /> Bills & expense tracking</li>
+                      <li><PaymentsTwoToneIcon className="pricing-icon" /> Payments tracking</li>
+                      <li><StorefrontTwoToneIcon className="pricing-icon" /> Vendor management</li>
 
-                    {readMoreBasic && (
-                      <>
-                        <li><AssessmentTwoToneIcon className="pricing-icon" /> Report center (sales, tax, payments)</li>
-                        <li><FileDownloadTwoToneIcon className="pricing-icon" /> Excel & PDF exports</li>
-                        <li><AdminPanelSettingsTwoToneIcon className="pricing-icon" /> Role-based user access</li>
-                        <li><HistoryTwoToneIcon className="pricing-icon" /> Audit logs (standard)</li>
-                      </>
-                    )}
-                  </ul>
-                  <span className="ReadMore xtra-cntnt" onClick={() => setReadMoreBasic(!readMoreBasic)}>
-                    {readMoreBasic ? 'Read Less' : 'Read More'}
-                  </span>
+                      {readMoreBasic && (
+                        <>
+                          <li><AssessmentTwoToneIcon className="pricing-icon" /> Report center (sales, tax, payments)</li>
+                          <li><FileDownloadTwoToneIcon className="pricing-icon" /> Excel & PDF exports</li>
+                          <li><AdminPanelSettingsTwoToneIcon className="pricing-icon" /> Role-based user access</li>
+                          <li><HistoryTwoToneIcon className="pricing-icon" /> Audit logs (standard)</li>
+                        </>
+                      )}
+                    </ul>
+                    <span className="ReadMore xtra-cntnt" onClick={() => setReadMoreBasic(!readMoreBasic)}>
+                      {readMoreBasic ? 'Read Less' : 'Read More'}
+                    </span>
+                  </div>
                 </div>
                 <div className="buy-btn-wrapper">
                   <button className="themeBtn goldBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
@@ -850,26 +881,40 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="service-feature">
-                  <ul className="service-feature-list">
-                    <li><StarTwoToneIcon className="pricing-icon" /> Everything in Basic</li>
-                    <li><PercentTwoToneIcon className="pricing-icon" /> Advanced US sales tax configuration</li>
-                    <li><LocationOnTwoToneIcon className="pricing-icon" /> Location-based tax rules</li>
-                    <li><SettingsTwoToneIcon className="pricing-icon" /> Custom business configuration</li>
-                    <li><WarehouseTwoToneIcon className="pricing-icon" /> Advanced inventory management</li>
-                    <li><TrendingUpTwoToneIcon className="pricing-icon" /> Profit & expense analytics</li>
-                    <li><ListAltTwoToneIcon className="pricing-icon" /> Advanced audit & activity center</li>
+                  {isMobile && (
+                    <button
+                      type="button"
+                      className="view-features-mobile-btn"
+                      onClick={() => setShowPremiumFeatures(!showPremiumFeatures)}
+                    >
+                      {showPremiumFeatures ? 'Hide Features' : 'View Features'}
+                      <span className="material-symbols-outlined">
+                        {showPremiumFeatures ? 'expand_less' : 'expand_more'}
+                      </span>
+                    </button>
+                  )}
+                  <div className={`service-feature-list-wrapper ${isMobile && !showPremiumFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
+                    <ul className="service-feature-list">
+                      <li><StarTwoToneIcon className="pricing-icon" /> Everything in Basic</li>
+                      <li><PercentTwoToneIcon className="pricing-icon" /> Advanced US sales tax configuration</li>
+                      <li><LocationOnTwoToneIcon className="pricing-icon" /> Location-based tax rules</li>
+                      <li><SettingsTwoToneIcon className="pricing-icon" /> Custom business configuration</li>
+                      <li><WarehouseTwoToneIcon className="pricing-icon" /> Advanced inventory management</li>
+                      <li><TrendingUpTwoToneIcon className="pricing-icon" /> Profit & expense analytics</li>
+                      <li><ListAltTwoToneIcon className="pricing-icon" /> Advanced audit & activity center</li>
 
-                    {readMorePremium && (
-                      <>
-                        <li><SupportAgentTwoToneIcon className="pricing-icon" /> Priority onboarding assistance</li>
-                        <li><SwapHorizTwoToneIcon className="pricing-icon" /> Data migration support</li>
-                        <li><HeadsetMicTwoToneIcon className="pricing-icon" /> Priority support</li>
-                      </>
-                    )}
-                  </ul>
-                  <span className="ReadMoreOne xtra-cntnt" onClick={() => setReadMorePremium(!readMorePremium)}>
-                    {readMorePremium ? 'Read Less' : 'Read More'}
-                  </span>
+                      {readMorePremium && (
+                        <>
+                          <li><SupportAgentTwoToneIcon className="pricing-icon" /> Priority onboarding assistance</li>
+                          <li><SwapHorizTwoToneIcon className="pricing-icon" /> Data migration support</li>
+                          <li><HeadsetMicTwoToneIcon className="pricing-icon" /> Priority support</li>
+                        </>
+                      )}
+                    </ul>
+                    <span className="ReadMoreOne xtra-cntnt" onClick={() => setReadMorePremium(!readMorePremium)}>
+                      {readMorePremium ? 'Read Less' : 'Read More'}
+                    </span>
+                  </div>
                 </div>
                 <div className="buy-btn-wrapper">
                   <button className="themeBtn premiumBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
