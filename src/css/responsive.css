@@ -888,7 +888,6 @@
 
     .why-trust-right .mblimg {
         display: block;
-        max-width: 400px;
         margin: 20px auto 0;
     }
 
@@ -1539,10 +1538,6 @@
 
     .feature-icon-wrapper {
         position: inherit !important;
-    }
-
-    .why-trust-grid {
-        padding-right: 20px !important;
     }
 }
 
