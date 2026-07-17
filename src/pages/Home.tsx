@@ -8,7 +8,35 @@ import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import DoneTwoToneIcon from '@mui/icons-material/DoneTwoTone';
 import DoubleArrowOutlinedIcon from '@mui/icons-material/DoubleArrowOutlined';
+import SpeedTwoToneIcon from '@mui/icons-material/SpeedTwoTone';
+import DescriptionTwoToneIcon from '@mui/icons-material/DescriptionTwoTone';
+import PeopleTwoToneIcon from '@mui/icons-material/PeopleTwoTone';
+import CategoryTwoToneIcon from '@mui/icons-material/CategoryTwoTone';
+import PercentTwoToneIcon from '@mui/icons-material/PercentTwoTone';
+import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfTwoTone';
+import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
+import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
+import StarTwoToneIcon from '@mui/icons-material/StarTwoTone';
+import DashboardTwoToneIcon from '@mui/icons-material/DashboardTwoTone';
+import DriveFileRenameOutlineTwoToneIcon from '@mui/icons-material/DriveFileRenameOutlineTwoTone';
+import AccountBalanceWalletTwoToneIcon from '@mui/icons-material/AccountBalanceWalletTwoTone';
+import PaymentsTwoToneIcon from '@mui/icons-material/PaymentsTwoTone';
+import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
+import AssessmentTwoToneIcon from '@mui/icons-material/AssessmentTwoTone';
+import FileDownloadTwoToneIcon from '@mui/icons-material/FileDownloadTwoTone';
+import AdminPanelSettingsTwoToneIcon from '@mui/icons-material/AdminPanelSettingsTwoTone';
+import HistoryTwoToneIcon from '@mui/icons-material/HistoryTwoTone';
+import LocationOnTwoToneIcon from '@mui/icons-material/LocationOnTwoTone';
+import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
+import WarehouseTwoToneIcon from '@mui/icons-material/WarehouseTwoTone';
+import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
+import ListAltTwoToneIcon from '@mui/icons-material/ListAltTwoTone';
+import SupportAgentTwoToneIcon from '@mui/icons-material/SupportAgentTwoTone';
+import SwapHorizTwoToneIcon from '@mui/icons-material/SwapHorizTwoTone';
+import HeadsetMicTwoToneIcon from '@mui/icons-material/HeadsetMicTwoTone';
 import CookieBanner from '../components/CookieBanner';
+import CtaBanner from '../components/common/CtaBanner';
+import { Testimonials } from '../components/Testimonials';
 
 export default function Home() {
   const [activeBanner, setActiveBanner] = useState(0);
@@ -406,167 +434,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Step by Step Tabbed Section */}
-      <div className="stepsHome-header text-center" style={{ padding: '0 40px', marginTop: '60px' }}>
-        <h2 className="home-section-title" style={{ marginBottom: '15px' }}>Step-by-Step <span>Guide</span></h2>
-      </div>
-      <div className="stepsHome clearfix pb-2" style={{ paddingTop: '15px' }}>
-        <div className="left">
-          <ul className="tabs nav nav-tabs clearfix left-sub">
-            <li className="nav-item">
-              <a className={`nav-link ${activeTab === 'Launch' ? 'active' : ''}`} onClick={() => setActiveTab('Launch')}>
-                1. Launch Invoice HUB 360
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeTab === 'Customer' ? 'active' : ''}`} onClick={() => setActiveTab('Customer')}>
-                2. Customer Creation
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeTab === 'Product' ? 'active' : ''}`} onClick={() => setActiveTab('Product')}>
-                3. Product & Service Creation
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeTab === 'Estimation' ? 'active' : ''}`} onClick={() => setActiveTab('Estimation')}>
-                4. Estimation
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeTab === 'Approve' ? 'active' : ''}`} onClick={() => setActiveTab('Approve')}>
-                5. Approve or Reject
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeTab === 'Invoice' ? 'active' : ''}`} onClick={() => setActiveTab('Invoice')}>
-                6. Invoice Generation
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeTab === 'Payment' ? 'active' : ''}`} onClick={() => setActiveTab('Payment')}>
-                7. Payment Tracking
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="right">
-          <div className="tab-content clearfix">
-            {activeTab === 'Launch' && (
-              <div className="tab-pane fade show active">
-                <div className="lftcntnt">
-                  <h6>Step : 1</h6>
-                  <p><strong>Log In to Your Invoice HUB 360 Account</strong></p>
-                  <ul className="ticklist">
-                    <li>Access Invoice HUB 360 securely from any device and get started instantly.</li>
-                    <li>Your dashboard gives a clear overview of your business from the moment you log in — no setup, no learning curve.</li>
-                  </ul>
-                </div>
-                <div className="rtimg"><img src="images/step-1.png" className="img-fluid" alt="Step 1" /></div>
+      {/* Step by Step Guide Section */}
+      <section className="process-guide-section" id="Guide">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: '30px' }}>
+            <h2 className="home-section-title">Your Journey to <span>Smarter Invoicing</span></h2>
+            {/* <p style={{ color: '#666', fontSize: '17px', marginTop: '10px' }}> 
+              How Invoice HUB 360 helps you manage billing operations seamlessly.
+            </p> */}
+          </div>
+
+          <div className="process-flow-container">
+            {/* Curvy Connecting Line SVG */}
+            <svg className="process-flow-line" viewBox="0 0 1000 300" preserveAspectRatio="none">
+              <path
+                d="M 0 190 C 150 190, 300 45, 500 45 C 700 45, 850 110, 1000 110"
+                fill="none"
+                stroke="url(#process-grad)"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeDasharray="10, 8"
+              />
+              <defs>
+                <linearGradient id="process-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="var(--theme-color)" stopOpacity="0.3" />
+                  <stop offset="50%" stopColor="var(--theme-color)" stopOpacity="1" />
+                  <stop offset="100%" stopColor="var(--theme-color)" stopOpacity="0.4" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* Step 1 */}
+            <div className="process-step step-1">
+              <div className="step-content">
+                <div className="step-number-bg">1</div>
+                <h3>Sign Up</h3>
+                <p>Create your free INVOICE HUB 360 account in seconds. Access your secure billing dashboard instantly from any device.</p>
               </div>
-            )}
-            {activeTab === 'Customer' && (
-              <div className="tab-pane fade show active">
-                <div className="lftcntnt">
-                  <h6>Step : 2</h6>
-                  <p><strong>Add Customer Details</strong></p>
-                  <ul className="ticklist">
-                    <li>Create and manage your customers in one centralized place.</li>
-                    <li>Store billing details, contact information, and customer history to make every future invoice faster and more accurate.</li>
-                  </ul>
-                </div>
-                <div className="rtimg">
-                  <img src="images/step-2.png" className="img-fluid" alt="Step 2" />
-                  <img src="images/step-2.1.png" className="img-fluid second" alt="Step 2 details" />
+              <div className="step-node">
+                <div className="node-hexagon">
+                  <div className="node-icon-inner">
+                    <span className="material-symbols-outlined">person_add</span>
+                  </div>
                 </div>
               </div>
-            )}
-            {activeTab === 'Product' && (
-              <div className="tab-pane fade show active">
-                <div className="lftcntnt">
-                  <h6>Step : 3</h6>
-                  <p><strong>Select Products</strong></p>
-                  <ul className="ticklist">
-                    <li>Add your products or services with pricing and tax details once.</li>
-                    <li>Reuse them across estimates and invoices to save time and avoid manual errors.</li>
-                  </ul>
-                </div>
-                <div className="rtimg">
-                  <img src="images/step-3.png" className="img-fluid" alt="Step 3" />
-                  <img src="images/step-3.1.png" className="img-fluid second" alt="Step 3 details" />
+            </div>
+
+            {/* Step 2 */}
+            <div className="process-step step-2">
+              <div className="step-node">
+                <div className="node-hexagon">
+                  <div className="node-icon-inner">
+                    <span className="material-symbols-outlined">edit_document</span>
+                  </div>
                 </div>
               </div>
-            )}
-            {activeTab === 'Estimation' && (
-              <div className="tab-pane fade show active">
-                <div className="lftcntnt">
-                  <h6>Step : 4</h6>
-                  <p><strong>Estimation</strong></p>
-                  <ul className="ticklist">
-                    <li>Generate professional estimates or quotations in just a few clicks.</li>
-                    <li>Customize document names, formats, and values to match your business style and customer expectations.</li>
-                  </ul>
-                </div>
-                <div className="rtimg">
-                  <img src="images/step-4.png" className="img-fluid" alt="Step 4" />
-                  <img src="images/step-4.1.png" className="img-fluid second" alt="Step 4 details" />
+              <div className="step-content">
+                <div className="step-number-bg">2</div>
+                <h3>Customize & Create</h3>
+                <p>Set up customer profiles and catalog, customize invoice styles. Draft professional estimates and invoices with auto-calculated US sales tax.</p>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="process-step step-3">
+              <div className="step-node">
+                <div className="node-hexagon">
+                  <div className="node-icon-inner">
+                    <span className="material-symbols-outlined">schedule_send</span>
+                  </div>
                 </div>
               </div>
-            )}
-            {activeTab === 'Approve' && (
-              <div className="tab-pane fade show active">
-                <div className="lftcntnt">
-                  <h6>Step : 5</h6>
-                  <p><strong>Approve or Reject</strong></p>
-                  <ul className="ticklist">
-                    <li>Track the status of every estimate with complete clarity.</li>
-                    <li>Once approved, estimates move seamlessly to invoicing — no duplication, no rework.</li>
-                  </ul>
-                </div>
-                <div className="rtimg"><img src="images/step-5.png" className="img-fluid" alt="Step 5" /></div>
+              <div className="step-content">
+                <div className="step-number-bg">3</div>
+                <h3>Get Paid</h3>
+                <p>Deliver invoices to customers via email, track approval, record payments, and monitor cash flow insights in real-time.</p>
               </div>
-            )}
-            {activeTab === 'Invoice' && (
-              <div className="tab-pane fade show active">
-                <div className="lftcntnt">
-                  <h6>Step : 6</h6>
-                  <p><strong>Invoice Generation</strong></p>
-                  <ul className="ticklist">
-                    <li>Create invoices instantly from approved estimates or directly from products.</li>
-                    <li>US sales tax is applied automatically, ensuring accuracy and compliance every time.</li>
-                  </ul>
-                </div>
-                <div className="rtimg">
-                  <img src="images/step-6.png" className="img-fluid" alt="Step 6" />
-                  <img src="images/step-6.1.png" className="img-fluid second" alt="Step 6 details" />
-                </div>
-              </div>
-            )}
-            {activeTab === 'Payment' && (
-              <div className="tab-pane fade show active">
-                <div className="lftcntnt">
-                  <h6>Step : 7</h6>
-                  <p><strong>Payment Tracking</strong></p>
-                  <ul className="ticklist">
-                    <li>Record payments as they are received and monitor outstanding balances easily.</li>
-                    <li>Get a clear view of paid, pending, and overdue invoices to stay in control of your cash flow.</li>
-                  </ul>
-                </div>
-                <div className="rtimg">
-                  <img src="images/step-7.png" className="img-fluid" alt="Step 7" />
-                  <img src="images/step-7.1.png" className="img-fluid second" alt="Step 7 details" />
-                </div>
-              </div>
-            )}
+            </div>
+
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Pricing Section */}
       <div className="pricing clearfix" id="Pricing">
         <div className="pricing-wrapper">
           <div className='text-center'>
-            <h2 className="home-section-title">Powerful Features. Simple Pricing</h2>
+            <h2 className="home-section-title">Powerful Features. <span>Simple Pricing</span></h2>
           </div>
 
           {/* Pricing Toggle Pill Switcher */}
@@ -646,14 +600,14 @@ export default function Home() {
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Easy onboarding</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Invoice & Estimate creation</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Customer management</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Product & service catalog</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> US sales tax (basic)</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> PDF invoice export</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Basic reports</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Email support</li>
+                    <li><SpeedTwoToneIcon className="pricing-icon" /> Easy onboarding</li>
+                    <li><DescriptionTwoToneIcon className="pricing-icon" /> Invoice & Estimate creation</li>
+                    <li><PeopleTwoToneIcon className="pricing-icon" /> Customer management</li>
+                    <li><CategoryTwoToneIcon className="pricing-icon" /> Product & service catalog</li>
+                    <li><PercentTwoToneIcon className="pricing-icon" /> US sales tax (basic)</li>
+                    <li><PictureAsPdfTwoToneIcon className="pricing-icon" /> PDF invoice export</li>
+                    <li><BarChartTwoToneIcon className="pricing-icon" /> Basic reports</li>
+                    <li><EmailTwoToneIcon className="pricing-icon" /> Email support</li>
                   </ul>
                 </div>
                 <div className="buy-btn-wrapper">
@@ -668,7 +622,7 @@ export default function Home() {
                   <h3 className="heading-title">Basic</h3>
                   <h6 className="mostreco">Most Popular</h6>
                   <div className="heading-sub-title">
-                    <p>Invoice HUB 360 Core Suite</p>
+                    <p>INVOICE HUB 360 Core Suite</p>
                   </div>
                   <div className="price-rate">
                     <p className="price">{isAnnual ? '$12' : '$15'}</p>
@@ -680,20 +634,20 @@ export default function Home() {
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Everything in Trial</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced invoice & estimate templates</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Dynamic document naming</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> US sales tax (state-based)</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Bills & expense tracking</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Payments tracking</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Vendor management</li>
+                    <li><StarTwoToneIcon className="pricing-icon" /> Everything in Trial</li>
+                    <li><DashboardTwoToneIcon className="pricing-icon" /> Advanced invoice & estimate templates</li>
+                    <li><DriveFileRenameOutlineTwoToneIcon className="pricing-icon" /> Dynamic document naming</li>
+                    <li><PercentTwoToneIcon className="pricing-icon" /> US sales tax (state-based)</li>
+                    <li><AccountBalanceWalletTwoToneIcon className="pricing-icon" /> Bills & expense tracking</li>
+                    <li><PaymentsTwoToneIcon className="pricing-icon" /> Payments tracking</li>
+                    <li><StorefrontTwoToneIcon className="pricing-icon" /> Vendor management</li>
 
                     {readMoreBasic && (
                       <>
-                        <li><DoneTwoToneIcon className="pricing-icon" /> Report center (sales, tax, payments)</li>
-                        <li><DoneTwoToneIcon className="pricing-icon" /> Excel & PDF exports</li>
-                        <li><DoneTwoToneIcon className="pricing-icon" /> Role-based user access</li>
-                        <li><DoneTwoToneIcon className="pricing-icon" /> Audit logs (standard)</li>
+                        <li><AssessmentTwoToneIcon className="pricing-icon" /> Report center (sales, tax, payments)</li>
+                        <li><FileDownloadTwoToneIcon className="pricing-icon" /> Excel & PDF exports</li>
+                        <li><AdminPanelSettingsTwoToneIcon className="pricing-icon" /> Role-based user access</li>
+                        <li><HistoryTwoToneIcon className="pricing-icon" /> Audit logs (standard)</li>
                       </>
                     )}
                   </ul>
@@ -724,19 +678,19 @@ export default function Home() {
                 </div>
                 <div className="service-feature">
                   <ul className="service-feature-list">
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Everything in Basic</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced US sales tax configuration</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Location-based tax rules</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Custom business configuration</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced inventory management</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Profit & expense analytics</li>
-                    <li><DoneTwoToneIcon className="pricing-icon" /> Advanced audit & activity center</li>
+                    <li><StarTwoToneIcon className="pricing-icon" /> Everything in Basic</li>
+                    <li><PercentTwoToneIcon className="pricing-icon" /> Advanced US sales tax configuration</li>
+                    <li><LocationOnTwoToneIcon className="pricing-icon" /> Location-based tax rules</li>
+                    <li><SettingsTwoToneIcon className="pricing-icon" /> Custom business configuration</li>
+                    <li><WarehouseTwoToneIcon className="pricing-icon" /> Advanced inventory management</li>
+                    <li><TrendingUpTwoToneIcon className="pricing-icon" /> Profit & expense analytics</li>
+                    <li><ListAltTwoToneIcon className="pricing-icon" /> Advanced audit & activity center</li>
 
                     {readMorePremium && (
                       <>
-                        <li><DoneTwoToneIcon className="pricing-icon" /> Priority onboarding assistance</li>
-                        <li><DoneTwoToneIcon className="pricing-icon" /> Data migration support</li>
-                        <li><DoneTwoToneIcon className="pricing-icon" /> Priority support</li>
+                        <li><SupportAgentTwoToneIcon className="pricing-icon" /> Priority onboarding assistance</li>
+                        <li><SwapHorizTwoToneIcon className="pricing-icon" /> Data migration support</li>
+                        <li><HeadsetMicTwoToneIcon className="pricing-icon" /> Priority support</li>
                       </>
                     )}
                   </ul>
@@ -1162,6 +1116,11 @@ export default function Home() {
           </div>
         )}
       </section>
+
+      {/* Testimonials Section Component */}
+      <Testimonials />
+
+      <CtaBanner />
 
       {/* Cookie Consent Banner - shown only on Home page */}
       <CookieBanner />

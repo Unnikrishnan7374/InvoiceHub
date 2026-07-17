@@ -1242,7 +1242,7 @@ footer:after {
   padding: 6px 10px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  background-color: #ffad01;
+  background-color: var(--vz-secondary);
 }
 
 .price-box:hover .mostreco {
@@ -1253,7 +1253,7 @@ footer:after {
   content: "";
   position: absolute;
   bottom: -9px;
-  border-top: 10px solid #ffad01;
+  border-top: 10px solid var(--vz-secondary);
   border-left: 1px solid transparent;
   border-right: 10px solid transparent;
 }
@@ -1293,11 +1293,12 @@ footer:after {
 .price-box .service-feature ul li {
   position: relative;
   padding-left: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 17px;
   line-height: 28px;
   padding-right: 10px;
   min-height: 30px;
+  font-weight: 500;
 }
 
 .price-box .service-feature ul li svg {}
