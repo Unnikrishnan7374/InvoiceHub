@@ -919,7 +919,7 @@
     }
 
     .register-form-card {
-        padding: 10px;
+        padding: 10px !important;
     }
 
     .register-bottom-actions .next-btn,
@@ -1470,6 +1470,11 @@
 
     .why-trust-right {
         margin-bottom: 0;
+    }
+
+    .custom-pill-stepper .step-pill {
+        padding: 6px 10px !important;
+        margin-right: 5px !important;
     }
 }
 
