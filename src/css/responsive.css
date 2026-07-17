@@ -863,16 +863,11 @@
     }
 
     nav#menu ul li.signup {
-        margin-left: 5px;
+        margin-left: 5px !important;
         margin-right: 5px;
     }
 
-    nav#menu ul li.signup {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    nav#menu ul li.signup .signup-btn-link {
+    .menu-sec nav#menu ul li.signup .signup-btn-link {
         border: 2px solid #ffffff !important;
         color: #ffffff !important;
         margin-top: 10px;
