@@ -828,6 +828,19 @@ footer:after {
   padding: 20px 40px 25px;
   background: linear-gradient(124deg, #f8faff 0%, #ffffff 100%);
   position: relative;
+  overflow: hidden;
+}
+
+.why-trust-section:before {
+  content: "";
+  background-color: #ffffff;
+  border-radius: 100%;
+  width: 49%;
+  height: 535px;
+  margin: 0 auto;
+  position: absolute;
+  top: -20%;
+  left: -5%;
 }
 
 .why-trust-container {
@@ -841,6 +854,8 @@ footer:after {
   flex: 0 0 45%;
   position: relative;
 }
+
+
 
 .why-trust-left img {
   width: 90%;
