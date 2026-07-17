@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CtaBanner from '../components/common/CtaBanner';
+import MagicBento, { MagicBentoCard } from '../components/common/MagicBento';
 
 export default function About() {
   return (
@@ -112,29 +113,64 @@ export default function About() {
 
         {/* Our Story / Our Mission / Our Vision */}
         <section className="vision-section">
-          <div className="about-grid-container">
-            <div className="story-card">
-              <div className="story-bg"></div>
-              <div className="story-content">
-                <h2>Our Story</h2>
-                <p>Invoice HUB 360 started with a simple goal: to make financial management seamless and stress-free for growing businesses. We build intelligent tools that automate workflows, reduce errors, and give you clear financial visibility so you can focus on scaling.</p>
+          <MagicBento
+            enableSpotlight={true}
+            spotlightRadius={350}
+            glowColor="132, 0, 255"
+          >
+            <div className="about-grid-container">
+              <MagicBentoCard
+                className="story-card"
+                particleCount={15}
+                glowColor="255, 255, 255"
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                enableStars={true}
+                enableBorderGlow={true}
+              >
+                <div className="story-bg"></div>
+                <div className="story-content">
+                  <h2>Our Story</h2>
+                  <p>Invoice HUB 360 started with a simple goal: to make financial management seamless and stress-free for growing businesses. We build intelligent tools that automate workflows, reduce errors, and give you clear financial visibility so you can focus on scaling.</p>
+                </div>
+              </MagicBentoCard>
+
+              <div className="mission-vision-cards">
+                <MagicBentoCard
+                  className="about-card mission-card"
+                  particleCount={10}
+                  glowColor="26, 115, 232"
+                  enableTilt={true}
+                  enableMagnetism={true}
+                  clickEffect={true}
+                  enableStars={true}
+                  enableBorderGlow={true}
+                >
+                  <h3>Our Mission</h3>
+                  <p>
+                    We simplify financial operations by automating invoicing, ensuring accurate US tax compliance, streamlining vendor management, delivering actionable insights, and building scalable solutions that grow with your business.
+                  </p>
+                </MagicBentoCard>
+
+                <MagicBentoCard
+                  className="about-card vision-card"
+                  particleCount={10}
+                  glowColor="255, 255, 255"
+                  enableTilt={true}
+                  enableMagnetism={true}
+                  clickEffect={true}
+                  enableStars={true}
+                  enableBorderGlow={true}
+                >
+                  <h3>Our Vision</h3>
+                  <p>
+                    To be a trusted financial workflow platform that enables businesses across the United States to operate with transparency, compliance, and scalable efficiency. We envision financial systems that are intelligent, structured, and growth-ready.
+                  </p>
+                </MagicBentoCard>
               </div>
             </div>
-
-            <div className="mission-vision-cards">
-              <div className="about-card mission-card">
-                <h3>Our Mission</h3>
-                <p>
-                  We simplify financial operations by automating invoicing, ensuring accurate US tax compliance, streamlining vendor management, delivering actionable insights, and building scalable solutions that grow with your business.                  </p>
-              </div>
-
-              <div className="about-card vision-card">
-                <h3>Our Vision</h3>
-                <p>
-                  To be a trusted financial workflow platform that enables businesses across the United States to operate with transparency, compliance, and scalable efficiency. We envision financial systems that are intelligent, structured, and growth-ready.                  </p>
-              </div>
-            </div>
-          </div>
+          </MagicBento>
         </section>
 
 

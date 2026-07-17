@@ -1,7 +1,11 @@
 /* Footer SCSS overrides */
 .footer-premium {
-  background-color: var(--vz-primary) !important;
-  /* Brand Blue */
+  background-color: #05164d !important;
+  background-image:
+    radial-gradient(rgba(26, 115, 232, 0.08) 1px, transparent 0),
+    radial-gradient(rgba(26, 115, 232, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
   position: relative;
   z-index: 1;
   color: #ffffff;
@@ -9,166 +13,311 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 
   .footer-container {
     margin: 0 auto;
-    padding: 40px 40px;
+    padding: 20px 40px 10px;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    gap: 75px;
+    gap: 40px;
     position: relative;
     z-index: 2;
 
     @media (max-width: 991px) {
       flex-direction: column;
       align-items: flex-start;
-      gap: 24px;
-      padding: 30px 20px;
+      gap: 35px;
+      padding: 40px 20px;
     }
   }
 
-  .footer-section {
+  .footer-col {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: relative;
 
-    &.footer-links-section {
-      max-width: 45%;
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background-color: rgba(255, 255, 255, 0.08);
 
       @media (max-width: 991px) {
-        max-width: 100%;
-      }
-    }
-
-    &.footer-contact-section {
-      @media (max-width: 991px) {
-        width: 100%;
+        display: none;
       }
     }
   }
 
-  .footer-title {
-    font-size: 18px;
+  /* Logo block styling */
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .logo-icon {
+      color: var(--theme-color);
+      font-size: 32px !important;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      letter-spacing: 0.5px;
+
+      span {
+        color: var(--theme-color);
+      }
+    }
+  }
+
+  .brand-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  .brand-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .contact-icon {
+        color: var(--theme-color);
+        font-size: 18px !important;
+      }
+
+      a {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.25s ease;
+
+        &:hover {
+          color: #fff !important;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  /* Social links block styling */
+  .social-links-wrapper {
+    margin-top: 25px;
+
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icon-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.8) !important;
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.02);
+
+      svg {
+        font-size: 18px;
+      }
+
+      &:hover {
+        background: var(--theme-color);
+        border-color: var(--theme-color);
+        color: #fff !important;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(26, 115, 232, 0.25);
+      }
+    }
+  }
+
+  /* Section heading underlines (styled similarly to home-section-title) */
+  .footer-col-title {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    color: #fff !important;
+    margin-bottom: 25px !important;
+    position: relative;
+    padding-bottom: 12px;
+    display: inline-block;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: #ffffff;
-    margin-bottom: 10px;
-    border: none;
-    padding: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 125px;
+      height: 3.5px;
+      background: linear-gradient(90deg, var(--theme-color) 0%, rgba(26, 115, 232, 0) 100%);
+      border-radius: 2px;
+    }
   }
 
-  .footer-horizontal-links {
+  /* Column 2: Quick Links styling */
+  .footer-links-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px 24px;
+    flex-direction: column;
+    gap: 12px;
 
     li {
-      margin: 0;
-      padding: 0;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .link-arrow {
+        color: var(--theme-color);
+        font-size: 16px !important;
+        transition: transform 0.2s ease;
+      }
 
       a {
-        color: rgba(255, 255, 255, 0.9) !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 16px;
         text-decoration: none;
-        transition: color 0.2s ease, transform 0.2s ease;
-        display: inline-block;
-        padding: 0;
+        transition: all 0.25s ease;
 
         &:hover {
-          color: #ffffff !important;
-          transform: translateY(-1px);
+          color: #fff !important;
+          transform: translateX(4px);
         }
+      }
 
-        &:before {
-          content: "|";
-          background-color: rgba(255, 255, 255, 0);
-          font-size: 17px;
-          display: inline-block;
-          position: relative;
-          top: 0px;
-          right: -13px;
-          float: right;
+      &:hover {
+        .link-arrow {
+          transform: translateX(2px);
         }
       }
     }
-
-    li:last-child a:before {
-      display: none;
-    }
   }
 
-  .footer-divider {
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.35);
-    align-self: stretch;
-    margin: 0 10px;
-
-    @media (max-width: 991px) {
-      display: none;
-    }
-  }
-
-  .footer-contact-details {
+  /* Column 3: Features styling */
+  .footer-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 14px;
-  }
 
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #ffffff;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
 
-    i {
-      font-size: 16px;
-      color: #ffffff;
-      width: 20px;
-      text-align: center;
-    }
 
-    span,
-    a {
-      color: #ffffff !important;
-      text-decoration: none;
-    }
+      a {
+        color: rgba(255, 255, 255, 0.85) !important;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        font-size: 16px;
 
-    a:hover {
-      text-decoration: none;
-    }
+        &:hover {
+          color: #fff !important;
+          transform: translateX(4px);
+        }
+      }
 
-    /* Hide the copy button icon in the footer to match the design */
-    .copyicon {
-      visibility: hidden
-    }
-
-    &:hover {
-      .copyicon {
-        visibility: visible
+      .feature-icon {
+        color: var(--theme-color);
+        font-size: 20px !important;
       }
     }
   }
 
-  .contact-sub-items {
+  /* Column 4: Card Box styling */
+  .contact-cards-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px 10px;
+    flex-direction: column;
+    gap: 12px;
 
-    @media (max-width: 576px) {
-      flex-direction: column;
+    .contact-card {
+      display: flex;
+      align-items: center;
       gap: 14px;
+      padding: 4px 0px;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+
+      .card-icon-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 6px;
+        background: rgba(26, 115, 232, 0.1);
+        color: var(--theme-color);
+
+        svg {
+          font-size: 18px;
+        }
+      }
+
+      .card-text {
+        flex: 1;
+        font-size: 14px;
+        line-height: 1.4;
+
+        a {
+          color: rgba(255, 255, 255, 0.85) !important;
+          text-decoration: none;
+          transition: color 0.2s ease;
+          font-size: 16px;
+
+          &:hover {
+            color: #fff !important;
+          }
+        }
+      }
+
+      &:hover {
+        background: rgba(26, 115, 232, 0.05);
+        border-color: rgba(26, 115, 232, 0.2);
+        transform: translateY(-2px);
+      }
     }
   }
 
   /* Copyrights bottom bar */
   .footer-copyrights {
-    background-color: #1b68cf !important;
-    padding: 15px 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
     z-index: 2;
 
@@ -177,11 +326,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0px 25px 0px 0px;
+      padding: 0;
 
       @media (max-width: 768px) {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         text-align: center;
       }
     }
@@ -190,7 +339,7 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 12px;
 
       @media (max-width: 768px) {
         justify-content: center;
@@ -198,28 +347,30 @@
     }
 
     .copyright-link {
-      color: #ffffff !important;
+      color: rgba(255, 255, 255, 0.6) !important;
       text-decoration: none;
-      transition: opacity 0.2s ease;
+      font-size: 13px;
+      transition: color 0.2s ease;
 
       &:hover {
-        opacity: 0.8;
+        color: #ffffff !important;
         text-decoration: underline;
       }
     }
 
     .copyright-separator {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 14px;
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 12px;
       user-select: none;
     }
 
     .copyrights-right {
-      color: #ffffff;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 13px;
 
       .rightsLinks {
-        color: #ffffff !important;
-        font-weight: 700;
+        color: var(--theme-color) !important;
+        font-weight: 600;
         text-decoration: none;
 
         &:hover {
