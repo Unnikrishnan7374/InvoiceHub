@@ -129,97 +129,101 @@ export default function Contact() {
           <div className="contactform">
             <form onSubmit={handleSubmit} className="validateForm">
 
-            <div className="row">
-              <div className="form-group col-md-12">
-                <input
-                  id="fullname"
-                  type="text"
-                  name="name"
-                  className="form-control"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  disabled={status === 'submitting'}
-                />
-                <label htmlFor="fullname" className={name ? 'active' : ''}>
-                  Full Name <span className="asterisk">*</span>
-                </label>
-              </div>
+              <div className="row">
+                <div className="form-group col-md-12">
+                  <label htmlFor="fullname">
+                    Full Name <span className="asterisk">*</span>
+                  </label>
+                  <input
+                    id="fullname"
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your full name"
+                    required
+                    disabled={status === 'submitting'}
+                  />
+                </div>
 
-              <div className="form-group col-md-12">
-                <input
-                  id="phone"
-                  type="tel"
-                  name="phone"
-                  className="form-control phone"
-                  value={phone}
-                  onChange={handlePhoneInput}
-                  required
-                  disabled={status === 'submitting'}
-                />
-                <label htmlFor="phone" className={phone ? 'active' : ''}>
-                  Phone <span className="asterisk">*</span>
-                </label>
-                {phone && phone.replace(/\D/g, '').length < 10 && (
-                  <span className="phone-validation-error" style={{ color: '#ff4d4f', fontSize: '13px', marginTop: '4px', display: 'block', fontWeight: '500' }}>
-                    Mobile number must have 10 digits
-                  </span>
-                )}
-              </div>
+                <div className="form-group col-md-12">
+                  <label htmlFor="phone">
+                    Phone <span className="asterisk">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    className="form-control phone"
+                    value={phone}
+                    onChange={handlePhoneInput}
+                    placeholder="(123) 456-7890"
+                    required
+                    disabled={status === 'submitting'}
+                  />
+                  {phone && phone.replace(/\D/g, '').length < 10 && (
+                    <span className="phone-validation-error" style={{ color: '#ff4d4f', fontSize: '13px', marginTop: '4px', display: 'block', fontWeight: '500' }}>
+                      Mobile number must have 10 digits
+                    </span>
+                  )}
+                </div>
 
-              <div className="form-group col-md-12">
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  className="form-control email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
-                />
-                <label htmlFor="email" className={email ? 'active' : ''}>
-                  Email <span className="asterisk">*</span>
-                </label>
-              </div>
+                <div className="form-group col-md-12">
+                  <label htmlFor="email">
+                    Email <span className="asterisk">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    className="form-control email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="support@invoicehub.com"
+                    required
+                    disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
+                  />
+                </div>
 
-              <div className="form-group col-md-12">
-                <textarea
-                  id="message"
-                  name="message"
-                  className="form-control"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                  disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
-                ></textarea>
-                <label htmlFor="message" className={message ? 'active' : ''}>
-                  Message <span className="asterisk">*</span>
-                </label>
-              </div>
+                <div className="form-group col-md-12">
+                  <label htmlFor="message">
+                    Message <span className="asterisk">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    className="form-control"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="How can we help you?"
+                    required
+                    disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
+                  ></textarea>
+                </div>
 
-              <div className="col-md-12" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <button
-                  type="submit"
-                  className="submit btn-animate"
-                  disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
-                >
-                  {status === 'submitting' ? 'Sending...' : 'Send a message'}
-                </button>
+                <div className="col-md-12" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <button
+                    type="submit"
+                    className="submit btn-animate"
+                    disabled={status === 'submitting' || phone.replace(/\D/g, '').length < 10}
+                  >
+                    {status === 'submitting' ? 'Sending...' : 'Send a message'}
+                  </button>
 
-                {status === 'success' && (
-                  <div className="form-status-msg success">
-                    Thank you! Your message has been sent successfully. We will get back to you shortly.
-                  </div>
-                )}
-                {status === 'error' && (
-                  <div className="form-status-msg error">
-                    Oops! Something went wrong while sending your message. Please try again.
-                  </div>
-                )}
+                  {status === 'success' && (
+                    <div className="form-status-msg success">
+                      Thank you! Your message has been sent successfully. We will get back to you shortly.
+                    </div>
+                  )}
+                  {status === 'error' && (
+                    <div className="form-status-msg error">
+                      Oops! Something went wrong while sending your message. Please try again.
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
           </div>
         </div>
 
