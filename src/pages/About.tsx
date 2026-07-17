@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CtaBanner from '../components/common/CtaBanner';
 import MagicBento, { MagicBentoCard } from '../components/common/MagicBento';
 
 export default function About() {
+  const [activeTemplate, setActiveTemplate] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  const templates = [
+    { src: 'images/pdf-1.webp', full: 'images/pdf-1.1.webp', title: 'Professional Clean Template', desc: 'Standard business layout with clear table formatting, professional corporate typography, and structured totals.' },
+    { src: 'images/pdf-2.webp', full: 'images/pdf-2.1.webp', title: 'Modern Corporate Template', desc: 'Minimalist corporate styling with a top banner, accent colors, and custom grid borders for items.' },
+    { src: 'images/pdf-3.webp', full: 'images/pdf-3.1.webp', title: 'Creative Business Template', desc: 'Creative, colorful layout suitable for designers, freelancers, agencies, and modern tech startups.' }
+  ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = setInterval(() => {
+      setActiveTemplate((prev) => (prev + 1) % templates.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isPlaying, templates.length]);
+
+  const nextTemplate = () => {
+    setActiveTemplate((prev) => (prev + 1) % templates.length);
+  };
+
+  const prevTemplate = () => {
+    setActiveTemplate((prev) => (prev - 1 + templates.length) % templates.length);
+  };
   return (
     <div>
       <section className="dtlsban clearfix">
@@ -215,7 +248,315 @@ export default function About() {
           </div>
         </section>
 
+        {/* Invoice Templates Section */}
+        <section className="invoice two clearfix" style={{
+          padding: '0px 15px',
+          borderRadius: '24px',
+          margin: '0',
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: '40px',
+        }}>
+          {/* On Mobile, show heading first */}
+          {isMobile && (
+            <div style={{ width: '100%', textAlign: 'center', padding: '30px 20px 0 20px' }}>
+              <h2 className="home-section-title" style={{ margin: 0 }}>
+                Choose Your Perfect <span>Template</span>
+              </h2>
+            </div>
+          )}
+          {/* Left Side: Dynamic 3D Cover Flow Carousel */}
+          <div className="left" style={{
+            flex: '1.2',
+            minWidth: '320px',
+            width: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            float: 'none'
+          }}>
+            {/* 3D Cover Flow Perspective Container */}
+            <div style={{
+              perspective: '1200px',
+              transformStyle: 'preserve-3d',
+              position: 'relative',
+              width: '100%',
+              height: '350px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              overflow: 'visible',
+              marginBottom: '20px'
+            }}>
+              {templates.map((tpl, index) => {
+                let offset = index - activeTemplate;
+                if (offset < -1) offset += templates.length;
+                if (offset > 1) offset -= templates.length;
 
+                const isActive = offset === 0;
+                const isLeft = offset === -1;
+                const isRight = offset === 1;
+
+                let transformString = '';
+                let zIndex = 0;
+                let opacity = 0;
+
+                if (isActive) {
+                  transformString = 'rotateY(0deg) scale(1.15) translateZ(80px)';
+                  zIndex = 10;
+                  opacity = 1;
+                } else if (isLeft) {
+                  transformString = 'rotateY(40deg) scale(0.85) translateX(-140px) translateZ(-60px)';
+                  zIndex = 5;
+                  opacity = 0.75;
+                } else if (isRight) {
+                  transformString = 'rotateY(-40deg) scale(0.85) translateX(140px) translateZ(-60px)';
+                  zIndex = 5;
+                  opacity = 0.75;
+                }
+
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setActiveTemplate(index)}
+                    style={{
+                      position: 'absolute',
+                      width: '185px',
+                      height: '260px',
+                      transition: 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s',
+                      transform: transformString,
+                      zIndex: zIndex,
+                      opacity: opacity,
+                      cursor: 'pointer',
+                      boxShadow: isActive ? '0 20px 40px rgba(26, 115, 232, 0.15)' : '0 10px 20px rgba(0, 0, 0, 0.08)',
+                      borderRadius: '16px',
+                      backgroundColor: '#fff',
+                      padding: '8px',
+                      border: isActive ? '2px solid var(--theme-color)' : '1px solid rgba(0,0,0,0.06)',
+                      transformStyle: 'preserve-3d',
+                      backfaceVisibility: 'hidden'
+                    }}
+                  >
+                    <a
+                      href={tpl.full}
+                      data-fancybox="gallery"
+                      onClick={(e) => {
+                        if (!isActive) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setActiveTemplate(index);
+                        }
+                      }}
+                      style={{ width: '100%', height: '100%', display: 'block', borderRadius: '10px', overflow: 'hidden' }}
+                    >
+                      <img
+                        src={tpl.src}
+                        alt={tpl.title}
+                        style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', borderRadius: '10px' }}
+                      />
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Music style play controls */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+              <button
+                onClick={prevTemplate}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '24px',
+                  color: '#666',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'color 0.2s ease',
+                  outline: 'none',
+                  padding: 0
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-color)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#666'}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>skip_previous</span>
+              </button>
+
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                style={{
+                  backgroundColor: 'var(--theme-color)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '42px',
+                  height: '42px',
+                  color: '#fff',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 4px 10px var(--theme-color-light)',
+                  transition: 'transform 0.2s ease, background-color 0.2s ease',
+                  outline: 'none',
+                  padding: 0
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.08)';
+                  e.currentTarget.style.backgroundColor = '#135cb3';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.backgroundColor = 'var(--theme-color)';
+                }}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
+                  {isPlaying ? 'pause' : 'play_arrow'}
+                </span>
+              </button>
+
+              <button
+                onClick={nextTemplate}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '24px',
+                  color: '#666',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'color 0.2s ease',
+                  outline: 'none',
+                  padding: 0
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-color)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#666'}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>skip_next</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side: Informational Features Content (Hidden on Mobile) */}
+          {!isMobile && (
+            <div className="right" style={{
+              flex: '1',
+              minWidth: '320px',
+              width: 'auto',
+              padding: '20px',
+              float: 'none'
+            }}>
+              <style>{`
+                @keyframes fadeInUp {
+                  from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                }
+                .template-details-animate {
+                  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                }
+              `}</style>
+              <h2 className="home-section-title">
+                Choose Your Perfect <span>Template</span>
+              </h2>
+              <p style={{ color: '#555', marginBottom: '25px', lineHeight: '1.6' }}>
+                Select from beautifully designed templates that match your brand. Customize colors, layouts, and typography to build trust with professional billing.
+              </p>
+
+              {/* Dynamic details of the active template with key to re-trigger animation */}
+              <div 
+                key={activeTemplate} 
+                className="template-details-animate"
+                style={{
+                  backgroundColor: '#f8fafc',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '16px'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '44px',
+                    height: '44px',
+                    backgroundColor: 'var(--theme-color-light, rgba(26, 115, 232, 0.08))',
+                    color: 'var(--theme-color, #1a73e8)',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
+                      {activeTemplate === 0 ? 'palette' : activeTemplate === 1 ? 'business_center' : 'brush'}
+                    </span>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '11px', fontWeight: 'bold', color: 'var(--theme-color)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                      Template {activeTemplate + 1} of {templates.length}
+                    </span>
+                    <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#1e293b', margin: '2px 0 0 0' }}>
+                      {templates[activeTemplate].title}
+                    </h4>
+                  </div>
+                </div>
+
+                <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: '1.6', margin: 0 }}>
+                  {templates[activeTemplate].desc}
+                </p>
+
+                <div style={{
+                  borderTop: '1px solid #e2e8f0',
+                  paddingTop: '16px',
+                  marginTop: '4px'
+                }}>
+                  <h5 style={{ fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px', margin: '0 0 10px 0' }}>
+                    Key Highlights
+                  </h5>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    {(activeTemplate === 0 ? [
+                      'Professional layouts', 'Structured tax lines', 'Perfect for corp invoices'
+                    ] : activeTemplate === 1 ? [
+                      'Header accent color', 'Minimal borders', 'Modern grid lines'
+                    ] : [
+                      'Creative colors', 'Startup friendly', 'Great for freelancers'
+                    ]).map((highlight, index) => (
+                      <span 
+                        key={index}
+                        style={{
+                          fontSize: '12px',
+                          fontWeight: '600',
+                          color: '#475569',
+                          backgroundColor: '#fff',
+                          border: '1px solid #e2e8f0',
+                          padding: '6px 12px',
+                          borderRadius: '20px',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px'
+                        }}
+                      >
+                        <span className="material-symbols-outlined" style={{ fontSize: '14px', color: '#10b981' }}>check_circle</span>
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </section>
 
         <section className="abtbtm clearfix">
           <div className='pb-4'>

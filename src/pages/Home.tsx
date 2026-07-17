@@ -37,6 +37,7 @@ import HeadsetMicTwoToneIcon from '@mui/icons-material/HeadsetMicTwoTone';
 import CookieBanner from '../components/CookieBanner';
 import CtaBanner from '../components/common/CtaBanner';
 import { Testimonials } from '../components/Testimonials';
+import FaqSection from '../components/FaqSection';
 
 export default function Home() {
   const [activeBanner, setActiveBanner] = useState(0);
@@ -49,11 +50,93 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isAnnual, setIsAnnual] = useState(false);
+  const [activeFeature, setActiveFeature] = useState(0);
 
   const templates = [
     { src: 'images/pdf-1.webp', full: 'images/pdf-1.1.webp', title: 'Professional Clean Template', desc: 'Standard business layout with clear table formatting, professional corporate typography, and structured totals.' },
     { src: 'images/pdf-2.webp', full: 'images/pdf-2.1.webp', title: 'Modern Corporate Template', desc: 'Minimalist corporate styling with a top banner, accent colors, and custom grid borders for items.' },
     { src: 'images/pdf-3.webp', full: 'images/pdf-3.1.webp', title: 'Creative Business Template', desc: 'Creative, colorful layout suitable for designers, freelancers, agencies, and modern tech startups.' }
+  ];
+
+  const featuresList = [
+    {
+      title: "Customer & Vendor Management",
+      icon: "contacts",
+      link: "/features/customer-vendor-management",
+      accentBg: "var(--theme-color)",
+      img: "images/Features/3667.webp",
+      heading: "Stronger client relations",
+      desc: "Maintain complete ledger details for customers and vendors. Track outstanding balances and view detailed statements of accounts.",
+      card1Img: "images/VectorImg/vec325.png",
+      card2Img: "images/VectorImg/vec324.png",
+      card1Pos: { left: '355px', top: '40px', width: '250px' },
+      card2Pos: { left: '310px', bottom: '40px', width: '400px' }
+    }, {
+      title: "Estimates & Invoicing",
+      icon: "receipt_long",
+      link: "/features/estimates-invoicing-workflow",
+      accentBg: "var(--theme-color)",
+      img: "images/Features/blogimg-3.webp",
+      heading: "Win more work",
+      desc: "Win 2x more work with professional-looking estimates and INVOICE HUB 360's easy-to-use customer communication tools.",
+      card1Img: "images/VectorImg/vec321.png",
+      card2Img: "images/VectorImg/vec323.png",
+      card1Pos: { left: '356px', top: '40px', width: '321px' },
+      card2Pos: { left: '310px', bottom: '20px', width: '260px' }
+    },
+    {
+      title: "Payments & Payables",
+      icon: "payments",
+      link: "/features/payments-partial-payments",
+      accentBg: "var(--theme-color)",
+      img: "images/Features/194651.webp",
+      heading: "Get paid faster",
+      desc: "Receive credit card and bank payments online instantly. Send automated late payment reminders and offer partial payment plans.",
+      card1Img: "images/VectorImg/vec456.png",
+      card2Img: "images/VectorImg/vec455.png",
+      card1Pos: { left: '348px', top: '40px', width: '280px' },
+      card2Pos: { left: '310px', bottom: '50px', width: '220px' }
+    },
+
+    {
+      title: "Smart Invoice Capture",
+      icon: "qr_code_scanner",
+      link: "/features/smart-invoice-capture",
+      accentBg: "var(--theme-color)",
+      img: "images/Features/65489.webp",
+      heading: "Capture costs instantly",
+      desc: "Extract data from paper receipts automatically using intelligent OCR technology. Eliminate manual bookkeeping errors.",
+      card1Img: "images/VectorImg/664456.png",
+      card2Img: "images/VectorImg/vec323.png",
+      card1Pos: { left: '400px', top: '40px', width: '280px' },
+      card2Pos: { left: '310px', bottom: '50px', width: '220px' }
+    },
+    {
+      title: "Tax Automation",
+      icon: "percent",
+      link: "/features/tax-automation",
+      accentBg: "var(--theme-color)",
+      img: "images/Features/6668.webp",
+      heading: "Simplify tax filing",
+      desc: "Auto-calculate sales tax based on state rules and coordinates. Export tax summary reports instantly for stress-free IRS audits.",
+      card1Img: "images/VectorImg/99876.png",
+      card2Img: "images/VectorImg/14536.png",
+      card1Pos: { left: '388px', top: '40px', width: '210px' },
+      card2Pos: { left: '310px', bottom: '50px', width: '290px' }
+    },
+    {
+      title: "Reports & Insights",
+      icon: "trending_up",
+      link: "/features/reports-insights",
+      accentBg: "var(--theme-color)",
+      img: "images/Features/34976.webp",
+      heading: "Track cash flows",
+      desc: "Gain deep visibility into payment collections, open invoice balances, tax liabilities, and product performance from a single dashboard.",
+      card1Img: "images/VectorImg/668898.png",
+      card2Img: "images/VectorImg/668899.png",
+      card1Pos: { left: '348px', top: '40px', width: '280px' },
+      card2Pos: { left: '310px', bottom: '50px', width: '280px' }
+    }
   ];
 
   useEffect(() => {
@@ -242,127 +325,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="features hmefeatures">
-        <h2 className="home-section-title pt-2">Our Standard <span>Features</span></h2>
-        <ul className="features-grid">
-          <li>
-            <Link to="/features/customer-vendor-management" className="feature-card-link">
-              <div className="feature-card">
-                <div className="feature-info">
-                  <div className="feature-header">
-                    <div className="feature-icon-wrapper">
-                      <span className="material-symbols-outlined">group</span>
-                    </div>
-                    <div className="feaImage">
-                      <img src="/images/blogs/blogimg-8.webp" className="img-fluid" loading="lazy" alt="Customer &amp; Vendor Management" />
-                    </div>
-                    <h3>Customer & Vendor Management</h3>
-                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
-                  </div>
 
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/estimates-invoicing-workflow" className="feature-card-link">
-              <div className="feature-card">
-                <div className="feature-info">
-                  <div className="feature-header">
-                    <div className="feature-icon-wrapper">
-                      <span className="material-symbols-outlined">receipt_long</span>
-                    </div>
-                    <div className="feaImage">
-                      <img src="/images/blogs/blogimg-13.webp" className="img-fluid" loading="lazy" alt="Estimates & Invoicing" />
-                    </div>
-                    <h3>Estimates & Invoicing</h3>
-                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
-                  </div>
-
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/payments-partial-payments" className="feature-card-link">
-              <div className="feature-card">
-                <div className="feature-info">
-                  <div className="feature-header">
-                    <div className="feature-icon-wrapper">
-                      <span className="material-symbols-outlined">credit_card</span>
-                    </div>
-                    <div className="feaImage">
-                      <img src="/images/blogs/blogimg-5.webp" className="img-fluid" loading="lazy" alt="Payments & Payables" />
-                    </div>
-                    <h3>Payments & Payables</h3>
-                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
-                  </div>
-                </div>
-
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/smart-invoice-capture" className="feature-card-link">
-              <div className="feature-card">
-                <div className="feature-info">
-                  <div className="feature-header">
-                    <div className="feature-icon-wrapper">
-                      <span className="material-symbols-outlined">qr_code_scanner</span>
-                    </div>
-                    <div className="feaImage">
-                      <img src="/images/blogs/blogimg-6.webp" className="img-fluid" loading="lazy" alt="Smart Invoice Capture" />
-                    </div>
-                    <h3>Smart Invoice Capture</h3>
-                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
-                  </div>
-
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/tax-automation" className="feature-card-link">
-              <div className="feature-card">
-                <div className="feature-info">
-                  <div className="feature-header">
-                    <div className="feature-icon-wrapper">
-                      <span className="material-symbols-outlined">percent</span>
-                    </div>
-                    <div className="feaImage">
-                      <img src="/images/blogs/blogimg-7.webp" className="img-fluid" loading="lazy" alt="Tax Automation" />
-                    </div>
-                    <h3>Tax Automation</h3>
-                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
-                  </div>
-
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/features/reports-insights" className="feature-card-link">
-              <div className="feature-card">
-                <div className="feature-info">
-                  <div className="feature-header">
-                    <div className="feature-icon-wrapper">
-                      <span className="material-symbols-outlined">trending_up</span>
-                    </div>
-                    <div className="feaImage">
-                      <img src="/images/blogs/blogimg-12.webp" className="img-fluid" loading="lazy" alt="Reports & Insights" />
-                    </div>
-                    <h3>Reports & Insights</h3>
-                    <span className="read-more-btn">Read More <span className="arrow">→</span></span>
-                  </div>
-
-                </div>
-              </div>
-            </Link>
-          </li>
-        </ul>
-        <a className="themeBtn" href="/features" data-discover="true"> View More Features <span className="material-symbols-outlined">arrow_forward</span> </a>
-      </section>
 
       {/* About Section */}
       <div className="homeabt clearfix">
@@ -420,6 +383,148 @@ export default function Home() {
           <img src="images/about.webp" className="img-fluid" loading="lazy" alt="about" />
         </div>
       </div>
+
+      {/* Features Section */}
+      <section className="features-showcase-section hmefeatures desktop-only">
+        <div className="">
+          <div className="row align-items-center">
+
+            {/* Left Side: Features Tab List & Detailed Content */}
+            <div className="col-lg-4 col-md-4 col-sm-12 col-12 features-left">
+              <h2 className="home-section-title">Our Standard <span>Features</span></h2>
+
+              {/* Tab Menus */}
+              <div className="features-nav">
+                {featuresList.map((feat, idx) => (
+                  <button
+                    key={idx}
+                    className={`feature-nav-item ${idx === activeFeature ? 'active' : ''}`}
+                    onClick={() => setActiveFeature(idx)}
+                    type="button"
+                  >
+                    <span className="material-symbols-outlined nav-icon">{feat.icon}</span>
+                    <span className="nav-title">{feat.title}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Active Feature Detail Content Card */}
+
+            </div>
+
+            {/* Right Side: The Themed Composed Illustration */}
+            <div className="col-lg-8 col-md-8 col-sm-12 col-12 features-right">
+              <div className="illustration-wrapper">
+
+                {/* Accent Background Block */}
+                <div
+                  className="accent-bg-block"
+                  style={{ backgroundColor: featuresList[activeFeature].accentBg }}
+                />
+
+                {/* Render all slides, showing/hiding them with beautiful slider transitions */}
+                {featuresList.map((feat, idx) => {
+                  let slideClass = '';
+                  if (idx === activeFeature) {
+                    slideClass = 'active';
+                  } else if (idx < activeFeature) {
+                    slideClass = 'prev';
+                  } else {
+                    slideClass = 'next';
+                  }
+
+                  return (
+                    <div key={idx} className={`feature-slide ${slideClass}`}>
+                      {/* Circular Masked Image */}
+                      <div className="circle-image-container">
+                        <img
+                          src={feat.img}
+                          alt={feat.title}
+                          className="circle-masked-img"
+                          loading="lazy"
+                        />
+                      </div>
+
+                      {/* Floating Card 1 (UI Estimate/Invoice Details Image) */}
+                      <div className="floating-ui-card card-details" style={feat.card1Pos}>
+                        <div className="floating-card-inner">
+                          <img
+                            src={feat.card1Img}
+                            alt="Estimate details card"
+                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Floating Card 2 (Status Notification Image) */}
+                      <div className="floating-ui-card card-status" style={feat.card2Pos}>
+                        <div className="floating-card-inner">
+                          <img
+                            src={feat.card2Img}
+                            alt="Status badge"
+                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+
+
+                {/* Next & Previous Controls with Slide Count */}
+                <div className="features-controls-wrapper">
+                  <div className="features-nav-arrows">
+                    <button
+                      type="button"
+                      className="nav-arrow prev"
+                      onClick={() => setActiveFeature((prev) => (prev === 0 ? featuresList.length - 1 : prev - 1))}
+                      aria-label="Previous Feature"
+                    >
+                      <span className="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                      type="button"
+                      className="nav-arrow next"
+                      onClick={() => setActiveFeature((prev) => (prev === featuresList.length - 1 ? 0 : prev + 1))}
+                      aria-label="Next Feature"
+                    >
+                      <span className="material-symbols-outlined">chevron_right</span>
+                    </button>
+                  </div>
+                  <div className="features-slide-count">
+                    {String(activeFeature + 1).padStart(2, '0')} / {String(featuresList.length).padStart(2, '0')}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile Features Section */}
+      <section className="mobile-features-layout">
+        <div className="container">
+          <h2 className="home-section-title text-center">Our Standard <span>Features</span></h2>
+          <div className="mobile-features-cards">
+            {featuresList.map((feat, idx) => (
+              <div key={idx} className="mobile-feature-card">
+                <div className="card-left-content">
+                  <h3>{feat.title}</h3>
+                  <p>{feat.desc}</p>
+                  <Link to={feat.link} className="learn-more-btn">
+                    Learn More <span className="material-symbols-outlined">arrow_right_alt</span>
+                  </Link>
+                </div>
+                <div className="card-right-image">
+                  <img src={feat.img} alt={feat.title} loading="lazy" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
 
       {/* Why Choose Invoice HUB */}
@@ -907,291 +1012,13 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Invoice Templates Section */}
-      <section className="invoice two clearfix" style={{
-        padding: '0px 15px',
-        borderRadius: '24px',
-        margin: '0',
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        gap: '40px',
-      }}>
-        {/* On Mobile, show heading first */}
-        {isMobile && (
-          <div style={{ width: '100%', textAlign: 'center', padding: '30px 20px 0 20px' }}>
-            <h2 className="home-section-title" style={{ margin: 0 }}>
-              Choose Your Perfect <span>Template</span>
-            </h2>
-          </div>
-        )}
-        {/* Left Side: Dynamic 3D Cover Flow Carousel */}
-        <div className="left" style={{
-          flex: '1.2',
-          minWidth: '320px',
-          width: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          float: 'none'
-        }}>
-          {/* 3D Cover Flow Perspective Container */}
-          <div style={{
-            perspective: '1200px',
-            transformStyle: 'preserve-3d',
-            position: 'relative',
-            width: '100%',
-            height: '350px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'visible',
-            marginBottom: '20px'
-          }}>
-            {templates.map((tpl, index) => {
-              let offset = index - activeTemplate;
-              if (offset < -1) offset += templates.length;
-              if (offset > 1) offset -= templates.length;
 
-              const isActive = offset === 0;
-              const isLeft = offset === -1;
-              const isRight = offset === 1;
-
-              let transformString = '';
-              let zIndex = 0;
-              let opacity = 0;
-
-              if (isActive) {
-                transformString = 'rotateY(0deg) scale(1.15) translateZ(80px)';
-                zIndex = 10;
-                opacity = 1;
-              } else if (isLeft) {
-                transformString = 'rotateY(40deg) scale(0.85) translateX(-140px) translateZ(-60px)';
-                zIndex = 5;
-                opacity = 0.75;
-              } else if (isRight) {
-                transformString = 'rotateY(-40deg) scale(0.85) translateX(140px) translateZ(-60px)';
-                zIndex = 5;
-                opacity = 0.75;
-              }
-
-              return (
-                <div
-                  key={index}
-                  onClick={() => setActiveTemplate(index)}
-                  style={{
-                    position: 'absolute',
-                    width: '185px',
-                    height: '260px',
-                    transition: 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s',
-                    transform: transformString,
-                    zIndex: zIndex,
-                    opacity: opacity,
-                    cursor: 'pointer',
-                    boxShadow: isActive ? '0 20px 40px rgba(26, 115, 232, 0.15)' : '0 10px 20px rgba(0, 0, 0, 0.08)',
-                    borderRadius: '16px',
-                    backgroundColor: '#fff',
-                    padding: '8px',
-                    border: isActive ? '2px solid var(--theme-color)' : '1px solid rgba(0,0,0,0.06)',
-                    transformStyle: 'preserve-3d',
-                    backfaceVisibility: 'hidden'
-                  }}
-                >
-                  <a
-                    href={tpl.full}
-                    data-fancybox="gallery"
-                    onClick={(e) => {
-                      if (!isActive) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setActiveTemplate(index);
-                      }
-                    }}
-                    style={{ width: '100%', height: '100%', display: 'block', borderRadius: '10px', overflow: 'hidden' }}
-                  >
-                    <img
-                      src={tpl.src}
-                      alt={tpl.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', borderRadius: '10px' }}
-                    />
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Music style play controls */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
-            <button
-              onClick={prevTemplate}
-              style={{
-                background: 'none',
-                border: 'none',
-                fontSize: '24px',
-                color: '#666',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'color 0.2s ease',
-                outline: 'none',
-                padding: 0
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-color)'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#666'}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>skip_previous</span>
-            </button>
-
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              style={{
-                backgroundColor: 'var(--theme-color)',
-                border: 'none',
-                borderRadius: '50%',
-                width: '42px',
-                height: '42px',
-                color: '#fff',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 10px var(--theme-color-light)',
-                transition: 'transform 0.2s ease, background-color 0.2s ease',
-                outline: 'none',
-                padding: 0
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.08)';
-                e.currentTarget.style.backgroundColor = '#135cb3';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.backgroundColor = 'var(--theme-color)';
-              }}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
-                {isPlaying ? 'pause' : 'play_arrow'}
-              </span>
-            </button>
-
-            <button
-              onClick={nextTemplate}
-              style={{
-                background: 'none',
-                border: 'none',
-                fontSize: '24px',
-                color: '#666',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'color 0.2s ease',
-                outline: 'none',
-                padding: 0
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--theme-color)'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#666'}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>skip_next</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Right Side: Informational Features Content (Hidden on Mobile) */}
-        {!isMobile && (
-          <div className="right" style={{
-            flex: '1',
-            minWidth: '320px',
-            width: 'auto',
-            padding: '20px',
-            float: 'none'
-          }}>
-            <h2 className="home-section-title">
-              Choose Your Perfect <span>Template</span>
-            </h2>
-            <p style={{ color: '#555', marginBottom: '25px' }}>
-              Select from beautifully designed templates that match your brand. Customize colors, layouts, and typography to build trust with professional billing.
-            </p>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <div style={{
-                display: 'flex',
-                gap: '15px',
-                backgroundColor: '#fff',
-                padding: '18px',
-                borderRadius: '12px',
-                border: '1px solid rgba(0,0,0,0.04)',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.02)',
-                transition: 'transform 0.2s ease',
-                cursor: 'default'
-              }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  backgroundColor: 'var(--theme-color-light)',
-                  color: 'var(--theme-color)',
-                  borderRadius: '8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <span className="material-symbols-outlined">receipt_long</span>
-                </div>
-                <div>
-                  <h5 style={{ fontSize: '15px', fontWeight: 'bold', color: '#222', margin: '0 0 4px 0' }}>Invoice Templates</h5>
-                  <p style={{ fontSize: '15px', color: '#666', margin: 0, lineHeight: '1.4' }}>
-                    Perfect for billing clients quickly, clearly, and conforming to local US tax regulations.
-                  </p>
-                </div>
-              </div>
-
-              <div style={{
-                display: 'flex',
-                gap: '15px',
-                backgroundColor: '#fff',
-                padding: '18px',
-                borderRadius: '12px',
-                border: '1px solid rgba(0,0,0,0.04)',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.02)',
-                transition: 'transform 0.2s ease',
-                cursor: 'default'
-              }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  backgroundColor: 'var(--theme-color-light)',
-                  color: 'var(--theme-color)',
-                  borderRadius: '8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <span className="material-symbols-outlined">rate_review</span>
-                </div>
-                <div>
-                  <h5 style={{ fontSize: '15px', fontWeight: 'bold', color: '#222', margin: '0 0 4px 0' }}>Estimation Templates</h5>
-                  <p style={{ fontSize: '15px', color: '#666', margin: 0, lineHeight: '1.4' }}>
-                    Share accurate quotes, manage approval workflows, and convert them to invoices with a click.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
 
       {/* Testimonials Section Component */}
       <Testimonials />
+
+      {/* FAQ Section Component */}
+      <FaqSection />
 
       <CtaBanner />
 
