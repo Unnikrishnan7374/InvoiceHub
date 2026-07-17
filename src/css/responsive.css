@@ -918,6 +918,15 @@
     .trust-strip-item span {
         font-size: 12px;
     }
+
+    .register-form-card {
+        padding: 10px;
+    }
+
+    .register-bottom-actions .next-btn,
+    .register-bottom-actions .submit-btn {
+        white-space: nowrap;
+    }
 }
 
 /*Media Screen 767*/
