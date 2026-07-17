@@ -2028,6 +2028,7 @@ footer:after {
 
 .contactform .form-group {
   margin-bottom: 20px;
+  position: relative;
 }
 
 .contactform label .asterisk {
