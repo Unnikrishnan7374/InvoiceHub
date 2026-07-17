@@ -1,6 +1,125 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+interface FeatureItem {
+  title: string;
+  link: string;
+  desc: string;
+  ticks: string[];
+  img: string;
+  card1Img: string;
+  card2Img: string;
+  card1Pos: React.CSSProperties;
+  card2Pos: React.CSSProperties;
+  accentBg: string;
+  glowColor: string;
+}
+
+const featuresListData: FeatureItem[] = [
+  {
+    title: "Customer & Vendor Management",
+    link: "/features/customer-vendor-management",
+    desc: "Invoice Hub centralizes customer and vendor management, simplifying billing, expense tracking, and financial workflows.",
+    ticks: [
+      "Create and maintain complete customer profiles",
+      "Store billing and shipping addresses",
+      "Manage contact details, notes, and payment terms"
+    ],
+    img: "/images/Features/3667.webp",
+    card1Img: "/images/VectorImg/vec325.png",
+    card2Img: "/images/VectorImg/vec324.png",
+    card1Pos: { left: '-15px', top: '15px', width: '130px' },
+    card2Pos: { right: '-20px', bottom: '15px', width: '150px' },
+    accentBg: "rgba(37, 99, 235, 0.15)",
+    glowColor: "rgba(37, 99, 235, 0.25)"
+  },
+  {
+    title: "Estimates & Invoicing",
+    link: "/features/estimates-invoicing-workflow",
+    desc: "Invoice Hub simplifies the process of creating professional estimates and converting them into invoices. Businesses can manage pricing, approvals, and billing within a unified workflow.",
+    ticks: [
+      "Create, edit, and duplicate estimates",
+      "Add products or services with pricing and tax calculations",
+      "Apply discounts and additional charges"
+    ],
+    img: "/images/Features/blogimg-3.webp",
+    card1Img: "/images/VectorImg/vec321.png",
+    card2Img: "/images/VectorImg/vec323.png",
+    card1Pos: { left: '-20px', top: '20px', width: '140px' },
+    card2Pos: { right: '-15px', bottom: '10px', width: '120px' },
+    accentBg: "rgba(37, 99, 235, 0.15)",
+    glowColor: "rgba(37, 99, 235, 0.25)"
+  },
+  {
+    title: "Payments & Payables",
+    link: "/features/payments-partial-payments",
+    desc: "Invoice Hub supports flexible payment tracking and vendor payment management, allowing businesses to monitor receivables and payables from a single platform.",
+    ticks: [
+      "Record full or partial customer payments",
+      "Automatically track outstanding balances",
+      "Support multiple payment methods"
+    ],
+    img: "/images/Features/194651.webp",
+    card1Img: "/images/VectorImg/vec456.png",
+    card2Img: "/images/VectorImg/vec455.png",
+    card1Pos: { left: '-15px', top: '12px', width: '140px' },
+    card2Pos: { right: '-15px', bottom: '15px', width: '110px' },
+    accentBg: "rgba(37, 99, 235, 0.15)",
+    glowColor: "rgba(37, 99, 235, 0.25)"
+  },
+  {
+    title: "Smart Invoice Capture",
+    link: "/features/smart-invoice-capture",
+    desc: "Invoice Hub uses Optical Character Recognition (OCR) technology to extract invoice details automatically from uploaded vendor documents, reducing manual data entry.",
+    ticks: [
+      "Upload vendor invoice documents into the Bills module",
+      "OCR extracts key invoice data including merchant, date, tax, and total",
+      "Users review and confirm extracted data before saving"
+    ],
+    img: "/images/Features/65489.webp",
+    card1Img: "/images/VectorImg/664456.png",
+    card2Img: "/images/VectorImg/vec323.png",
+    card1Pos: { left: '-15px', top: '20px', width: '130px' },
+    card2Pos: { right: '-15px', bottom: '15px', width: '110px' },
+    accentBg: "rgba(37, 99, 235, 0.15)",
+    glowColor: "rgba(37, 99, 235, 0.25)"
+  },
+  {
+    title: "Tax Automation",
+    link: "/features/tax-automation",
+    desc: "Invoice Hub supports automated tax calculation designed to handle complex US tax structures and multi-rate scenarios.",
+    ticks: [
+      "Configure tax rules based on ZIP codes",
+      "Automatically apply state and local taxes",
+      "Support multiple tax rates and combinations"
+    ],
+    img: "/images/Features/6668.webp",
+    card1Img: "/images/VectorImg/99876.png",
+    card2Img: "/images/VectorImg/14536.png",
+    card1Pos: { left: '-10px', top: '15px', width: '120px' },
+    card2Pos: { right: '-25px', bottom: '15px', width: '140px' },
+    accentBg: "rgba(37, 99, 235, 0.15)",
+    glowColor: "rgba(37, 99, 235, 0.25)"
+  },
+  {
+    title: "Reports & Insights",
+    link: "/features/reports-insights",
+    desc: "Invoice Hub provides powerful reporting tools that give businesses complete visibility into financial performance and operational activity.",
+    ticks: [
+      "Outstanding invoices",
+      "Pending and overdue bills",
+      "Payment summaries"
+    ],
+    img: "/images/Features/34976.webp",
+    card1Img: "/images/VectorImg/668898.png",
+    card2Img: "/images/VectorImg/668899.png",
+    card1Pos: { left: '-15px', top: '12px', width: '130px' },
+    card2Pos: { right: '-15px', bottom: '12px', width: '130px' },
+    accentBg: "rgba(37, 99, 235, 0.15)",
+    glowColor: "rgba(37, 99, 235, 0.25)"
+  }
+];
+
 export default function Features() {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,6 +157,162 @@ export default function Features() {
           opacity: 1;
           transform: translateY(0);
         }
+
+        /* Premium illustration styles */
+        .fealist {
+          padding: 60px 0;
+        }
+
+        .fealist .contant {
+          width: 55%;
+          padding-right: 40px;
+        }
+
+        .fealist:nth-child(even) .contant {
+          padding-right: 0;
+          padding-left: 40px;
+        }
+
+        .fealist .ser-img {
+          width: 45%;
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          min-height: 320px;
+          overflow: visible;
+          padding: 0;
+        }
+
+        .feature-ill-container {
+          position: relative;
+          width: 100%;
+          max-width: 380px;
+          height: 320px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .feature-ill-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 30px;
+          transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+          z-index: 1;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Decorative Grid Background inside the glow block */
+        .feature-ill-bg::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image:
+            linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px);
+          background-size: 20px 20px;
+          pointer-events: none;
+          z-index: 1;
+          opacity: 0.7;
+        }
+
+        .fealist:hover .feature-ill-bg {
+          transform: scale(1.04) translateY(-5px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-ill-circle {
+          position: relative;
+          width: 220px;
+          height: 220px;
+          border-radius: 50%;
+          overflow: hidden;
+          z-index: 2;
+          border: 6px solid #ffffff;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+          transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .fealist:hover .feature-ill-circle {
+          transform: scale(1.05) translateY(-8px);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-ill-circle img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .feature-ill-card {
+          position: absolute;
+          z-index: 3;
+          border-radius: 12px;
+          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+          background: #ffffff;
+          padding: 4px;
+          transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+          border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-ill-card img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 8px;
+        }
+
+        .feature-ill-card.card-1 {
+          animation: floatEffect1 6s ease-in-out infinite alternate;
+        }
+
+        .feature-ill-card.card-2 {
+          animation: floatEffect2 6s ease-in-out infinite alternate;
+        }
+
+        .fealist:hover .feature-ill-card.card-1 {
+          transform: scale(1.06) translate(-5px, -5px);
+        }
+
+        .fealist:hover .feature-ill-card.card-2 {
+          transform: scale(1.06) translate(5px, 5px);
+        }
+
+        @keyframes floatEffect1 {
+          0% { transform: translateY(0px) rotate(0deg); }
+          100% { transform: translateY(-10px) rotate(1.5deg); }
+        }
+
+        @keyframes floatEffect2 {
+          0% { transform: translateY(0px) rotate(0deg); }
+          100% { transform: translateY(10px) rotate(-1.5deg); }
+        }
+
+        /* Ensure images display properly on tablets/mobiles instead of hiding */
+        @media (max-width: 991px) {
+          .fealist .contant {
+            width: 100% !important;
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+            float: none !important;
+            margin-bottom: 30px;
+          }
+          .fealist .ser-img {
+            width: 100% !important;
+            float: none !important;
+            display: flex !important;
+            justify-content: center;
+          }
+        }
       `}</style>
 
       <section className="dtlsban clearfix">
@@ -52,113 +327,47 @@ export default function Features() {
       </section>
 
       <section className="innerFeatures">
-        <div className="fealist clearfix scroll-animate">
-          <Link to="/features/customer-vendor-management">
-            <div className="contant">
-              <h4>Customer & Vendor Management</h4>
-              <p>Invoice Hub centralizes customer and vendor management, simplifying billing, expense tracking, and financial workflows.</p>
-              <ul className="ticklist">
-                <li>Create and maintain complete customer profiles</li>
-                <li>Store billing and shipping addresses</li>
-                <li>Manage contact details, notes, and payment terms</li>
-              </ul>
-              <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
-            </div>
-            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-8.webp" className="img-fluid" alt="Customer & Vendor Management" style={{ borderRadius: '15px' }} />
-            </div>
-          </Link>
-        </div>
+        {featuresListData.map((feat, idx) => (
+          <div key={idx} className="fealist clearfix scroll-animate">
+            <Link to={feat.link} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+              <div className="contant">
+                <h4>{feat.title}</h4>
+                <p>{feat.desc}</p>
+                <ul className="ticklist">
+                  {feat.ticks.map((tick, tIdx) => (
+                    <li key={tIdx}>{tick}</li>
+                  ))}
+                </ul>
+                <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
+              </div>
+              <div className="ser-img">
+                <div className="feature-ill-container">
+                  {/* Styled glow block with modern background effects */}
+                  <div
+                    className="feature-ill-bg"
+                    style={{
+                      backgroundColor: feat.accentBg,
+                      boxShadow: `0 20px 40px -15px ${feat.glowColor}, inset 0 0 40px rgba(255, 255, 255, 0.4)`
+                    }}
+                  />
 
-        <div className="fealist clearfix scroll-animate">
-          <Link to="/features/estimates-invoicing-workflow">
-            <div className="contant">
-              <h4>Estimates & Invoicing</h4>
-              <p>Invoice Hub simplifies the process of creating professional estimates and converting them into invoices. Businesses can manage pricing, approvals, and billing within a unified workflow.</p>
-              <ul className="ticklist">
-                <li>Create, edit, and duplicate estimates</li>
-                <li>Add products or services with pricing and tax calculations</li>
-                <li>Apply discounts and additional charges</li>
-              </ul>
-              <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
-            </div>
-            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-13.webp" loading="lazy" className="img-fluid" alt="Estimates & Invoicing" style={{ borderRadius: '15px' }} />
-            </div>
-          </Link>
-        </div>
+                  {/* Main Circular Image */}
+                  <div className="feature-ill-circle">
+                    <img src={feat.img} alt={feat.title} />
+                  </div>
 
-        <div className="fealist clearfix scroll-animate">
-          <Link to="/features/payments-partial-payments">
-            <div className="contant">
-              <h4>Payments & Payables</h4>
-              <p>Invoice Hub supports flexible payment tracking and vendor payment management, allowing businesses to monitor receivables and payables from a single platform.</p>
-              <ul className="ticklist">
-                <li>Record full or partial customer payments</li>
-                <li>Automatically track outstanding balances</li>
-                <li>Support multiple payment methods</li>
-              </ul>
-              <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
-            </div>
-            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-5.webp" loading="lazy" className="img-fluid" alt="Payments & Payables" style={{ borderRadius: '15px' }} />
-            </div>
-          </Link>
-        </div>
-
-        <div className="fealist clearfix scroll-animate">
-          <Link to="/features/smart-invoice-capture">
-            <div className="contant">
-              <h4>Smart Invoice Capture</h4>
-              <p>Invoice Hub uses Optical Character Recognition (OCR) technology to extract invoice details automatically from uploaded vendor documents, reducing manual data entry.</p>
-              <ul className="ticklist">
-                <li>Upload vendor invoice documents into the Bills module</li>
-                <li>OCR extracts key invoice data including merchant, date, tax, and total</li>
-                <li>Users review and confirm extracted data before saving</li>
-              </ul>
-              <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
-            </div>
-            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-6.webp" loading="lazy" className="img-fluid" alt="Smart Invoice Capture" style={{ borderRadius: '15px' }} />
-            </div>
-          </Link>
-        </div>
-
-        <div className="fealist clearfix scroll-animate">
-          <Link to="/features/tax-automation">
-            <div className="contant">
-              <h4>Tax Automation</h4>
-              <p>Invoice Hub supports automated tax calculation designed to handle complex US tax structures and multi-rate scenarios.</p>
-              <ul className="ticklist">
-                <li>Configure tax rules based on ZIP codes</li>
-                <li>Automatically apply state and local taxes</li>
-                <li>Support multiple tax rates and combinations</li>
-              </ul>
-              <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
-            </div>
-            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-7.webp" loading="lazy" className="img-fluid" alt="Tax Automation" style={{ borderRadius: '15px' }} />
-            </div>
-          </Link>
-        </div>
-
-        <div className="fealist clearfix scroll-animate">
-          <Link to="/features/reports-insights">
-            <div className="contant">
-              <h4>Reports & Insights</h4>
-              <p>Invoice Hub provides powerful reporting tools that give businesses complete visibility into financial performance and operational activity.</p>
-              <ul className="ticklist">
-                <li>Outstanding invoices</li>
-                <li>Pending and overdue bills</li>
-                <li>Payment summaries</li>
-              </ul>
-              <span className="readmr">Read more <i className="material-symbols-outlined">arrow_forward</i></span>
-            </div>
-            <div className="ser-img" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-              <img src="/images/blogs/blogimg-12.webp" loading="lazy" className="img-fluid" alt="Reports & Insights" style={{ borderRadius: '15px' }} />
-            </div>
-          </Link>
-        </div>
+                  {/* Floating Overlays */}
+                  <div className="feature-ill-card card-1" style={feat.card1Pos}>
+                    <img src={feat.card1Img} alt="Detail view" />
+                  </div>
+                  <div className="feature-ill-card card-2" style={feat.card2Pos}>
+                    <img src={feat.card2Img} alt="Overlay status" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
       </section>
     </div>
   );
