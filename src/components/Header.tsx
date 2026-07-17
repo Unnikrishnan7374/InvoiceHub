@@ -423,6 +423,7 @@ export default function Header() {
               <div className="row">
                 <div className="form-group col-md-12">
                   <input
+                    id="popover-name"
                     type="text"
                     name="name"
                     className="form-control"
@@ -431,10 +432,11 @@ export default function Header() {
                     required
                     disabled={contactStatus === 'submitting'}
                   />
-                  <label className={contactName ? 'active' : ''}>Name <span className="asterisk">*</span></label>
+                  <label htmlFor="popover-name" className={contactName ? 'active' : ''}>Name <span className="asterisk">*</span></label>
                 </div>
                 <div className="form-group col-md-12">
                   <input
+                    id="popover-phone"
                     type="tel"
                     name="phone"
                     className="form-control phone"
@@ -443,7 +445,7 @@ export default function Header() {
                     required
                     disabled={contactStatus === 'submitting'}
                   />
-                  <label className={contactPhone ? 'active' : ''}>Phone <span className="asterisk">*</span></label>
+                  <label htmlFor="popover-phone" className={contactPhone ? 'active' : ''}>Phone <span className="asterisk">*</span></label>
                   {contactPhone && contactPhone.replace(/\D/g, '').length < 10 && (
                     <span className="phone-validation-error" style={{ color: '#ff4d4f', fontSize: '11px', marginTop: '4px', display: 'block', fontWeight: '500', textAlign: 'left' }}>
                       Mobile number must have 10 digits
@@ -452,6 +454,7 @@ export default function Header() {
                 </div>
                 <div className="form-group col-md-12">
                   <input
+                    id="popover-email"
                     type="email"
                     name="email"
                     className="form-control email"
@@ -460,10 +463,11 @@ export default function Header() {
                     required
                     disabled={contactStatus === 'submitting' || contactPhone.replace(/\D/g, '').length < 10}
                   />
-                  <label className={contactEmail ? 'active' : ''}>Email <span className="asterisk">*</span></label>
+                  <label htmlFor="popover-email" className={contactEmail ? 'active' : ''}>Email <span className="asterisk">*</span></label>
                 </div>
                 <div className="form-group col-md-12">
                   <textarea
+                    id="popover-message"
                     name="message"
                     value={contactMessage}
                     onChange={(e) => setContactMessage(e.target.value)}
@@ -471,7 +475,7 @@ export default function Header() {
                     required
                     disabled={contactStatus === 'submitting' || contactPhone.replace(/\D/g, '').length < 10}
                   ></textarea>
-                  <label className={contactMessage ? 'active' : ''}>Message <span className="asterisk">*</span></label>
+                  <label htmlFor="popover-message" className={contactMessage ? 'active' : ''}>Message <span className="asterisk">*</span></label>
                 </div>
                 <div className="col-md-12" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <button

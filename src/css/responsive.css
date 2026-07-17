@@ -1460,6 +1460,14 @@
     .about-stats-strip .about-stat-value {
         font-size: 15px;
     }
+
+    .why-trust-section:before {
+        display: none !Important;
+    }
+
+    .why-trust-right {
+        margin-bottom: 0;
+    }
 }
 
 /*Media Screen 568*/
@@ -1527,6 +1535,10 @@
 
     .feature-icon-wrapper {
         position: inherit !important;
+    }
+
+    .why-trust-grid {
+        padding-right: 20px !important;
     }
 }
 

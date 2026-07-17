@@ -2270,7 +2270,7 @@ body {
       height: auto;
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 20px;
     }
   }
 
@@ -2402,16 +2402,18 @@ body {
       top: 15px;
 
       @media (max-width: 768px) {
-        top: auto;
-        left: auto;
+        top: auto !important;
+        left: auto !important;
       }
 
       .step-content {
         margin-bottom: 85px;
 
         @media (max-width: 768px) {
-          margin-bottom: 0;
+          margin-bottom: 0px !important;
           order: 2;
+          margin-top: -25px;
+          z-index: -9;
         }
       }
 
@@ -2458,8 +2460,10 @@ body {
         margin-top: 85px;
 
         @media (max-width: 768px) {
-          margin-top: 0;
+          margin-bottom: 0px !important;
           order: 2;
+          margin-top: -25px;
+          z-index: -9;
         }
       }
     }
@@ -2491,8 +2495,10 @@ body {
         margin-top: 85px;
 
         @media (max-width: 768px) {
-          margin-top: 0;
+          margin-bottom: 0px !important;
           order: 2;
+          margin-top: -25px;
+          z-index: -9;
         }
       }
     }
@@ -2681,7 +2687,7 @@ body {
 
     .home-section-title {
       text-align: left;
-      margin-bottom: 30px;
+      margin-bottom: 30px !important;
 
       @media (max-width: 991px) {
         text-align: center;
