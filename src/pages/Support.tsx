@@ -85,10 +85,10 @@ export default function Support() {
         <div className="modern-support-card">
           <Link to="/blogs" className="support-card-link">
             <div className="support-image-wrapper">
-              <img src="/images/blog-bg.webp" loading="lazy" alt="Team Blog" />
+              <img src="/images/blog-bg.webp" loading="lazy" alt="Blog" />
             </div>
             <div className="support-overlay-box">
-              <h3>Team Blog</h3>
+              <h3>Blog</h3>
               <p>Step-by-step guides and documentation to efficiently manage invoices, payments, bills, taxes, and account settings.</p>
               <span className="support-see-detail">
                 View More <span className="material-symbols-outlined">arrow_forward</span>
