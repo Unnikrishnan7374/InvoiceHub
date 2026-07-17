@@ -324,7 +324,7 @@ export default function Header() {
                             to="/blogs"
                             onMouseEnter={() => setSupportHoveredItem('blog')}
                           >
-                            Team Blog
+                            Blog
                           </Link>
                           <Link
                             to="/faq"
@@ -347,7 +347,7 @@ export default function Header() {
                           >
                             <div>
                               <h6 style={{ fontSize: '15px', fontWeight: 'bold', margin: '0 0 5px 0', color: '#1a73e8' }}>
-                                {supportHoveredItem === 'blog' ? 'Team Blog' : 'FAQ'}
+                                {supportHoveredItem === 'blog' ? 'Blog' : 'FAQ'}
                               </h6>
                               <p style={{ fontSize: '13px', margin: 0, color: '#555', lineHeight: '1.4' }}>
                                 {supportHoveredItem === 'blog'

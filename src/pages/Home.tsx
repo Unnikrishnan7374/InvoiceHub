@@ -615,6 +615,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Built for Every Business Section */}
+      {/* <section className="built-for-business-section">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="home-section-title">Built for <span>Every Business</span></h2>
+            <p className="section-subtitle">
+              InvoiceHub360 adapts to your industry and helps you manage invoices, payments, and customers with ease.
+            </p>
+          </div>
+          <div className="business-grid">
+            <div className="business-card">
+              <div className="business-icon-wrapper">
+                <span className="material-symbols-outlined">shopping_cart</span>
+              </div>
+              <h3>Retail</h3>
+              <p>Streamline billing and payments for your retail business.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-icon-wrapper">
+                <span className="material-symbols-outlined">work</span>
+              </div>
+              <h3>Professional Services</h3>
+              <p>Manage client invoices and retainers effortlessly.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-icon-wrapper">
+                <span className="material-symbols-outlined">factory</span>
+              </div>
+              <h3>Manufacturing</h3>
+              <p>Simplify order billing and vendor management.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-icon-wrapper">
+                <span className="material-symbols-outlined">monitor_heart</span>
+              </div>
+              <h3>Healthcare</h3>
+              <p>Secure and compliant invoicing for healthcare organizations.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-icon-wrapper">
+                <span className="material-symbols-outlined">construction</span>
+              </div>
+              <h3>Construction</h3>
+              <p>Track project-based invoices and improve cash flow.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-icon-wrapper">
+                <span className="material-symbols-outlined">volunteer_activism</span>
+              </div>
+              <h3>Non-Profit</h3>
+              <p>Manage donations, grants and financial records with ease.</p>
+              <div className="card-divider" />
+            </div>
+          </div>
+        </div>
+      </section> */}
+
       {/* Step by Step Guide Section */}
       <section className="process-guide-section" id="Guide">
         <div className="container">

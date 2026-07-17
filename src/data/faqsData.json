@@ -4,18 +4,18 @@
     "faqs": [
       {
         "id": "faq-what-is",
-        "question": "What is Invoice Hub?",
-        "answer": "Invoice Hub is a cloud-based invoicing, billing, and expense management platform designed for US-based businesses. It helps manage customers, vendors, estimates, invoices, bills, payments, OCR automation, tax calculation, and reporting in one system."
+        "question": "What is INVOICE HUB 360?",
+        "answer": "INVOICE HUB 360 is a cloud-based invoicing, billing, and expense management platform designed for US-based businesses. It helps manage customers, vendors, estimates, invoices, bills, payments, OCR automation, tax calculation, and reporting in one system."
       },
       {
         "id": "faq-who-can-use",
-        "question": "Who can use Invoice Hub?",
-        "answer": "Invoice Hub is suitable for small and medium-sized businesses, service-based companies, product-based businesses, agencies, freelancers, and growing enterprises."
+        "question": "Who can use INVOICE HUB 360?",
+        "answer": "INVOICE HUB 360 is suitable for small and medium-sized businesses, service-based companies, product-based businesses, agencies, freelancers, and growing enterprises."
       },
       {
         "id": "faq-cloud-based",
-        "question": "Is Invoice Hub cloud-based?",
-        "answer": "Yes. Invoice Hub is a fully cloud-based platform that can be accessed securely from anywhere with an internet connection."
+        "question": "Is INVOICE HUB 360 cloud-based?",
+        "answer": "Yes. INVOICE HUB 360 is a fully cloud-based platform that can be accessed securely from anywhere with an internet connection."
       }
     ]
   },
@@ -24,13 +24,13 @@
     "faqs": [
       {
         "id": "faq-get-started",
-        "question": "How do I get started with Invoice Hub?",
+        "question": "How do I get started with INVOICE HUB 360?",
         "answer": "You can sign up for a free trial, set up your business profile, configure taxes, add customers and products, and start creating estimates and invoices within minutes."
       },
       {
         "id": "faq-customize",
-        "question": "Can I customize Invoice Hub for my business?",
-        "answer": "Yes. Invoice Hub supports custom templates, branding, tax rules, payment modes, and master data configuration to match your business needs."
+        "question": "Can I customize INVOICE HUB 360 for my business?",
+        "answer": "Yes. INVOICE HUB 360 supports custom templates, branding, tax rules, payment modes, and master data configuration to match your business needs."
       }
     ]
   },
@@ -54,13 +54,13 @@
     "faqs": [
       {
         "id": "faq-partial-payments",
-        "question": "Does Invoice Hub support partial payments?",
-        "answer": "Yes. Invoice Hub allows both full and partial payments and automatically tracks outstanding balances."
+        "question": "Does INVOICE HUB 360 support partial payments?",
+        "answer": "Yes. INVOICE HUB 360 allows both full and partial payments and automatically tracks outstanding balances."
       },
       {
         "id": "faq-unpaid-notifications",
         "question": "Will I receive notifications for unpaid invoices?",
-        "answer": "Yes. Invoice Hub sends automated reminders for pending and overdue customer payments."
+        "answer": "Yes. INVOICE HUB 360 sends automated reminders for pending and overdue customer payments."
       }
     ]
   },
