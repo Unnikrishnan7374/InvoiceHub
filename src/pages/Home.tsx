@@ -432,74 +432,79 @@ export default function Home() {
 
           {/* Right - Content */}
           <div className="why-trust-right">
-            <h2 className="home-section-title">Built on Reliability. <span>Designed for Confidence.</span></h2>
-            <p className="why-trust-desc">We combine robust technology with best practices to deliver a secure, reliable, and future-ready platform.</p>
+            <h2 className="home-section-title">Why Businesses <span>Trust Us</span></h2>
+            <p className="why-trust-desc">Built to simplify invoicing with the security and reliability your business can depend on.</p>
             <div className="why-trust-grid">
               <div className="why-trust-card">
                 <div className="why-trust-card-icon">
                   <span className="material-symbols-outlined">verified_user</span>
                 </div>
-                <div>
-                  <h3>Secure by Design</h3>
-                  <p>Enterprise-grade security to protect your data and financial operations.</p>
-                </div>
+                <h3>Secure</h3>
+                <p>Your data is safe with enterprise-grade security.</p>
               </div>
               <div className="why-trust-card">
                 <div className="why-trust-card-icon">
                   <span className="material-symbols-outlined">settings_suggest</span>
                 </div>
-                <div>
-                  <h3>Intelligent Automation</h3>
-                  <p>Automated workflows that minimize manual work and reduce errors.</p>
-                </div>
+                <h3>Automated</h3>
+                <p>Smart workflows save time and reduce manual work.</p>
               </div>
               <div className="why-trust-card">
                 <div className="why-trust-card-icon">
                   <span className="material-symbols-outlined">monitoring</span>
                 </div>
-                <div>
-                  <h3>Real-Time Visibility</h3>
-                  <p>Live dashboards and reports that help you stay informed and make better decisions.</p>
-                </div>
+                <h3>Real-Time</h3>
+                <p>Live insights to track invoices and cash flow at a glance.</p>
               </div>
               <div className="why-trust-card">
                 <div className="why-trust-card-icon">
                   <span className="material-symbols-outlined">open_in_full</span>
                 </div>
-                <div>
-                  <h3>Built to Scale</h3>
-                  <p>A flexible platform that adapts to your business as you grow.</p>
+                <h3>Scalable</h3>
+                <p>Flexible platform that grows with your business.</p>
+              </div>
+              <div className="why-trust-card">
+                <div className="why-trust-card-icon">
+                  <span className="material-symbols-outlined">fact_check</span>
                 </div>
+                <h3>Compliant</h3>
+                <p>Stay audit-ready with accurate and reliable data.</p>
+              </div>
+              <div className="why-trust-card">
+                <div className="why-trust-card-icon">
+                  <span className="material-symbols-outlined">handshake</span>
+                </div>
+                <h3>Trusted</h3>
+                <p>Built for reliability you can count on, every day.</p>
               </div>
             </div>
-            {/* Trust Strip */}
-            <div className="trust-strip">
-              <div className="trust-strip-item">
-                <span className="material-symbols-outlined">task_alt</span>
-                <strong>99.9%</strong>
-                <span>Uptime Reliability</span>
-              </div>
-              <div className="trust-strip-item">
-                <span className="material-symbols-outlined">lock</span>
-                <strong>Bank-Level</strong>
-                <span>Data Security</span>
-              </div>
-              <div className="trust-strip-item">
-                <span className="material-symbols-outlined">shield</span>
-                <strong>Compliance</strong>
-                <span>Audit Ready</span>
-              </div>
-              <div className="trust-strip-item">
-                <span className="material-symbols-outlined">groups</span>
-                <strong>Trusted by</strong>
-                <span>Growing Businesses</span>
-              </div>
-            </div>
+
             <img src="images/whychhose.png" className="img-fluid mblimg" loading="lazy" alt="whychoose" />
           </div>
         </div>
-
-
+        {/* Trust Strip */}
+        <div className="trust-strip">
+          <div className="trust-strip-item">
+            <span className="material-symbols-outlined">task_alt</span>
+            <strong>99.9%</strong>
+            <span>Uptime Reliability</span>
+          </div>
+          <div className="trust-strip-item">
+            <span className="material-symbols-outlined">lock</span>
+            <strong>Bank-Level</strong>
+            <span>Data Security</span>
+          </div>
+          <div className="trust-strip-item">
+            <span className="material-symbols-outlined">shield</span>
+            <strong>Compliance</strong>
+            <span>Audit Ready</span>
+          </div>
+          <div className="trust-strip-item">
+            <span className="material-symbols-outlined">groups</span>
+            <strong>Trusted by</strong>
+            <span>Growing Businesses</span>
+          </div>
+        </div>
       </section>
 
       {/* Step by Step Guide Section */}

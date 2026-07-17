@@ -341,14 +341,18 @@
     }
 
     .why-trust-card {
-        padding: 18px 16px;
-        gap: 12px;
+        padding: 22px 14px 18px;
+        gap: 8px;
     }
 
     .why-trust-card-icon {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+    }
+
+    .why-trust-card-icon .material-symbols-outlined {
+        font-size: 22px;
     }
 
     .why-trust-card h3 {
@@ -356,11 +360,11 @@
     }
 
     .why-trust-card p {
-        font-size: 12.5px;
+        font-size: 12px;
     }
 
     .trust-strip {
-        gap: 20px !important;
+        gap: 15px !important;
     }
 }
 
@@ -879,11 +883,13 @@
     }
 
     .why-trust-left {
-        flex: none;
-        width: 100%;
-        max-width: 420px;
-        margin: 0 auto;
-        text-align: center;
+        display: none;
+    }
+
+    .why-trust-right .mblimg {
+        display: block;
+        max-width: 400px;
+        margin: 20px auto 0;
     }
 
     .why-trust-right {
@@ -891,8 +897,8 @@
     }
 
     .why-trust-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
     }
 
     .trust-strip {
@@ -1402,8 +1408,8 @@
     }
 
     .why-trust-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
     .why-trust-card {

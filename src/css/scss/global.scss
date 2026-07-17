@@ -904,13 +904,13 @@ body {
     background: transparent;
 
     &:hover {
-      background: rgba(26, 115, 232, 0.03);
+      // background: rgba(26, 115, 232, 0.03);
 
       .about-stat-icon {
         background: linear-gradient(135deg, var(--theme-color), #1557b0);
         box-shadow: 0 4px 12px rgba(26, 115, 232, 0.25);
 
-        i {
+        span {
           color: #ffffff;
         }
       }
@@ -946,7 +946,7 @@ body {
 
   /* Title */
   .about-stat-value {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
     color: #1e293b;
     margin: 0;
@@ -957,7 +957,6 @@ body {
   /* Description */
   .about-stat-desc {
     display: block;
-    font-size: 15px;
     color: #64748b;
     margin: 0;
     line-height: 1.5;
