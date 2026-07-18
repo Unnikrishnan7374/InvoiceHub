@@ -54,6 +54,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isAnnual, setIsAnnual] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
+  const [activeMobileFeature, setActiveMobileFeature] = useState(0);
   const [showTrialFeatures, setShowTrialFeatures] = useState(false);
   const [showBasicFeatures, setShowBasicFeatures] = useState(false);
   const [showPremiumFeatures, setShowPremiumFeatures] = useState(false);
@@ -99,38 +100,38 @@ export default function Home() {
       icon: "contacts",
       link: "/features/customer-vendor-management",
       accentBg: "var(--theme-color)",
-      img: "images/Features/3667.webp",
-      heading: "Stronger client relations",
+      img: "images/Features/featimg-1.webp",
+      heading: "Customer & Vendor Management",
       desc: "Maintain complete ledger details for customers and vendors. Track outstanding balances and view detailed statements of accounts.",
       card1Img: "images/VectorImg/vec325.webp",
       card2Img: "images/VectorImg/vec324.webp",
-      card1Pos: { left: '355px', top: '40px', width: '250px' },
-      card2Pos: { left: '310px', bottom: '40px', width: '400px' }
+      card1Pos: { right: '130px', top: '40px', width: '250px' },
+      card2Pos: { right: '100px', bottom: '70px', width: '320px' }
     }, {
       title: "Estimates & Invoicing",
       icon: "receipt_long",
       link: "/features/estimates-invoicing-workflow",
       accentBg: "var(--theme-color)",
-      img: "images/Features/blogimg-3.webp",
-      heading: "Win more work",
+      img: "images/Features/featimg-2.webp",
+      heading: "Estimates & Invoicing",
       desc: "Win 2x more work with professional-looking estimates and INVOICE HUB 360's easy-to-use customer communication tools.",
       card1Img: "images/VectorImg/vec321.webp",
       card2Img: "images/VectorImg/vec323.webp",
-      card1Pos: { left: '356px', top: '40px', width: '321px' },
-      card2Pos: { left: '310px', bottom: '20px', width: '260px' }
+      card1Pos: { right: '50px', top: '40px', width: '320px' },
+      card2Pos: { right: '150px', bottom: '20px', width: '260px' }
     },
     {
       title: "Payments & Payables",
       icon: "payments",
       link: "/features/payments-partial-payments",
       accentBg: "var(--theme-color)",
-      img: "images/Features/194651.webp",
-      heading: "Get paid faster",
+      img: "images/Features/featimg-3.webp",
+      heading: "Payments & Payables",
       desc: "Receive credit card and bank payments online instantly. Send automated late payment reminders and offer partial payment plans.",
       card1Img: "images/VectorImg/vec456.webp",
       card2Img: "images/VectorImg/vec455.webp",
-      card1Pos: { left: '348px', top: '40px', width: '280px' },
-      card2Pos: { left: '310px', bottom: '50px', width: '220px' }
+      card1Pos: { right: '110px', top: '40px', width: '280px' },
+      card2Pos: { right: '170px', bottom: '50px', width: '220px' }
     },
 
     {
@@ -138,39 +139,39 @@ export default function Home() {
       icon: "qr_code_scanner",
       link: "/features/smart-invoice-capture",
       accentBg: "var(--theme-color)",
-      img: "images/Features/65489.webp",
-      heading: "Capture costs instantly",
+      img: "images/Features/featimg-4.webp",
+      heading: "Smart Invoice Capture",
       desc: "Extract data from paper receipts automatically using intelligent OCR technology. Eliminate manual bookkeeping errors.",
       card1Img: "images/VectorImg/664456.webp",
       card2Img: "images/VectorImg/vec323.webp",
-      card1Pos: { left: '400px', top: '40px', width: '280px' },
-      card2Pos: { left: '310px', bottom: '50px', width: '220px' }
+      card1Pos: { right: '60px', top: '40px', width: '280px' },
+      card2Pos: { right: '170px', bottom: '50px', width: '220px' }
     },
     {
       title: "Tax Automation",
       icon: "percent",
       link: "/features/tax-automation",
       accentBg: "var(--theme-color)",
-      img: "images/Features/6668.webp",
-      heading: "Simplify tax filing",
+      img: "images/Features/featimg-5.webp",
+      heading: "Tax Automation",
       desc: "Auto-calculate sales tax based on state rules and coordinates. Export tax summary reports instantly for stress-free IRS audits.",
       card1Img: "images/VectorImg/99876.webp",
       card2Img: "images/VectorImg/14536.webp",
-      card1Pos: { left: '388px', top: '40px', width: '210px' },
-      card2Pos: { left: '310px', bottom: '50px', width: '290px' }
+      card1Pos: { right: '140px', top: '40px', width: '210px' },
+      card2Pos: { right: '120px', bottom: '50px', width: '290px' }
     },
     {
       title: "Reports & Insights",
       icon: "trending_up",
       link: "/features/reports-insights",
       accentBg: "var(--theme-color)",
-      img: "images/Features/34976.webp",
-      heading: "Track cash flows",
+      img: "images/Features/featimg-6.webp",
+      heading: "Reports & Insights",
       desc: "Gain deep visibility into payment collections, open invoice balances, tax liabilities, and product performance from a single dashboard.",
       card1Img: "images/VectorImg/668898.webp",
       card2Img: "images/VectorImg/668899.webp",
-      card1Pos: { left: '348px', top: '40px', width: '280px' },
-      card2Pos: { left: '310px', bottom: '50px', width: '280px' }
+      card1Pos: { right: '110px', top: '40px', width: '280px' },
+      card2Pos: { right: '140px', bottom: '50px', width: '280px' }
     }
   ];
 
@@ -424,10 +425,12 @@ export default function Home() {
       <section className="features-showcase-section hmefeatures desktop-only">
         <div className="">
           <div className="row align-items-center">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12" style={{ paddingLeft: '50px', marginBottom: '20px' }}>
+              <h2 className="home-section-title">Our <span>Features</span></h2>
+            </div>
 
             {/* Left Side: Features Tab List & Detailed Content */}
             <div className="col-lg-4 col-md-4 col-sm-12 col-12 features-left">
-              <h2 className="home-section-title">Our Standard <span>Features</span></h2>
 
               {/* Tab Menus */}
               <div className="features-nav">
@@ -444,7 +447,7 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Active Feature Detail Content Card */}
+              {/* Active Feature Detail Content Card Removed from Left Side */}
 
             </div>
 
@@ -481,26 +484,13 @@ export default function Home() {
                         />
                       </div>
 
-                      {/* Floating Card 1 (UI Estimate/Invoice Details Image) */}
-                      <div className="floating-ui-card card-details" style={feat.card1Pos}>
-                        <div className="floating-card-inner">
-                          <img
-                            src={feat.card1Img}
-                            alt="Estimate details card"
-                            style={{ width: '100%', height: 'auto', display: 'block' }}
-                          />
-                        </div>
-                      </div>
-
-                      {/* Floating Card 2 (Status Notification Image) */}
-                      <div className="floating-ui-card card-status" style={feat.card2Pos}>
-                        <div className="floating-card-inner">
-                          <img
-                            src={feat.card2Img}
-                            alt="Status badge"
-                            style={{ width: '100%', height: 'auto', display: 'block' }}
-                          />
-                        </div>
+                      {/* Glass details card inside the blue strip area */}
+                      <div className="feature-glass-details">
+                        <h3>{feat.heading}</h3>
+                        <p>{feat.desc}</p>
+                        <Link to={feat.link} className="explore-link">
+                          Explore feature <span className="material-symbols-outlined arrow">arrow_forward</span>
+                        </Link>
                       </div>
                     </div>
                   );
@@ -542,22 +532,61 @@ export default function Home() {
       {/* Mobile Features Section */}
       <section className="mobile-features-layout">
         <div className="container">
-          <h2 className="home-section-title text-center">Our Standard <span>Features</span></h2>
-          <div className="mobile-features-cards">
-            {featuresList.map((feat, idx) => (
-              <div key={idx} className="mobile-feature-card">
-                <div className="card-left-content">
-                  <h3>{feat.title}</h3>
-                  <p>{feat.desc}</p>
-                  <Link to={feat.link} className="learn-more-btn">
-                    Learn More <span className="material-symbols-outlined">arrow_right_alt</span>
-                  </Link>
-                </div>
-                <div className="card-right-image">
-                  <img src={feat.img} alt={feat.title} loading="lazy" />
+          <h2 className="home-section-title text-center">Our <span>Features</span></h2>
+
+          <div className="mobile-features-carousel">
+            {/* Active Slide Card */}
+            <Link to={featuresList[activeMobileFeature].link} className="mobile-feature-carousel-card">
+              <div className="carousel-card-img-wrap">
+                <img
+                  src={featuresList[activeMobileFeature].img}
+                  alt={featuresList[activeMobileFeature].title}
+                  className="carousel-card-img"
+                />
+                <div className="carousel-card-overlay">
+                  <div className="carousel-card-text">
+                    <h3>{featuresList[activeMobileFeature].title}</h3>
+                    <p className="carousel-card-desc">{featuresList[activeMobileFeature].desc}</p>
+                  </div>
                 </div>
               </div>
-            ))}
+            </Link>
+
+            {/* Controls Row */}
+            <div className="carousel-controls-row">
+              {/* Progress Bar & Count */}
+              <div className="carousel-progress-container">
+                <div className="carousel-slide-count">
+                  {String(activeMobileFeature + 1).padStart(2, '0')} / {String(featuresList.length).padStart(2, '0')}
+                </div>
+                <div className="carousel-progress-bar-wrap">
+                  <div
+                    className="carousel-progress-bar-fill"
+                    style={{ width: `${((activeMobileFeature + 1) / featuresList.length) * 100}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Navigation Arrows */}
+              <div className="carousel-nav-btns">
+                <button
+                  type="button"
+                  className="carousel-nav-btn prev"
+                  onClick={() => setActiveMobileFeature((prev) => (prev === 0 ? featuresList.length - 1 : prev - 1))}
+                  aria-label="Previous Feature"
+                >
+                  <span className="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button
+                  type="button"
+                  className="carousel-nav-btn next"
+                  onClick={() => setActiveMobileFeature((prev) => (prev === featuresList.length - 1 ? 0 : prev + 1))}
+                  aria-label="Next Feature"
+                >
+                  <span className="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -876,18 +905,6 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="service-feature">
-                  {isMobile && (
-                    <button
-                      type="button"
-                      className="view-features-mobile-btn"
-                      onClick={() => setShowTrialFeatures(!showTrialFeatures)}
-                    >
-                      {showTrialFeatures ? 'Hide Features' : 'View Features'}
-                      <span className="material-symbols-outlined">
-                        {showTrialFeatures ? 'expand_less' : 'expand_more'}
-                      </span>
-                    </button>
-                  )}
                   <div className={`service-feature-list-wrapper ${isMobile && !showTrialFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
                     <ul className="service-feature-list">
                       <li><SpeedTwoToneIcon className="pricing-icon" /> Easy onboarding</li>
@@ -904,6 +921,18 @@ export default function Home() {
                 <div className="buy-btn-wrapper">
                   <button className="themeBtn silverBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
                 </div>
+                {isMobile && (
+                  <button
+                    type="button"
+                    className="view-features-mobile-btn"
+                    onClick={() => setShowTrialFeatures(!showTrialFeatures)}
+                  >
+                    Features
+                    <span className="material-symbols-outlined">
+                      {showTrialFeatures ? 'expand_less' : 'expand_more'}
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
 
@@ -924,18 +953,6 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="service-feature">
-                  {isMobile && (
-                    <button
-                      type="button"
-                      className="view-features-mobile-btn"
-                      onClick={() => setShowBasicFeatures(!showBasicFeatures)}
-                    >
-                      {showBasicFeatures ? 'Hide Features' : 'View Features'}
-                      <span className="material-symbols-outlined">
-                        {showBasicFeatures ? 'expand_less' : 'expand_more'}
-                      </span>
-                    </button>
-                  )}
                   <div className={`service-feature-list-wrapper ${isMobile && !showBasicFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
                     <ul className="service-feature-list">
                       <li><StarTwoToneIcon className="pricing-icon" /> Everything in Trial</li>
@@ -963,6 +980,18 @@ export default function Home() {
                 <div className="buy-btn-wrapper">
                   <button className="themeBtn goldBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
                 </div>
+                {isMobile && (
+                  <button
+                    type="button"
+                    className="view-features-mobile-btn"
+                    onClick={() => setShowBasicFeatures(!showBasicFeatures)}
+                  >
+                    Features
+                    <span className="material-symbols-outlined">
+                      {showBasicFeatures ? 'expand_less' : 'expand_more'}
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
 
@@ -982,18 +1011,6 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="service-feature">
-                  {isMobile && (
-                    <button
-                      type="button"
-                      className="view-features-mobile-btn"
-                      onClick={() => setShowPremiumFeatures(!showPremiumFeatures)}
-                    >
-                      {showPremiumFeatures ? 'Hide Features' : 'View Features'}
-                      <span className="material-symbols-outlined">
-                        {showPremiumFeatures ? 'expand_less' : 'expand_more'}
-                      </span>
-                    </button>
-                  )}
                   <div className={`service-feature-list-wrapper ${isMobile && !showPremiumFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
                     <ul className="service-feature-list">
                       <li><StarTwoToneIcon className="pricing-icon" /> Everything in Basic</li>
@@ -1020,6 +1037,18 @@ export default function Home() {
                 <div className="buy-btn-wrapper">
                   <button className="themeBtn premiumBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
                 </div>
+                {isMobile && (
+                  <button
+                    type="button"
+                    className="view-features-mobile-btn"
+                    onClick={() => setShowPremiumFeatures(!showPremiumFeatures)}
+                  >
+                    Features
+                    <span className="material-symbols-outlined">
+                      {showPremiumFeatures ? 'expand_less' : 'expand_more'}
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -1239,12 +1268,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="support-accent-text-wrap">
-                <div className="support-accent-text">
-                  Let's make it easy!
-                  <span className="accent-underline"></span>
-                </div>
-              </div>
+
               {/* Cards Grid Underneath */}
               <div className="support-cards-row">
                 <Link to="/blogs" className="support-nav-card">

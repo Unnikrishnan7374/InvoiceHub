@@ -66,25 +66,27 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="footer-col links-col">
-            <h3 className="footer-col-title">QUICK <span>LINKS</span></h3>
-            <ul className="footer-links-list">
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/home">Home</Link></li>
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/about">About Us</Link></li>
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/features">Features</Link></li>
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/#Pricing">Pricing</Link></li>
-            </ul>
-          </div>
+          {/* Column 2: Quick Links & Help Center Row */}
+          <div className="footer-links-row">
+            <div className="footer-col links-col">
+              <h3 className="footer-col-title">QUICK <span>LINKS</span></h3>
+              <ul className="footer-links-list">
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/home">Home</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/about">About Us</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/features">Features</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/#Pricing">Pricing</Link></li>
+              </ul>
+            </div>
 
-          <div className="footer-col links-col">
-            <h3 className="footer-col-title">Help <span>Center</span></h3>
-            <ul className="footer-links-list">
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/support">Support</Link></li>
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/faq">FAQ</Link></li>
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/blogs">Blog</Link></li>
-              <li><ChevronRightIcon className="link-arrow" /><Link to="/contact">Contact Us</Link></li>
-            </ul>
+            <div className="footer-col links-col">
+              <h3 className="footer-col-title">Help <span>Center</span></h3>
+              <ul className="footer-links-list">
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/support">Support</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/faq">FAQ</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/blogs">Blog</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/contact">Contact Us</Link></li>
+              </ul>
+            </div>
           </div>
 
           {/* Column 3: Features */}
