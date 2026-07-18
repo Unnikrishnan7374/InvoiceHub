@@ -1018,7 +1018,7 @@ body {
     bottom: 0;
     width: 125px;
     height: 3.5px;
-    background: linear-gradient(90deg, var(--theme-color) 0%, rgba(26, 115, 232, 0) 100%);
+    background: linear-gradient(90deg, var(--theme-color) 0%, rgb(26 115 232 / 46%) 100%);
     border-radius: 2px;
   }
 }
@@ -1030,7 +1030,7 @@ body {
   .home-section-title::after {
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(90deg, rgba(26, 115, 232, 0) 0%, var(--theme-color) 50%, rgba(26, 115, 232, 0) 100%);
+    background: linear-gradient(90deg, var(--theme-color) 0%, rgb(26 115 232 / 47%) 100%);
   }
 }
 
@@ -3465,6 +3465,7 @@ body {
 .home-faq-section {
   background-color: #f5f9ff !important;
   margin-bottom: 15px;
+  display: none;
 }
 
 /* Built for Every Business Section styling */
@@ -3601,9 +3602,11 @@ body {
 /* Home Support Navigation Section */
 .home-support-section {
   padding: 30px 40px;
+  background-color: #f5f9ff !important;
   // background: #fbfbfc;
   position: relative;
   overflow: hidden;
+  margin-bottom: 15px;
 
   .support-wrapper {
     display: flex;
@@ -3849,6 +3852,7 @@ body {
       h2 {
         font-size: 1.8rem;
       }
+
       p {
         font-size: 0.95rem;
       }
@@ -3872,7 +3876,7 @@ body {
         width: 44px;
         height: 44px;
         flex-shrink: 0;
-        
+
         .material-symbols-outlined {
           font-size: 20px;
         }
@@ -3891,7 +3895,7 @@ body {
       p {
         font-size: 0.75rem;
       }
-      
+
       .card-indicator {
         left: 0;
         top: 50%;
@@ -3901,12 +3905,16 @@ body {
         height: 0;
         border-radius: 0 3px 3px 0;
         transition: height 0.3s ease;
-        
-        &.orange-bar, &.green-bar, &.blue-bar, &.purple-bar, &.pink-bar {
+
+        &.orange-bar,
+        &.green-bar,
+        &.blue-bar,
+        &.purple-bar,
+        &.pink-bar {
           background-color: inherit;
         }
       }
-      
+
       &:hover .card-indicator {
         width: 3px;
         height: 60%;
