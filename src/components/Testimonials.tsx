@@ -63,11 +63,11 @@ export const Testimonials: React.FC = () => {
       const startScroll = () => {
         scrollInterval = setInterval(() => {
           if (!isMouseOver) {
-            scrollContainer.scrollTop += 1;
+            scrollContainer.scrollLeft += 1;
 
-            // Loop back to top once reached the end
-            if (scrollContainer.scrollTop + scrollContainer.clientHeight >= scrollContainer.scrollHeight - 2) {
-              scrollContainer.scrollTop = 0;
+            // Loop back to left once reached the end
+            if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 2) {
+              scrollContainer.scrollLeft = 0;
             }
           }
         }, 30);
@@ -93,15 +93,15 @@ export const Testimonials: React.FC = () => {
       <div className="">
         <div className="row align-items-center">
           {/* Left Column: Heading and Info */}
-          <div className="col-lg-5 col-md-12 testimonials-left">
-            <h2 className="home-section-title">Loved by our <span>Users</span></h2>
+          <div className="col-lg-3 col-md-12 testimonials-left">
+            <h2 className="home-section-title">Customer  <span>Experiences</span></h2>
             <p className="testimonials-desc">
-              Real feedback from real users who rely in INVOICE HUB 360 to simplyify their billing and get paid faster
+              Real feedback from real users who rely on INVOICE HUB 360 to simplify their billing and get paid faster.
             </p>
           </div>
 
-          {/* Right Column: Vertically Autoplay Scrolling Testimonials List */}
-          <div className="col-lg-7 col-md-12 testimonials-right">
+          {/* Right Column: Horizontally Autoplay Scrolling Testimonials List */}
+          <div className="col-lg-9 col-md-12 testimonials-right">
             <div className="testimonial-scroll-container">
 
               {/* Set 1 */}

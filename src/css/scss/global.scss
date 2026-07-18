@@ -972,7 +972,7 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .about-stats-strip {
-    padding: 10px 0;
+    padding: 0px 0;
 
     .about-stats-container {
       grid-template-columns: 1fr;
@@ -1316,7 +1316,7 @@ body {
 
   .story-card {
     min-height: 380px;
-    padding: 30px;
+    padding: 5px;
   }
 
   .about-card {
@@ -1892,12 +1892,14 @@ body {
   .contact-uplift-container {
     grid-template-columns: 1fr;
     gap: 30px;
-    margin: 40px auto;
+    margin: 0px auto;
+    padding: 0 0px;
 
     .contact-hero-card {
-      min-height: 500px;
+      min-height: 310px;
       order: 2;
       padding: 0;
+      margin-bottom: 10px;
     }
 
     .contact-hero-details {
@@ -1924,7 +1926,7 @@ body {
     }
 
     .contact-form-card {
-      padding: 40px 30px;
+      padding: 10px 10px;
       order: 1;
     }
 
@@ -1995,7 +1997,7 @@ body {
   text-align: center;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  z-index: 10;
+  z-index: 2;
   border: 1px solid #e2e8f0;
 
   h3 {
@@ -2077,7 +2079,7 @@ body {
   .modern-support-container {
     grid-template-columns: 1fr;
     gap: 90px;
-    margin-bottom: 140px;
+    margin-bottom: 50px;
   }
 
   .support-image-wrapper {
@@ -2560,42 +2562,44 @@ body {
   .testimonials-right {
     position: relative;
 
-    /* Top and bottom overlay fade effects */
+    /* Left and right overlay fade effects */
     &::before,
     &::after {
       content: "";
       position: absolute;
-      left: 0;
-      width: 100%;
-      height: 60px;
+      top: 0;
+      width: 80px;
+      height: 100%;
       z-index: 10;
       pointer-events: none;
     }
 
     &::before {
-      top: 0;
-      background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      left: 0;
+      background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
     }
 
     &::after {
-      bottom: 0;
-      background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      right: 0;
+      background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
     }
   }
 
   .testimonial-scroll-container {
-    height: 440px;
-    /* Constrain vertical height so it scrolls inside */
-    overflow-y: auto;
-    padding-right: 12px;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
     position: relative;
 
     /* Custom Premium Scrollbar */
     &::-webkit-scrollbar {
-      width: 6px;
+      height: 6px;
     }
 
     &::-webkit-scrollbar-track {
@@ -2622,9 +2626,9 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
-    height: auto;
-    /* Allow variable height based on content */
-    margin-bottom: 0px;
+    width: 250px;
+    flex-shrink: 0;
+    white-space: normal;
     transition: all 0.3s ease;
 
     &:hover {
@@ -3197,6 +3201,15 @@ body {
 
   .mobile-features-layout {
     display: block !important;
+    padding: 0px 0 !important;
+
+    .mobile-features-cards {
+      padding: 0 0px !important;
+    }
+
+    .mobile-feature-card:nth-child(n+4) {
+      display: none !important;
+    }
   }
 }
 

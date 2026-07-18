@@ -1191,7 +1191,7 @@ export default function Home() {
                     value={searchQuery}
                     onChange={handleSearch}
                     className="form-control support-search-input"
-                    placeholder="Search for help, tutorials, or troubleshooting..."
+                    placeholder="Search for Blogs, Faq..."
                   />
                   {searchQuery && (
                     <span

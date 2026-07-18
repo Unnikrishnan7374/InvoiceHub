@@ -819,6 +819,18 @@
         margin-bottom: 40px;
     }
 
+    .abtbtm-grid .list:last-child {
+        margin-bottom: 0px;
+    }
+
+    .abtbtm-grid .list::after {
+        left: -6px;
+    }
+
+    .fealist {
+        padding: 5px 0px !important;
+    }
+
     .vision-section {
         padding: 20px 20px;
     }
@@ -1275,7 +1287,7 @@
     }
 
     .themeBtn {
-        padding: 2px 3px 3px 3px;
+        padding: 6px 5px 5px 8px;
         min-width: 120px;
         font-size: 15px;
 
@@ -1315,7 +1327,7 @@
     .homeabt .left img {
         width: 65%;
         float: right;
-        margin-top: -50px;
+        margin-top: -30px;
     }
 
 
@@ -1478,14 +1490,27 @@
     }
 
     .home-support-section .support-left,
-    .footer-premium .footer-col.brand-col {
+    .footer-premium .footer-col.brand-col,
+    .about-stats-strip .about-stat-desc {
         display: none !important;
     }
 
+    .aboutPge .about-stats-strip .about-stat-desc {
+        display: block !important;
+    }
+
+    .aboutPge .homeabt .left img {
+        margin-top: 2px;
+    }
+
+    .about-stats-strip .about-stat-value {
+        margin-top: 12px !important;
+    }
+
     .footer-premium .footer-container {
-        flex-direction: inherit;
-        padding: 20px 20px 0px;
-        display: inline-block;
+        flex-direction: inherit !important;
+        padding: 20px 20px 0px !important;
+        display: inline-block !important;
         width: 100%;
     }
 
@@ -1567,7 +1592,7 @@
         position: inherit !important;
     }
 
-    .home-section-title {
+    h2.home-section-title {
         font-size: 25px !important;
     }
 }
@@ -1673,7 +1698,6 @@
     .why-trust-card {
         flex-direction: column;
         align-items: center;
-        text-align: center;
         gap: 10px;
         padding: 16px 12px;
     }
