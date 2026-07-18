@@ -1126,6 +1126,70 @@ export default function Home() {
 
       {/* FAQ Section Component */}
       <FaqSection className="home-faq-section" />
+      {/* Support Navigation Section */}
+      <section className="home-support-section">
+        <div className="">
+          <div className="support-wrapper">
+            <div className="support-left">
+              <div className="support-ill-container">
+                <img
+                  src="images/support_illustration.png"
+                  alt="We're Here for You"
+                  className="support-ill-img"
+                  loading="lazy"
+                />
+              </div>
+              <div className="support-heading-block">
+                <h2 className="home-section-title">Support <span>Center</span></h2>
+                <p>Whether you have a question or need assistance, we've got you covered.</p>
+                <div className="support-accent-text">
+                  Let's make it easy!
+                  <span className="accent-underline"></span>
+                </div>
+              </div>
+            </div>
+
+            <div className="support-right">
+              <div className="support-cards-grid">
+
+                <Link to="/contact" className="support-nav-card">
+                  <div className="card-icon-wrap contact-orange">
+                    <span className="material-symbols-outlined">headset_mic</span>
+                  </div>
+                  <div className="card-text-wrap">
+                    <h3>Contact Us</h3>
+                    <p>Reach our support team</p>
+                  </div>
+                  <span className="card-indicator orange-bar"></span>
+                </Link>
+
+                <Link to="/faq" className="support-nav-card">
+                  <div className="card-icon-wrap faq-green">
+                    <span className="material-symbols-outlined">help_outline</span>
+                  </div>
+                  <div className="card-text-wrap">
+                    <h3>FAQ</h3>
+                    <p>Answers to common queries</p>
+                  </div>
+                  <span className="card-indicator green-bar"></span>
+                </Link>
+
+                <Link to="/blogs" className="support-nav-card">
+                  <div className="card-icon-wrap blogs-blue">
+                    <span className="material-symbols-outlined">menu_book</span>
+                  </div>
+                  <div className="card-text-wrap">
+                    <h3>Blogs</h3>
+                    <p>Helpful guides and tips</p>
+                  </div>
+                  <span className="card-indicator blue-bar"></span>
+                </Link>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <CtaBanner />
 
