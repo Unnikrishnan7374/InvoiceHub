@@ -207,8 +207,7 @@ export default function Header() {
                         <span className="material-symbols-outlined" style={{ color: '#fff', fontSize: '24px' }}>keyboard_arrow_down</span>
                       </p>
                       <ul
-                        className="inner-nav-div"
-                        style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
+                        className={`inner-nav-div ${activeSubmenu === 'features' ? 'open' : ''}`}
                       >
                         <li>
                           <Link
@@ -326,8 +325,7 @@ export default function Header() {
                         <span className="material-symbols-outlined" style={{ color: '#fff', fontSize: '24px' }}>keyboard_arrow_down</span>
                       </p>
                       <ul
-                        className="inner-nav-div"
-                        style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
+                        className={`inner-nav-div ${activeSubmenu === 'support' ? 'open' : ''}`}
                       >
                         <li>
                           <Link
@@ -395,18 +393,18 @@ export default function Header() {
                       </NavLink>
                     </li>
 
+                    <li className="signup">
+                      <NavLink to="/register" className="signup-btn-link">
+                        Try for free <i className="ri-arrow-right-line" style={{ verticalAlign: 'middle', marginLeft: '4px' }}></i>
+                      </NavLink>
+                    </li>
+
                     <li className="login">
                       <NavLink
                         to="/login"
                         className={({ isActive }) => `login-btn-link ${isActive ? 'active' : ''}`}
                       >
                         Login <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginLeft: '4px', fontSize: '20px' }}>login</span>
-                      </NavLink>
-                    </li>
-
-                    <li className="signup">
-                      <NavLink to="/register" className="signup-btn-link">
-                        Try for free <i className="ri-arrow-right-line" style={{ verticalAlign: 'middle', marginLeft: '4px' }}></i>
                       </NavLink>
                     </li>
                   </ul>

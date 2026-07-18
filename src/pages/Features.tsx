@@ -13,6 +13,8 @@ interface FeatureItem {
   card2Pos: React.CSSProperties;
   accentBg: string;
   glowColor: string;
+  hideCard1Img?: boolean;
+  hideCard2Img?: boolean;
 }
 
 const featuresListData: FeatureItem[] = [
@@ -121,6 +123,9 @@ const featuresListData: FeatureItem[] = [
 ];
 
 export default function Features() {
+  const [showCard1, setShowCard1] = React.useState(true);
+  const [showCard2, setShowCard2] = React.useState(true);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -297,6 +302,87 @@ export default function Features() {
           100% { transform: translateY(10px) rotate(-1.5deg); }
         }
 
+        /* Illustration toggles styling */
+        .features-control-panel {
+          background: rgba(255, 255, 255, 0.45);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          border-radius: 16px;
+          padding: 20px 24px;
+          margin: 0 auto 40px;
+          max-width: 600px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 16px;
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .features-control-panel .panel-title {
+          font-weight: 600;
+          font-size: 16px;
+          color: #1e293b;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .features-control-panel .panel-title .material-symbols-outlined {
+          color: var(--theme-color, #2563eb);
+          font-size: 20px;
+        }
+        .features-control-panel .toggle-group {
+          display: flex;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+        .features-control-panel .toggle-label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          color: #475569;
+          user-select: none;
+          transition: color 0.2s ease;
+        }
+        .features-control-panel .toggle-label:hover {
+          color: var(--theme-color, #2563eb);
+        }
+        .features-control-panel .toggle-label input {
+          display: none;
+        }
+        .features-control-panel .toggle-custom-checkbox {
+          width: 20px;
+          height: 20px;
+          border: 2px solid #cbd5e1;
+          border-radius: 6px;
+          position: relative;
+          display: inline-block;
+          transition: all 0.2s ease;
+          background: #ffffff;
+        }
+        .features-control-panel .toggle-label input:checked + .toggle-custom-checkbox {
+          background-color: var(--theme-color, #2563eb);
+          border-color: var(--theme-color, #2563eb);
+        }
+        .features-control-panel .toggle-custom-checkbox::after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+        .features-control-panel .toggle-label input:checked + .toggle-custom-checkbox::after {
+          display: block;
+        }
+
         /* Ensure images display properly on tablets/mobiles instead of hiding */
         @media (max-width: 991px) {
           .fealist .contant {
@@ -327,6 +413,34 @@ export default function Features() {
       </section>
 
       <section className="innerFeatures">
+        {/* Toggle options control panel */}
+        <div className="features-control-panel">
+          <span className="panel-title">
+            <span className="material-symbols-outlined">settings</span>
+            Illustration Settings
+          </span>
+          <div className="toggle-group">
+            <label className="toggle-label">
+              <input
+                type="checkbox"
+                checked={showCard1}
+                onChange={(e) => setShowCard1(e.target.checked)}
+              />
+              <span className="toggle-custom-checkbox"></span>
+              Show Details Card (Card 1)
+            </label>
+            <label className="toggle-label">
+              <input
+                type="checkbox"
+                checked={showCard2}
+                onChange={(e) => setShowCard2(e.target.checked)}
+              />
+              <span className="toggle-custom-checkbox"></span>
+              Show Status Card (Card 2)
+            </label>
+          </div>
+        </div>
+
         {featuresListData.map((feat, idx) => (
           <div key={idx} className="fealist clearfix scroll-animate">
             <Link to={feat.link} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
@@ -357,12 +471,16 @@ export default function Features() {
                   </div>
 
                   {/* Floating Overlays */}
-                  <div className="feature-ill-card card-1" style={feat.card1Pos}>
-                    <img src={feat.card1Img} alt="Detail view" />
-                  </div>
-                  <div className="feature-ill-card card-2" style={feat.card2Pos}>
-                    <img src={feat.card2Img} alt="Overlay status" />
-                  </div>
+                  {showCard1 && feat.card1Img && !feat.hideCard1Img && (
+                    <div className="feature-ill-card card-1" style={feat.card1Pos}>
+                      <img src={feat.card1Img} alt="Detail view" />
+                    </div>
+                  )}
+                  {showCard2 && feat.card2Img && !feat.hideCard2Img && (
+                    <div className="feature-ill-card card-2" style={feat.card2Pos}>
+                      <img src={feat.card2Img} alt="Overlay status" />
+                    </div>
+                  )}
                 </div>
               </div>
             </Link>
