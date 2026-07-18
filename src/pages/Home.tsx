@@ -38,8 +38,11 @@ import CookieBanner from '../components/CookieBanner';
 import CtaBanner from '../components/common/CtaBanner';
 import { Testimonials } from '../components/Testimonials';
 import FaqSection from '../components/FaqSection';
+import { searchData } from '../data/searchData';
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const [activeBanner, setActiveBanner] = useState(0);
   const [activeTab, setActiveTab] = useState('Launch');
   const [readMoreBasic, setReadMoreBasic] = useState(false);
@@ -54,6 +57,35 @@ export default function Home() {
   const [showTrialFeatures, setShowTrialFeatures] = useState(false);
   const [showBasicFeatures, setShowBasicFeatures] = useState(false);
   const [showPremiumFeatures, setShowPremiumFeatures] = useState(false);
+
+  const handleSearch = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
+
+    const filtered = searchData.filter(item =>
+      item.title.toLowerCase().includes(query.toLowerCase()) ||
+      item.content.toLowerCase().includes(query.toLowerCase())
+    );
+    setSearchResults(filtered);
+  };
+
+  const handlePopularClick = (tag) => {
+    setSearchQuery(tag);
+    const filtered = searchData.filter(item =>
+      item.title.toLowerCase().includes(tag.toLowerCase()) ||
+      item.content.toLowerCase().includes(tag.toLowerCase())
+    );
+    setSearchResults(filtered);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setSearchResults([]);
+  };
 
   const templates = [
     { src: 'images/pdf-1.webp', full: 'images/pdf-1.1.webp', title: 'Professional Clean Template', desc: 'Standard business layout with clear table formatting, professional corporate typography, and structured totals.' },
@@ -183,12 +215,13 @@ export default function Home() {
 
   const banners = [
     {
-      bg: "images/banner-5.jpg",
-      laptop: "images/laptop.webp",
-      title: <>The Smart Way to Run Your  <span>Billing Operations</span></>,
-      desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
+      bg: "images/banner-3.jpg",
+      laptop: "images/banner-3.1.webp",
+      title: <>Secure, Tax-Ready, <span>Built to Scale </span>.</>,
+      desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
       theme: "slide-1"
     },
+
     {
       bg: "images/banner-4.jpg",
       title: <>Simplify Invoicing. Accelerate <span>Payments</span>.</>,
@@ -196,10 +229,10 @@ export default function Home() {
       theme: "slide-2"
     },
     {
-      bg: "images/banner-3.jpg",
-      laptop: "images/banner-3.1.webp",
-      title: <>Secure, Tax-Ready, <span>Built to Scale </span>.</>,
-      desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
+      bg: "images/banner-5.jpg",
+      laptop: "images/laptop.webp",
+      title: <>The Smart Way to Run Your  <span>Billing Operations</span></>,
+      desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
       theme: "slide-3"
     },
     {
@@ -333,8 +366,8 @@ export default function Home() {
       {/* About Section */}
       <div className="homeabt clearfix">
         <div className="right">
-          <h2 className="home-section-title">About <span>Us</span></h2>
-          <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p>
+          <h2 className="home-section-title">About <span>INVOICE HUB 360</span></h2>
+          {/* <p><strong>A Smarter Way to Manage Your Financial Operations</strong></p> */}
           <p>Empowering businesses with a modern invoicing platform that simplifies financial workflows and enhances operational efficiency.</p>
           {/* <p>From estimates to payments, everything is connected in one structured system — helping you reduce manual effort, improve accuracy, and gain full financial visibility.</p> */}
           {/* About Stats Strip */}
@@ -533,10 +566,7 @@ export default function Home() {
       {/* Why Choose Invoice HUB */}
       <section className="why-trust-section">
         <div className="why-trust-container">
-          {/* Left - Dashboard Mockup */}
-          <div className="why-trust-left">
-            <img src="images/whychhose.png" className="img-fluid" loading="lazy" alt="whychoose" />
-          </div>
+
 
           {/* Right - Content */}
           <div className="why-trust-right">
@@ -588,6 +618,10 @@ export default function Home() {
             </div>
 
             <img src="images/whychhose.png" className="img-fluid mblimg" loading="lazy" alt="whychoose" />
+          </div>
+          {/* Left - Dashboard Mockup */}
+          <div className="why-trust-left">
+            <img src="images/whychhose.png" className="img-fluid" loading="lazy" alt="whychoose" />
           </div>
         </div>
         {/* Trust Strip */}
@@ -940,11 +974,11 @@ export default function Home() {
                     <p>The Ultimate Management Experience</p>
                   </div>
                   <div className="price-rate">
-                    <p className="price">{isAnnual ? '$39' : '$45'}</p>
+                    <p className="price">{isAnnual ? '$21' : '$25'}</p>
                     <p className="duration">/month</p>
                   </div>
                   <p style={{ fontSize: '11px', color: '#888', margin: '4px 0 0 0', textAlign: 'center' }}>
-                    {isAnnual ? 'Billed annually ($468/yr)' : 'Billed monthly'}
+                    {isAnnual ? 'Billed annually ($252/yr)' : 'Billed monthly'}
                   </p>
                 </div>
                 <div className="service-feature">
@@ -1025,7 +1059,7 @@ export default function Home() {
                     <th scope="col">
                       <h3>Professional</h3>
                       <div className="th-price">
-                        {isAnnual ? '$39' : '$45'} <span className="th-duration">/month</span>
+                        {isAnnual ? '$21' : '$25'} <span className="th-duration">/month</span>
                       </div>
                       <div style={{ marginTop: '10px' }}>
                         <button className="compare-btn-outline">Get Start Now</button>
@@ -1126,6 +1160,7 @@ export default function Home() {
 
       {/* FAQ Section Component */}
       <FaqSection className="home-faq-section" />
+
       {/* Support Navigation Section */}
       <section className="home-support-section">
         <div className="">
@@ -1133,24 +1168,95 @@ export default function Home() {
             <div className="support-left">
               <div className="support-ill-container">
                 <img
-                  src="images/support_illustration.png"
-                  alt="We're Here for You"
+                  src="images/blogs/blogimg-8.webp"
+                  alt="Support Center"
                   className="support-ill-img"
                   loading="lazy"
                 />
               </div>
+            </div>
+
+            <div className="support-right">
               <div className="support-heading-block">
                 <h2 className="home-section-title">Support <span>Center</span></h2>
-                <p>Whether you have a question or need assistance, we've got you covered.</p>
+                <p className="support-sub-desc">Whether you have a question or need assistance, we've got you covered.</p>
+              </div>
+
+              {/* Search Bar */}
+              <div className="support-search-container">
+                <div className="support-search-wrapper" style={{ position: 'relative' }}>
+                  <span className="material-symbols-outlined search-icon">search</span>
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={handleSearch}
+                    className="form-control support-search-input"
+                    placeholder="Search for help, tutorials, or troubleshooting..."
+                  />
+                  {searchQuery && (
+                    <span
+                      className="material-symbols-outlined clear-icon"
+                      onClick={clearSearch}
+                      style={{ cursor: 'pointer', position: 'absolute', right: '15px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', fontSize: '18px' }}
+                    >
+                      close
+                    </span>
+                  )}
+
+                  {searchResults.length > 0 && (
+                    <div className="support-search-results show">
+                      {searchResults.map((item, idx) => (
+                        <div key={idx} className="search-result-item">
+                          <Link to={item.url} onClick={clearSearch}>
+                            <span className="category-badge">{item.category}</span>
+                            <h4>{item.title}</h4>
+                            <p>{item.content}</p>
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {searchQuery && searchResults.length === 0 && (
+                    <div className="support-search-results show">
+                      <div className="search-no-results">No matches found for "{searchQuery}"</div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="support-popular-tags">
+                  <span className="popular-label">Popular:</span>
+                  {['Invoicing', 'Tax', 'Payments'].map((tag) => (
+                    <button
+                      key={tag}
+                      type="button"
+                      className="popular-tag-btn"
+                      onClick={() => handlePopularClick(tag)}
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="support-accent-text-wrap">
                 <div className="support-accent-text">
                   Let's make it easy!
                   <span className="accent-underline"></span>
                 </div>
               </div>
-            </div>
-
-            <div className="support-right">
-              <div className="support-cards-grid">
+              {/* Cards Grid Underneath */}
+              <div className="support-cards-row">
+                <Link to="/blogs" className="support-nav-card">
+                  <div className="card-icon-wrap blogs-blue">
+                    <span className="material-symbols-outlined">menu_book</span>
+                  </div>
+                  <div className="card-text-wrap">
+                    <h3>Blogs</h3>
+                    <p>Helpful guides, tips, and feature deep-dives.</p>
+                  </div>
+                  <span className="card-indicator blue-bar"></span>
+                </Link>
 
                 <Link to="/contact" className="support-nav-card">
                   <div className="card-icon-wrap contact-orange">
@@ -1158,7 +1264,7 @@ export default function Home() {
                   </div>
                   <div className="card-text-wrap">
                     <h3>Contact Us</h3>
-                    <p>Reach our support team</p>
+                    <p>Reach our support team via live chat or email.</p>
                   </div>
                   <span className="card-indicator orange-bar"></span>
                 </Link>
@@ -1169,25 +1275,15 @@ export default function Home() {
                   </div>
                   <div className="card-text-wrap">
                     <h3>FAQ</h3>
-                    <p>Answers to common queries</p>
+                    <p>Instant answers to our most common queries.</p>
                   </div>
                   <span className="card-indicator green-bar"></span>
                 </Link>
-
-                <Link to="/blogs" className="support-nav-card">
-                  <div className="card-icon-wrap blogs-blue">
-                    <span className="material-symbols-outlined">menu_book</span>
-                  </div>
-                  <div className="card-text-wrap">
-                    <h3>Blogs</h3>
-                    <p>Helpful guides and tips</p>
-                  </div>
-                  <span className="card-indicator blue-bar"></span>
-                </Link>
-
               </div>
             </div>
           </div>
+
+
         </div>
       </section>
 

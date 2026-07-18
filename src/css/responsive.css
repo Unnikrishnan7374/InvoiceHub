@@ -1476,6 +1476,28 @@
         padding: 6px 10px !important;
         margin-right: 5px !important;
     }
+
+    .home-support-section .support-left,
+    .footer-premium .footer-col.brand-col {
+        display: none !important;
+    }
+
+    .footer-premium .footer-container {
+        flex-direction: inherit;
+        padding: 20px 20px 0px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .footer-premium .footer-col {
+        float: left;
+        width: 50%;
+    }
+
+    .footer-col.cards-col {
+        width: 100% !important;
+        margin-top: 25px;
+    }
 }
 
 /*Media Screen 568*/
@@ -1543,6 +1565,10 @@
 
     .feature-icon-wrapper {
         position: inherit !important;
+    }
+
+    .home-section-title {
+        font-size: 25px !important;
     }
 }
 

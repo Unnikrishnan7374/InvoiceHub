@@ -61,11 +61,11 @@ nav#menu {
         display: inline-flex;
         align-items: center;
         border: 2px solid var(--theme-color) !important;
-        color: var(--theme-color) !important;
+        color: #fff !important;
         border-radius: 50px !important;
         padding: 8px 24px !important;
         font-weight: 600 !important;
-        background-color: transparent !important;
+        background-color: var(--theme-color) !important;
         transition: all 0.3s ease-in-out !important;
         text-decoration: none !important;
         line-height: 1.2 !important;
@@ -79,8 +79,8 @@ nav#menu {
         }
 
         &:hover {
-          background-color: var(--theme-color) !important;
-          color: #ffffff !important;
+          background-color: transparent !important;
+          color: var(--theme-color) !important;
 
           i {
             animation: arrowBounce 0.8s infinite ease-in-out;
