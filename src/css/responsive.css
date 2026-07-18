@@ -1523,6 +1523,18 @@
         width: 100% !important;
         margin-top: 25px;
     }
+
+    .footer-premium .footer-copyrights {
+        padding: 20px 41px 20px 10px !important;
+    }
+
+    .footer-premium .footer-copyrights .copyrights-left {
+        gap: 7px !important;
+    }
+
+    .footer-premium .footer-copyrights .copyright-link {
+        font-size: 12px !important;
+    }
 }
 
 /*Media Screen 568*/
