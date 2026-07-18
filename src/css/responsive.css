@@ -457,63 +457,55 @@
         z-index: 999;
         top: 0;
         right: 0;
-        border-left: 1px #fdf7f740 solid;
-        display: block;
-        height: 47px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 54px;
         width: 40px;
         cursor: pointer;
     }
 
-    .mobile-nav-plus::before {
-        content: '';
-        position: absolute;
-        left: 15px;
-        top: 21px;
-        display: block;
-        width: 14px;
-        height: 2px;
-        background: #fff;
-        z-index: 99;
+    .submenu-button .material-symbols-outlined {
+        display: inline-block;
+        transition: transform 0.3s ease;
     }
 
-    .mobile-nav-plus::after {
-        content: '';
-        position: absolute;
-        top: 15px;
-        left: 21px;
-        display: block;
-        width: 2px;
-        height: 14px;
-        background: #fff;
-        z-index: 99;
-    }
-
-    .mobile-nav-minus::before {
-        content: '';
-        position: absolute;
-        left: 18px;
-        top: 21px;
-        display: block;
-        width: 14px;
-        height: 2px;
-        background: #fff;
-        z-index: 99;
+    .submenu-button.open-arrow .material-symbols-outlined {
+        transform: rotate(180deg) !important;
     }
 
     #menu ul ul.inner-nav-div {
         display: none;
         background: #ffffff;
-        padding-left: 10px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin: 5px 10px 15px 10px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
     }
 
     #menu ul ul.inner-nav-div li {
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
 
     #menu ul ul.inner-nav-div li a {
-        border-bottom: 1px solid #ccc;
-        display: block;
-        padding: 5px 0px;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+        padding: 12px 0px;
+        font-size: 14px !important;
+        font-weight: 500;
+        color: #333333 !important;
+        transition: color 0.2s ease-in-out;
+    }
+
+    #menu ul ul.inner-nav-div li a:last-child {
+        border-bottom: none;
+    }
+
+    #menu ul ul.inner-nav-div li a .material-symbols-outlined {
+        margin-right: 10px !important;
+        font-size: 18px !important;
+        color: var(--theme-color) !important;
     }
 
     #menu>ul>li:hover>a {
@@ -589,31 +581,46 @@
     }
 
     #menu>ul.open {
-        display: block;
+        display: flex;
+        flex-direction: column;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         margin-right: 0px;
         width: 500px;
+        padding-bottom: 30px !important;
     }
 
     #menu>ul>li>a {
-        padding: 10px 5px;
+        padding: 15px 15px 15px 20px;
         border-right: 0;
         display: inline-block;
         width: 100%;
         color: #fff !important;
-        border-bottom: 1px solid #1360b1;
+        border-bottom: none !important;
         cursor: pointer;
-        border-top: 1px #fdf7f740 solid;
+        border-top: none !important;
     }
 
-    nav#menu li.signup a {
+    nav#menu li.signup a:not(.signup-btn-link) {
         color: #ffffff !important;
     }
 
     #menu>ul>li>a.active {
-        border-bottom: 1px solid #fff;
         color: #ffffff !important;
         font-weight: 700;
+        position: relative;
+        background: rgba(255, 255, 255, 0.08);
+        border-bottom: none !important;
+    }
+
+    #menu>ul>li>a.active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 4px;
+        background-color: #ffffff;
+        border-radius: 4px;
     }
 
     .navsub {
@@ -862,15 +869,44 @@
         min-width: 0 !important;
     }
 
-    nav#menu ul li.signup {
+    nav#menu ul li.signup,
+    nav#menu ul li.login {
         margin-left: 5px !important;
         margin-right: 5px;
     }
 
     .menu-sec nav#menu ul li.signup .signup-btn-link {
         border: 2px solid #ffffff !important;
+        background-color: #ffffff !important;
+        color: var(--theme-color) !important;
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px !important;
+        padding: 8px 24px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        line-height: 1.2 !important;
+        width: 100%;
+        transition: all 0.3s ease-in-out !important;
+    }
+
+    .menu-sec nav#menu ul li.login .login-btn-link {
+        border: 2px solid #ffffff !important;
+        background-color: transparent !important;
         color: #ffffff !important;
         margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px !important;
+        padding: 8px 24px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        line-height: 1.2 !important;
+        width: 100%;
+        transition: all 0.3s ease-in-out !important;
     }
 
     .why-trust-section {

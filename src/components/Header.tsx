@@ -201,9 +201,11 @@ export default function Header() {
                         Features
                       </NavLink>
                       <p
-                        className={`submenu-button ${activeSubmenu === 'features' ? 'mobile-nav-minus' : 'mobile-nav-plus'}`}
+                        className={`submenu-button ${activeSubmenu === 'features' ? 'open-arrow' : ''}`}
                         onClick={() => toggleSubmenu('features')}
-                      ></p>
+                      >
+                        <span className="material-symbols-outlined" style={{ color: '#fff', fontSize: '24px' }}>keyboard_arrow_down</span>
+                      </p>
                       <ul
                         className="inner-nav-div"
                         style={isMobile ? { display: activeSubmenu === 'features' ? 'block' : 'none' } : undefined}
@@ -213,36 +215,42 @@ export default function Header() {
                             to="/features/customer-vendor-management"
                             onMouseEnter={() => setFeaturesHoveredItem('customer')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>group</span>
                             Customer & Vendor Management
                           </Link>
                           <Link
                             to="/features/estimates-invoicing-workflow"
                             onMouseEnter={() => setFeaturesHoveredItem('estimates')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>receipt_long</span>
                             Estimates & Invoicing
                           </Link>
                           <Link
                             to="/features/payments-partial-payments"
                             onMouseEnter={() => setFeaturesHoveredItem('payments')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>payments</span>
                             Payments & Payables
                           </Link>
                           <Link
                             to="/features/smart-invoice-capture"
                             onMouseEnter={() => setFeaturesHoveredItem('ocr')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>document_scanner</span>
                             Smart Invoice Capture
                           </Link>
                           <Link
                             to="/features/tax-automation"
                             onMouseEnter={() => setFeaturesHoveredItem('tax')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>percent</span>
                             Tax Automation
                           </Link>
                           <Link
                             to="/features/reports-insights"
                             onMouseEnter={() => setFeaturesHoveredItem('reports')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>assessment</span>
                             Reports & Insights
                           </Link>
                         </li>
@@ -312,9 +320,11 @@ export default function Header() {
                         Support
                       </NavLink>
                       <p
-                        className={`submenu-button ${activeSubmenu === 'support' ? 'mobile-nav-minus' : 'mobile-nav-plus'}`}
+                        className={`submenu-button ${activeSubmenu === 'support' ? 'open-arrow' : ''}`}
                         onClick={() => toggleSubmenu('support')}
-                      ></p>
+                      >
+                        <span className="material-symbols-outlined" style={{ color: '#fff', fontSize: '24px' }}>keyboard_arrow_down</span>
+                      </p>
                       <ul
                         className="inner-nav-div"
                         style={isMobile ? { display: activeSubmenu === 'support' ? 'block' : 'none' } : undefined}
@@ -324,12 +334,14 @@ export default function Header() {
                             to="/blogs"
                             onMouseEnter={() => setSupportHoveredItem('blog')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>article</span>
                             Blog
                           </Link>
                           <Link
                             to="/faq"
                             onMouseEnter={() => setSupportHoveredItem('faq')}
                           >
+                            <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginRight: '8px', fontSize: '20px' }}>quiz</span>
                             FAQ
                           </Link>
                         </li>
@@ -384,8 +396,11 @@ export default function Header() {
                     </li>
 
                     <li className="login">
-                      <NavLink to="/login" className={({ isActive }) => isActive ? 'active' : ''}>
-                        Login
+                      <NavLink
+                        to="/login"
+                        className={({ isActive }) => `login-btn-link ${isActive ? 'active' : ''}`}
+                      >
+                        Login <span className="material-symbols-outlined" style={{ verticalAlign: 'middle', marginLeft: '4px', fontSize: '20px' }}>login</span>
                       </NavLink>
                     </li>
 
