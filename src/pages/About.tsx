@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CtaBanner from '../components/common/CtaBanner';
 import MagicBento, { MagicBentoCard } from '../components/common/MagicBento';
 
@@ -7,6 +7,7 @@ export default function About() {
   const [activeTemplate, setActiveTemplate] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const routeLocation = useLocation();
 
   const templates = [
     { src: 'images/pdf-1.webp', full: 'images/pdf-1.1.webp', title: 'Professional Clean Template', desc: 'Standard business layout with clear table formatting, professional corporate typography, and structured totals.' },
@@ -21,6 +22,26 @@ export default function About() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    const scrollTarget = sessionStorage.getItem('pendingScrollTo');
+    if (scrollTarget) {
+      sessionStorage.removeItem('pendingScrollTo');
+      let attempts = 0;
+      const maxAttempts = 20;
+      const poll = setInterval(() => {
+        attempts++;
+        const el = document.getElementById(scrollTarget);
+        if (el) {
+          clearInterval(poll);
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else if (attempts >= maxAttempts) {
+          clearInterval(poll);
+        }
+      }, 100);
+      return () => clearInterval(poll);
+    }
+  }, [routeLocation]);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -249,7 +270,7 @@ export default function About() {
         </section>
 
         {/* Invoice Templates Section */}
-        <section className="invoice two clearfix" style={{
+        <section className="invoice two clearfix" id="InvoiceTemplates" style={{
           padding: '0px 15px',
           borderRadius: '24px',
           margin: '0',

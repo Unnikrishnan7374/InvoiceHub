@@ -414,32 +414,7 @@ export default function Features() {
 
       <section className="innerFeatures">
         {/* Toggle options control panel */}
-        <div className="features-control-panel">
-          <span className="panel-title">
-            <span className="material-symbols-outlined">settings</span>
-            Illustration Settings
-          </span>
-          <div className="toggle-group">
-            <label className="toggle-label">
-              <input
-                type="checkbox"
-                checked={showCard1}
-                onChange={(e) => setShowCard1(e.target.checked)}
-              />
-              <span className="toggle-custom-checkbox"></span>
-              Show Details Card (Card 1)
-            </label>
-            <label className="toggle-label">
-              <input
-                type="checkbox"
-                checked={showCard2}
-                onChange={(e) => setShowCard2(e.target.checked)}
-              />
-              <span className="toggle-custom-checkbox"></span>
-              Show Status Card (Card 2)
-            </label>
-          </div>
-        </div>
+
 
         {featuresListData.map((feat, idx) => (
           <div key={idx} className="fealist clearfix scroll-animate">

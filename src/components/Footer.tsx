@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../css/scss/Footer.scss';
 
 // Import MUI Icons
@@ -22,6 +22,8 @@ import CopyText from './common/copydata';
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +41,26 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToSection = (sectionId: string, targetRoute?: string) => {
+    const doScroll = () => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const route = targetRoute || '/';
+    const isOnRoute = location.pathname === route;
+
+    if (isOnRoute) {
+      doScroll();
+    } else {
+      // Store scroll target so the destination page can pick it up after mounting
+      sessionStorage.setItem('pendingScrollTo', sectionId);
+      navigate(route);
+    }
+  };
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -46,9 +68,8 @@ export default function Footer() {
       <footer className="footer-premium" id="footer">
         <div className="footer-container">
           {/* Column 1: Brand Info */}
-          <div className="footer-col brand-col">
+          {/* <div className="footer-col brand-col">
             <div className="footer-logo">
-              {/* <DescriptionTwoToneIcon className="logo-icon" /> */}
               <h2>INVOICE <span>HUB 360</span></h2>
             </div>
             <p className="brand-desc">
@@ -64,17 +85,31 @@ export default function Footer() {
                 <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="YouTube"><YouTubeIcon /></a>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Column 2: Quick Links & Help Center Row */}
           <div className="footer-links-row">
             <div className="footer-col links-col">
               <h3 className="footer-col-title">QUICK <span>LINKS</span></h3>
               <ul className="footer-links-list">
-                <li><ChevronRightIcon className="link-arrow" /><Link to="/home">Home</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/">Home</Link></li>
                 <li><ChevronRightIcon className="link-arrow" /><Link to="/about">About Us</Link></li>
                 <li><ChevronRightIcon className="link-arrow" /><Link to="/features">Features</Link></li>
-                <li><ChevronRightIcon className="link-arrow" /><Link to="/#Pricing">Pricing</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><a href="/#Pricing" onClick={(e) => { e.preventDefault(); scrollToSection('Pricing'); }}>Pricing</a></li>
+                <li><ChevronRightIcon className="link-arrow" /><a href="/#Testimonials" onClick={(e) => { e.preventDefault(); scrollToSection('Testimonials'); }}>Testimonials</a></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="/login">Login</Link></li>
+              </ul>
+            </div>
+
+            <div className="footer-col links-col">
+              <h3 className="footer-col-title">Who It’s <span>For</span></h3>
+              <ul className="footer-links-list">
+                <li><ChevronRightIcon className="link-arrow" /><Link to="">Retail</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="">Professional Services</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="">Manufacturing</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="">HealthCare</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="">Construction</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><Link to="">Non-Profit</Link></li>
               </ul>
             </div>
 
@@ -84,6 +119,7 @@ export default function Footer() {
                 <li><ChevronRightIcon className="link-arrow" /><Link to="/support">Support</Link></li>
                 <li><ChevronRightIcon className="link-arrow" /><Link to="/faq">FAQ</Link></li>
                 <li><ChevronRightIcon className="link-arrow" /><Link to="/blogs">Blog</Link></li>
+                <li><ChevronRightIcon className="link-arrow" /><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('InvoiceTemplates', '/about'); }}>Invoice Templates</a></li>
                 <li><ChevronRightIcon className="link-arrow" /><Link to="/contact">Contact Us</Link></li>
               </ul>
             </div>
@@ -104,12 +140,14 @@ export default function Footer() {
 
           {/* Column 4: Contact Cards */}
           <div className="footer-col cards-col">
-            <h3 className="footer-col-title">CONTACT <span>US</span></h3>
+            <h3 className="footer-col-title">CONTACT <span>US ON</span></h3>
             <div className="contact-cards-list">
               <div className="contact-card">
-                <div className="card-icon-box">
-                  <LocationOnTwoToneIcon />
-                </div>
+                <a className="card-icon-box-link" href="https://www.google.com/maps/search/?api=1&query=1+Lake+Bellevue+Dr,+Ste+209,+Bellevue,+WA+98005" target="_blank" rel="noopener noreferrer">
+                  <div className="card-icon-box">
+                    <LocationOnTwoToneIcon />
+                  </div>
+                </a>
                 <div className="card-text hover">
                   <a className='me-2' href="https://www.google.com/maps/search/?api=1&query=1+Lake+Bellevue+Dr,+Ste+209,+Bellevue,+WA+98005" target="_blank" rel="noopener noreferrer">
                     1 Lake Bellevue Dr., Ste 209 Bellevue, WA 98005
@@ -118,18 +156,22 @@ export default function Footer() {
                 </div>
               </div>
               <div className="contact-card">
-                <div className="card-icon-box">
-                  <PhoneTwoToneIcon />
-                </div>
+                <a className="card-icon-box-link" href="tel:(425) 519-9030">
+                  <div className="card-icon-box">
+                    <PhoneTwoToneIcon />
+                  </div>
+                </a>
                 <div className="card-text">
                   <a className='me-2' href="tel:(425) 519-9030">(425) 519-9030</a>
                   <CopyText value="4255199030" />
                 </div>
               </div>
               <div className="contact-card">
-                <div className="card-icon-box">
-                  <MailTwoToneIcon />
-                </div>
+                <a className="card-icon-box-link" href="mailto:support@invoicehub360.com">
+                  <div className="card-icon-box">
+                    <MailTwoToneIcon />
+                  </div>
+                </a>
                 <div className="card-text">
                   <a className='me-2' href="mailto:support@invoicehub360.com">support@invoicehub360.com</a>
                   <CopyText value="support@invoicehub360.com" />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Swiper from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -58,6 +58,7 @@ export default function Home() {
   const [showTrialFeatures, setShowTrialFeatures] = useState(false);
   const [showBasicFeatures, setShowBasicFeatures] = useState(false);
   const [showPremiumFeatures, setShowPremiumFeatures] = useState(false);
+  const routeLocation = useLocation();
 
   const handleSearch = (e) => {
     const query = e.target.value;
@@ -184,15 +185,25 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (window.location.hash === '#Pricing') {
-      const element = document.getElementById('Pricing');
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
-      }
+    // Read scroll target stored by the footer before navigating to this page
+    const scrollTarget = sessionStorage.getItem('pendingScrollTo');
+    if (scrollTarget) {
+      sessionStorage.removeItem('pendingScrollTo'); // clear so it only fires once
+      let attempts = 0;
+      const maxAttempts = 20; // retry for up to 2 seconds
+      const poll = setInterval(() => {
+        attempts++;
+        const el = document.getElementById(scrollTarget);
+        if (el) {
+          clearInterval(poll);
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else if (attempts >= maxAttempts) {
+          clearInterval(poll);
+        }
+      }, 100);
+      return () => clearInterval(poll);
     }
-  }, []);
+  }, [routeLocation]);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -818,6 +829,68 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Built for Every Business Section */}
+      <section className="built-for-business-section">
+        <div className="px-5">
+          <div className="section-header text-center" style={{ marginBottom: '40px' }}>
+            <h2 className="home-section-title">Built for <span>Every Business</span></h2>
+            <p className="section-subtitle">
+              Invoice HUB 360 adapts to your industry and helps you manage invoices, payments, and customers with ease.
+            </p>
+          </div>
+          <div className="business-grid">
+            <div className="business-card">
+              <div className="business-image-wrapper">
+                <img src="images/Category/Retail.webp" alt="Retail" />
+              </div>
+              <h3>Retail</h3>
+              <p>Streamline billing and payments for your retail business.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-image-wrapper">
+                <img src="images/Category/Professional Services.webp" alt="Professional Services" />
+              </div>
+              <h3>Professional Services</h3>
+              <p>Manage client invoices and retainers effortlessly.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-image-wrapper">
+                <img src="images/Category/Manufacturing.webp" alt="Manufacturing" />
+              </div>
+              <h3>Manufacturing</h3>
+              <p>Simplify order billing and vendor management.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-image-wrapper">
+                <img src="images/Category/HealthCare.webp" alt="Healthcare" />
+              </div>
+              <h3>Healthcare</h3>
+              <p>Secure and compliant invoicing for healthcare organizations.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-image-wrapper">
+                <img src="images/Category/Construction.webp" alt="Construction" />
+              </div>
+              <h3>Construction</h3>
+              <p>Track project-based invoices and improve cash flow.</p>
+              <div className="card-divider" />
+            </div>
+            <div className="business-card">
+              <div className="business-image-wrapper">
+                <img src="images/Category/Non-Profit.webp" alt="Non-Profit" />
+              </div>
+              <h3>Non-Profit</h3>
+              <p>Manage donations, grants and financial records with ease.</p>
+              <div className="card-divider" />
+            </div>
           </div>
         </div>
       </section>
