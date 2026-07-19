@@ -904,7 +904,7 @@ export default function Home() {
                     <p className="duration">{isAnnual ? '/year' : '/month'}</p>
                   </div>
                 </div>
-                <div className="service-feature">
+                <div className={`service-feature ${isMobile && !showTrialFeatures ? 'p-0' : ''}`}>
                   <div className={`service-feature-list-wrapper ${isMobile && !showTrialFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
                     <ul className="service-feature-list">
                       <li><SpeedTwoToneIcon className="pricing-icon" /> Easy onboarding</li>
@@ -952,7 +952,7 @@ export default function Home() {
                     {isAnnual ? 'Billed annually ($144/yr)' : 'Billed monthly'}
                   </p>
                 </div>
-                <div className="service-feature">
+                <div className={`service-feature ${isMobile && !showTrialFeatures ? 'p-0' : ''}`}>
                   <div className={`service-feature-list-wrapper ${isMobile && !showBasicFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
                     <ul className="service-feature-list">
                       <li><StarTwoToneIcon className="pricing-icon" /> Everything in Trial</li>
@@ -1010,7 +1010,7 @@ export default function Home() {
                     {isAnnual ? 'Billed annually ($252/yr)' : 'Billed monthly'}
                   </p>
                 </div>
-                <div className="service-feature">
+                <div className={`service-feature ${isMobile && !showTrialFeatures ? 'p-0' : ''}`}>
                   <div className={`service-feature-list-wrapper ${isMobile && !showPremiumFeatures ? 'mobile-collapsed' : 'mobile-expanded'}`}>
                     <ul className="service-feature-list">
                       <li><StarTwoToneIcon className="pricing-icon" /> Everything in Basic</li>

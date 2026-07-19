@@ -1811,3 +1811,9 @@
 
 /*Media Screen 360*/
 @media screen and (max-width:360px) {}
+
+@media screen and (max-width: 767px) {
+    .price-box .service-feature ul li {
+        font-size: 15px !important;
+    }
+}

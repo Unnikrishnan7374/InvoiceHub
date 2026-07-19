@@ -1085,11 +1085,11 @@ body {
     }
 
     &:nth-child(3) .compare-btn-outline {
-      border: 1px solid var(--theme-color) !important;
-      color: var(--theme-color) !important;
+      border: 1px solid #059669 !important;
+      color: #059669 !important;
 
       &:hover {
-        background-color: var(--theme-color) !important;
+        background-color: #059669 !important;
         color: #fff !important;
       }
     }
@@ -1127,14 +1127,42 @@ body {
 
       .price-title {
         border-top-color: #cbd5e1;
+        background-color: #eff6ff;
+
+        h3 {
+          color: #1a73e8 !important;
+        }
+
+        .price-rate .price {
+          color: #1a73e8 !important;
+        }
+
+        .price-rate .duration {
+          color: #1a73e8;
+          opacity: 0.8;
+        }
       }
     }
 
     &.gold {
-      border-color: #2ca01c;
+      border-color: #059669;
 
       .price-title {
-        border-top-color: #2ca01c;
+        border-top-color: #059669;
+        background-color: #ecfdf5;
+
+        h3 {
+          color: #059669 !important;
+        }
+
+        .price-rate .price {
+          color: #059669 !important;
+        }
+
+        .price-rate .duration {
+          color: #059669;
+          opacity: 0.8;
+        }
       }
     }
 
@@ -1143,6 +1171,20 @@ body {
 
       .price-title {
         border-top-color: #cbd5e1;
+        background-color: #eff6ff;
+
+        h3 {
+          color: #1a73e8 !important;
+        }
+
+        .price-rate .price {
+          color: #1a73e8 !important;
+        }
+
+        .price-rate .duration {
+          color: #1a73e8;
+          opacity: 0.8;
+        }
       }
     }
 
