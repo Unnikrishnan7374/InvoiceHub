@@ -1431,6 +1431,7 @@ footer:after {
   line-height: 24px;
   font-size: 17px !important;
   color: #676a6c;
+  font-weight: 400;
 }
 
 .price-box .price-title p span {
@@ -1438,7 +1439,8 @@ footer:after {
 }
 
 .price-box .service-feature {
-  margin-top: 10px
+  margin-top: 10px;
+  padding: 10px 15px;
 }
 
 .price-box .service-feature p {
@@ -1450,7 +1452,7 @@ footer:after {
 
 .price-box .service-feature ul {
   margin-left: 0px;
-  padding-left: 10px;
+  padding-left: 0px;
   list-style: none;
   text-align: left;
 }
@@ -1459,14 +1461,16 @@ footer:after {
   position: relative;
   padding-left: 0px;
   margin-bottom: 15px;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 28px;
   padding-right: 10px;
   min-height: 30px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-.price-box .service-feature ul li svg {}
+.price-box .service-feature ul li svg {
+  margin-right: 10px;
+}
 
 .price-box .service-feature ul li:last-child {
   margin-bottom: 0px;
@@ -1474,7 +1478,7 @@ footer:after {
 
 .price-box .service-feature ul li p {
   margin-bottom: 0px;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 28px;
   padding-right: 20px;
 }
@@ -1549,7 +1553,7 @@ footer:after {
   clear: both;
   display: block;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 0px;
   font-size: 17px;
 }
 
@@ -1668,13 +1672,13 @@ footer:after {
 }
 
 .compareFuatures table th:nth-child(3) {
-  background-color: #fff7ed !important;
-  color: #ea580c !important;
+  background-color: #ecfdf5 !important;
+  color: #059669 !important;
 }
 
 .compareFuatures table th:nth-child(4) {
-  background-color: #ecfdf5 !important;
-  color: #059669 !important;
+  background-color: #eff6ff !important;
+  color: #1a73e8 !important;
 }
 
 .compareFuatures table tbody tr {
