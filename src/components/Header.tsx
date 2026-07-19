@@ -54,6 +54,10 @@ export default function Header() {
   const [contactStatus, setContactStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   useEffect(() => {
+    window.dispatchEvent(new CustomEvent('contact-popover-changed', { detail: isPopoverOpen }));
+  }, [isPopoverOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setIsHeaderFixed(true);
@@ -441,11 +445,8 @@ export default function Header() {
           className="popover-btn"
           onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         >
-          {isPopoverOpen ? (
-            <><span>✖</span></>
-          ) : (
-            <i className="fa fa-envelope"></i>
-          )}
+          <i className="fa fa-envelope mail-icon"></i>
+          <span className="close-icon">✖</span>
         </button>
         <div className="popover-body">
           <h6>Contact Us <span>We'll respond as soon as we can.</span></h6>

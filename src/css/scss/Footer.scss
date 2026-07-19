@@ -203,6 +203,10 @@
         }
       }
     }
+
+    @media (max-width: 767px) {
+      display: none !important;
+    }
   }
 
   /* Column 2: Quick Links styling */

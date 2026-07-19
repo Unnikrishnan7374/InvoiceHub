@@ -296,6 +296,8 @@ nav#menu ul>li>a.more:hover i,
   background-color: transparent;
   outline: none;
   box-shadow: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 #burgernav:before,
@@ -305,6 +307,7 @@ nav#menu ul>li>a.more:hover i,
   background: #333;
   height: 2px;
   width: 18px;
+  transition: all 0.3s ease-in-out;
 }
 
 #burgernav span {
@@ -313,15 +316,31 @@ nav#menu ul>li>a.more:hover i,
   height: 2px;
   margin: 6px 0;
   width: 22px;
+  transition: all 0.3s ease-in-out;
 }
 
-#burgernav:hover:before,
-#burgernav:hover:after {
+#burgernav:hover:not(.open):before,
+#burgernav:hover:not(.open):after {
   width: 25px;
 }
 
-#burgernav:hover span {
+#burgernav:hover:not(.open) span {
   width: 18px;
+}
+
+#burgernav.open span {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#burgernav.open:before {
+  transform: translateY(8px) rotate(45deg);
+  width: 22px;
+}
+
+#burgernav.open:after {
+  transform: translateY(-8px) rotate(-45deg);
+  width: 22px;
 }
 
 .bannerNew .ls-nav-stop {
@@ -585,7 +604,10 @@ footer:after {
 }
 
 .pop-over .popover-btn {
-  padding: 5px 10px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--theme-color);
   color: #fff;
   font-size: 17px;
@@ -596,16 +618,33 @@ footer:after {
   overflow: hidden;
   height: 40px;
   width: 40px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.pop-over .popover-btn span,
-.pop-over.popover-open i {
-  display: none;
+.pop-over .popover-btn .mail-icon,
+.pop-over .popover-btn .close-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-.pop-over.popover-open span {
-  display: block;
-  font-size: 22px;
+.pop-over .popover-btn .close-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.pop-over.popover-open .popover-btn .mail-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
+}
+
+.pop-over.popover-open .popover-btn .close-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .popover-body {
