@@ -328,6 +328,26 @@
         width: 95%;
     }
 
+    .why-trust-right .mblimg {
+        margin: 5px auto 0 !important;
+    }
+
+    .pricing .price-box .price-title {
+        min-height: inherit !important;
+    }
+
+    .testimonials-section {
+        padding: 10px 10px !important;
+    }
+
+    .testimonials-section .testimonials-left {
+        margin-bottom: 0px !important;
+    }
+
+    .testimonials-section .testimonials-left .testimonials-desc {
+        margin-top: 0px !important;
+    }
+
     .features-container {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 20px;
@@ -599,7 +619,8 @@
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         margin-right: 0px;
         width: 500px;
-        padding-bottom: 30px !important;
+        padding-bottom: 60px !important;
+        overflow-y: auto;
     }
 
     #menu>ul>li>a {
@@ -1374,9 +1395,9 @@
     }
 
     .homeabt .left img {
-        width: 65%;
+        width: 55%;
         float: right;
-        margin-top: -30px;
+        margin-top: -55px;
     }
 
 
@@ -1469,7 +1490,8 @@
     }
 
     .why-trust-section {
-        padding: 20px 15px 0;
+        padding: 20px 5px 20px;
+        background: linear-gradient(59deg, #f8faff 0%, #ffffff 100%);
     }
 
     .why-trust-left {
@@ -1482,19 +1504,25 @@
     }
 
     .why-trust-card {
-        padding: 16px 14px;
+        padding: 7px 6px;
         gap: 12px;
         border-radius: 12px;
     }
 
     .why-trust-card-icon {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        margin-right: 4px;
     }
 
     .why-trust-card-icon .material-symbols-outlined {
-        font-size: 20px;
+        font-size: 16px;
+    }
+
+    .why-trust-card h3 {
+        font-size: 15px;
+        margin-top: 5px;
     }
 
     .trust-strip {
@@ -1553,7 +1581,8 @@
     }
 
     .about-stats-strip .about-stat-value {
-        margin-top: 12px !important;
+        margin-top: 8px !important;
+        font-size: 16px !important;
     }
 
     .footer-premium .footer-container {

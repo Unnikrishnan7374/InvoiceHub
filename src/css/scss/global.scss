@@ -978,7 +978,7 @@ body {
     }
 
     .about-stat-item {
-      padding: 10px 0px;
+      padding: 0px 0px 5px;
 
       /* Remove right border on mobile since it's single column */
       &:nth-child(odd) {
@@ -990,6 +990,16 @@ body {
       &:nth-child(2),
       &:nth-child(3) {
         border-bottom: 1px solid #e8edf2;
+      }
+
+      .about-stat-icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+
+        .material-symbols-outlined {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -1417,8 +1427,7 @@ body {
 
 @media (max-width: 991px) {
   .about-cta-banner {
-    padding: 45px 24px;
-    width: 100%;
+    padding: 10px 10px;
 
     .cta-banner-content {
       flex-direction: column-reverse;
@@ -1451,8 +1460,6 @@ body {
 
 @media (max-width: 575px) {
   .about-cta-banner {
-    padding: 35px 16px;
-
     .cta-left {
       h2 {
         font-size: 24px !important;
@@ -3136,7 +3143,7 @@ body {
   }
 
   .mobile-features-carousel {
-    padding: 15px 15px 0;
+    padding: 15px 15px 20px;
   }
 
   .mobile-feature-carousel-card {
@@ -3520,6 +3527,13 @@ body {
 @media (max-width: 767px) {
   .pricing {
     padding-bottom: 15px !important;
+    margin-top: 15px;
+  }
+
+  .process-guide-section {
+    border-top: 0px;
+    border-bottom: 0;
+    padding: 0px 0 0px;
   }
 
   .pricing .price-box {
