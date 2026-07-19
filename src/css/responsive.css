@@ -1613,6 +1613,11 @@
     .footer-premium .footer-copyrights .copyright-link {
         font-size: 12px !important;
     }
+
+    .why-trust-card p {
+        font-size: 14px !important;
+        line-height: 20px !important;
+    }
 }
 
 /*Media Screen 568*/
@@ -1811,3 +1816,27 @@
 
 /*Media Screen 360*/
 @media screen and (max-width:360px) {}
+
+/* Hide floating contact button and center popover popup on mobile */
+@media screen and (max-width: 768px) {
+    .pop-over .popover-btn {
+        display: none !important;
+    }
+
+    .pop-over .popover-body {
+        position: fixed !important;
+        bottom: 55px !important;
+        right: 15px !important;
+        left: 15px !important;
+        width: calc(100% - 30px) !important;
+        max-width: 450px !important;
+        margin: 0 auto !important;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .pop-over .popover-body h6 {
+        border-top-left-radius: 12px !important;
+        border-top-right-radius: 12px !important;
+    }
+}

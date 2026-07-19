@@ -216,7 +216,7 @@ export default function Home() {
 
   const banners = [
     {
-      bg: "images/banner-3.jpg",
+      bg: "images/banner-3.webp",
       laptop: "images/banner-3.1.webp",
       title: <>Secure, Tax-Ready, <span>Built to Scale </span>.</>,
       desc: "Tax automation, role-based security, and scalable workflows designed for growing businesses.",
@@ -224,20 +224,20 @@ export default function Home() {
     },
 
     {
-      bg: "images/banner-4.jpg",
+      bg: "images/banner-4.webp",
       title: <>Simplify Invoicing. Accelerate <span>Payments</span>.</>,
       desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
       theme: "slide-2"
     },
     {
-      bg: "images/banner-5.jpg",
+      bg: "images/banner-5.webp",
       laptop: "images/laptop.webp",
       title: <>The Smart Way to Run Your  <span>Billing Operations</span></>,
       desc: "Professional estimates, invoices, bills, and payments — all managed in one intelligent platform.",
       theme: "slide-3"
     },
     {
-      bg: "images/banner-2.jpg",
+      bg: "images/banner-2.webp",
       laptop: "images/expanding_laptop.webp", // uses phone image
       title: <>Work from Anywhere, <span>Anytime</span>.</>,
       desc: "Secure cloud-based access to your financial operations from any device. Stay in control wherever business takes you.",
@@ -919,7 +919,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="buy-btn-wrapper">
-                  <button className="themeBtn silverBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
+                  <button className="themeBtn silverBtn"><a href="/register">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></a></button>
                 </div>
                 {isMobile && (
                   <button
@@ -978,7 +978,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="buy-btn-wrapper">
-                  <button className="themeBtn goldBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
+                  <button className="themeBtn goldBtn"><a href="/register">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></a></button>
                 </div>
                 {isMobile && (
                   <button
@@ -1035,7 +1035,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="buy-btn-wrapper">
-                  <button className="themeBtn premiumBtn">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></button>
+                  <button className="themeBtn premiumBtn"><a href="/register">Get Start Now <DoubleArrowOutlinedIcon className="btn-arrow" /></a></button>
                 </div>
                 {isMobile && (
                   <button
@@ -1073,7 +1073,7 @@ export default function Home() {
                       <h3 className="text-xl">Trial</h3>
                       <div className="th-price">$0 <span className="th-duration">/month</span></div>
                       <div style={{ marginTop: '10px' }}>
-                        <button className="compare-btn-outline">Get Start Now</button>
+                        <button className="compare-btn-outline"> <a href="/register" data-discover="true">Get Start Now </a></button>
                       </div>
                     </th>
                     <th scope="col">
@@ -1082,7 +1082,7 @@ export default function Home() {
                         {isAnnual ? '$12' : '$15'} <span className="th-duration">/month</span>
                       </div>
                       <div style={{ marginTop: '10px' }}>
-                        <button className="compare-btn-outline">Get Start Now</button>
+                        <button className="compare-btn-outline"> <a href="/register" data-discover="true">Get Start Now </a></button>
                       </div>
                     </th>
                     <th scope="col">
@@ -1091,7 +1091,7 @@ export default function Home() {
                         {isAnnual ? '$21' : '$25'} <span className="th-duration">/month</span>
                       </div>
                       <div style={{ marginTop: '10px' }}>
-                        <button className="compare-btn-outline">Get Start Now</button>
+                        <button className="compare-btn-outline"> <a href="/register" data-discover="true">Get Start Now </a></button>
                       </div>
                     </th>
                   </tr>

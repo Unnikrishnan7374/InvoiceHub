@@ -79,6 +79,24 @@ export default function Header() {
     setActiveSubmenu(null);
   }, [location.pathname]);
 
+  // Support triggering mobile menu drawer and contact popover from external floating navigation
+  useEffect(() => {
+    const handleToggleMenu = () => {
+      setIsMobileMenuOpen((prev) => !prev);
+    };
+    const handleTogglePopover = () => {
+      setIsPopoverOpen((prev) => !prev);
+    };
+
+    window.addEventListener('toggle-mobile-menu', handleToggleMenu);
+    window.addEventListener('toggle-contact-popover', handleTogglePopover);
+
+    return () => {
+      window.removeEventListener('toggle-mobile-menu', handleToggleMenu);
+      window.removeEventListener('toggle-contact-popover', handleTogglePopover);
+    };
+  }, []);
+
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setContactStatus('submitting');
