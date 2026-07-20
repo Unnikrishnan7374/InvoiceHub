@@ -1038,7 +1038,7 @@ export default function Home() {
                       <li><PaymentsTwoToneIcon className="pricing-icon" /> Payments tracking</li>
                       <li><StorefrontTwoToneIcon className="pricing-icon" /> Vendor management</li>
 
-                      {readMoreBasic && (
+                      {(readMoreBasic || isMobile) && (
                         <>
                           <li><AssessmentTwoToneIcon className="pricing-icon" /> Report center (sales, tax, payments)</li>
                           <li><FileDownloadTwoToneIcon className="pricing-icon" /> Excel & PDF exports</li>
@@ -1047,9 +1047,11 @@ export default function Home() {
                         </>
                       )}
                     </ul>
-                    <span className="ReadMore xtra-cntnt" onClick={() => setReadMoreBasic(!readMoreBasic)}>
-                      {readMoreBasic ? 'Read Less' : 'Read More'}
-                    </span>
+                    {!isMobile && (
+                      <span className="ReadMore xtra-cntnt" onClick={() => setReadMoreBasic(!readMoreBasic)}>
+                        {readMoreBasic ? 'Read Less' : 'Read More'}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="buy-btn-wrapper">
@@ -1068,8 +1070,7 @@ export default function Home() {
                   </button>
                 )}
               </div>
-            </div>
-
+            </div>Block-Boundary-Marker
             <div className="col-lg-4 col-md-6 last">
               <div className="price-box premium">
                 <div className="price-title clearfix">
@@ -1096,7 +1097,7 @@ export default function Home() {
                       <li><TrendingUpTwoToneIcon className="pricing-icon" /> Profit & expense analytics</li>
                       <li><ListAltTwoToneIcon className="pricing-icon" /> Advanced audit & activity center</li>
 
-                      {readMorePremium && (
+                      {(readMorePremium || isMobile) && (
                         <>
                           <li><SupportAgentTwoToneIcon className="pricing-icon" /> Priority onboarding assistance</li>
                           <li><SwapHorizTwoToneIcon className="pricing-icon" /> Data migration support</li>
@@ -1104,9 +1105,11 @@ export default function Home() {
                         </>
                       )}
                     </ul>
-                    <span className="ReadMoreOne xtra-cntnt" onClick={() => setReadMorePremium(!readMorePremium)}>
-                      {readMorePremium ? 'Read Less' : 'Read More'}
-                    </span>
+                    {!isMobile && (
+                      <span className="ReadMoreOne xtra-cntnt" onClick={() => setReadMorePremium(!readMorePremium)}>
+                        {readMorePremium ? 'Read Less' : 'Read More'}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="buy-btn-wrapper">
