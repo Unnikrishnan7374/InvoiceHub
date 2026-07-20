@@ -7,6 +7,8 @@ function AccordionItem({ title, id, isOpenByDefault = false, children }) {
   const [isOpen, setIsOpen] = useState(isOpenByDefault);
   const location = useLocation();
 
+
+  // text
   useEffect(() => {
     if (isOpenByDefault) {
       setIsOpen(true);
@@ -281,13 +283,13 @@ export default function Faq() {
 
       {/* Categories & Accordions Container */}
       <div className="faq-layout-container" style={{ width: '95%', margin: '30px auto', padding: '0 15px', display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
-        
+
         {/* Left Sidebar for Categories */}
-        <div className="faq-sidebar" style={{ 
-          width: '280px', 
+        <div className="faq-sidebar" style={{
+          width: '280px',
           flexShrink: 0,
-          display: 'flex', 
-          flexDirection: 'column', 
+          display: 'flex',
+          flexDirection: 'column',
           gap: '6px',
           position: 'sticky',
           top: '20px',
@@ -298,11 +300,11 @@ export default function Faq() {
           boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
           border: '1px solid #edf2f7'
         }}>
-          <h4 style={{ 
-            fontSize: '13px', 
-            fontWeight: '700', 
-            color: '#718096', 
-            textTransform: 'uppercase', 
+          <h4 style={{
+            fontSize: '13px',
+            fontWeight: '700',
+            color: '#718096',
+            textTransform: 'uppercase',
             letterSpacing: '0.08em',
             marginBottom: '15px',
             paddingLeft: '12px'
