@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link, useLocation } from 'react-router-dom';
 import faqsData from '../data/faqsData.json';
 
@@ -85,6 +86,7 @@ function AccordionItem({ title, id, isOpenByDefault = false, children }) {
 }
 
 export default function Faq() {
+  useDocumentTitle('FAQ');
   const [searchQuery, setSearchQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');

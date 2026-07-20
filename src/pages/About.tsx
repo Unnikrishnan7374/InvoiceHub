@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import CtaBanner from '../components/common/CtaBanner';
 import MagicBento, { MagicBentoCard } from '../components/common/MagicBento';
 
 export default function About() {
+  useDocumentTitle('About Us');
   const [activeTemplate, setActiveTemplate] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);

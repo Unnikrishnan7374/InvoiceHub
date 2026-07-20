@@ -5,12 +5,12 @@
     "date": "January 1, 2026",
     "image": "/images/blogs/blogimg-1.webp",
     "preview": "Managing invoices, bills, taxes, and payments doesn’t need to be complicated. Invoice Hub simplifies financial workflows by bringing estimates, invoices, vendor bills, OCR automation, and tax configuration...",
-    "overview": "Invoice Hub is designed to simplify how businesses manage estimates, invoices, vendor bills, payments, and financial reporting. By centralizing these processes into a single platform, businesses can streamline financial workflows while maintaining organized and accurate records.",
+    "overview": "INVOICE HUB 360 is designed to simplify how businesses manage estimates, invoices, vendor bills, payments, and financial reporting. By centralizing these processes into a single platform, businesses can streamline financial workflows while maintaining organized and accurate records.",
     "overviewImage": "/images/blogs/blogimg-1.webp",
     "sections": [
       {
         "heading": "What You Can Manage",
-        "text": "InvoiceHub allows businesses to organize key financial operations in one system, including:",
+        "text": "IINVOICE HUB 360 allows businesses to organize key financial operations in one system, including:",
         "list": [
           "Customer and vendor profiles",
           "Estimates and approval workflows",
@@ -24,8 +24,8 @@
         "image": "/images/blogs/EstimatesBlog-4.png"
       },
       {
-        "heading": "How It Works in Invoice Hub",
-        "text": "Invoice Hub connects multiple financial workflows through a structured process. Here is how a standard flow operates:",
+        "heading": "How It Works in INVOICE HUB 360",
+        "text": "INVOICE HUB 360 connects multiple financial workflows through a structured process. Here is how a standard flow operates:",
         "list": [
           "Set up master details (customers, vendors, products/services, and tax settings).",
           "Create and send professional estimates for approval.",
@@ -36,7 +36,7 @@
       },
       {
         "heading": "Operational Impact",
-        "text": "Using Invoice Hub helps businesses:",
+        "text": "Using INVOICE HUB 360 helps businesses:",
         "list": [
           "Maintain organized financial records",
           "Reduce manual billing tasks",
@@ -44,7 +44,7 @@
           "Monitor receivables and payables efficiently",
           "Gain better visibility into financial performance"
         ],
-        "textone": "By consolidating billing, expenses, and reporting into a single system, Invoice Hub enables businesses to manage financial operations with greater accuracy and control.",
+        "textone": "By consolidating billing, expenses, and reporting into a single system, INVOICE HUB 360 enables businesses to manage financial operations with greater accuracy and control.",
         "image": "/images/blogs/managecus-3.png"
       }
     ],
@@ -92,13 +92,13 @@
         "footerText": "Both customers and vendors can be marked as Active or Inactive, allowing businesses to keep their records organized and easy to manage."
       },
       {
-        "heading": "How It Works in Invoice Hub",
+        "heading": "How It Works in INVOICE HUB 360",
         "list": [
           "Customer records are used whenever estimates or invoices are created. Stored customer information such as tax settings and payment terms can automatically apply to billing documents, ensuring consistency.",
           "Vendor profiles are connected to the Bills module, allowing businesses to manage vendor invoices, monitor due dates, and track outgoing payments. Vendor-related financial activity can be viewed directly within each vendor profile.",
           "By centralizing these records, InvoiceHub allows businesses to maintain complete visibility across both receivables and payables."
         ],
-        "textone": "By consolidating billing, expenses, and reporting into a single system, Invoice Hub enables businesses to manage financial operations with greater accuracy and control.",
+        "textone": "By consolidating billing, expenses, and reporting into a single system, INVOICE HUB 360 enables businesses to manage financial operations with greater accuracy and control.",
         "image": "/images/blogs/EstimatesBlog-1.png"
       }
     ],
@@ -111,13 +111,13 @@
     "date": "January 5, 2026",
     "image": "/images/blogs/blogimg-11.webp",
     "preview": "Vendor compliance in the United States isn’t optional — it’s mandatory. From collecting W-9 forms to determining 1099 eligibility and tracking insurance documents...",
-    "overview": "Vendor compliance management ensures that businesses maintain the necessary tax and regulatory documentation for vendors they work with. Invoice Hub provides structured vendor profiles and document management capabilities that help businesses store compliance records, track tax information, and maintain organized vendor documentation.",
+    "overview": "Vendor compliance management ensures that businesses maintain the necessary tax and regulatory documentation for vendors they work with. INVOICE HUB 360 provides structured vendor profiles and document management capabilities that help businesses store compliance records, track tax information, and maintain organized vendor documentation.",
     "subtext": "By keeping compliance documents and vendor tax details in one place, businesses can ensure that vendor records remain complete, accurate, and ready for regulatory or tax reporting requirements.",
     "overviewImage": "/images/blogs/blogimg-11.webp",
     "sections": [
       {
         "heading": "What You Can ManageW-9 Form Collection",
-        "text": "Invoice Hub allows businesses to maintain important vendor compliance information directly within each vendor profile.",
+        "text": "INVOICE HUB 360 allows businesses to maintain important vendor compliance information directly within each vendor profile.",
         "subtext": "Vendor compliance records may include:",
         "list": [
           "Vendor Federal Tax Identification Number (EIN or SSN)",
@@ -131,7 +131,7 @@
         "image": "/images/blogs/managecus-1.png"
       },
       {
-        "heading": "How It Works in Invoice Hub",
+        "heading": "How It Works in INVOICE HUB 360",
         "list": [
           "Compliance documents can be uploaded and stored within the vendor profile. Each document can include additional details such as document type, start date, and expiration date.",
           "InvoiceHub monitors these dates and allows businesses to maintain visibility into document validity. When a document approaches its expiration date, the system can notify users so they can request updated documentation from the vendor.",

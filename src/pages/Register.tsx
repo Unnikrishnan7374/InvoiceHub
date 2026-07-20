@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -37,6 +38,7 @@ type FormValues = {
 };
 
 export default function Register() {
+  useDocumentTitle('Register');
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{

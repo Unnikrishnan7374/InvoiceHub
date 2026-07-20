@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 
 interface FeatureItem {
@@ -123,6 +124,7 @@ const featuresListData: FeatureItem[] = [
 ];
 
 export default function Features() {
+  useDocumentTitle('Features');
   const [showCard1, setShowCard1] = React.useState(true);
   const [showCard2, setShowCard2] = React.useState(true);
 

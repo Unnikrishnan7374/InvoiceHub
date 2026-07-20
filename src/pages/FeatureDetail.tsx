@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { featuresData } from '../data/featuresData';
 
@@ -7,6 +8,8 @@ export default function FeatureDetail() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   const feature = featuresData.find(f => f.slug === slug);
+
+  useDocumentTitle(feature ? `${feature.title} | Features` : 'Features');
 
   if (!feature) {
     // Redirect to main features page if not found

@@ -1,7 +1,9 @@
 import React from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 
 export default function PrivacyPolicy() {
+  useDocumentTitle('Privacy Policy');
   const [activeSection, setActiveSection] = React.useState('intro');
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {

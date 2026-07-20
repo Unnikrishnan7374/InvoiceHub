@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { searchData } from '../data/searchData';
 import CtaBanner from '../components/common/CtaBanner';
 
 export default function Support() {
+  useDocumentTitle('Support');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import '../css/scss/Login.scss';
 
 export default function Login() {
+  useDocumentTitle('Login');
   const [orgName, setOrgName] = useState('');
 
   const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {

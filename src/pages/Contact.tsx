@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import CopyText from '../components/common/copydata';
 import CtaBanner from '../components/common/CtaBanner';
 
 export default function Contact() {
+  useDocumentTitle('Contact Us');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');

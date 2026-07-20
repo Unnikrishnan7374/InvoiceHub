@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import blogsData from '../data/blogsData.json';
 import BlogSearch from '../components/BlogSearch';
@@ -9,6 +10,8 @@ export default function BlogDetail() {
   const [popupSearchQuery, setPopupSearchQuery] = useState('');
 
   const blog = blogsData.find(b => b.slug === slug);
+
+  useDocumentTitle(blog ? `${blog.title} | Blogs` : 'Blogs');
 
   if (!blog) {
     // Redirect to main blogs page if not found

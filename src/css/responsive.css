@@ -1618,6 +1618,18 @@
         font-size: 14px !important;
         line-height: 20px !important;
     }
+
+    .built-for-business-section .section-header {
+        margin-bottom: 5px !important;
+    }
+
+    .built-for-business-section .business-card {
+        height: 310px !important;
+    }
+
+    .built-for-business-section .business-card p {
+        margin: 0 3px 5px !important;
+    }
 }
 
 /*Media Screen 568*/
@@ -1819,8 +1831,10 @@
 
 @media screen and (max-width: 767px) {
     .price-box .service-feature ul li {
-        font-size: 15px !important;
+        font-size: 14px !important;
+        margin-bottom: 5px;
     }
+
 }
 
 /* Hide floating contact button and center popover popup on mobile */

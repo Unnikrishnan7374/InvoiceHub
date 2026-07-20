@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import Swiper from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -41,6 +42,7 @@ import FaqSection from '../components/FaqSection';
 import { searchData } from '../data/searchData';
 
 export default function Home() {
+  useDocumentTitle('Home');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [activeBanner, setActiveBanner] = useState(0);

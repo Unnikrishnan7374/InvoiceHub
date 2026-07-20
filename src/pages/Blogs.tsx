@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import blogsData from '../data/blogsData.json';
 import BlogSearch from '../components/BlogSearch';
 
 export default function Blogs() {
+  useDocumentTitle('Blogs');
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredBlogs, setFilteredBlogs] = useState(blogsData);
 
